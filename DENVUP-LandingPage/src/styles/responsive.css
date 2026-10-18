@@ -1,0 +1,174 @@
+/* DENVUP — cross-cutting responsive, touch, print and forced-colour rules. */
+
+/* Fluid section rhythm: generous on large screens, still editorial on phones. */
+@media (min-width: 1600px) {
+  :root {
+    --wrap: 104rem;
+    --section-y: 15rem;
+    --pad: 5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --pad: 1.15rem;
+    --section-y: clamp(4.5rem, 14vw, 6.5rem);
+    --fs-display: clamp(2.7rem, 13vw, 4rem);
+    --fs-h2: clamp(2rem, 9vw, 2.8rem);
+    --fs-h3: clamp(1.2rem, 5vw, 1.5rem);
+  }
+  body {
+    font-size: 1rem;
+  }
+  .section-head__lede {
+    font-size: 1rem;
+  }
+  .btn {
+    min-height: 3rem;
+  }
+  .footer {
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* Touch: every target at least 44px, hover-only affordances get a tap path. */
+@media (hover: none), (pointer: coarse) {
+  .chip,
+  .d-chip,
+  .btn,
+  .round-btn,
+  .head-menu,
+  .footer__tool {
+    min-height: 2.75rem;
+  }
+  .head-search kbd {
+    display: none;
+  }
+  .marquee__track,
+  .d-marquee__track,
+  .d-pauser__track {
+    animation-duration: 38s;
+  }
+  .d-hoverpreview img {
+    opacity: 1;
+    scale: 1;
+  }
+  .d-hoverpreview__label {
+    display: none;
+  }
+}
+
+/* Notched phones. */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .site-head {
+    padding-top: max(0.7rem, env(safe-area-inset-top));
+  }
+  .footer,
+  .legal-stamp {
+    padding-bottom: max(1.4rem, env(safe-area-inset-bottom));
+  }
+  .fx-toast {
+    bottom: calc(1.4rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* If a reader's system asks for dark, do not invert the art-directed chapters. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+  [data-theme='ink'] {
+    color-scheme: dark;
+  }
+}
+
+/* Reduced motion: no horizontal pinning, no parallax, no cursor theatre. */
+@media (prefers-reduced-motion: reduce) {
+  [data-horizontal],
+  [data-horizontal] > * {
+    height: auto !important;
+    position: static !important;
+    overflow: visible !important;
+  }
+  .services__rail,
+  .capabilities__rail,
+  .process__track {
+    transform: none !important;
+    overflow-x: auto;
+  }
+  .cursor,
+  .fox-run {
+    display: none !important;
+  }
+  .identity__wipe {
+    transform: translateX(-101%) !important;
+  }
+  .marquee__track,
+  .d-marquee__track,
+  .d-pauser__track,
+  .loader__mark img,
+  .loader__ring {
+    animation: none !important;
+  }
+  [data-reveal],
+  [data-reveal='rise'] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* Forced colours: keep visible state without relying on brand colour. */
+@media (forced-colors: active) {
+  .btn,
+  .chip,
+  .d-chip,
+  .status,
+  .coverage__table th {
+    border: 1px solid CanvasText;
+  }
+  .status,
+  .chip.is-active {
+    forced-color-adjust: none;
+    color: CanvasText;
+    background: Canvas;
+  }
+  .logo-mask {
+    background: CanvasText;
+  }
+}
+
+@media print {
+  .site-head,
+  .chapter-rail,
+  .progress,
+  .cursor,
+  .fox-run,
+  .loader,
+  .library__tools,
+  .lab__side,
+  .lab__modes,
+  .fx-toast,
+  .to-top,
+  .closing__marquee,
+  .footer__tools {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  section {
+    background: #fff !important;
+    color: #000 !important;
+    padding-block: 1.5rem !important;
+    break-inside: avoid;
+  }
+  .lab__stage {
+    display: none;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.7em;
+  }
+}
