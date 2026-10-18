@@ -1,0 +1,1270 @@
+# Unified Skill Index
+
+**Active bundled skill definitions:** 303
+
+This index lists the portable skill bundles extracted from the seven uploaded source repositories. Complete original source trees are preserved under `sources/original-repositories/`. Skills remain separate by source; similar names are not treated as interchangeable.
+
+## How to use this index
+
+1. Search by task, name, or description.
+2. Open the bundled `SKILL.md` listed below.
+3. Follow references/scripts/assets in the skill folder.
+4. If a relative resource path is missing from a relocated bundle, use the corresponding original source path under `sources/original-repositories/`.
+5. Check `SOURCE-INFO.md` in each skill folder for source provenance.
+
+## Categories
+
+- **3D, Motion & Creative Graphics** (`skills/3d-motion-creative/`): 23 skills
+- **AI Agents & Skill Development** (`skills/ai-agents-development/`): 3 skills
+- **Google Cloud & Cloud Platforms** (`skills/cloud-platform/`): 143 skills
+- **Documents, Communication & Content** (`skills/documents-content/`): 13 skills
+- **Engineering, Architecture & Productivity** (`skills/engineering-workflow/`): 35 skills
+- **General Workflow** (`skills/general-workflow/`): 6 skills
+- **Google Product Integrations** (`skills/google-product-integrations/`): 18 skills
+- **Platforms, Integrations & AI Tooling** (`skills/platforms-integrations-ai/`): 19 skills
+- **Testing, Quality, Accessibility & Security** (`skills/testing-quality-security/`): 14 skills
+- **UI/UX, Design Systems & Visual Direction** (`skills/ui-ux-design/`): 29 skills
+
+## Complete catalog
+
+### 3D, Motion & Creative Graphics
+
+- **aframe-webxr** — `skills/3d-motion-creative/aframe-webxr/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/aframe-webxr/SKILL.md`
+  - Purpose: Declarative web framework for building browser-based 3D, VR, and AR experiences using HTML and entity-component architecture. Use this skill when creating WebXR applications, VR experiences, AR experiences, 360-degree media viewers, or immersive web content with minimal JavaScript. Triggers on tasks involving A-Frame, WebXR, VR development, AR development, entity-component-system, declarative 3D, or HTML-based 3D...
+  - Bundled resources: 12 files, 181,378 bytes
+- **algorithmic-art** — `skills/3d-motion-creative/algorithmic-art/SKILL.md`
+  - Source: `anthropic-skills/skills/algorithmic-art/SKILL.md`
+  - Purpose: Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.
+  - Bundled resources: 5 files, 60,544 bytes
+- **animejs** — `skills/3d-motion-creative/animejs/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/animejs/SKILL.md`
+  - Purpose: Versatile JavaScript animation engine for DOM, CSS, SVG, and JavaScript objects. Use when creating timeline-based animations, stagger effects, SVG morphing, keyframe sequences, or complex choreographed animations. Triggers on tasks involving Anime.js, timeline animations, staggered sequences, SVG path animations, morphing, or multi-step animation choreography. Alternative to GSAP for SVG-heavy animations and React...
+  - Bundled resources: 8 files, 64,350 bytes
+- **babylonjs-engine** — `skills/3d-motion-creative/babylonjs-engine/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/babylonjs-engine/SKILL.md`
+  - Purpose: Comprehensive skill for Babylon.js 3D web rendering engine. Use this skill when building real-time 3D experiences, browser-based games, interactive visualizations, or immersive web applications. Triggers on tasks involving Babylon.js, 3D scenes, WebGL/WebGPU rendering, entity-component systems, physics simulations, PBR materials, shadow mapping, or 3D model loading. Alternative to Three.js with built-in editor int...
+  - Bundled resources: 12 files, 157,060 bytes
+- **barba-js** — `skills/3d-motion-creative/barba-js/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/barba-js/SKILL.md`
+  - Purpose: Page transitions library for creating fluid, smooth transitions between website pages. Use this skill when implementing page transitions, creating SPA-like experiences, adding animated route changes, or building websites with smooth navigation. Triggers on tasks involving Barba.js, page transitions, routing, view management, transition hooks, GSAP integration, or smooth page navigation. Works with gsap-scrolltrigg...
+  - Bundled resources: 9 files, 132,993 bytes
+- **blender-web-pipeline** — `skills/3d-motion-creative/blender-web-pipeline/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/blender-web-pipeline/SKILL.md`
+  - Purpose: Blender to web export workflows for 3D models and animations. Use this skill when exporting Blender models to glTF for web, optimizing 3D assets for Three.js or Babylon.js, batch processing models with Python scripts, automating Blender workflows, or creating web-ready 3D pipelines. Triggers on tasks involving Blender glTF export, bpy scripting, 3D asset optimization, model compression, texture baking, or Blender...
+  - Bundled resources: 9 files, 28,139 bytes
+- **gsap-scrolltrigger** — `skills/3d-motion-creative/gsap-scrolltrigger/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/gsap-scrolltrigger/SKILL.md`
+  - Purpose: Comprehensive skill for GSAP (GreenSock Animation Platform) and ScrollTrigger plugin. Use this skill when creating web animations, scroll-driven experiences, timelines, tweens, scroll-triggered animations, pinning, scrubbing, parallax effects, or animating DOM elements, SVG, Canvas, WebGL, or Three.js. Triggers on tasks involving GSAP, ScrollTrigger, smooth animations, scroll effects, or animation sequencing.
+  - Bundled resources: 13 files, 163,831 bytes
+- **lightweight-3d-effects** — `skills/3d-motion-creative/lightweight-3d-effects/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/lightweight-3d-effects/SKILL.md`
+  - Purpose: Lightweight 3D effects for decorative elements and micro-interactions using Zdog, Vanta.js, and Vanilla-Tilt.js. Use this skill when adding pseudo-3D illustrations, animated backgrounds, parallax tilt effects, decorative 3D elements, or subtle depth effects without heavy frameworks. Triggers on tasks involving Zdog pseudo-3D, Vanta.js backgrounds, Vanilla-Tilt parallax, card tilt effects, hero section animations,...
+  - Bundled resources: 12 files, 183,975 bytes
+- **locomotive-scroll** — `skills/3d-motion-creative/locomotive-scroll/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/locomotive-scroll/SKILL.md`
+  - Purpose: Comprehensive skill for Locomotive Scroll smooth scrolling library with parallax effects, viewport detection, and scroll-driven animations. Use this skill when implementing smooth scrolling experiences, creating parallax effects, building scroll-triggered animations, or developing immersive scrolling websites. Triggers on tasks involving Locomotive Scroll, smooth scrolling, parallax, scroll detection, scroll event...
+  - Bundled resources: 11 files, 84,210 bytes
+- **lottie-animations** — `skills/3d-motion-creative/lottie-animations/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/lottie-animations/SKILL.md`
+  - Purpose: After Effects animation rendering for web and React applications. Use this skill when implementing Lottie animations, JSON vector animations, interactive animated icons, micro-interactions, or loading animations. Triggers on tasks involving Lottie, lottie-web, lottie-react, dotLottie, After Effects JSON export, bodymovin, animated SVG alternatives, or designer-created animations. Complements GSAP ScrollTrigger and...
+  - Bundled resources: 8 files, 65,985 bytes
+- **motion-framer** — `skills/3d-motion-creative/motion-framer/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/motion-framer/SKILL.md`
+  - Purpose: Modern animation library for React and JavaScript. Create smooth, production-ready animations with motion components, variants, gestures (hover/tap/drag), layout animations, AnimatePresence exit animations, spring physics, and scroll-based effects. Use when building interactive UI components, micro-interactions, page transitions, or complex animation sequences.
+  - Bundled resources: 16 files, 163,452 bytes
+- **pixijs-2d** — `skills/3d-motion-creative/pixijs-2d/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/pixijs-2d/SKILL.md`
+  - Purpose: Fast, lightweight 2D rendering engine for creating interactive graphics, particle effects, and canvas-based applications using WebGL/WebGPU. Use this skill when building 2D games, particle systems, interactive canvases, sprite animations, or UI overlays on 3D scenes. Triggers on tasks involving PixiJS, 2D rendering, sprite sheets, particle effects, filters, or high-performance canvas graphics. Alternative to Canva...
+  - Bundled resources: 12 files, 259,943 bytes
+- **playcanvas-engine** — `skills/3d-motion-creative/playcanvas-engine/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/playcanvas-engine/SKILL.md`
+  - Purpose: Lightweight WebGL/WebGPU game engine with entity-component architecture and visual editor integration. Use this skill when building browser-based games, interactive 3D applications, or performance-critical web experiences. Triggers on tasks involving PlayCanvas, entity-component systems, game engine development, WebGL games, 3D browser applications, editor-first workflows, or real-time 3D rendering. Alternative to...
+  - Bundled resources: 14 files, 188,324 bytes
+- **react-spring-physics** — `skills/3d-motion-creative/react-spring-physics/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/react-spring-physics/SKILL.md`
+  - Purpose: Physics-based animation library combining React Spring (spring dynamics, gesture integration, 60fps animations) and Popmotion (low-level composable animation utilities, reactive streams). Use when building fluid, natural-feeling UI animations, gesture-driven interfaces, physics simulations, or spring-loaded interactions. Triggers on tasks involving React Spring hooks, spring physics, inertia scrolling, physics-bas...
+  - Bundled resources: 8 files, 73,434 bytes
+- **react-three-fiber** — `skills/3d-motion-creative/react-three-fiber/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/react-three-fiber/SKILL.md`
+  - Purpose: Build declarative 3D scenes with React Three Fiber (R3F) - a React renderer for Three.js. Use when building interactive 3D experiences in React applications with component-based architecture, state management, and reusable abstractions. Ideal for product configurators, portfolios, games, data visualization, and immersive web experiences.
+  - Bundled resources: 15 files, 108,533 bytes
+- **rive-interactive** — `skills/3d-motion-creative/rive-interactive/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/rive-interactive/SKILL.md`
+  - Purpose: State machine-based vector animation with runtime interactivity and web integration. Use this skill when creating interactive animations, state-driven UI, animated components with logic, or designer-created animations with runtime control. Triggers on tasks involving Rive, state machines, interactive vector animations, animation with input handling, ViewModel data binding, or React Rive integration. Alternative to...
+  - Bundled resources: 6 files, 27,184 bytes
+- **scroll-reveal-libraries** — `skills/3d-motion-creative/scroll-reveal-libraries/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/scroll-reveal-libraries/SKILL.md`
+  - Purpose: Simple scroll-triggered reveal animations using AOS (Animate On Scroll). Use this skill when building marketing pages, landing pages, or content-heavy sites requiring basic fade/slide effects without complex animation orchestration. Triggers on tasks involving scroll animations, scroll-triggered reveals, AOS, simple animations, or basic scroll effects. Alternative to GSAP ScrollTrigger and Locomotive Scroll for si...
+  - Bundled resources: 7 files, 97,313 bytes
+- **skill-creator** — `skills/3d-motion-creative/claudedesignskills-skill-creator/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/skill-creator/SKILL.md`
+  - Purpose: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.
+  - Bundled resources: 7 files, 43,024 bytes
+- **slack-gif-creator** — `skills/3d-motion-creative/slack-gif-creator/SKILL.md`
+  - Source: `anthropic-skills/skills/slack-gif-creator/SKILL.md`
+  - Purpose: Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack.
+  - Bundled resources: 8 files, 44,463 bytes
+- **spline-interactive** — `skills/3d-motion-creative/spline-interactive/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/spline-interactive/SKILL.md`
+  - Purpose: Browser-based 3D design tool with visual editor, animation, and web export. Use this skill when creating 3D scenes without code, designing interactive web experiences, prototyping 3D UI, exporting to React/web, or building designer-friendly 3D content. Triggers on tasks involving Spline, no-code 3D, visual 3D editor, 3D animation, state-based interactions, React Spline integration, or scene export. Alternative to...
+  - Bundled resources: 6 files, 55,739 bytes
+- **substance-3d-texturing** — `skills/3d-motion-creative/substance-3d-texturing/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/substance-3d-texturing/SKILL.md`
+  - Purpose: Comprehensive skill for Adobe Substance 3D Painter texturing and material creation workflow. Use this skill when creating PBR materials, exporting textures for web/game engines, optimizing 3D assets for real-time rendering, or automating texture workflows. Triggers on tasks involving Substance 3D Painter, PBR texturing, material creation, texture export for Three.js, Babylon.js, Unity, Unreal, glTF optimization, o...
+  - Bundled resources: 14 files, 129,656 bytes
+- **threejs-webgl** — `skills/3d-motion-creative/threejs-webgl/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/threejs-webgl/SKILL.md`
+  - Purpose: Comprehensive skill for Three.js 3D web development. Use this skill when building interactive 3D scenes, WebGL/WebGPU applications, product configurators, 3D visualizations, or immersive web experiences. Triggers on tasks involving Three.js, 3D rendering, scenes, cameras, meshes, materials, lights, animations, textures, or WebGL/WebGPU rendering.
+  - Bundled resources: 9 files, 64,704 bytes
+- **web3d-integration-patterns** — `skills/3d-motion-creative/web3d-integration-patterns/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/web3d-integration-patterns/SKILL.md`
+  - Purpose: Meta-skill for combining Three.js, GSAP ScrollTrigger, React Three Fiber, Motion, and React Spring for complex 3D web experiences. Use when building applications that integrate multiple 3D and animation libraries, requiring architecture patterns, state management, and performance optimization across the stack. Triggers on tasks involving library integration, multi-library architectures, scroll-driven 3D experience...
+  - Bundled resources: 2 files, 21,989 bytes
+
+### AI Agents & Skill Development
+
+- **academy-guide** — `skills/ai-agents-development/academy-guide/SKILL.md`
+  - Source: `anthropic-skills/skills/academy-guide/SKILL.md`
+  - Purpose: Stop and check this skill before finishing any reply to a question about how to use Claude or a Claude product — it recommends matching courses, tutorials, and use cases from Claude Academy (academy.claude.com), Anthropic's learning hub. Trigger on: "how do I", "how can I", "getting started with", "what can Claude do", "teach me", "learn to use"; questions about artifacts, projects, skills, plugins, connectors, MC...
+  - Bundled resources: 3 files, 19,857 bytes
+- **finding-google-skills** — `skills/ai-agents-development/finding-google-skills/SKILL.md`
+  - Source: `google-skills/skills/developers/finding-google-skills/SKILL.md`
+  - Purpose: - Google platform decision and setup guidance, loaded on demand from Google's skill catalog. Use when a developer is choosing or setting up part of their stack, such as where to run a service, a database, storage, messaging, authentication, analytics, ads, or AI model serving, and a Google product is a reasonable candidate - whether or not a vendor is named - or when a request names a Google product or API. Brings...
+  - Bundled resources: 2 files, 7,628 bytes
+- **retrieving-developer-knowledge** — `skills/ai-agents-development/retrieving-developer-knowledge/SKILL.md`
+  - Source: `google-skills/skills/developers/retrieving-developer-knowledge/SKILL.md`
+  - Purpose: - Searches, retrieves, and synthesizes official Google developer documentation across Google Cloud, AI/Gemini, Android, Chrome, Web, Flutter, Go, Firebase, and other Google developer platforms. Integrates with the Developer Knowledge MCP server (search_documents, get_documents, answer_query) or the Developer Knowledge REST API fallback. Use when searching for gcloud CLI commands, API syntax, IAM permissions, offic...
+  - Bundled resources: 5 files, 18,219 bytes
+
+### Google Cloud & Cloud Platforms
+
+- **agent-platform-alert-configuration** — `skills/cloud-platform/agent-platform-alert-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-alert-configuration/SKILL.md`
+  - Purpose: - Configures best-practice alerting policies for AI agents using OpenTelemetry (OTel) metrics, generating output as Terraform (.tf) configuration files. Use when analyzing, writing, or deploying alerting policies to monitor agent latency, error rates, token usage, and quality metrics. Don't use for standard infrastructure monitoring unrelated to AI agents, or when the agent is not instrumented with OpenTelemetry (...
+  - Bundled resources: 29 files, 311,346 bytes
+- **agent-platform-deploy** — `skills/cloud-platform/agent-platform-deploy/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-deploy/SKILL.md`
+  - Purpose: - Deploy open models or custom weights from Model Garden to Agent Platform endpoints, check the status of an in-progress deployment operation, or clean up resources by undeploying models and deleting endpoints. Use when asked to actively deploy a model, list the Model Garden CATALOG of available models, check if a specific model is deployable (`gcloud ai model-garden models list-deployment-config`), query deployme...
+  - Bundled resources: 9 files, 47,365 bytes
+- **agent-platform-endpoint-management** — `skills/cloud-platform/agent-platform-endpoint-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-endpoint-management/SKILL.md`
+  - Purpose: - Manages Agent Platform serving endpoints. Use when you need to create, list, describe, update, or delete serving endpoints for model deployment on Agent Platform. Also use when troubleshooting endpoint permission, quota, or resource busy errors. Don't use for deploying models to endpoints or for running model evaluations.
+  - Bundled resources: 2 files, 7,333 bytes
+- **agent-platform-eval-flywheel** — `skills/cloud-platform/agent-platform-eval-flywheel/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-eval-flywheel/SKILL.md`
+  - Purpose: - Measures and improves the quality of AI models and agents on Google Cloud using the Eval Quality Flywheel methodology. Use when generating synthetic user scenarios, evaluating an agent or model, building an eval dataset, picking or writing evaluation metrics, analyzing failures, comparing results before and after a fix, or when guidance is needed on Agent Platform eval methodology — including dataset schema, LLM...
+  - Bundled resources: 14 files, 127,910 bytes
+- **agent-platform-inference** — `skills/cloud-platform/agent-platform-inference/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-inference/SKILL.md`
+  - Purpose: - Connects to and performs inference with Google Cloud Agent Platform GenAI models, including First-Party Gemini models and Third-Party OpenMaaS models (Llama, DeepSeek, Qwen, etc.). Use when asked to perform inference, ask a model a question, run a test prompt, execute chat completions, or generate code for calling Gemini or OpenMaaS models, authenticate with GenAI SDK, OpenAI SDK, or legacy Agent Platform SDK, c...
+  - Bundled resources: 10 files, 43,488 bytes
+- **agent-platform-migrate-from-ai-studio** — `skills/cloud-platform/agent-platform-migrate-from-ai-studio/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-migrate-from-ai-studio/SKILL.md`
+  - Purpose: - Guides agents and users through migrating from Gemini API in Google AI Studio to Gemini Enterprise Agent Platform (formerly Vertex AI). Use this skill when moving applications to Google Cloud, to leverage Cloud credits, or to unify inferencing with other Cloud infrastructure (IAM, billing, telemetry).
+  - Bundled resources: 2 files, 14,885 bytes
+- **agent-platform-model-registry** — `skills/cloud-platform/agent-platform-model-registry/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-model-registry/SKILL.md`
+  - Purpose: - Agent Platform Model Registry Management. Use when you need to upload, list, describe, update, or delete machine learning models (and their versions) in the Agent Platform Model Registry. Don't use for model training, model deployment to endpoints, or managing non-Agent Platform models.
+  - Bundled resources: 2 files, 11,037 bytes
+- **agent-platform-prompt-management** — `skills/cloud-platform/agent-platform-prompt-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-prompt-management/SKILL.md`
+  - Purpose: - Manages and orchestrates prompts in Agent Platform. Use when you need to create, list, retrieve, version, or delete managed prompts in Agent Platform. Don't use for model training, model deployment to endpoints, or managing non-Agent Platform prompts.
+  - Bundled resources: 3 files, 12,430 bytes
+- **agent-platform-rag-engine-management** — `skills/cloud-platform/agent-platform-rag-engine-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-rag-engine-management/SKILL.md`
+  - Purpose: - Manage and query Agent Platform RAG Engine Corpora and retrieve grounded contexts using the Google GenAI SDK. Use when listing RAG corpora or files, inspecting a corpus, retrieving contexts, or generating content grounded in a RAG corpus. Do not use for standard database queries (use SQL/Spanner skills), Google Workspace RAG, or other RAG products like gRAG.
+  - Bundled resources: 2 files, 10,444 bytes
+- **agent-platform-skill-registry** — `skills/cloud-platform/agent-platform-skill-registry/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-skill-registry/SKILL.md`
+  - Purpose: Interact with the Gemini Enterprise Agent Platform Skill Registry to create and search for available skills. Use this skill to enable agents to register functionality or discover new capabilities.
+  - Bundled resources: 9 files, 22,036 bytes
+- **agent-platform-troubleshooting** — `skills/cloud-platform/agent-platform-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-troubleshooting/SKILL.md`
+  - Purpose: - Troubleshoots Google Cloud Gemini Enterprise Agent Platform issues (Agent Gateway, Registry, Identity, Policies, Model Armor, Identity-Aware Proxy (IAP)). Use when agent requests fail with 403 (especially unauthorized egress), Agent Runtime queries return 500, or gateway/IAP logs show permission errors. Don't use for general Google Cloud Identity and Access Management (IAM) debugging or networking issues unrelat...
+  - Bundled resources: 8 files, 299,349 bytes
+- **agent-platform-tuning** — `skills/cloud-platform/agent-platform-tuning/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-tuning/SKILL.md`
+  - Purpose: - Agent Platform Model Tuning. Use when you need to fine-tune open models or Gemini models using Agent Platform infrastructure. Don't use for model training outside Agent Platform, model deployment to endpoints (use `agent-platform-deploy`), or managing serving endpoints (use `agent-platform-endpoint-management`).
+  - Bundled resources: 13 files, 89,898 bytes
+- **agent-platform-tuning-management** — `skills/cloud-platform/agent-platform-tuning-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/agent-platform-tuning-management/SKILL.md`
+  - Purpose: - Manages GenAI tuning jobs in Agent Platform. Use this to list, get, or cancel ongoing model tuning jobs. Don't use for fine-tuning models (use `agent-platform-tuning`), deploying models to endpoints (use `agent-platform-deploy`), or managing serving endpoints (use `agent-platform-endpoint-management`).
+  - Bundled resources: 2 files, 8,394 bytes
+- **alloydb-basics** — `skills/cloud-platform/alloydb-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/alloydb-basics/SKILL.md`
+  - Purpose: - Manages clusters, instances, and backups for AlloyDB for PostgreSQL, and integrates with AlloyDB Model Context Protocol (MCP) tools for automated database operations. Use when creating, configuring, or administering AlloyDB databases. Do NOT use for general PostgreSQL instances (e.g. Cloud SQL) or other GCP databases.
+  - Bundled resources: 7 files, 25,698 bytes
+- **api-gateway-backend-security-and-rate-limiting** — `skills/cloud-platform/api-gateway-backend-security-and-rate-limiting/SKILL.md`
+  - Source: `google-skills/skills/cloud/api-gateway-backend-security-and-rate-limiting/SKILL.md`
+  - Purpose: - Secures and rate limits backend services behind Google Cloud API Gateway across OpenAPI 2.0 and OpenAPI 3.0.x API configurations, including MCP-enabled gateways. Use when configuring API key or JWT authentication, locking down Cloud Run or Cloud Run functions backends with a gateway service account, reading authenticated claims from X-Apigateway-Api-Userinfo, setting per-project request quotas, or diagnosing HTT...
+  - Bundled resources: 7 files, 62,574 bytes
+- **api-gateway-mcp-server** — `skills/cloud-platform/api-gateway-mcp-server/SKILL.md`
+  - Source: `google-skills/skills/cloud/api-gateway-mcp-server/SKILL.md`
+  - Purpose: - Configures Google Cloud API Gateway to act as a remote Model Context Protocol (MCP) server (Public Preview) that exposes REST APIs as agent tools over HTTP (POST /mcp). Use when migrating OpenAPI 2.0 specs to OpenAPI 3.x for MCP, annotating specs with x-google-api-management.mcp and x-google-mcp-tool, securing tools/list with JWTs or API keys, connecting Google ADK (McpToolset) or Apigee API hub and Agent Regist...
+  - Bundled resources: 7 files, 80,567 bytes
+- **application-design-center-design-deploy** — `skills/cloud-platform/application-design-center-design-deploy/SKILL.md`
+  - Source: `google-skills/skills/cloud/application-design-center-design-deploy/SKILL.md`
+  - Purpose: - Processes GCP infrastructure design and deployment workflows within Application Design Center (ADC). Use when: - Designing GCP infrastructure with Terraform. - Validating local HCL. - Performing best-practice plan scans. - Importing templates to Application Design Center (ADC). - Deploying templates. - Troubleshooting deployment failures. Boundaries: - Only use for GCP-specific cloud infrastructure. - Only use f...
+  - Bundled resources: 15 files, 88,465 bytes
+- **assuredworkloads-environment-assessor** — `skills/cloud-platform/assuredworkloads-environment-assessor/SKILL.md`
+  - Source: `google-skills/skills/cloud/assuredworkloads-environment-assessor/SKILL.md`
+  - Purpose: - Discover Google Cloud resource telemetry and effective Org Policies, evaluate brownfield workloads against sovereign data boundary and compliance standards (EU Data Boundary with Support, FedRAMP Moderate/High, DoD IL4/IL5, ITAR, CJIS, US/EU Regional Data Boundaries), and recommend the optimal Assured Workloads Framework. Use when asked to: "assess my environment for compliance", "which Assured Workloads framewo...
+  - Bundled resources: 5 files, 63,718 bytes
+- **bigquery-ai-ml** — `skills/cloud-platform/bigquery-ai-ml/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-ai-ml/SKILL.md`
+  - Purpose: - Leverages BigQuery's built-in machine learning and GenAI capabilities for advanced data analytics. Use when you need to write SQL queries that perform time-series forecasting, predict values, detect outliers or anomalies, find key drivers, perform semantic search or vector search, classify text, calculate similarity, summarize content, translate language, evaluate models, filter by semantic conditions, measure t...
+  - Bundled resources: 23 files, 92,518 bytes
+- **bigquery-basics** — `skills/cloud-platform/bigquery-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-basics/SKILL.md`
+  - Purpose: - Manages datasets, tables, and jobs in BigQuery. Use when you need to interact with BigQuery, run SQL queries, manage BigQuery resources (datasets, tables, views), or perform basic data ingestion and analysis.
+  - Bundled resources: 11 files, 25,843 bytes
+- **bigquery-bigframes** — `skills/cloud-platform/bigquery-bigframes/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-bigframes/SKILL.md`
+  - Purpose: - Generates Python code using BigQuery DataFrames (BigFrames). Use by default for any Python data task involving BigQuery, including data processing, analysis, and machine learning. Don't use for SQL-first workflows or the google-cloud-bigquery client library — use bigquery-basics.
+  - Bundled resources: 4 files, 8,289 bytes
+- **bigquery-observability** — `skills/cloud-platform/bigquery-observability/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-observability/SKILL.md`
+  - Purpose: - Provides data-retrieval best practices, tool selection guidance, and performant SQL query syntax for BigQuery telemetry across INFORMATION_SCHEMA, Cloud Monitoring, and the REST API. Use when the telemetry to fetch is already known, selecting telemetry tools, writing performant INFORMATION_SCHEMA queries, retrieving telemetry for diagnosing single-job performance bottlenecks, investigating slot contention, job c...
+  - Bundled resources: 11 files, 174,471 bytes
+- **bigquery-optimization** — `skills/cloud-platform/bigquery-optimization/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-optimization/SKILL.md`
+  - Purpose: - Provides workflows to optimize BigQuery environments (capacity planning, editions), storage assets (partitioning, clustering, storage lifecycles, billing models), and SQL queries. Use when optimizing cost, modeling Edition migrations, rightsizing reservations, evaluating logical vs. physical storage, designing table partitioning/clustering, generating table DDL, migrating unpartitioned tables, managing partition...
+  - Bundled resources: 10 files, 82,043 bytes
+- **bigquery-troubleshooting** — `skills/cloud-platform/bigquery-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigquery-troubleshooting/SKILL.md`
+  - Purpose: - Provides diagnostic workflows and step-by-step root-cause analysis procedures for actively broken, failing, or slow BigQuery jobs, execution graph and query plan stage bottlenecks, system performance issues, or unexpectedly expensive workloads. Use when interpreting symptoms, isolating bottlenecks, diagnosing cost spikes (on-demand query spend, capacity slot autoscaling, storage growth), execution graph stages o...
+  - Bundled resources: 8 files, 89,762 bytes
+- **bigtable-basics** — `skills/cloud-platform/bigtable-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/bigtable-basics/SKILL.md`
+  - Purpose: - Assists in provisioning instances/tables, designing performant schemas, and querying data in Bigtable. Use when designing Bigtable row keys, configuring column families, writing SQL queries or client library code (Java, Go, Python) for Bigtable, or diagnosing performance/hotspotting issues. Also use when provisioning Bigtable clusters using gcloud or cbt CLIs. Don't use for generic Cloud SQL administration.
+  - Bundled resources: 9 files, 30,223 bytes
+- **cloud-build-basics** — `skills/cloud-platform/cloud-build-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-build-basics/SKILL.md`
+  - Purpose: - Teaches the fundamentals of Cloud Build on Google Cloud. Covers core concepts, API enablement, console navigation to the Build History page, and the end-to-end workflow for creating and manually running a basic build trigger. Do not use for managing private pools or complex pipeline architectures.
+  - Bundled resources: 5 files, 34,246 bytes
+- **cloud-databases-onboarding** — `skills/cloud-platform/cloud-databases-onboarding/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-databases-onboarding/SKILL.md`
+  - Purpose: - Guides users through discovering their database requirements, recommends a Google Cloud database based on a recommendation matrix, and assists in database creation. Use when a user asks 'What database service should I use?', 'Help me pick a database', or when a user wants to create a new database on Google Cloud. Don't use for general Google Cloud maintenance, managing existing databases, or database migrations.
+  - Bundled resources: 6 files, 72,015 bytes
+- **cloud-logging-configuration-basics** — `skills/cloud-platform/cloud-logging-configuration-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-logging-configuration-basics/SKILL.md`
+  - Purpose: - Configure single-project Cloud Logging on Google Cloud: regional log buckets, log sinks, log views, restricting or hiding sensitive logs in the default view (_Default) filter, IAM permissions for views (Logs View Accessor, IAM conditions), logs-based metrics, log exclusions, and sampling. Don't use for cross-project logging or multi-project setups.
+  - Bundled resources: 2 files, 14,651 bytes
+- **cloud-logging-cross-project-configuration** — `skills/cloud-platform/cloud-logging-cross-project-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-logging-cross-project-configuration/SKILL.md`
+  - Purpose: - Configure and troubleshoot Google Cloud cross-project centralized logging and read-time aggregation. Use when: - Setting up log routing from multiple projects/folders/organizations to a central log bucket. - Creating cross-project log sinks and configuring central log buckets. - Troubleshooting cross-project routing. Don't use for single-project basic configurations.
+  - Bundled resources: 2 files, 19,903 bytes
+- **cloud-logging-query-generation** — `skills/cloud-platform/cloud-logging-query-generation/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-logging-query-generation/SKILL.md`
+  - Purpose: - Generates Logging Query Language (LQL) queries for Cloud Logging on Google Cloud from natural language. Use this skill when you need to query log data or when you are debugging issues. You can filter log data by Google Cloud service. Don't use this skill to query other databases, such as SQL or Cloud Spanner.
+  - Bundled resources: 24 files, 102,652 bytes
+- **cloud-monitoring-chart-generation** — `skills/cloud-platform/cloud-monitoring-chart-generation/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-monitoring-chart-generation/SKILL.md`
+  - Purpose: - Generates Cloud Monitoring Server-Driven UI (SDUI) Widget and XyChart Protocol Buffer textprotos on Google Cloud from resolved PromQL or ListTimeSeries queries. Use when: - Generating valid google.monitoring.dashboard.v1.Widget textprotos, containing PrometheusQuery or TimeSeriesFilter datasets, for use with the Cloud Monitoring Dashboards API, gcloud CLI, or declarative dashboard definitions. - Synthesizing Ser...
+  - Bundled resources: 11 files, 70,646 bytes
+- **cloud-monitoring-list-time-series-request** — `skills/cloud-platform/cloud-monitoring-list-time-series-request/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-monitoring-list-time-series-request/SKILL.md`
+  - Purpose: - Generates valid Cloud Monitoring ListTimeSeries requests and aggregation specifications from metric descriptors and resource parameters. Use when asked to create, generate, format, or build ListTimeSeries requests, JSON payloads, filter expressions, or aligner/reducer aggregations for Cloud Monitoring metrics and charts. Don't use for metric discovery or metric selection.
+  - Bundled resources: 3 files, 22,717 bytes
+- **cloud-monitoring-metric-selection** — `skills/cloud-platform/cloud-monitoring-metric-selection/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-monitoring-metric-selection/SKILL.md`
+  - Purpose: - Retrieve, query, and identify relevant Cloud Monitoring metric descriptors on Google Cloud for a service or resource (such as Compute Engine, Spanner, BigQuery, Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use when asked to find, list, search, or discover GCP metric types, names, kind/value schemas, or descriptors.
+  - Bundled resources: 2 files, 10,459 bytes
+- **cloud-monitoring-notification-channels-configuration** — `skills/cloud-platform/cloud-monitoring-notification-channels-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-monitoring-notification-channels-configuration/SKILL.md`
+  - Purpose: - Generates Terraform HCL configurations for Cloud Monitoring notification channels (`google_monitoring_notification_channel`) and adds notification channels to alerting policies (`google_monitoring_alert_policy`) in Google Cloud projects. Use when creating or configuring email, SMS, Slack, PagerDuty, Pub/Sub, or webhook notification channels, verifying Pub/Sub topic compatibility (including cross-project topics,...
+  - Bundled resources: 10 files, 41,787 bytes
+- **cloud-monitoring-promql-query** — `skills/cloud-platform/cloud-monitoring-promql-query/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-monitoring-promql-query/SKILL.md`
+  - Purpose: - Generates valid PromQL queries from Cloud Monitoring metric descriptors and resource parameters. Use when asked to create, generate, write, or format PromQL queries, PromQL strings, or PromQL aggregations for Cloud Monitoring metrics and resources. Don't use for raw metric discovery or metric selection.
+  - Bundled resources: 6 files, 46,914 bytes
+- **cloud-run-alert-configuration** — `skills/cloud-platform/cloud-run-alert-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-run-alert-configuration/SKILL.md`
+  - Purpose: - Configures best-practice, high-signal alerting policies for Cloud Run resources on Google Cloud (services, jobs, and worker pools) based on seasoned SRE practices. Use when analyzing, recommending, writing, or deploying Terraform PromQL alerting policies to monitor Cloud Run error rates (4xx/5xx), request latency, container instance saturation (warning/critical), container CPU/memory utilization and allocation,...
+  - Bundled resources: 5 files, 52,086 bytes
+- **cloud-run-basics** — `skills/cloud-platform/cloud-run-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-run-basics/SKILL.md`
+  - Purpose: - Manages Cloud Run services, jobs, and worker pools. Use when you need to deploy applications responding to HTTP requests (services), run event-triggered or scheduled tasks (jobs), or handle always-on pull-based background processing (worker pools).
+  - Bundled resources: 9 files, 44,469 bytes
+- **cloud-sql-basics** — `skills/cloud-platform/cloud-sql-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-sql-basics/SKILL.md`
+  - Purpose: - This file generates or explains Cloud SQL resources. Use this file when the user asks to create a Cloud SQL instance or database for MySQL, PostgreSQL, or SQL Server. Cloud SQL manages third-party MySQL, PostgreSQL, and SQL Server instances as resources in Cloud SQL. For example, when Cloud SQL creates an open-source MySQL instance, the resulting resource is a Cloud SQL for MySQL instance that Google Cloud manag...
+  - Bundled resources: 9 files, 42,921 bytes
+- **cloud-trace-querying** — `skills/cloud-platform/cloud-trace-querying/SKILL.md`
+  - Source: `google-skills/skills/cloud/cloud-trace-querying/SKILL.md`
+  - Purpose: - Query Cloud Trace spans, filter by latency thresholds or error status, correlate distributed traces with Cloud Logging, and diagnose latency bottlenecks across Google Cloud services. Use when investigating slow requests, analyzing trace hierarchies, or resolving latency regressions. Do NOT use for querying non-GCP telemetry or database query optimization outside Cloud Trace.
+  - Bundled resources: 90 files, 203,448 bytes
+- **datalineage-bigquery-asset-impact-analysis** — `skills/cloud-platform/datalineage-bigquery-asset-impact-analysis/SKILL.md`
+  - Source: `google-skills/skills/cloud/datalineage-bigquery-asset-impact-analysis/SKILL.md`
+  - Purpose: - Analyzes the downstream impact (blast radius) using data lineage on Google Cloud when a BigQuery table or view is broken, stale, or modified. Identifies all downstream tables, dashboards, and processes that will be affected. Use when: - Performing a blast radius or impact analysis for a BigQuery table or view. - Assessing the consequences of modifying, deleting, or pausing updates to a BigQuery asset. - Identify...
+  - Bundled resources: 3 files, 8,769 bytes
+- **datalineage-summary** — `skills/cloud-platform/datalineage-summary/SKILL.md`
+  - Source: `google-skills/skills/cloud/datalineage-summary/SKILL.md`
+  - Purpose: - Summarizes data lineage graphs on Google Cloud to help users debug data quality issues and understand data provenance for BigQuery and Cloud Storage. Use when summarizing upstream and downstream data flows, and presenting complex lineage data as an intuitive Markdown report. Don't use for generic BigQuery queries, editing lineage relationships, or downstream deprecation. Don't use for downstream blast-radius imp...
+  - Bundled resources: 3 files, 8,800 bytes
+- **dbt-sf-to-bq-translator** — `skills/cloud-platform/dbt-sf-to-bq-translator/SKILL.md`
+  - Source: `google-skills/skills/cloud/dbt-sf-to-bq-translator/SKILL.md`
+  - Purpose: - Translates Snowflake dbt SQL models to Standardized BigQuery SQL. Handles SQL compilation, Jinja macro placeholder masking, BigQuery Translation Service migration workflows, AST-based config transformations, explicit type casting, JSON extraction standardization, and deduplication. Use when migrating Snowflake dbt pipelines or models to BigQuery on Google Cloud. Don't use for generic BigQuery queries or non-Snow...
+  - Bundled resources: 5 files, 118,781 bytes
+- **detection-engineering-coverage-evaluation** — `skills/cloud-platform/detection-engineering-coverage-evaluation/SKILL.md`
+  - Source: `google-skills/skills/cloud/detection-engineering-coverage-evaluation/SKILL.md`
+  - Purpose: - Automates the end-to-end detection engineering workflow in Google SecOps using MCP tools. Use when fetching threat intelligence from blogs, generating Threat Detection Opportunities (TDOs), simulating attacker behavior with synthetic UDM events, evaluating rule coverage, and deploying gap-closing rules. Don't use for standalone YARA-L 2.0 rule authoring/tuning (use secops-detection-engineering), threat hunting,...
+  - Bundled resources: 2 files, 13,953 bytes
+- **developer-device-platform-basics** — `skills/cloud-platform/developer-device-platform-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/developer-device-platform-basics/SKILL.md`
+  - Purpose: - Provides guidance and instructions on managing remote devices on Developer Device Platform (DDP). Use when reserving remote Android devices, establishing connection tunnels, checking session status, or extending/cancelling leases. Don't use for iOS or local device/hardware inquiries.
+  - Bundled resources: 12 files, 28,471 bytes
+- **developing-genkit-dart** — `skills/cloud-platform/developing-genkit-dart/SKILL.md`
+  - Source: `google-skills/skills/cloud/developing-genkit-dart/SKILL.md`
+  - Purpose: Generates code and provides documentation for the Genkit Dart SDK. Use when the user asks to build AI agents in Dart, use Genkit flows, or integrate LLMs into Dart/Flutter applications.
+  - Bundled resources: 24 files, 137,304 bytes
+- **developing-genkit-go** — `skills/cloud-platform/developing-genkit-go/SKILL.md`
+  - Source: `google-skills/skills/cloud/developing-genkit-go/SKILL.md`
+  - Purpose: Develop AI-powered applications using Genkit in Go. Use when the user asks to build AI features, agents, flows, or tools in Go using Genkit, or when working with Genkit Go code involving generation, prompts, streaming, tool calling, or model providers.
+  - Bundled resources: 20 files, 131,972 bytes
+- **developing-genkit-js** — `skills/cloud-platform/developing-genkit-js/SKILL.md`
+  - Source: `google-skills/skills/cloud/developing-genkit-js/SKILL.md`
+  - Purpose: Develop AI-powered applications using Genkit in Node.js/TypeScript. Use when the user asks about Genkit, AI agents, flows, or tools in JavaScript/TypeScript, or when encountering Genkit errors, validation issues, type errors, or API problems.
+  - Bundled resources: 21 files, 112,059 bytes
+- **developing-genkit-python** — `skills/cloud-platform/developing-genkit-python/SKILL.md`
+  - Source: `google-skills/skills/cloud/developing-genkit-python/SKILL.md`
+  - Purpose: Develop AI-powered applications using Genkit in Python. Use when the user asks about Genkit, AI agents, flows, or tools in Python, or when encountering Genkit errors, import issues, or API problems.
+  - Bundled resources: 18 files, 67,432 bytes
+- **firebase-basics** — `skills/cloud-platform/firebase-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/firebase-basics/SKILL.md`
+  - Purpose: - Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@latest --version`), CLI login (including --no-localhost), project creation, project selection (`firebase use`), and app config file downloads (`google-services.json`, `GoogleService-Info.plist`). Use ONLY for CLI login, project creation/switching, or downloading app config files. Don't use for Firebase Hosting deploy, Fir...
+  - Bundled resources: 21 files, 50,162 bytes
+- **gcloud** — `skills/cloud-platform/gcloud/SKILL.md`
+  - Source: `google-skills/skills/cloud/gcloud/SKILL.md`
+  - Purpose: - Provides safety-critical validation, guardrails, and data reduction for gcloud CLI operations across Google Cloud Platform (GCP) services and infrastructure. Use when planning, generating, constructing, proposing, describing, or executing any gcloud CLI commands - including when answering questions about gcloud syntax, or formatting flags. Don't use when writing Google Cloud client library code or raw REST/gRPC...
+  - Bundled resources: 4 files, 26,195 bytes
+- **gemini-agents-api** — `skills/cloud-platform/gemini-agents-api/SKILL.md`
+  - Source: `google-skills/skills/cloud/gemini-agents-api/SKILL.md`
+  - Purpose: Manages custom Agent resources on Gemini Enterprise Agent Platform. Use when the user wants to programmatically create, configure, list, update, or delete stateful, server-managed Agent resources (including mounting files, skills, and tools) before executing conversations.
+  - Bundled resources: 2 files, 13,575 bytes
+- **gemini-api** — `skills/cloud-platform/gemini-api/SKILL.md`
+  - Source: `google-skills/skills/cloud/gemini-api/SKILL.md`
+  - Purpose: Use when the user asks about using Gemini in an enterprise environment or explicitly mentions Vertex AI, Google Cloud, or Agent Platform. Guides the usage of the Gemini API on Agent Platform with the Google Gen AI SDK. Covers SDK usage (Python, JS/TS, Go, Java, C#), capabilities like multimodal inputs, tools, media generation, caching, batch prediction, and Live API.
+  - Bundled resources: 11 files, 39,720 bytes
+- **gemini-interactions-api** — `skills/cloud-platform/gemini-interactions-api/SKILL.md`
+  - Source: `google-skills/skills/cloud/gemini-interactions-api/SKILL.md`
+  - Purpose: Guides the usage of Gemini Interactions API on Gemini Enterprise Agent Platform. Use when the user wants to use the stateful, server-managed Interactions API for multi-turn conversations, background execution, streaming, structured output, and function calling on the Agent Platform.
+  - Bundled resources: 4 files, 27,302 bytes
+- **gemini-live-api** — `skills/cloud-platform/gemini-live-api/SKILL.md`
+  - Source: `google-skills/skills/cloud/gemini-live-api/SKILL.md`
+  - Purpose: - Generates a Gemini LiveAPI client service class in the user's chosen programming language. Use when the user wants to build, scaffold, or integrate a client that connects to the Gemini Enterprise LiveAPI websocket endpoint, handles session setup/resumption, bearer token refresh, and sending/receiving `ClientMessage`/`ServerMessage` protos. Don't use for general (non-live, non-bidirectional) Gemini API usage such...
+  - Bundled resources: 5 files, 55,892 bytes
+- **gke-ai-troubleshooting-handle-disruption-gpu-tpu** — `skills/cloud-platform/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-handle-disruption-gpu-tpu/SKILL.md`
+  - Purpose: - Diagnoses, predicts, and mitigates node disruptions during Compute Engine host maintenance and hardware or software maintenance events for GPU and TPU workloads on GKE. Use when diagnosing node disruptions, predicting host maintenance events on GPU/TPU nodepools, inspecting node interruption PromQL metrics, auditing node taints, or configuring workload protection strategies (graceful termination, opportunistic m...
+  - Bundled resources: 2 files, 7,379 bytes
+- **gke-ai-troubleshooting-jobset-interruption** — `skills/cloud-platform/gke-ai-troubleshooting-jobset-interruption/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-jobset-interruption/SKILL.md`
+  - Purpose: - Diagnoses GKE JobSet interruptions, restarts, and preemptions for AI/ML training workloads autonomously. Use when troubleshooting JobSet restart loops, spot VM preemptions, node readiness failures, host VM issues, or coordinator worker crashes. Don't use for general GKE cluster creation, basic workload deployment, or non-JobSet application issues.
+  - Bundled resources: 4 files, 18,220 bytes
+- **gke-ai-troubleshooting-node-unresponsive-timeout** — `skills/cloud-platform/gke-ai-troubleshooting-node-unresponsive-timeout/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-node-unresponsive-timeout/SKILL.md`
+  - Purpose: - Diagnose and mitigate GKE TPU or GPU nodes stuck in NotReady / NodeStatusUnknown ("Kubelet stopped posting node status") due to host kernel panics, hardware lockups, or disabled node auto-repair. Use when nodes stop heartbeating beyond the node auto-repair threshold and pods remain stuck in Terminating. Don't use for healthy nodes, pod-only application crashes, or routine GKE upgrades.
+  - Bundled resources: 2 files, 13,587 bytes
+- **gke-ai-troubleshooting-tpu-dynamic-slices-monitoring** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-dynamic-slices-monitoring/SKILL.md`
+  - Purpose: - Monitors, troubleshoots, and manages GKE TPU Dynamic Slices custom resources. Use when checking TPU slice lifecycle states, troubleshooting slice provisioning failures, validating single-slice or multi-slice (JobSet) workload manifests, or safely patching stuck finalizers and disabling the slice controller. Don't use for generic GKE cluster node pool creation or standard non-TPU workload management (use gke-basi...
+  - Bundled resources: 4 files, 10,857 bytes
+- **gke-ai-troubleshooting-tpu-metrics-monitoring** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-metrics-monitoring/SKILL.md`
+  - Purpose: - Monitors and troubleshoots GKE TPU workloads, nodes, and node pools using GKE system metrics and PromQL. Use when monitoring TensorCore duty cycle, TPU memory, node readiness, multi-host TPU node pool availability, host maintenance or preemption interruptions, and calculating MTTR or MTBI metrics for GKE TPUs. Don't use for general non-TPU GKE workload monitoring or non-metric TPU debugging.
+  - Bundled resources: 4 files, 10,075 bytes
+- **gke-ai-troubleshooting-tpu-mxla-hang** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-mxla-hang/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-mxla-hang/SKILL.md`
+  - Purpose: - Diagnose GKE Cloud TPU multi-slice training hangs (Megascale `HANG_DETECTED` logs and hang monitored events) using the ML Diagnostics `Megascale XLA (MXLA) Hang Analyzer` (`gcloud alpha mldiagnostics monitored-events`) and 1-minute Cloud Monitoring multi-slice latency metrics (`kubernetes.io/container/multislice/*`). Distinguishes XLA compiler/HLO launch divergence and host data-input stalls from TPU chip, Spars...
+  - Bundled resources: 7 files, 22,428 bytes
+- **gke-ai-troubleshooting-tpu-partition-overlap** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-partition-overlap/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-partition-overlap/SKILL.md`
+  - Purpose: - Diagnose and resolve GKE TPU slice creation failures (SliceCreationFailed) caused by partition overlap conflicts where requested TPU partitions or their nodes are already used by another slice or JobSet. Use when diagnosing GKE TPU slice creation failures with SliceCreationFailed partition or node conflicts. Don't use for general slice lifecycle states or slice provisioning failures without node overlap (use gke...
+  - Bundled resources: 2 files, 20,277 bytes
+- **gke-ai-troubleshooting-tpu-performance-degradation** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-performance-degradation/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-performance-degradation/SKILL.md`
+  - Purpose: - Diagnose GKE Cloud TPU training throughput drops and step-time regressions (15%+ TPU duty-cycle drop) using ML Diagnostics Workload Monitoring (`gcloud alpha mldiagnostics monitored-events` / `hypercomputecluster.googleapis.com/v1alpha`) and 1-minute Cloud Monitoring system metrics (`kubernetes.io/node/accelerator/*`). Distinguishes hardware and network fabric throttling from workload resource bottlenecks (HBM c...
+  - Bundled resources: 6 files, 21,249 bytes
+- **gke-ai-troubleshooting-tpu-reservation-stockout** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-reservation-stockout/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-reservation-stockout/SKILL.md`
+  - Purpose: - Diagnose and resolve cluster-wide GKE TPU node pool creation or scale-up failures caused by Compute Engine reservation stockouts (GCE_STOCKOUT, ZONE_RESOURCE_POOL_EXHAUSTED) when existing unhealthy or NotReady TPU node pools in the cluster have node auto-repair disabled and hold reserved TPU capacity. Use when TPU node pool creation or scale-up fails with GCE_STOCKOUT, ZONE_RESOURCE_POOL_EXHAUSTED, or ZONE_RESOU...
+  - Bundled resources: 2 files, 17,978 bytes
+- **gke-ai-troubleshooting-tpu-slice-mig-stuck-updating** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-slice-mig-stuck-updating/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-slice-mig-stuck-updating/SKILL.md`
+  - Purpose: - Diagnose and resolve GKE TPU Dynamic Slice creation and JobSet scheduling failures blocked by underlying Compute Engine managed instance groups (MIGs) stuck in an updating or unstable state (isStable=False). Use when TPU slice creation fails with a SliceCreationFailed status reason, when JobSets remain stuck in pending, or when MIG status reflects isStable=False or versionTarget.isReached=False during TPU slice...
+  - Bundled resources: 2 files, 16,169 bytes
+- **gke-ai-troubleshooting-tpu-vbar-oom** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-vbar-oom/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-vbar-oom/SKILL.md`
+  - Purpose: - Diagnoses and prevents vbar_control_agent segfaults, out-of-memory (OOM) errors, and TPU device initialization failures on TPU v6e nodes in GKE caused by race conditions during TPU device resets or high-frequency metrics polling. Use when troubleshooting vbar_control_agent crashes, memory cgroup OOMs in serial console logs, tpu-device-plugin metrics checksum corruption errors, or custom TPU metrics collection co...
+  - Bundled resources: 4 files, 9,570 bytes
+- **gke-ai-troubleshooting-tpu-vm-repair-stuck** — `skills/cloud-platform/gke-ai-troubleshooting-tpu-vm-repair-stuck/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-ai-troubleshooting-tpu-vm-repair-stuck/SKILL.md`
+  - Purpose: - Diagnose GKE TPU VM instances stuck in Compute Engine repair (REPAIRING state) after host errors, maintenance events, or faulty host reports in single-host, multi-host, dynamic slicing, and TPU All Capacity mode node pools. Use when TPU instances in a slice node pool remain in REPAIRING, host error events appear in audit logs, or TPU slices are unschedulable due to a VM in repair. Don't use for nodes reporting R...
+  - Bundled resources: 2 files, 24,580 bytes
+- **gke-alert-configuration** — `skills/cloud-platform/gke-alert-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-alert-configuration/SKILL.md`
+  - Purpose: - Configures alerting policies in Terraform for Google Kubernetes Engine (GKE) clusters, workloads, and services using PromQL and Google Cloud Managed Service for Prometheus. Use when writing, analyzing, validating, or deploying Terraform alerting policies to monitor GKE service latency, traffic, error rates using Multi-Window Multi-Burn-Rate SLO alerts, memory saturation, and cluster health such as CrashLoopBackO...
+  - Bundled resources: 6 files, 82,979 bytes
+- **gke-app-onboarding** — `skills/cloud-platform/gke-app-onboarding/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-app-onboarding/SKILL.md`
+  - Purpose: - Manages GKE application onboarding, covering containerization, deployment manifests, and migration. Use when onboarding or deploying an application to GKE for the first time, or containerizing an app for GKE. Don't use for general GKE cluster administration or upgrades (use gke-basics or gke-upgrades instead).
+  - Bundled resources: 8 files, 12,085 bytes
+- **gke-backup-dr** — `skills/cloud-platform/gke-backup-dr/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-backup-dr/SKILL.md`
+  - Purpose: - Configures Backup for GKE: the BackupRestore cluster addon, BackupPlan and RestorePlan resources, restore workflows, and CMEK-encrypted backups. Use for backup policies, disaster recovery, or GKE cluster restores. Don't use for database backups.
+  - Bundled resources: 2 files, 8,714 bytes
+- **gke-basics** — `skills/cloud-platform/gke-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-basics/SKILL.md`
+  - Purpose: - Manages core GKE cluster provisioning, credentials, Autopilot vs Standard selection, and workload deployment. Use when creating GKE clusters, fetching kubectl credentials, or deciding between Autopilot and Standard modes. Don't use for Workload Identity (use gke-workload-identity), GKE networking (use gke-networking), security hardening (use gke-platform-security or gke-workload-security), or cluster upgrades (u...
+  - Bundled resources: 7 files, 34,088 bytes
+- **gke-batch-hpc** — `skills/cloud-platform/gke-batch-hpc/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-batch-hpc/SKILL.md`
+  - Purpose: - Runs batch and HPC workloads on GKE, utilizing job queues and parallel processing. Use when running GKE batch jobs, configuring GKE HPC, or setting up GKE job queues. Don't use for standard web application deployments (use gke-app-onboarding instead).
+  - Bundled resources: 2 files, 6,447 bytes
+- **gke-cluster-autoscaler** — `skills/cloud-platform/gke-cluster-autoscaler/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-cluster-autoscaler/SKILL.md`
+  - Purpose: - Trigger on mention of GKE cluster autoscaler, node autoscaling, node pool auto-creation / node auto-provisioning. Provides guidance on enabling and optimizing cluster autoscaler, best practices, and troubleshooting issues such as nodes not scaling up or down, zonal stockouts, or capacity buffers. Do not use for ComputeClass-specific YAML generation or priority configuration (defer to gke-compute-classes skill).
+  - Bundled resources: 10 files, 48,525 bytes
+- **gke-cluster-creation** — `skills/cloud-platform/gke-cluster-creation/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-cluster-creation/SKILL.md`
+  - Purpose: - Plans and executes GKE cluster creation, provisioning, and production readiness audits using pre-defined templates (Autopilot, Standard Regional, GPU/AI Inference, AI Hypercompute). Use when creating GKE clusters, provisioning GKE environments, selecting cluster modes, or auditing GKE clusters. Don't use for application onboarding or deployment configuration (use gke-app-onboarding instead).
+  - Bundled resources: 2 files, 13,229 bytes
+- **gke-compute-classes** — `skills/cloud-platform/gke-compute-classes/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-compute-classes/SKILL.md`
+  - Purpose: - Configures, optimizes, and troubleshoots GKE ComputeClasses. Use when configuring Spot VMs with on-demand fallback, targeting specific accelerators (GPUs/TPUs) or machine families, restricting ComputeClass access, or debugging pending pods related to node pool auto-creation. Do not use for cluster-level Node Auto Provisioning configuration or general GKE cluster creation.
+  - Bundled resources: 30 files, 139,353 bytes
+- **gke-cost-analysis** — `skills/cloud-platform/gke-cost-analysis/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-cost-analysis/SKILL.md`
+  - Purpose: - Answer natural language questions and perform analysis on GKE cluster and workload costs using BigQuery billing exports, cost allocation data, and live cluster monitoring metrics. Use when querying GKE costs across projects, namespaces, or workloads, analyzing billing reports in BigQuery (`bq`), checking cluster cost budgets (`gcloud billing`), or diagnosing cost drivers like pod requests vs. actual utilization...
+  - Bundled resources: 3 files, 10,296 bytes
+- **gke-cost-optimization** — `skills/cloud-platform/gke-cost-optimization/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-cost-optimization/SKILL.md`
+  - Purpose: - Optimizes GKE costs, rightsizes workloads, and configures Spot VMs, CUDs, cost allocation, and resource quotas. Use when optimizing GKE cluster or workload costs, configuring GKE cost allocation or quotas, rightsizing CPU/memory requests, or selecting Spot VMs and machine types. Don't use for general compute class provisioning or GPU Selection (use gke-compute-classes instead).
+  - Bundled resources: 5 files, 10,781 bytes
+- **gke-custom-golden-image-discovery** — `skills/cloud-platform/gke-custom-golden-image-discovery/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-custom-golden-image-discovery/SKILL.md`
+  - Purpose: - Discovers golden base images for creating GKE custom node images based on technical specifications or context clues. Use when finding the golden base image for custom GKE node creation, mapping cluster configuration parameters (GKE version, OS, architecture, accelerators, gVisor, cgroups) to image names, or querying GKE base image maps. Don't use for general GKE cluster creation (use gke-cluster-creation) or sta...
+  - Bundled resources: 2 files, 4,791 bytes
+- **gke-golden-path** — `skills/cloud-platform/gke-golden-path/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-golden-path/SKILL.md`
+  - Purpose: - Provides GKE golden path configuration defaults, production readiness checklists, and cluster default patterns. Use when designing GKE clusters, verifying GKE production readiness, or checking configurations against GKE defaults. Don't use for setting up workload autoscaling specifically (use gke-workload-scaling instead).
+  - Bundled resources: 3 files, 14,098 bytes
+- **gke-inference** — `skills/cloud-platform/gke-inference/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-inference/SKILL.md`
+  - Purpose: - Deploys and optimizes AI/ML inference workloads on GKE, using GPUs, TPUs, and model servers. Use when deploying GKE inference servers, configuring GKE GPU resources for inference, or deploying LLMs on GKE. Don't use for migrating existing AI workloads to GKE (use google-cloud-solution-guided-gke-ai-migration), GKE RAG with Cloud SQL/AlloyDB (use google-cloud-solution-rag-enterprise-search-gke-sqldb), or batch/HP...
+  - Bundled resources: 2 files, 8,701 bytes
+- **gke-manifest-generation** — `skills/cloud-platform/gke-manifest-generation/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-manifest-generation/SKILL.md`
+  - Purpose: - Generates and updates secure, production-ready Kubernetes YAML manifests optimized for GKE Autopilot and GKE Standard clusters. Use when creating or modifying GKE deployment manifests, configuring container security contexts, setting CPU/memory resource limits, defining readiness/liveness/startup probes, mounting secrets and volumes, configuring GKE Gateway API routes, targeting Spot VMs, or deploying AI model i...
+  - Bundled resources: 6 files, 21,553 bytes
+- **gke-multitenancy** — `skills/cloud-platform/gke-multitenancy/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-multitenancy/SKILL.md`
+  - Purpose: - Plans and configures multi-tenancy on GKE. Covers namespace isolation, RBAC planning for teams, resource quotas, LimitRanges, network isolation, and cost allocation. Use when designing GKE multi-tenancy, configuring GKE namespaces, setting up resource quotas, or isolating GKE teams. Don't use for single-tenant cluster configuration or general deployment instructions (use gke-basics or gke-app-onboarding instead).
+  - Bundled resources: 2 files, 6,138 bytes
+- **gke-networking** — `skills/cloud-platform/gke-networking/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-networking/SKILL.md`
+  - Purpose: - Plans, configures, and manages core GKE cluster networking. Covers private clusters, VPC-native configurations, DNS, node egress, Dataplane V2, and IP planning. Use when designing GKE networking layouts, configuring private clusters, setting up Dataplane V2, planning GKE IP ranges, or managing VPC- native cluster modes. Don't use for application ingress, load balancing, or service networking (use gke-service-net...
+  - Bundled resources: 2 files, 6,720 bytes
+- **gke-node-notready** — `skills/cloud-platform/gke-node-notready/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-node-notready/SKILL.md`
+  - Purpose: - Diagnoses GKE nodes reporting NotReady or Unknown status by inspecting node conditions, events, kubelet/containerd logs, and node metrics, then proposing safe remediations. Use when nodes show NotReady, when the kubelet stops posting node status, or when workloads are evicted or stuck Pending due to node health. Don't use for pod-level application failures (use gke-workload-troubleshooting), autoscaler scale-up/...
+  - Bundled resources: 2 files, 12,577 bytes
+- **gke-observability** — `skills/cloud-platform/gke-observability/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-observability/SKILL.md`
+  - Purpose: - Configures GKE observability, including Cloud Logging, Cloud Monitoring, and managed Prometheus. Use when configuring GKE monitoring, setting up GKE logging, or configuring Prometheus metrics collection, and to troubleshoot Managed Service for Prometheus (GMP) issues such as missing metrics, unhealthy scrape targets, PodMonitoring misconfiguration, rule/alert evaluation failures, and monitoring permission errors...
+  - Bundled resources: 2 files, 18,465 bytes
+- **gke-platform-security** — `skills/cloud-platform/gke-platform-security/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-platform-security/SKILL.md`
+  - Purpose: - Plans, configures, and hardens platform-level Google Kubernetes Engine (GKE) cluster security. Covers cluster add-ons (Secret Manager enablement), RBAC hardening (disabling insecure bindings, audit tools), Binary Authorization, Secrets Encryption (--database-encryption-key), Security Posture (--security-posture), enabling Shielded Nodes, GKE Sandbox cluster enablement, GKE IAM roles, and cross-service authentica...
+  - Bundled resources: 2 files, 10,751 bytes
+- **gke-productionize** — `skills/cloud-platform/gke-productionize/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-productionize/SKILL.md`
+  - Purpose: Orchestrates comprehensive production readiness reviews and assessments for GKE clusters and workloads across scalability, security, reliability, observability, backup/DR, and cost optimization. Use when asked to productionize, prepare, assess, audit, or review a GKE cluster or workload before going live to production. Don't use for deep-dive single-domain implementation (use specific domain skills like gke-worklo...
+  - Bundled resources: 2 files, 8,175 bytes
+- **gke-reliability** — `skills/cloud-platform/gke-reliability/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-reliability/SKILL.md`
+  - Purpose: - Improves GKE workload reliability, using PDBs, health probes, and topology spread constraints. Use when configuring GKE workload reliability, setting up PDBs, or configuring GKE health probes (liveness, readiness, startup). Don't use for generating K8s YAML manifests (use gke-manifest-generation) or disaster recovery and cluster backups (use gke-backup-dr).
+  - Bundled resources: 2 files, 7,952 bytes
+- **gke-service-networking** — `skills/cloud-platform/gke-service-networking/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-service-networking/SKILL.md`
+  - Purpose: - Configures GKE edge networking, traffic routing, load balancing, and private service endpoints. Use when configuring Gateway API manifests, standard Ingress, Cloud Armor WAF security policies, Container-Native Load Balancing (NEGs), Private Service Connect (PSC), or Google-managed SSL certificates on GKE, and to troubleshoot Ingress and load-balancer 502/5xx errors, backend health-check failures, connection drai...
+  - Bundled resources: 10 files, 16,218 bytes
+- **gke-storage** — `skills/cloud-platform/gke-storage/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-storage/SKILL.md`
+  - Purpose: - Manages GKE storage, including PVCs, PersistentVolumes, and Filestore. Use when configuring GKE storage or creating PVCs. For GCS FUSE mounts, use google-cloud-storage-fuse. For diagnosing storage failures (volume attach/mount errors, disk performance/node storage pressure, or Cloud Storage FUSE OOM), use gke-storage-troubleshooting. Don't use for database administration or replication strategies outside volume...
+  - Bundled resources: 2 files, 7,750 bytes
+- **gke-storage-troubleshooting** — `skills/cloud-platform/gke-storage-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-storage-troubleshooting/SKILL.md`
+  - Purpose: - Diagnoses GKE persistent-storage failures — volume attach/mount errors (Regional PD on optimized VMs, fsGroup mount timeouts), disk-performance and node storage-pressure issues, slow-disk Pod-creation failures, volume-expansion problems, Local SSD / Hyperdisk Storage Pool creation errors, and Cloud Storage FUSE OOM. Use when Pods are stuck in ContainerCreating, volumes fail to attach or mount, or nodes report st...
+  - Bundled resources: 2 files, 14,810 bytes
+- **gke-upgrades** — `skills/cloud-platform/gke-upgrades/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-upgrades/SKILL.md`
+  - Purpose: - Plans, executes, and validates Google Kubernetes Engine (GKE) cluster upgrades and maintenance operations for both Standard and Autopilot clusters. Produces upgrade plans, pre/post-upgrade checklists, maintenance runbooks with gcloud commands, release channel strategy, and troubleshooting guides. Handles node pool upgrade strategies (surge, blue-green), version compatibility, PDB management, and workload-specifi...
+  - Bundled resources: 5 files, 42,988 bytes
+- **gke-workload-identity** — `skills/cloud-platform/gke-workload-identity/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-workload-identity/SKILL.md`
+  - Purpose: - Configures and diagnoses Workload Identity Federation for GKE authentication failures for Pods (403 "iam.serviceAccounts.getAccessToken" / permission denied, "could not find default credentials", or GKE metadata server unreachable) by verifying cluster and node-pool Workload Identity configuration, the Kubernetes ServiceAccount (KSA) to IAM binding (direct principal binding and legacy Google ServiceAccount imper...
+  - Bundled resources: 2 files, 18,536 bytes
+- **gke-workload-scaling** — `skills/cloud-platform/gke-workload-scaling/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-workload-scaling/SKILL.md`
+  - Purpose: - Manages scaling for GKE workloads using HPA and VPA. Use when configuring Horizontal Pod Autoscaler (HPA), configuring Vertical Pod Autoscaler (VPA), or applying best practices for GKE workload autoscaling. Do not use for cluster-level autoscaling (Cluster Autoscaler), static cluster sizing, or configuring node-level machine styles directly.
+  - Bundled resources: 4 files, 6,740 bytes
+- **gke-workload-scaling-troubleshooting** — `skills/cloud-platform/gke-workload-scaling-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-workload-scaling-troubleshooting/SKILL.md`
+  - Purpose: - Diagnoses GKE HorizontalPodAutoscaler (HPA) failures — metrics showing as <unknown>, FailedGetResourceMetric / FailedGetScale / FailedComputeMetricsReplicas events, missing Pod resource requests, custom/external metrics-pipeline breakage (FailedGetExternalMetric / FailedGetCustomMetric, unavailable metrics adapter, control-plane firewall blocking the adapter), HPA that won't scale up or down (tolerance / stabili...
+  - Bundled resources: 2 files, 18,294 bytes
+- **gke-workload-security** — `skills/cloud-platform/gke-workload-security/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-workload-security/SKILL.md`
+  - Purpose: - Audits, configures, and hardens workload-level security controls for Google Kubernetes Engine (GKE) applications and namespaces. Covers running security audits (`audit_cluster.sh`), enforcing Network Policies (default-deny and Dataplane V2 logging), isolating high-risk pods inside GKE Sandbox (`gVisor`), enforcing Pod Security Standards (`restricted` labeling) and pod securityContext, and mounting Secret Manager...
+  - Bundled resources: 5 files, 12,233 bytes
+- **gke-workload-troubleshooting** — `skills/cloud-platform/gke-workload-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/gke-workload-troubleshooting/SKILL.md`
+  - Purpose: - Diagnoses GKE workload failures (CrashLoopBackOff, OOMKilled, ImagePullBackOff, Pending, etc.) via logs and events. Use when pods fail to start or crash repeatedly. Don't use for GKE cluster infrastructure provisioning, node pool creation, or non-Kubernetes Google Cloud services.
+  - Bundled resources: 2 files, 19,043 bytes
+- **google-agents-cli-onboarding** — `skills/cloud-platform/google-agents-cli-onboarding/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-agents-cli-onboarding/SKILL.md`
+  - Purpose: - Onboarding entrypoint for agents-cli in Agent Platform. It should be used when the user wants to "create a new agent", "develop an agent", "build an agent using ADK", "run the agent locally", "debug agent code", "test an agent", "evaluate an agent", "deploy an agent", "publish an agent", "monitor an agent", or needs the ADK (Agent Development Kit) development lifecycle.
+  - Bundled resources: 2 files, 4,832 bytes
+- **google-cloud-filestore-auditing** — `skills/cloud-platform/google-cloud-filestore-auditing/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-filestore-auditing/SKILL.md`
+  - Purpose: - Audits Filestore instances on Google Cloud across projects for disaster recovery readiness (missing or stale backups), security access governance (overly permissive NFS export rules, 0.0.0.0/0 exposure, missing ROOT_SQUASH), and reliability compliance (Physical Zone Isolation PZI and Physical Zone Separation PZS). Use when assessing storage health posture, auditing NFS export permissions, identifying unprotected...
+  - Bundled resources: 7 files, 69,723 bytes
+- **google-cloud-filestore-autoscale** — `skills/cloud-platform/google-cloud-filestore-autoscale/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-filestore-autoscale/SKILL.md`
+  - Purpose: - Inspects Filestore capacity and utilization on Google Cloud, evaluates storage scaling rules, and performs capacity autoscaling (scale UP for low free space or scale DOWN for cost optimization). Use when monitoring Filestore instance headroom, resizing instance shares, configuring automated growth/shrink thresholds (custom thresholds apply globally across projects in session memory), or preventing out-of-space o...
+  - Bundled resources: 5 files, 21,379 bytes
+- **google-cloud-filestore-log-troubleshooting** — `skills/cloud-platform/google-cloud-filestore-log-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-filestore-log-troubleshooting/SKILL.md`
+  - Purpose: - Diagnoses and resolves Filestore client mount failures on Google Cloud, permission errors (EACCES), and network timeouts (ETIMEDOUT). Use when an NFS mount hangs or fails from a Compute Engine VM, GKE pod, Cloud Run service, or Vertex AI workload, when `mount.nfs` reports "Connection timed out" or "access denied by server", when checking whether VPC ingress firewall rules or `nfsExportOptions` allow a client IP,...
+  - Bundled resources: 8 files, 71,399 bytes
+- **google-cloud-filestore-nfs-browser** — `skills/cloud-platform/google-cloud-filestore-nfs-browser/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-filestore-nfs-browser/SKILL.md`
+  - Purpose: - Inspects, searches, and reads files and POSIX metadata on Filestore (NFS) instances on Google Cloud without local NFS client packages or root privileges. Use when browsing Filestore shares, searching files, reading remote logs, or inspecting file attributes; don't use for Cloud Storage buckets, Cloud NetApp Volumes, Persistent Disks, or modifying/deleting files.
+  - Bundled resources: 15 files, 63,612 bytes
+- **google-cloud-global-frontend-configuration** — `skills/cloud-platform/google-cloud-global-frontend-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-global-frontend-configuration/SKILL.md`
+  - Purpose: Guides agents through a 6-step discovery process to design and deploy Google Cloud global external Application Load Balancers with Cloud CDN, Cloud Armor, and Service Extensions, mapping workload requirements to best-practice configurations. Use when: - Designing, configuring, or deploying a Google Cloud global external Application Load Balancer, Cloud CDN, Cloud Armor WAF, or Service Extensions. - Discovering exi...
+  - Bundled resources: 8 files, 38,965 bytes
+- **google-cloud-networking-observability** — `skills/cloud-platform/google-cloud-networking-observability/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-networking-observability/SKILL.md`
+  - Purpose: - Investigates Google Cloud networking issues by analyzing GCP logs, metrics, and diagnostics. Use when investigating dropped network traffic, packet drops, drop reasons, VPC Flow Logs (including Private Service Connect / PSC, serverless / App Engine Direct VPC, and cost estimation), NAT, firewall, or threat logs, querying latency and throughput metrics, or running Connectivity Tests for path diagnostics. Don't us...
+  - Bundled resources: 11 files, 48,413 bytes
+- **google-cloud-recipe-auth** — `skills/cloud-platform/google-cloud-recipe-auth/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-recipe-auth/SKILL.md`
+  - Purpose: Provides expert guidance on Identity and Access Management (IAM) and authenticating and authorizing to Google Cloud services and APIs, covering human users, service identities, Application Default Credentials (ADC), and best practices for secure access.
+  - Bundled resources: 2 files, 13,084 bytes
+- **google-cloud-recipe-foundation-builder** — `skills/cloud-platform/google-cloud-recipe-foundation-builder/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-recipe-foundation-builder/SKILL.md`
+  - Purpose: - Deploys a baseline landing zone foundation for a Google Cloud Organization, establishing security guardrails using Organization Policies, resource hierarchy folders and projects, billing association, and centralized logging and monitoring. Deploys Google Cloud's recommended security controls and architecture. Use when setting up a new Google Cloud Organization or establishing a secure, enterprise-grade landing z...
+  - Bundled resources: 5 files, 39,265 bytes
+- **google-cloud-recipe-onboarding** — `skills/cloud-platform/google-cloud-recipe-onboarding/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-recipe-onboarding/SKILL.md`
+  - Purpose: - Guides a developer's first steps on Google Cloud, covering account creation, billing setup, project management, and deploying a first resource. Use when a new developer wants to initialize their first Google Cloud project, configure billing, and verify deployment. Don't use for enterprise organization setup (use Google Cloud Setup guided flow for that instead). Don't use for complex multi-project architectures.
+  - Bundled resources: 3 files, 15,724 bytes
+- **google-cloud-scc-query** — `skills/cloud-platform/google-cloud-scc-query/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-scc-query/SKILL.md`
+  - Purpose: - Queries and retrieves active security findings, external exposures, toxic combinations, vulnerabilities, threats, and sensitive data risks from Security Command Center on Google Cloud. Use when retrieving details for a security finding by its name, validating finding scope (e.g., verifying findingClass is TOXIC_COMBINATION, VULNERABILITY, EXTERNAL_EXPOSURE, or THREAT), or fetching finding details for triage. Don...
+  - Bundled resources: 3 files, 16,887 bytes
+- **google-cloud-scc-remediation** — `skills/cloud-platform/google-cloud-scc-remediation/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-scc-remediation/SKILL.md`
+  - Purpose: - Remediates Google Cloud Security Command Center findings, including IAM permission fixes, cloud resource misconfigurations, vulnerabilities, and Toxic Combinations. Use when asked to fix, remediate, or mitigate a Security Command Center finding or address attack paths. Don't use for general IAM policy querying without a Security Command Center finding. For runtime threat detections, this skill provides containme...
+  - Bundled resources: 5 files, 33,530 bytes
+- **google-cloud-slo-alert-configuration** — `skills/cloud-platform/google-cloud-slo-alert-configuration/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-slo-alert-configuration/SKILL.md`
+  - Purpose: - Configures Cloud Monitoring PromQL-based Service Level Objective (SLO) alerting policies on Google Cloud for resources registered in App Hub or individually specified. Generates Terraform output. Use when the user asks to configure an SLO or Service Level Objective. Don't use for standard alerting policies.
+  - Bundled resources: 5 files, 27,956 bytes
+- **google-cloud-solution-agentic-ai-bidirectional-streaming** — `skills/cloud-platform/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-agentic-ai-bidirectional-streaming/SKILL.md`
+  - Purpose: - Guides agents to interactively discover customer requirements for live, bidirectional multi-agent AI systems that process continuous streams of multimodal data for real-time technical guidance and safety monitoring. Generates a custom Google Cloud solution that uses opinionated best practices and architecture guidance. Use when users need agentic assistance to design and create a multi-product solution in the cl...
+  - Bundled resources: 5 files, 28,435 bytes
+- **google-cloud-solution-agentic-ai-borderless-data-lakehouse** — `skills/cloud-platform/google-cloud-solution-agentic-ai-borderless-data-lakehouse/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-agentic-ai-borderless-data-lakehouse/SKILL.md`
+  - Purpose: - Discovers requirements and designs a borderless open data lakehouse using Lakehouse for Apache Iceberg and BigQuery data agents. Use when architecting multi-cloud storage infrastructure (Cloud Storage, AWS S3, Azure Blob), establishing ingestion and AI serving subsystems, configuring Cross-Cloud Interconnect, or deploying Gemini Enterprise Agent Platform and BigQuery data agents. Don't use for single-cloud data...
+  - Bundled resources: 6 files, 28,075 bytes
+- **google-cloud-solution-agentic-ai-data-science-workflow** — `skills/cloud-platform/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-agentic-ai-data-science-workflow/SKILL.md`
+  - Purpose: - Designs a tailored multi-product agentic data science architecture on Google Cloud that incorporates opinionated best practices. Use when architecting multi-product solutions for agent-based data analytics or ML workloads. Don't use for simple queries, non-agentic pipelines, general cloud reviews, or writing agent code.
+  - Bundled resources: 5 files, 28,105 bytes
+- **google-cloud-solution-agentic-analytics-spark-knowledge-catalog** — `skills/cloud-platform/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-agentic-analytics-spark-knowledge-catalog/SKILL.md`
+  - Purpose: - Discovers requirements and designs an end-to-end governed agentic analytics solution using Knowledge Catalog and Managed Service for Apache Spark (Lightning Engine). Use when designing data science and analytics workflows across structured and unstructured distributed data (including in S3, Azure Blob, AlloyDB, and Iceberg), establishing metadata governance with Knowledge Catalog aspect types, or grounding agent...
+  - Bundled resources: 6 files, 31,770 bytes
+- **google-cloud-solution-architecture** — `skills/cloud-platform/google-cloud-solution-architecture/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-architecture/SKILL.md`
+  - Purpose: - Interactively discovers requirements and designs holistic, multi-product system architectures, solution blueprints, and deployment recommendations for complex workloads on Google Cloud. Use when designing end-to-end cloud solutions, selecting and integrating Google Cloud services, generating architecture diagrams, or conducting requirements discovery for new cloud workloads or migrations. Don't use for single-pr...
+  - Bundled resources: 6 files, 136,653 bytes
+- **google-cloud-solution-build-deploy-agents** — `skills/cloud-platform/google-cloud-solution-build-deploy-agents/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-build-deploy-agents/SKILL.md`
+  - Purpose: - Designs, builds, and deploys AI agents or multi-agent systems on Google Cloud. Provides an interactive workflow to gather requirements, recommend a tailored architecture, and generate deployment instructions. Use when designing or implementing agentic systems on Google Cloud. Don't use for general Google Cloud solution architecture (use google-cloud-solution-architecture instead) or for narrow tasks targeting a...
+  - Bundled resources: 8 files, 42,498 bytes
+- **google-cloud-solution-guided-gke-ai-migration** — `skills/cloud-platform/google-cloud-solution-guided-gke-ai-migration/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-guided-gke-ai-migration/SKILL.md`
+  - Purpose: - Guides the migration of existing AI workloads (Cloud Run, Gemini API, Gemini Enterprise Agent Platform) to self-hosted GKE inference using gcloud and kubectl. Use when the user has an existing AI inference workload (on Cloud Run, the Gemini API, Gemini Enterprise Agent Platform, or a custom VM) and wants to move it to self-hosted inference on GKE, or asks follow-up questions during such a migration (hardware siz...
+  - Bundled resources: 7 files, 39,410 bytes
+- **google-cloud-solution-hybrid-search-alloydb** — `skills/cloud-platform/google-cloud-solution-hybrid-search-alloydb/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-hybrid-search-alloydb/SKILL.md`
+  - Purpose: - Discovers requirements and generates architectural, design, and deployment guidance for dynamic hybrid search systems by combining semantic search and keyword search. Optimized for AlloyDB hybrid search use cases in Google Cloud. Use when users need vector search combined with structured SQL filtering, faceted attributes, semantic reranking, in-database AI validation, or serverless hosting across transactional r...
+  - Bundled resources: 6 files, 43,685 bytes
+- **google-cloud-solution-multi-agent-security** — `skills/cloud-platform/google-cloud-solution-multi-agent-security/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-multi-agent-security/SKILL.md`
+  - Purpose: - Designs, deploys, and secures Google Cloud Agent Gateway solutions. Use when the user needs to configure multi-agent security, ingress (CLIENT_TO_AGENT), or egress (AGENT_TO_ANYWHERE) patterns involving Model Armor, IAP, and Agent Registry. Don't use for general Cloud Load Balancing or basic VPC setup not related to Agent Gateways.
+  - Bundled resources: 24 files, 29,747 bytes
+- **google-cloud-solution-n-tier-serverless-web-app** — `skills/cloud-platform/google-cloud-solution-n-tier-serverless-web-app/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-n-tier-serverless-web-app/SKILL.md`
+  - Purpose: - Assists in designing and implementing secure n-tier serverless web applications and microservices on Google Cloud. Use when users need architecture designs, security checklists, Terraform code, or deployment guidance for multi-tier serverless apps, regional data residency / European sovereignty compliance, zero-trust private VPC networking, or Private Service Connect. Don't use for VM, GKE, or non-Google Cloud a...
+  - Bundled resources: 6 files, 106,900 bytes
+- **google-cloud-solution-rag-enterprise-search-gke-sqldb** — `skills/cloud-platform/google-cloud-solution-rag-enterprise-search-gke-sqldb/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-solution-rag-enterprise-search-gke-sqldb/SKILL.md`
+  - Purpose: - Discovers requirements, and generates architectural, design, and deployment guidance for a retrieval-augmented generation (RAG)-capable enterprise search system in Google Cloud. Use when users need a vector-enabled SQL database as the store and index for the embedding vectors, an open model and open-source inferencing framework, and Kubernetes containers to host all the application components. DON'T use this ski...
+  - Bundled resources: 6 files, 34,953 bytes
+- **google-cloud-storage-basics** — `skills/cloud-platform/google-cloud-storage-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-storage-basics/SKILL.md`
+  - Purpose: - Stores, retrieves, and manages data as objects in Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Use when you need to interact with Cloud Storage — set up a Storage MCP server (remote or local Toolbox), create or configure buckets, upload, download, stream, or transfer data, organize objects with folders, generate signed URLs, control access (IAM, ACLs, public access prevention), set sto...
+  - Bundled resources: 12 files, 146,509 bytes
+- **google-cloud-storage-bucket-architect** — `skills/cloud-platform/google-cloud-storage-bucket-architect/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-storage-bucket-architect/SKILL.md`
+  - Purpose: - Creates Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Analyzes the workload (sensitive data, media hosting, ingestion, web hosting, archiving, backup, logging, analytics, AI/ML, or general-purpose), validates project-level security settings, and designs a secure-by-default, cost-effective configuration (location, storage class, uniform bucket-level access, public access prevention, soft...
+  - Bundled resources: 21 files, 251,255 bytes
+- **google-cloud-storage-fuse** — `skills/cloud-platform/google-cloud-storage-fuse/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-storage-fuse/SKILL.md`
+  - Purpose: - Mounts Cloud Storage buckets on Google Cloud as a POSIX file system using Cloud Storage FUSE (and the gcsfuse CLI tool). Use when interacting with the gcsfuse CLI or Cloud Storage FUSE mounts: decide whether FUSE, native gs:// reads, or Filestore/Managed Lustre fits a workload, deploy tuned mounts on GKE, Compute Engine, or Cloud Run, enable and size file, stat, and list caches, tune mount flags (--implicit-dirs...
+  - Bundled resources: 5 files, 39,708 bytes
+- **google-cloud-waf-cost-optimization** — `skills/cloud-platform/google-cloud-waf-cost-optimization/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-cost-optimization/SKILL.md`
+  - Purpose: Evaluates Google Cloud workloads for cost efficiency and FinOps alignment using the Google Cloud Well-Architected Framework Cost Optimization pillar. Use when the user asks to analyze Google Cloud spend, reduce cloud bills, rightsize resources (for example, Compute, GKE, Storage, Databases), evaluate discount options (for example, CUDs, SUDs, Spot VMs), or eliminate idle capacity. Do not use for standalone product...
+  - Bundled resources: 2 files, 11,398 bytes
+- **google-cloud-waf-operational-excellence** — `skills/cloud-platform/google-cloud-waf-operational-excellence/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-operational-excellence/SKILL.md`
+  - Purpose: - Generates operational guidance for CI/CD deployment pipelines, observability, monitoring, logging, and incident management on Google Cloud based on the design principles and recommendations in the Operational Excellence pillar of the Google Cloud Well-Architected Framework (WAF). Use when the user asks about operations-related topics like capacity management, change management, incident and problem management, c...
+  - Bundled resources: 2 files, 10,234 bytes
+- **google-cloud-waf-performance-optimization** — `skills/cloud-platform/google-cloud-waf-performance-optimization/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-performance-optimization/SKILL.md`
+  - Purpose: - Generates performance-focused guidance for Google Cloud workloads based on the design principles and recommendations in the Performance Optimization pillar of the Google Cloud Well-Architected Framework (WAF). Use this skill to evaluate a workload, identify performance requirements, and provide actionable recommendations for resource allocation, modular design, and elasticity.
+  - Bundled resources: 2 files, 8,171 bytes
+- **google-cloud-waf-reliability** — `skills/cloud-platform/google-cloud-waf-reliability/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-reliability/SKILL.md`
+  - Purpose: - Generates guidance for reliability, resilience, availability, redundancy, fault-tolerance, and disaster recovery (DR) for Google Cloud workloads based on the design principles and recommendations in the Google Cloud Well-Architected Framework. Use when the user asks to evaluate, design, or improve the reliability, resilience, availability, or disaster recovery capabilities of Google Cloud workloads.
+  - Bundled resources: 2 files, 8,892 bytes
+- **google-cloud-waf-security** — `skills/cloud-platform/google-cloud-waf-security/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-security/SKILL.md`
+  - Purpose: - Generates security-focused guidance for Google Cloud workloads based on the design principles and recommendations in the Google Cloud Well-Architected Framework (WAF). Use this skill to evaluate workloads, identify security requirements, and provide actionable recommendations for IAM, network security, data protection, and operational security.
+  - Bundled resources: 2 files, 17,545 bytes
+- **google-cloud-waf-sustainability** — `skills/cloud-platform/google-cloud-waf-sustainability/SKILL.md`
+  - Source: `google-skills/skills/cloud/google-cloud-waf-sustainability/SKILL.md`
+  - Purpose: - Provides recommendations for environmental sustainability, carbon footprint reduction, and energy efficiency based on the Sustainability pillar of the Google Cloud Well-Architected Framework (WAF). Use when the user asks to assess, design, or optimize Google Cloud workloads for sustainability—including the shared responsibility model, selecting low-carbon regions (CFE%), reducing resource and AI/ML energy waste,...
+  - Bundled resources: 2 files, 14,542 bytes
+- **iam-helper-for-policy-management** — `skills/cloud-platform/iam-helper-for-policy-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/iam-helper-for-policy-management/SKILL.md`
+  - Purpose: - Streamlines the creation, modification, and management of IAM allow policies (v1) and deny policies (v2). Manages access control across Resource Manager resources (Organization, Folder, Project) and individual resources. Use when creating, updating, listing, or deleting IAM allow policies or deny policies. Don't use for access denial troubleshooting (use iam-helper-for-troubleshooting), temporary privileged acce...
+  - Bundled resources: 4 files, 20,299 bytes
+- **iam-helper-for-policy-simulator** — `skills/cloud-platform/iam-helper-for-policy-simulator/SKILL.md`
+  - Source: `google-skills/skills/cloud/iam-helper-for-policy-simulator/SKILL.md`
+  - Purpose: - Safely simulates and applies Identity and Access Management (IAM) v1 (Allow) policy changes on Google Cloud. Uses the Policy Simulator to replay historical access logs against proposed policies to prevent breaking active workloads before applying the changes. Use when simulating or applying IAM v1 allow policies across Projects, Folders, or Organizations. Don't use for analyzing IAM v2 deny policies, VPC Service...
+  - Bundled resources: 3 files, 8,099 bytes
+- **iam-helper-for-privileged-access-management** — `skills/cloud-platform/iam-helper-for-privileged-access-management/SKILL.md`
+  - Source: `google-skills/skills/cloud/iam-helper-for-privileged-access-management/SKILL.md`
+  - Purpose: - Manages the end-to-end lifecycle of on-demand, temporary access using Privileged Access Manager (PAM). Use when a user asks to create, read, update, or delete PAM entitlements, request temporary access, or approve/deny pending PAM grants. Do NOT use for permanent IAM policy bindings, troubleshooting IAM permission errors, or general Google Cloud resource provisioning.
+  - Bundled resources: 7 files, 29,899 bytes
+- **iam-helper-for-troubleshooting** — `skills/cloud-platform/iam-helper-for-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/iam-helper-for-troubleshooting/SKILL.md`
+  - Purpose: - Diagnoses, remediates, and manages Identity and Access Management (IAM) access issues on Google Cloud. Supports two distinct operational modes: (1) Requester Flow for developers encountering access denials (capturing error context, self-service PAM JIT activations, elevated developer self-remediation, or logging structured tickets), and (2) Resolver Flow for privileged administrators (authoritative Policy Troubl...
+  - Bundled resources: 8 files, 43,561 bytes
+- **managed-airflow-dag-authoring** — `skills/cloud-platform/managed-airflow-dag-authoring/SKILL.md`
+  - Source: `google-skills/skills/cloud/managed-airflow-dag-authoring/SKILL.md`
+  - Purpose: - Provides guidance for authoring Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers environment context discovery, Airflow 2 vs 3 compatibility, authoring best practices, and local/remote validation processes. Use when creating or extending an Airflow DAG. Don't use when authoring Python code unrelated to Airflow DAGs.
+  - Bundled resources: 2 files, 6,638 bytes
+- **managed-airflow-dag-troubleshooting** — `skills/cloud-platform/managed-airflow-dag-troubleshooting/SKILL.md`
+  - Source: `google-skills/skills/cloud/managed-airflow-dag-troubleshooting/SKILL.md`
+  - Purpose: - Provides guidance for troubleshooting Apache Airflow DAGs (failed DAG runs and task instances) in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Use when figuring out reasons for DAG run or task instance failures. Don't use when looking for overall recommendations for Managed Airflow environment performance.
+  - Bundled resources: 2 files, 17,126 bytes
+- **managed-airflow-migrations** — `skills/cloud-platform/managed-airflow-migrations/SKILL.md`
+  - Source: `google-skills/skills/cloud/managed-airflow-migrations/SKILL.md`
+  - Purpose: Provides guidance for migrating Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow 2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection, GCS download/upload and scanning patterns for breaking changes. Use when migrating the DAG code to newer Airflow version. Don't use when checking DAG run failures unrelated to co...
+  - Bundled resources: 5 files, 24,760 bytes
+- **secops-cases** — `skills/cloud-platform/secops-cases/SKILL.md`
+  - Source: `google-skills/skills/cloud/secops-cases/SKILL.md`
+  - Purpose: - Manage Google Security Operations (SecOps) SOAR cases throughout their lifecycle. Use when listing, creating, inspecting, updating, or closing SOAR cases; adding investigative comments and notes; updating case priority or description; or linking and grouping security alerts within cases. Supports both remote Google SecOps MCP tools and local fallback tools. Don't use for SIEM UDM searches or detection rule autho...
+  - Bundled resources: 2 files, 13,504 bytes
+- **secops-detection-engineering** — `skills/cloud-platform/secops-detection-engineering/SKILL.md`
+  - Source: `google-skills/skills/cloud/secops-detection-engineering/SKILL.md`
+  - Purpose: - Author, validate, test, and deploy YARA-L 2.0 detection rules and evaluate end-to-end detection coverage gaps in Google SecOps. Use when writing new detection rules, tuning existing rules, validating syntax, testing logic against historical telemetry, or evaluating detection coverage against threat intelligence blogs, CVE disclosures, and Threat Detection Opportunities (TDOs) using synthetic UDM events and long-...
+  - Bundled resources: 2 files, 20,541 bytes
+- **secops-hunt** — `skills/cloud-platform/secops-hunt/SKILL.md`
+  - Source: `google-skills/skills/cloud/secops-hunt/SKILL.md`
+  - Purpose: - Expert guidance for proactive threat hunting in Google SecOps. Use when proactively hunting for threats, retroactively analyzing indicators of compromise (IoCs), performing prevalence searches across enterprise events, hunting for MITRE ATT&CK techniques, or detecting behavioral and statistical outliers using UDM queries. Don't use for incoming alert triage (use secops-triage), active incident response and timel...
+  - Bundled resources: 2 files, 11,896 bytes
+- **secops-investigate** — `skills/cloud-platform/secops-investigate/SKILL.md`
+  - Source: `google-skills/skills/cloud/secops-investigate/SKILL.md`
+  - Purpose: - Expert guidance for deep security incident and entity investigations in Google SecOps. Use when investigating cases, analyzing entities (hosts, IPs, domains, hashes, users), extracting and searching UDM events, performing asset and user timeline analysis, and detecting lateral movement across enterprise networks. Don't use for detection rule authoring or YARA-L tuning (use secops-detection-engineering), proactiv...
+  - Bundled resources: 2 files, 19,419 bytes
+- **secops-triage** — `skills/cloud-platform/secops-triage/SKILL.md`
+  - Source: `google-skills/skills/cloud/secops-triage/SKILL.md`
+  - Purpose: - Expert guidance for security alert triage in Google SecOps. Use when investigating and triaging security alerts, determining false positives vs. true positives, assessing entity risk, adjusting alert severity or priority, and closing or escalating alerts and cases. Don't use for deep multi-hop incident investigations across host timelines (use secops-investigate), proactive threat hunting or retroactive IoC swee...
+  - Bundled resources: 2 files, 15,056 bytes
+- **spanner-basics** — `skills/cloud-platform/spanner-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/spanner-basics/SKILL.md`
+  - Purpose: - Assists in provisioning instances and databases, designing performant schemas, and querying data in Cloud Spanner on Google Cloud. Use when designing primary keys, writing SQL queries or client library code, or diagnosing performance issues.
+  - Bundled resources: 11 files, 29,496 bytes
+- **workload-manager-basics** — `skills/cloud-platform/workload-manager-basics/SKILL.md`
+  - Source: `google-skills/skills/cloud/workload-manager-basics/SKILL.md`
+  - Purpose: - Use this skill to manage Google Cloud Workload Manager evaluations, rules, scanned resources, and validation results by using public client libraries and the REST API. Use when you need to inspect workload best-practice rules, create and run evaluations for Google Cloud general best practices, SAP, SQL Server, or custom organizational rules, review violations, export results to BigQuery, or automate Workload Man...
+  - Bundled resources: 10 files, 47,488 bytes
+
+### Documents, Communication & Content
+
+- **doc-coauthoring** — `skills/documents-content/doc-coauthoring/SKILL.md`
+  - Source: `anthropic-skills/skills/doc-coauthoring/SKILL.md`
+  - Purpose: Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documenta...
+  - Bundled resources: 2 files, 16,574 bytes
+- **docx** — `skills/documents-content/docx/SKILL.md`
+  - Source: `anthropic-skills/skills/docx/SKILL.md`
+  - Purpose: Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx or .dotx fil...
+  - Bundled resources: 62 files, 1,129,422 bytes
+- **internal-comms** — `skills/documents-content/internal-comms/SKILL.md`
+  - Source: `anthropic-skills/skills/internal-comms/SKILL.md`
+  - Purpose: A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
+  - Bundled resources: 7 files, 23,149 bytes
+- **notion-knowledge-capture** — `skills/documents-content/notion-knowledge-capture/SKILL.md`
+  - Source: `openai-skills/skills/.curated/notion-knowledge-capture/SKILL.md`
+  - Purpose: Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.
+  - Bundled resources: 19 files, 73,545 bytes
+- **notion-meeting-intelligence** — `skills/documents-content/notion-meeting-intelligence/SKILL.md`
+  - Source: `openai-skills/skills/.curated/notion-meeting-intelligence/SKILL.md`
+  - Purpose: Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.
+  - Bundled resources: 20 files, 70,818 bytes
+- **notion-research-documentation** — `skills/documents-content/notion-research-documentation/SKILL.md`
+  - Source: `openai-skills/skills/.curated/notion-research-documentation/SKILL.md`
+  - Purpose: Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.
+  - Bundled resources: 24 files, 78,058 bytes
+- **notion-spec-to-implementation** — `skills/documents-content/notion-spec-to-implementation/SKILL.md`
+  - Source: `openai-skills/skills/.curated/notion-spec-to-implementation/SKILL.md`
+  - Purpose: Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.
+  - Bundled resources: 20 files, 86,449 bytes
+- **pdf** — `skills/documents-content/anthropic-pdf/SKILL.md`
+  - Source: `anthropic-skills/skills/pdf/SKILL.md`
+  - Purpose: Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, splitting PDFs apart, rotating pages, adding watermarks, creating new PDFs, filling PDF forms, encrypting/decrypting PDFs, extracting images, and OCR on scanned PDFs to make them searchable. If the user mentions a .pdf file or asks to produce...
+  - Bundled resources: 13 files, 59,426 bytes
+- **pdf** — `skills/documents-content/openai-pdf/SKILL.md`
+  - Source: `openai-skills/skills/.curated/pdf/SKILL.md`
+  - Purpose: Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.
+  - Bundled resources: 5 files, 15,557 bytes
+- **pptx** — `skills/documents-content/pptx/SKILL.md`
+  - Source: `anthropic-skills/skills/pptx/SKILL.md`
+  - Purpose: Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx or .potx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working...
+  - Bundled resources: 57 files, 1,139,902 bytes
+- **speech** — `skills/documents-content/speech/SKILL.md`
+  - Source: `openai-skills/skills/.curated/speech/SKILL.md`
+  - Purpose: Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.
+  - Bundled resources: 17 files, 49,509 bytes
+- **transcribe** — `skills/documents-content/transcribe/SKILL.md`
+  - Source: `openai-skills/skills/.curated/transcribe/SKILL.md`
+  - Purpose: Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.
+  - Bundled resources: 8 files, 25,950 bytes
+- **xlsx** — `skills/documents-content/xlsx/SKILL.md`
+  - Source: `anthropic-skills/skills/xlsx/SKILL.md`
+  - Purpose: Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .csv, or .tsv file (e.g., adding columns, computing formulas, formatting, charting, cleaning messy data); create a new spreadsheet from scratch or from other data sources; or convert between tabular file formats. Trigger especially when th...
+  - Bundled resources: 54 files, 1,103,620 bytes
+
+### Engineering, Architecture & Productivity
+
+- **ask-matt** — `skills/engineering-workflow/ask-matt/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/ask-matt/SKILL.md`
+  - Purpose: Ask which skill or flow fits your situation. A router over the skills in this repo.
+  - Bundled resources: 4 files, 17,735 bytes
+- **chief-of-staff** — `skills/engineering-workflow/chief-of-staff/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/chief-of-staff/SKILL.md`
+  - Purpose: Pursue a long-running goal in a single session by co-ordinating subagents.
+  - Bundled resources: 3 files, 3,069 bytes
+- **claude-handoff** — `skills/engineering-workflow/claude-handoff/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/claude-handoff/SKILL.md`
+  - Purpose: Hand the current conversation off to a fresh background agent that picks up the work immediately.
+  - Bundled resources: 3 files, 2,338 bytes
+- **codebase-design** — `skills/engineering-workflow/codebase-design/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/codebase-design/SKILL.md`
+  - Purpose: Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+  - Bundled resources: 5 files, 12,542 bytes
+- **define-goal** — `skills/engineering-workflow/define-goal/SKILL.md`
+  - Source: `openai-skills/skills/.curated/define-goal/SKILL.md`
+  - Purpose: Help the user define a concrete, measurable goal before starting work, especially when they ask to use the goal tool, create a goal, set an objective, clarify success criteria, or turn a fuzzy intention into a quantitative outcome. Use this skill for goal creation and goal refinement only; it does not manage durable snapshots, decision logs, or long-running execution artifacts.
+  - Bundled resources: 4 files, 17,384 bytes
+- **domain-modeling** — `skills/engineering-workflow/domain-modeling/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/domain-modeling/SKILL.md`
+  - Purpose: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
+  - Bundled resources: 5 files, 9,256 bytes
+- **grill-me** — `skills/engineering-workflow/grill-me/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/grill-me/SKILL.md`
+  - Purpose: A relentless interview to sharpen a plan or design.
+  - Bundled resources: 3 files, 1,050 bytes
+- **grill-with-docs** — `skills/engineering-workflow/grill-with-docs/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/grill-with-docs/SKILL.md`
+  - Purpose: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+  - Bundled resources: 3 files, 1,168 bytes
+- **grilling** — `skills/engineering-workflow/grilling/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/grilling/SKILL.md`
+  - Purpose: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
+  - Bundled resources: 3 files, 2,918 bytes
+- **handoff** — `skills/engineering-workflow/handoff/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/handoff/SKILL.md`
+  - Purpose: Compact the current conversation into a handoff document for another agent to pick up.
+  - Bundled resources: 3 files, 1,834 bytes
+- **implement** — `skills/engineering-workflow/implement/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/implement/SKILL.md`
+  - Purpose: Implement a piece of work based on a spec or set of tickets.
+  - Bundled resources: 3 files, 1,519 bytes
+- **implement-spec** — `skills/engineering-workflow/implement-spec/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/implement-spec/SKILL.md`
+  - Purpose: Implement the result of /to-spec and /to-tickets in code.
+  - Bundled resources: 3 files, 3,721 bytes
+- **improve-codebase-architecture** — `skills/engineering-workflow/improve-codebase-architecture/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/improve-codebase-architecture/SKILL.md`
+  - Purpose: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+  - Bundled resources: 4 files, 13,625 bytes
+- **jupyter-notebook** — `skills/engineering-workflow/jupyter-notebook/SKILL.md`
+  - Source: `openai-skills/skills/.curated/jupyter-notebook/SKILL.md`
+  - Purpose: Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.
+  - Bundled resources: 13 files, 31,633 bytes
+- **loop-me** — `skills/engineering-workflow/loop-me/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/loop-me/SKILL.md`
+  - Purpose: Grill me about specs for the workflows I want to build, within this workspace.
+  - Bundled resources: 3 files, 3,414 bytes
+- **migrate-to-rust** — `skills/engineering-workflow/migrate-to-rust/SKILL.md`
+  - Source: `google-skills/skills/developers/migrate-to-rust/SKILL.md`
+  - Purpose: - Clones, analyzes, plans, and migrates legacy codebases (C++, Fortran, Java, Python, C, Shell) from a GitHub URL or local directory to a modern, high-performance, deterministic, 100% Safe Rust architecture, tracking live telemetry across every task bucket, test failure/fix cycle, and Profile-Guided Optimization (PGO) stage, and producing a first-person AI storytelling report and interactive HTML infographic. Use...
+  - Bundled resources: 5 files, 136,445 bytes
+- **migrate-to-shoehorn** — `skills/engineering-workflow/migrate-to-shoehorn/SKILL.md`
+  - Source: `mattpocock-skills/skills/misc/migrate-to-shoehorn/SKILL.md`
+  - Purpose: Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.
+  - Bundled resources: 3 files, 3,686 bytes
+- **pr** — `skills/engineering-workflow/pr/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/pr/SKILL.md`
+  - Purpose: Use when writing a PR body.
+  - Bundled resources: 4 files, 5,603 bytes
+- **prototype** — `skills/engineering-workflow/prototype/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/prototype/SKILL.md`
+  - Purpose: Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.
+  - Bundled resources: 5 files, 16,738 bytes
+- **research** — `skills/engineering-workflow/research/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/research/SKILL.md`
+  - Purpose: Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
+  - Bundled resources: 3 files, 1,643 bytes
+- **retro** — `skills/engineering-workflow/retro/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/retro/SKILL.md`
+  - Purpose: Conduct a retrospective on a coding session.
+  - Bundled resources: 3 files, 5,261 bytes
+- **scaffold-exercises** — `skills/engineering-workflow/scaffold-exercises/SKILL.md`
+  - Source: `mattpocock-skills/skills/misc/scaffold-exercises/SKILL.md`
+  - Purpose: Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.
+  - Bundled resources: 3 files, 4,475 bytes
+- **setup-matt-pocock-skills** — `skills/engineering-workflow/setup-matt-pocock-skills/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/setup-matt-pocock-skills/SKILL.md`
+  - Purpose: Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.
+  - Bundled resources: 8 files, 20,775 bytes
+- **setup-ts-deep-modules** — `skills/engineering-workflow/setup-ts-deep-modules/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/setup-ts-deep-modules/SKILL.md`
+  - Purpose: Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked.
+  - Bundled resources: 4 files, 12,201 bytes
+- **teach** — `skills/engineering-workflow/teach/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/teach/SKILL.md`
+  - Purpose: Teach the user a new skill or concept, within this workspace.
+  - Bundled resources: 7 files, 18,952 bytes
+- **to-questionnaire** — `skills/engineering-workflow/to-questionnaire/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/to-questionnaire/SKILL.md`
+  - Purpose: Turn a decision you can't fully answer into a questionnaire for someone else to fill in.
+  - Bundled resources: 3 files, 3,850 bytes
+- **to-spec** — `skills/engineering-workflow/to-spec/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/to-spec/SKILL.md`
+  - Purpose: Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.
+  - Bundled resources: 3 files, 3,930 bytes
+- **to-tickets** — `skills/engineering-workflow/to-tickets/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/to-tickets/SKILL.md`
+  - Purpose: Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).
+  - Bundled resources: 3 files, 6,719 bytes
+- **wait-what** — `skills/engineering-workflow/wait-what/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/wait-what/SKILL.md`
+  - Purpose: Stop. That last message did not land: re-pitch it.
+  - Bundled resources: 3 files, 1,313 bytes
+- **wayfinder** — `skills/engineering-workflow/wayfinder/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/wayfinder/SKILL.md`
+  - Purpose: Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.
+  - Bundled resources: 3 files, 13,282 bytes
+- **wizard** — `skills/engineering-workflow/wizard/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/wizard/SKILL.md`
+  - Purpose: Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.
+  - Bundled resources: 4 files, 14,466 bytes
+- **writing-beats** — `skills/engineering-workflow/writing-beats/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/writing-beats/SKILL.md`
+  - Purpose: Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.
+  - Bundled resources: 3 files, 5,767 bytes
+- **writing-for-agents** — `skills/engineering-workflow/writing-for-agents/SKILL.md`
+  - Source: `mattpocock-skills/skills/productivity/writing-for-agents/SKILL.md`
+  - Purpose: Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.
+  - Bundled resources: 4 files, 14,403 bytes
+- **writing-fragments** — `skills/engineering-workflow/writing-fragments/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/writing-fragments/SKILL.md`
+  - Purpose: Writing, explore: mine raw fragments, no structure yet.
+  - Bundled resources: 3 files, 4,480 bytes
+- **writing-shape** — `skills/engineering-workflow/writing-shape/SKILL.md`
+  - Source: `mattpocock-skills/skills/in-progress/writing-shape/SKILL.md`
+  - Purpose: Writing, exploit: shape raw material into an article, paragraph by paragraph.
+  - Bundled resources: 3 files, 6,836 bytes
+
+### General Workflow
+
+- **discernment-nudge** — `skills/general-workflow/discernment-nudge/SKILL.md`
+  - Source: `anthropic-skills/skills/discernment-nudge/SKILL.md`
+  - Purpose: After you give a substantive answer or draft that the user may act on — advice or recommendations, drafted artifacts such as goals, plans, pitches, proposals, or emails, estimates or projections, analysis or interpretation of data, factual claims they may rely on, or a multi-step argument — invoke this skill BEFORE finalizing your reply and then, if it applies, append 2-3 short follow-up questions, each tied to so...
+  - Bundled resources: 3 files, 22,701 bytes
+- **hatch-pet** — `skills/general-workflow/hatch-pet/SKILL.md`
+  - Source: `openai-skills/skills/.curated/hatch-pet/SKILL.md`
+  - Purpose: Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character art, generated images, company or prospect brand cues, or visual references. Use when a user wants a lightweight-worker Codex pet workflow, a non-pixel custom pet style, a prospect or company mascot pet, or a full 8x9 animated pet atlas with transparent unused cells, QA contact sheets, and pet.json...
+  - Bundled resources: 15 files, 133,396 bytes
+- **imagegen** — `skills/general-workflow/imagegen/SKILL.md`
+  - Source: `openai-skills/skills/.system/imagegen/SKILL.md`
+  - Purpose: Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better han...
+  - Bundled resources: 12 files, 96,722 bytes
+- **screenshot** — `skills/general-workflow/screenshot/SKILL.md`
+  - Source: `openai-skills/skills/.curated/screenshot/SKILL.md`
+  - Purpose: Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.
+  - Bundled resources: 12 files, 52,743 bytes
+- **web-artifacts-builder** — `skills/general-workflow/web-artifacts-builder/SKILL.md`
+  - Source: `anthropic-skills/skills/web-artifacts-builder/SKILL.md`
+  - Purpose: Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.
+  - Bundled resources: 6 files, 46,616 bytes
+- **yeet** — `skills/general-workflow/yeet/SKILL.md`
+  - Source: `openai-skills/skills/.curated/yeet/SKILL.md`
+  - Purpose: Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).
+  - Bundled resources: 6 files, 20,958 bytes
+
+### Google Product Integrations
+
+- **data-manager-api-audience-ingestion** — `skills/google-product-integrations/data-manager-api-audience-ingestion/SKILL.md`
+  - Source: `google-skills/skills/ads/data-manager-api-audience-ingestion/SKILL.md`
+  - Purpose: - Guides developers through managing (adding, removing, and clearing) audience members for Google products using the Data Manager API and its associated client libraries. Use this skill when the user wants to upload audience members, remove specific users, or clear/replace an entire audience for Customer Match, mobile device ID audiences, or any other audience use case supported by the Data Manager API. Don't use...
+  - Bundled resources: 4 files, 14,906 bytes
+- **data-manager-api-event-ingestion** — `skills/google-product-integrations/data-manager-api-event-ingestion/SKILL.md`
+  - Source: `google-skills/skills/ads/data-manager-api-event-ingestion/SKILL.md`
+  - Purpose: - Guides developers through implementing event and conversion ingestion to Google products using the Data Manager API /v1/events/ingest endpoint and its associated client libraries. Use this skill when the user wants to upload offline conversions, enhanced conversions for leads, click conversions, Google Analytics web or app events, or any other event ingestion use case supported by the Data Manager API. Don't use...
+  - Bundled resources: 2 files, 12,097 bytes
+- **data-manager-api-setup** — `skills/google-product-integrations/data-manager-api-setup/SKILL.md`
+  - Source: `google-skills/skills/ads/data-manager-api-setup/SKILL.md`
+  - Purpose: - Guides developers through client library installation and authentication setup steps for the Data Manager API. Use this skill when a user is getting started with the Data Manager API and needs to setup their local environment, install the client library, or setup access to the API. Don't use for implementing audience or event ingestion logic (use the data-manager-api-audience-ingestion or data-manager-api-event-...
+  - Bundled resources: 7 files, 6,439 bytes
+- **dpop-adoption** — `skills/google-product-integrations/dpop-adoption/SKILL.md`
+  - Source: `google-skills/skills/identity/dpop-adoption/SKILL.md`
+  - Purpose: - Implement and debug OAuth 2.0 DPoP (RFC 9449) refresh token sender-constraining for WebCrypto, Node.js ES6, and browser runtimes integrating with Google's OAuth platform. Use when configuring non-extractable asymmetric key pairs (P-256), generating DPoP Proof JWTs for authorization code exchange and token refresh, or handling 400 use_dpop_nonce challenge retry loops at oauth2.googleapis.com/token. Don't use for...
+  - Bundled resources: 2 files, 12,030 bytes
+- **google-ads-api-account-diagnostics** — `skills/google-product-integrations/google-ads-api-account-diagnostics/SKILL.md`
+  - Source: `google-skills/skills/ads/google-ads-api-account-diagnostics/SKILL.md`
+  - Purpose: - Diagnoses Google Ads account performance issues such as conversion loss (value or volume), low lead flow/volume, and lost impression share (opportunities) due to ad rank, bids, or budgets. Use when troubleshooting sudden performance drops, analyzing campaign impression share metrics, investigating low lead flow, or searching for bidding and budget constraints. Don't use for setting up new campaigns, uploading co...
+  - Bundled resources: 2 files, 13,438 bytes
+- **google-ads-api-mcp-setup** — `skills/google-product-integrations/google-ads-api-mcp-setup/SKILL.md`
+  - Source: `google-skills/skills/ads/google-ads-api-mcp-setup/SKILL.md`
+  - Purpose: Guides developers through downloading, configuring, and installing the official open-source Google Ads MCP Server. Use this skill when a user wants to connect their AI assistant (such as Gemini, Claude Code, or Cursor) to their Google Ads account to query campaigns or retrieve reporting metrics using natural language.
+  - Bundled resources: 2 files, 25,110 bytes
+- **google-ads-api-quickstart** — `skills/google-product-integrations/google-ads-api-quickstart/SKILL.md`
+  - Source: `google-skills/skills/ads/google-ads-api-quickstart/SKILL.md`
+  - Purpose: Guides developers through Google Ads API quickstart: credential setup, choosing from 6 client libraries/REST, configuring environments, and running a "retrieve campaigns" script. Troubleshoots common setup errors: USER_PERMISSION_DENIED, login_customer_id issues, and DEVELOPER_TOKEN_NOT_APPROVED. Use this skill when: - The user asks how to get started with the Google Ads API. - The user needs to set up Google Ads...
+  - Bundled resources: 9 files, 54,322 bytes
+- **google-analytics-admin-api-basics** — `skills/google-product-integrations/google-analytics-admin-api-basics/SKILL.md`
+  - Source: `google-skills/skills/analytics/google-analytics-admin-api-basics/SKILL.md`
+  - Purpose: - Manages Google Analytics account and property settings, enables the Analytics Admin API via the Cloud CLI, lists accounts and properties, and manages data streams, custom dimensions, conversion events, and integrations. Use when you need to programmatically configure Google Analytics accounts, provision properties, manage data retention, configure Measurement Protocol secrets, or manage Firebase and Google Ads l...
+  - Bundled resources: 9 files, 20,370 bytes
+- **google-analytics-data-api-basics** — `skills/google-product-integrations/google-analytics-data-api-basics/SKILL.md`
+  - Source: `google-skills/skills/analytics/google-analytics-data-api-basics/SKILL.md`
+  - Purpose: - Manages Google Analytics reporting data, enables the Analytics Data API via the Cloud CLI, and creates reports using the Google Analytics Data API (v1beta). Use when you need to interact with Google Analytics properties, run customized analytics reports, query metrics (like activeUsers, screenPageViews) and dimensions (like city, date), check metrics and dimensions compatibility, or verify API enablement. Don't...
+  - Bundled resources: 9 files, 23,951 bytes
+- **google-mobile-ads-android-migrate-to-next-gen** — `skills/google-product-integrations/google-mobile-ads-android-migrate-to-next-gen/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-android-migrate-to-next-gen/SKILL.md`
+  - Purpose: Migrates Android applications from the old, legacy Google Mobile Ads (GMA) SDK (com.google.android.gms:play-services-ads) to the new GMA Next-Gen SDK (com.google.android.libraries.ads.mobile.sdk:ads-mobile-sdk). Provides comprehensive mapping tables for imports, classes, and method signatures to help determine migration steps. Use when migrating an existing Android codebase from the old, legacy GMA SDK to GMA Next...
+  - Bundled resources: 2 files, 40,445 bytes
+- **google-mobile-ads-banner** — `skills/google-product-integrations/google-mobile-ads-banner/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-banner/SKILL.md`
+  - Purpose: - Provides instructions to implement, integrate, or configure Google Mobile Ads (GMA) banner ads in Android, iOS, or Unity mobile applications. Use when the task involves setting up banner ads in a mobile application. Don't use for other ad formats like interstitial or rewarded ads.
+  - Bundled resources: 5 files, 10,629 bytes
+- **google-mobile-ads-get-started** — `skills/google-product-integrations/google-mobile-ads-get-started/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-get-started/SKILL.md`
+  - Purpose: - Provides instructions for integrating the Google Mobile Ads (GMA) SDK. Use this skill when the user wants to get started with, install, integrate, set up, or configure the SDK for AdMob or Ad Manager, GMA Next-Gen SDK or mobile ads framework in an Android, iOS, or Unity application.
+  - Bundled resources: 5 files, 17,318 bytes
+- **google-mobile-ads-interstitial** — `skills/google-product-integrations/google-mobile-ads-interstitial/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-interstitial/SKILL.md`
+  - Purpose: - Provides instructions for implementing, integrating, or configuring Google Mobile Ads (GMA) SDK interstitial ads in Android, iOS, or Unity mobile applications. Use when the task involves setting up interstitial ads. Don't use for "rewarded interstitial" ads.
+  - Bundled resources: 5 files, 8,660 bytes
+- **google-mobile-ads-rewarded** — `skills/google-product-integrations/google-mobile-ads-rewarded/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-rewarded/SKILL.md`
+  - Purpose: - Provides instructions for implementing, integrating, or configuring Google Mobile Ads (GMA) SDK rewarded ads in Android, iOS, or Unity mobile applications. Use when the task involves setting up rewarded ads. Don't use for "rewarded interstitial" ads.
+  - Bundled resources: 5 files, 9,854 bytes
+- **google-mobile-ads-validate** — `skills/google-product-integrations/google-mobile-ads-validate/SKILL.md`
+  - Source: `google-skills/skills/ads/google-mobile-ads-validate/SKILL.md`
+  - Purpose: - Validates a project's Google Mobile Ads (GMA) SDK integration for iOS, Android, or Unity projects. Use when conducting a full pre-launch audit of an app that integrates GMA SDK or when validating any individual GMA SDK integration checks, such as when validating ad unit IDs and ad formats, SKAdNetwork IDs, mediation adapter SDK version compatibility, or ad preloading.
+  - Bundled resources: 7 files, 14,611 bytes
+- **ima-dai-sdk** — `skills/google-product-integrations/ima-dai-sdk/SKILL.md`
+  - Source: `google-skills/skills/ads/ima-dai-sdk/SKILL.md`
+  - Purpose: - Integrates the Google Interactive Media Ads (IMA) Dynamic Ad Insertion (DAI) SDK into websites, web apps, mobile apps, or TV apps. Use when: - A video player needs to load and play HLS or DASH streams in web apps, Android apps, iOS apps, tvOS apps, Cast (CAF) receivers, or Roku channels. - The app needs to make use of a Google DAI livestream event asset key, or content source CMS ID, video ID for video on demand...
+  - Bundled resources: 7 files, 36,751 bytes
+- **ima-sdk-client-side** — `skills/google-product-integrations/ima-sdk-client-side/SKILL.md`
+  - Source: `google-skills/skills/ads/ima-sdk-client-side/SKILL.md`
+  - Purpose: - Supports Interactive Media Ads (IMA) SDK. Use this skill for client-side ad insertion when you are requesting video ads for websites, apps, TVs or other platforms using VAST or VMAP. Do not use for Dynamic Ad Insertion (DAI), SSAI, or SGAI.
+  - Bundled resources: 8 files, 35,333 bytes
+- **sign-in-with-google-web** — `skills/google-product-integrations/sign-in-with-google-web/SKILL.md`
+  - Source: `google-skills/skills/identity/sign-in-with-google-web/SKILL.md`
+  - Purpose: - Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS / `https://accounts.google.com/gsi/client`) across web architectures. Use when creating Google sign-in buttons, implementing Google One Tap with FedCM, integrating GIS in React/Next.js/Angular/HTML, verifying ID tokens on backend runtimes (Python/Node.js/Go/Java), enforcing Google Workspace domain restrictions (`hd`),...
+  - Bundled resources: 7 files, 33,617 bytes
+
+### Platforms, Integrations & AI Tooling
+
+- **aspnet-core** — `skills/platforms-integrations-ai/aspnet-core/SKILL.md`
+  - Source: `openai-skills/skills/.curated/aspnet-core/SKILL.md`
+  - Purpose: Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web development. Use when working on Blazor Web Apps, Razor Pages, MVC, Minimal APIs, controller-based Web APIs, SignalR, gRPC, middleware, dependency injection, configuration, authentication, authorization, testing, performance, deployment, or ASP.NET Core upgrades.
+  - Bundled resources: 18 files, 53,937 bytes
+- **chatgpt-apps** — `skills/platforms-integrations-ai/chatgpt-apps/SKILL.md`
+  - Source: `openai-skills/skills/.curated/chatgpt-apps/SKILL.md`
+  - Purpose: Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs M...
+  - Bundled resources: 12 files, 77,446 bytes
+- **claude-api** — `skills/platforms-integrations-ai/claude-api/SKILL.md`
+  - Source: `anthropic-skills/skills/claude-api/SKILL.md`
+  - Purpose: Reference for the Claude API / Anthropic SDK — model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER — read BEFORE opening the target file; don't skip because it "looks like a one-liner" — whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us.anthropic.*`, `[1m]`...
+  - Bundled resources: 97 files, 2,080,621 bytes
+- **cli-creator** — `skills/platforms-integrations-ai/cli-creator/SKILL.md`
+  - Source: `openai-skills/skills/.curated/cli-creator/SKILL.md`
+  - Purpose: Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script. Use when the user wants Codex to create a command-line tool that can run from any repo, expose composable read/write commands, return stable JSON, manage auth, and pair with a companion skill.
+  - Bundled resources: 5 files, 27,560 bytes
+- **cloudflare-deploy** — `skills/platforms-integrations-ai/cloudflare-deploy/SKILL.md`
+  - Source: `openai-skills/skills/.curated/cloudflare-deploy/SKILL.md`
+  - Purpose: Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.
+  - Bundled resources: 313 files, 1,350,101 bytes
+- **linear** — `skills/platforms-integrations-ai/linear/SKILL.md`
+  - Source: `openai-skills/skills/.curated/linear/SKILL.md`
+  - Purpose: Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.
+  - Bundled resources: 6 files, 25,546 bytes
+- **mcp-builder** — `skills/platforms-integrations-ai/mcp-builder/SKILL.md`
+  - Source: `anthropic-skills/skills/mcp-builder/SKILL.md`
+  - Purpose: Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).
+  - Bundled resources: 11 files, 122,512 bytes
+- **migrate-to-codex** — `skills/platforms-integrations-ai/migrate-to-codex/SKILL.md`
+  - Source: `openai-skills/skills/.curated/migrate-to-codex/SKILL.md`
+  - Purpose: Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.
+  - Bundled resources: 20 files, 135,924 bytes
+- **netlify-deploy** — `skills/platforms-integrations-ai/netlify-deploy/SKILL.md`
+  - Source: `openai-skills/skills/.curated/netlify-deploy/SKILL.md`
+  - Purpose: Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.
+  - Bundled resources: 9 files, 34,422 bytes
+- **openai-docs** — `skills/platforms-integrations-ai/openai-openai-docs/SKILL.md`
+  - Source: `openai-skills/skills/.curated/openai-docs/SKILL.md`
+  - Purpose: Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions, use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback browsi...
+  - Bundled resources: 11 files, 80,184 bytes
+- **openai-docs** — `skills/platforms-integrations-ai/openai-openai-docs-openai-docs/SKILL.md`
+  - Source: `openai-skills/skills/.system/openai-docs/SKILL.md`
+  - Purpose: Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions, use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback browsi...
+  - Bundled resources: 11 files, 80,571 bytes
+- **plugin-creator** — `skills/platforms-integrations-ai/plugin-creator/SKILL.md`
+  - Source: `openai-skills/skills/.system/plugin-creator/SKILL.md`
+  - Purpose: Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata.
+  - Bundled resources: 6 files, 35,875 bytes
+- **render-deploy** — `skills/platforms-integrations-ai/render-deploy/SKILL.md`
+  - Source: `openai-skills/skills/.curated/render-deploy/SKILL.md`
+  - Purpose: Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.
+  - Bundled resources: 22 files, 101,277 bytes
+- **sentry** — `skills/platforms-integrations-ai/sentry/SKILL.md`
+  - Source: `openai-skills/skills/.curated/sentry/SKILL.md`
+  - Purpose: Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.
+  - Bundled resources: 6 files, 18,304 bytes
+- **skill-creator** — `skills/platforms-integrations-ai/anthropic-skill-creator/SKILL.md`
+  - Source: `anthropic-skills/skills/skill-creator/SKILL.md`
+  - Purpose: Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.
+  - Bundled resources: 19 files, 225,764 bytes
+- **skill-creator** — `skills/platforms-integrations-ai/openai-skill-creator/SKILL.md`
+  - Source: `openai-skills/skills/.system/skill-creator/SKILL.md`
+  - Purpose: Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.
+  - Bundled resources: 8 files, 57,504 bytes
+- **skill-installer** — `skills/platforms-integrations-ai/skill-installer/SKILL.md`
+  - Source: `openai-skills/skills/.system/skill-installer/SKILL.md`
+  - Purpose: Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).
+  - Bundled resources: 9 files, 31,269 bytes
+- **vercel-deploy** — `skills/platforms-integrations-ai/vercel-deploy/SKILL.md`
+  - Source: `openai-skills/skills/.curated/vercel-deploy/SKILL.md`
+  - Purpose: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+  - Bundled resources: 7 files, 14,694 bytes
+- **winui-app** — `skills/platforms-integrations-ai/winui-app/SKILL.md`
+  - Source: `openai-skills/skills/.curated/winui-app/SKILL.md`
+  - Purpose: Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit components. Use when creating a brand new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting, environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing, t...
+  - Bundled resources: 22 files, 87,529 bytes
+
+### Testing, Quality, Accessibility & Security
+
+- **code-review** — `skills/testing-quality-security/code-review/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/code-review/SKILL.md`
+  - Purpose: Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".
+  - Bundled resources: 3 files, 7,538 bytes
+- **diagnosing-bugs** — `skills/testing-quality-security/diagnosing-bugs/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/diagnosing-bugs/SKILL.md`
+  - Purpose: Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
+  - Bundled resources: 4 files, 10,863 bytes
+- **gh-address-comments** — `skills/testing-quality-security/gh-address-comments/SKILL.md`
+  - Source: `openai-skills/skills/.curated/gh-address-comments/SKILL.md`
+  - Purpose: Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.
+  - Bundled resources: 7 files, 22,947 bytes
+- **gh-fix-ci** — `skills/testing-quality-security/gh-fix-ci/SKILL.md`
+  - Source: `openai-skills/skills/.curated/gh-fix-ci/SKILL.md`
+  - Purpose: Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.
+  - Bundled resources: 7 files, 33,393 bytes
+- **git-guardrails-claude-code** — `skills/testing-quality-security/git-guardrails-claude-code/SKILL.md`
+  - Source: `mattpocock-skills/skills/misc/git-guardrails-claude-code/SKILL.md`
+  - Purpose: Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.
+  - Bundled resources: 4 files, 3,738 bytes
+- **playwright** — `skills/testing-quality-security/playwright/SKILL.md`
+  - Source: `openai-skills/skills/.curated/playwright/SKILL.md`
+  - Purpose: Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.
+  - Bundled resources: 10 files, 23,604 bytes
+- **playwright-interactive** — `skills/testing-quality-security/playwright-interactive/SKILL.md`
+  - Source: `openai-skills/skills/.curated/playwright-interactive/SKILL.md`
+  - Purpose: Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.
+  - Bundled resources: 7 files, 47,504 bytes
+- **security-best-practices** — `skills/testing-quality-security/security-best-practices/SKILL.md`
+  - Source: `openai-skills/skills/.curated/security-best-practices/SKILL.md`
+  - Purpose: Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.
+  - Bundled resources: 14 files, 412,543 bytes
+- **security-ownership-map** — `skills/testing-quality-security/security-ownership-map/SKILL.md`
+  - Source: `openai-skills/skills/.curated/security-ownership-map/SKILL.md`
+  - Purpose: Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive...
+  - Bundled resources: 9 files, 99,316 bytes
+- **security-threat-model** — `skills/testing-quality-security/security-threat-model/SKILL.md`
+  - Source: `openai-skills/skills/.curated/security-threat-model/SKILL.md`
+  - Purpose: Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.
+  - Bundled resources: 6 files, 31,700 bytes
+- **setup-pre-commit** — `skills/testing-quality-security/setup-pre-commit/SKILL.md`
+  - Source: `mattpocock-skills/skills/misc/setup-pre-commit/SKILL.md`
+  - Purpose: Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
+  - Bundled resources: 3 files, 3,133 bytes
+- **tdd** — `skills/testing-quality-security/tdd/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/tdd/SKILL.md`
+  - Purpose: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+  - Bundled resources: 5 files, 8,155 bytes
+- **triage** — `skills/testing-quality-security/triage/SKILL.md`
+  - Source: `mattpocock-skills/skills/engineering/triage/SKILL.md`
+  - Purpose: Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.
+  - Bundled resources: 5 files, 20,055 bytes
+- **webapp-testing** — `skills/testing-quality-security/webapp-testing/SKILL.md`
+  - Source: `anthropic-skills/skills/webapp-testing/SKILL.md`
+  - Purpose: Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
+  - Bundled resources: 7 files, 23,157 bytes
+
+### UI/UX, Design Systems & Visual Direction
+
+- **animated-component-libraries** — `skills/ui-ux-design/animated-component-libraries/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/animated-component-libraries/SKILL.md`
+  - Purpose: Pre-built animated React component collections combining Magic UI (150+ TypeScript/Tailwind/Motion components) and React Bits (90+ minimal-dependency animated components). Use this skill when building landing pages, marketing sites, dashboards, or interactive UIs requiring pre-made animated components instead of hand-crafting animations. Triggers on tasks involving animated UI components, Magic UI, React Bits, sha...
+  - Bundled resources: 8 files, 92,248 bytes
+- **brand-guidelines** — `skills/ui-ux-design/brand-guidelines/SKILL.md`
+  - Source: `anthropic-skills/skills/brand-guidelines/SKILL.md`
+  - Purpose: Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.
+  - Bundled resources: 3 files, 14,337 bytes
+- **brandkit** — `skills/ui-ux-design/brandkit/SKILL.md`
+  - Source: `taste-skill/skills/brandkit/SKILL.md`
+  - Purpose: Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo systems, identity decks, and visual-world presentations. Trained for minimalist, cinematic, editorial, dark-tech, luxury, cultural, security, gaming, developer-tool, and consumer-app brand systems. Optimized for intentional logo concepting, refined composition, sparse typography, strong symbolic meaning, premium mockups, a...
+  - Bundled resources: 2 files, 19,780 bytes
+- **canvas-design** — `skills/ui-ux-design/canvas-design/SKILL.md`
+  - Source: `anthropic-skills/skills/canvas-design/SKILL.md`
+  - Purpose: Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.
+  - Bundled resources: 84 files, 5,554,752 bytes
+- **design-taste-frontend** — `skills/ui-ux-design/design-taste-frontend/SKILL.md`
+  - Source: `taste-skill/skills/taste-skill/SKILL.md`
+  - Purpose: tasteskill v2, the anti-slop frontend skill. Art direction for websites, distilled from a study of 247 curated gallery sites (One Page Love, Awwwards Sites of the Day). Deals researched directions (idea, composition, type, palette, photographs, section blueprints) from a library, enforces a strict no-slop house style with a real-browser inspector, and runs a look-and-fix loop on screenshots. Use this whenever you...
+  - Bundled resources: 30 files, 1,746,027 bytes
+- **design-taste-frontend-v1** — `skills/ui-ux-design/design-taste-frontend-v1/SKILL.md`
+  - Source: `taste-skill/skills/taste-skill-v1/SKILL.md`
+  - Purpose: The original v1 taste-skill, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2), which is a new skill. Use this v1 install name only if you need exact backward compatibility.
+  - Bundled resources: 2 files, 21,933 bytes
+- **design-taste-frontend-v2-experimental** — `skills/ui-ux-design/design-taste-frontend-v2-experimental/SKILL.md`
+  - Source: `taste-skill/skills/taste-skill-v2-experimental/SKILL.md`
+  - Purpose: Old v2 (experimental) of taste-skill, the single-file dial-driven version, preserved for projects depending on its exact behavior. The current default is `design-taste-frontend` (v2). Use this install name only if you need the earlier behavior. Anti-slop frontend rules for landing pages, portfolios, and redesigns, with real design systems when applicable, audit-first redesigns and a strict pre-flight check.
+  - Bundled resources: 2 files, 90,435 bytes
+- **figma** — `skills/ui-ux-design/figma/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma/SKILL.md`
+  - Purpose: Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.
+  - Bundled resources: 9 files, 13,447 bytes
+- **figma-code-connect-components** — `skills/ui-ux-design/figma-code-connect-components/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-code-connect-components/SKILL.md`
+  - Purpose: Connects Figma design components to code components using Code Connect mapping tools. Use when user says "code connect", "connect this component to code", "map this component", "link component to code", "create code connect mapping", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.
+  - Bundled resources: 9 files, 22,738 bytes
+- **figma-create-design-system-rules** — `skills/ui-ux-design/figma-create-design-system-rules/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-create-design-system-rules/SKILL.md`
+  - Purpose: Generates custom design system rules for the user's codebase. Use when user says "create design system rules", "generate rules for my project", "set up design rules", "customize design system guidelines", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.
+  - Bundled resources: 9 files, 23,912 bytes
+- **figma-create-new-file** — `skills/ui-ux-design/figma-create-new-file/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-create-new-file/SKILL.md`
+  - Purpose: Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)
+  - Bundled resources: 8 files, 7,853 bytes
+- **figma-generate-design** — `skills/ui-ux-design/figma-generate-design/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-generate-design/SKILL.md`
+  - Purpose: Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to buil...
+  - Bundled resources: 8 files, 25,326 bytes
+- **figma-generate-library** — `skills/ui-ux-design/figma-generate-library/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-generate-library/SKILL.md`
+  - Purpose: Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded t...
+  - Bundled resources: 24 files, 238,062 bytes
+- **figma-implement-design** — `skills/ui-ux-design/figma-implement-design/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-implement-design/SKILL.md`
+  - Purpose: Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions "implement design", "generate code", "implement component", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.
+  - Bundled resources: 7 files, 16,752 bytes
+- **figma-use** — `skills/ui-ux-design/figma-use/SKILL.md`
+  - Source: `openai-skills/skills/.curated/figma-use/SKILL.md`
+  - Purpose: **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, buil...
+  - Bundled resources: 30 files, 643,358 bytes
+- **frontend-design** — `skills/ui-ux-design/frontend-design/SKILL.md`
+  - Source: `anthropic-skills/skills/frontend-design/SKILL.md`
+  - Purpose: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+  - Bundled resources: 3 files, 20,318 bytes
+- **full-output-enforcement** — `skills/ui-ux-design/full-output-enforcement/SKILL.md`
+  - Source: `taste-skill/skills/output-skill/SKILL.md`
+  - Purpose: Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.
+  - Bundled resources: 2 files, 3,349 bytes
+- **gpt-taste** — `skills/ui-ux-design/gpt-taste/SKILL.md`
+  - Source: `taste-skill/skills/gpt-tasteskill/SKILL.md`
+  - Purpose: Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layout variance, strict AIDA page structure, wide editorial typography (bans 6-line wraps), gapless bento grids, strict GSAP ScrollTriggers (pinning, stacking, scrubbing), inline micro-images, and massive section spacing.
+  - Bundled resources: 2 files, 9,115 bytes
+- **high-end-visual-design** — `skills/ui-ux-design/high-end-visual-design/SKILL.md`
+  - Source: `taste-skill/skills/soft-skill/SKILL.md`
+  - Purpose: Teaches the AI to design like a high-end agency. Defines the exact fonts, spacing, shadows, card structures, and animations that make a website feel expensive. Blocks all the common defaults that make AI designs look cheap or generic.
+  - Bundled resources: 2 files, 11,314 bytes
+- **image-to-code** — `skills/ui-ux-design/image-to-code/SKILL.md`
+  - Source: `taste-skill/skills/image-to-code-skill/SKILL.md`
+  - Purpose: Elite website image-to-code skill for Codex. For visually important web tasks, it must first generate the design image(s) itself, deeply analyze them, then implement the website to match them as closely as possible. In Codex, it must prefer large, readable, section-specific images instead of tiny compressed boards, generate fresh standalone images for sections or detail views instead of cropping old ones, avoid la...
+  - Bundled resources: 2 files, 37,186 bytes
+- **imagegen-frontend-mobile** — `skills/ui-ux-design/imagegen-frontend-mobile/SKILL.md`
+  - Source: `taste-skill/skills/imagegen-frontend-mobile/SKILL.md`
+  - Purpose: Elite mobile app image-generation skill for creating premium, app-native screen concepts and flows. Designed for iOS, Android, and cross-platform mobile products. Prioritizes clean hierarchy, comfortably readable text, strong multi-screen consistency, controlled color palettes, non-generic creative direction, textured surfaces, image-led composition, tasteful custom iconography, and clean phone mockup framing. By...
+  - Bundled resources: 2 files, 41,097 bytes
+- **imagegen-frontend-web** — `skills/ui-ux-design/imagegen-frontend-web/SKILL.md`
+  - Source: `taste-skill/skills/imagegen-frontend-web/SKILL.md`
+  - Purpose: Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant...
+  - Bundled resources: 2 files, 37,616 bytes
+- **impeccable** — `skills/ui-ux-design/impeccable/SKILL.md`
+  - Source: `impeccable/.agents/skills/impeccable/SKILL.md`
+  - Purpose: Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, animate, or otherwise improve a frontend interface: websites, landing pages, dashboards, product UI, components, forms, settings, onboarding, empty states, and native iOS or Android screens. Handles UX review, hierarchy, layout, typography, color, motion, UX copy, accessibility, responsive behavior, edge cases, and captu...
+  - Bundled resources: 63 files, 2,229,429 bytes
+- **industrial-brutalist-ui** — `skills/ui-ux-design/industrial-brutalist-ui/SKILL.md`
+  - Source: `taste-skill/skills/brutalist-skill/SKILL.md`
+  - Purpose: Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.
+  - Bundled resources: 2 files, 9,216 bytes
+- **minimalist-ui** — `skills/ui-ux-design/minimalist-ui/SKILL.md`
+  - Source: `taste-skill/skills/minimalist-skill/SKILL.md`
+  - Purpose: Clean editorial-style interfaces. Warm monochrome palette, typographic contrast, flat bento grids, muted pastels. No gradients, no heavy shadows.
+  - Bundled resources: 2 files, 8,953 bytes
+- **modern-web-design** — `skills/ui-ux-design/modern-web-design/SKILL.md`
+  - Source: `claudedesignskills/.claude/skills/modern-web-design/SKILL.md`
+  - Purpose: Modern web design trends, principles, and implementation patterns for 2024-2025. Use this skill when designing websites, creating interactive experiences, implementing design systems, ensuring accessibility, or building performance-first interfaces. Triggers on tasks involving modern design trends, micro-interactions, scrollytelling, bold minimalism, cursor UX, glassmorphism, accessibility compliance, performance...
+  - Bundled resources: 9 files, 155,346 bytes
+- **redesign-existing-projects** — `skills/ui-ux-design/redesign-existing-projects/SKILL.md`
+  - Source: `taste-skill/skills/redesign-skill/SKILL.md`
+  - Purpose: Upgrades existing websites and apps to premium quality. Audits current design, identifies generic AI patterns, and applies high-end design standards without breaking functionality. Works with any CSS framework or vanilla CSS.
+  - Bundled resources: 2 files, 17,032 bytes
+- **stitch-design-taste** — `skills/ui-ux-design/stitch-design-taste/SKILL.md`
+  - Source: `taste-skill/skills/stitch-skill/SKILL.md`
+  - Purpose: Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance.
+  - Bundled resources: 3 files, 24,653 bytes
+- **theme-factory** — `skills/ui-ux-design/theme-factory/SKILL.md`
+  - Source: `anthropic-skills/skills/theme-factory/SKILL.md`
+  - Purpose: Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.
+  - Bundled resources: 14 files, 144,843 bytes
