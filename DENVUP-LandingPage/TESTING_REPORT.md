@@ -16,14 +16,14 @@ npx tsc --noEmit
 npx vitest run
 ```
 
-**Result: 5 test files, 37 tests, 37 passed.**
+**Result: 5 test files, 38 tests, 38 passed.**
 
 | File | Tests | What is actually checked |
 | --- | --- | --- |
 | `src/tests/render.test.ts` | 10 | One `h1` and `main`; skip link; unique ids; resolving `aria-labelledby` / `aria-describedby` / `aria-controls`; alt text and accessible names; 21 lab shells each with stage, modes and "I want this"; 480 coverage rows; business details, three prices and contact encodings; no third-party script/font host; no placeholder copy; one claim per demo id. |
 | `src/tests/facts.test.ts` | 6 | Exact identity, email, both phone numbers (display, E.164, WhatsApp), four names; one source of truth for 15,000 / 20,000 / 50,000; single-encoded `wa.me` message with newlines; pricing note says "starting" and "third-party"; no superlative claims. |
 | `src/tests/content.test.ts` | 9 | No lorem/TODO/placeholder; no invented years, project counts, clients, awards or ratings; every showcase piece labelled a concept; six service slugs with complete deep-dive fields; Discovery→Launch order; technologies; FAQ substance and uniqueness; chapter ids unique, no `experience`; prices and contact details absent from renderers. |
-| `src/tests/labs.test.ts` | 5 | 21 labs and ≥140 modes with names, summaries and markup or init; technique ids in range; no repeated id inside a lab and no id claimed by more than two modes; interaction notes for every mode and a touch note for hover demos; every demo mounts and tears down without throwing, including reduced-motion + coarse-pointer. |
+| `src/tests/labs.test.ts` | 6 | 21 labs and ≥140 modes with names, summaries and markup or init; technique ids in range; no repeated id inside a lab and no id claimed by more than two modes; interaction notes for every mode and a touch note for hover demos; every demo mounts and tears down without throwing, including reduced-motion + coarse-pointer; after mounting and destroying all 148 modes, the stage is empty and the document contains no leftover `<dialog>`. |
 | `src/tests/forms.test.ts` | 7 | Estimator starts at 15,000, recalculates to 50,000 and 59,000, sums extras to 31,000 and carries the summary into the enquiry; empty submission lists five fields and says nothing was sent; no endpoint produces "Nothing was sent" + "no server endpoint" and working mailto/`wa.me`/`tel:` links; honeypot rejection; FAQ filter and clear. |
 
 The canvas stub in `src/tests/setup.ts` provides a 2D context proxy so canvas demos genuinely execute their init paths in jsdom.
@@ -83,6 +83,6 @@ The 45 blocked techniques each carry a verified reason and a closest safe altern
 
 1. 70 techniques remain Planned (see §5); closing them requires real 3D models, video/audio assets or backend routes.
 2. `section-head__eyebrow` and `service-card__index` markup survives from earlier passes and conflicts with the written house rule; it is restyled small but should be removed or given a real function.
-3. Team profile dialogs are cloned into `<body>` by the client; the lab-stage teardown does not remove body-level dialogs created by two demos (`access`, `collections`). In-page use is unaffected, but repeated lab switching could accumulate hidden dialogs.
+3. ~~Lab-stage teardown leaks body-level dialogs from `access` / `collections`.~~ **Checked on 19 October 2026: does not reproduce.** A regression test now mounts and destroys every mode and asserts the stage is empty and the document's `<dialog>` count is unchanged. The earlier note described an older prototype; the current demos keep their dialogs inside the stage. The test remains as the guard.
 4. Service worker / offline behaviour is not implemented; the manifest and icons exist only for install metadata.
 5. No automated visual regression baseline exists.

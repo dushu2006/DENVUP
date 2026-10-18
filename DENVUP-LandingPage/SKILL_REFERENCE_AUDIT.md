@@ -1,26 +1,53 @@
 # Skill reference audit
 
-Every entry below was read from `AI_Skills_Pack/` before the named work. Paths are relative to the repository root. No skill file was modified, generated into, renamed or moved.
+This file is the running consultation log for the DENVUP site. It is written **before** each action and completed **after** validation. No entry is added for a skill that was not opened in this workspace.
 
-Skills that were not read are not listed. Where no relevant skill existed, the decision is recorded in `IMPLEMENTATION_NOTES.md` rather than invented here.
+Protocol followed for every action:
 
-| Skill file read | Guidance taken | Where it was applied | How it was checked |
-| --- | --- | --- | --- |
-| `AI_Skills_Pack/AI_WORKFLOW.md` | Work order: audit → skills → research → IA → build → test → report; keep a written audit trail. | Order of work, this file, the coverage matrix and the testing report. | `git status` shows `AI_Skills_Pack/` unchanged; this table names only files actually opened. |
-| `AI_Skills_Pack/TASK-PROMPT.md` | Deliver a complete site, not a hero; every technique must be accounted for; no fabricated credibility. | Scope decisions, honest block list, "concept, not client work" labels. | `src/tests/content.test.ts` rejects placeholder copy and unverifiable claims. |
-| `AI_Skills_Pack/SKILL-INDEX.md` | Which skill covers layout, motion, 3D, testing. | Selection of the skills below. | Each selected path exists and was read. |
-| `AI_Skills_Pack/skills/webapp-testing/SKILL.md` | Test real states and failure paths, not only the happy path. | Form failure states, lab mount/teardown tests, coverage claims limited to what a check exercises. | `npx vitest run` — 37 tests. |
-| `AI_Skills_Pack/skills/playwright/SKILL.md` | Browser testing would be the correct final verification. | Planned verification only; no browser can be installed in this environment. | Recorded as **not run** in `TESTING_REPORT.md`; no Playwright dependency was added. |
-| `AI_Skills_Pack/skills/design-taste-frontend/SKILL.md` | Restraint, hierarchy, one idea per section, avoid decorative noise. | Chapter rhythm, type scale, limited palette, no card grids everywhere. | Manual review against the house rules in `IMPLEMENTATION_NOTES.md`. |
-| `AI_Skills_Pack/skills/impeccable/SKILL.md` | Craft at the detail level: spacing, alignment, states, copy tone. | Buttons, focus states, footer, empty states, copy. | Visual verification is limited by the missing browser; source review completed. |
-| `AI_Skills_Pack/skills/gsap-scrolltrigger/SKILL.md` | Pin sections with `ScrollTrigger`, scrub progress, always provide a reduced-motion branch, always clean up. | `src/client/motion.ts`: gate pin, horizontal rails, process line, section relays. | `tsc --noEmit`; reduced-motion branch reviewed; cleanup via `gsap.context()` — not exercised in a browser. |
-| `AI_Skills_Pack/skills/threejs-webgl/SKILL.md` | Use WebGL only with a real asset, a fallback and context-loss handling. | Decision **not** to ship a Three.js scene without models; CSS 3D and Canvas 2D used instead. | Documented in `IMPLEMENTATION_NOTES.md`; blocked techniques list the closest alternative. |
-| `AI_Skills_Pack/skills/lightweight-3d-effects/SKILL.md` | Prefer CSS 3D/2D projection when the effect can be achieved without a 3D engine. | Depth scene, card tilt, isometric plate, orbiting points. | Labs mount in jsdom; no WebGL context is required. |
-| `AI_Skills_Pack/skills/frontend-design/SKILL.md` | Semantic structure, readable type, deliberate responsive behaviour. | Section markup, heading order, `clamp()` scales, breakpoints. | `html-validate` passes; render tests assert one `h1`, labelled controls and unique ids. |
-| `AI_Skills_Pack/skills/high-end-visual-design/SKILL.md` | Art direction over decoration: a strong field colour, editorial type, one signature motion. | Orange/ink chapter system, oversized display type, opening sequence. | Source review; visual confirmation pending a browser. |
-| `AI_Skills_Pack/skills/modern-web-design/SKILL.md` | Native scrolling, accessible motion, performance budgets. | No scroll smoothing library; no scroll hijack; lazy lab mounting; `content-visibility` and capped canvases. | Build sizes and lab mount tests; no runtime profiling available. |
+1. state the action;
+2. locate the skill in `AI_Skills_Pack/skills/` (never guess a path);
+3. open and read the actual `SKILL.md` and any required references;
+4. record the guidance and its application here, before the change;
+5. perform the change;
+6. validate it;
+7. complete the row with the real result.
 
-## What this audit does not claim
+`AI_Skills_Pack/` is read-only. `git status --short -- AI_Skills_Pack` is the check used to prove it.
 
-- No skill was consulted for the logo pipeline beyond the asset rules in the brief; the pipeline is documented in `scripts/build-brand-assets.mjs` and `ASSETS.md`.
-- The Playwright skill was read, but Playwright was never installed or run. No browser test is claimed anywhere in this repository.
+---
+
+## Running log
+
+| Action | Planned action | Skill files opened (repository-relative) | Consultation evidence | Application | Execution result | Validation |
+| --- | --- | --- | --- | --- | --- | --- |
+| A0 | Initial repo audit, research, IA, full site build and test pass (completed before this log existed). | `AI_Skills_Pack/AI_WORKFLOW.md`; `AI_Skills_Pack/TASK-PROMPT.md`; `AI_Skills_Pack/SKILL-INDEX.md`; `skills/testing-quality-security/webapp-testing/SKILL.md`; `skills/testing-quality-security/playwright/SKILL.md`; `skills/ui-ux-design/design-taste-frontend/SKILL.md`; `skills/ui-ux-design/impeccable/SKILL.md`; `skills/ui-ux-design/high-end-visual-design/SKILL.md`; `skills/ui-ux-design/frontend-design/SKILL.md`; `skills/ui-ux-design/modern-web-design/SKILL.md`; `skills/3d-motion-creative/gsap-scrolltrigger/SKILL.md`; `skills/3d-motion-creative/threejs-webgl/SKILL.md`; `skills/3d-motion-creative/lightweight-3d-effects/SKILL.md` | **Reconstructed entry.** Recorded from the build session; every listed path was verified to exist afterwards. Guidance used: audit before building; test real failure states; pin/scrub with cleanup and reduced-motion branches; do not ship WebGL without assets and fallbacks; native scrolling; semantic structure. | Produced the page, 21 labs, coverage map, tests and documentation. | `npx tsc --noEmit` exit 0; `npx vitest run` 37/37; build exit 0; `html-validate` exit 0. No browser available. |
+| A1 | Re-baseline this audit as the mandated running log; no site code change. | `AI_Skills_Pack/AI_WORKFLOW.md`; `AI_Skills_Pack/skills/engineering-workflow/writing-for-agents/SKILL.md` | `AI_WORKFLOW.md`: read the actual `SKILL.md` for each selected skill; report files changed, checks and known limitations. `writing-for-agents`: steps need a checkable completion criterion; one meaning in one place; disclose reference behind pointers instead of sprawling; state the positive target. | Replaced the prose audit with a per-action log (planned action → skills → evidence → application → result → validation) plus a compact reference register. No skill file touched. | This file rewritten. | `grep` confirms every required column exists; `git status --short -- AI_Skills_Pack` returns 0 lines. |
+| A2 | Verify the recorded “body-level dialog leak” from the lab stage; add a regression guard; correct the report if it does not reproduce. | `AI_Skills_Pack/skills/testing-quality-security/diagnosing-bugs/SKILL.md`; `AI_Skills_Pack/skills/testing-quality-security/webapp-testing/SKILL.md` | `diagnosing-bugs`: Phase 1 requires a **red-capable** loop that drives the exact symptom before any hypothesis; a green loop means the bug is not reproduced. `webapp-testing`: inspect the rendered DOM and assert on real state, not on assumptions. | Wrote a jsdom test that mounts and destroys all 148 modes, then asserts the stage is empty and the document `<dialog>` count is unchanged. Expected red; got **green**, so no code “fix” was invented. Corrected `TESTING_REPORT.md` §7.3 to say the claim does not reproduce and kept the test as a guard. | Added one test to `src/tests/labs.test.ts`; edited only the test and `TESTING_REPORT.md`. No production code changed. | `npx tsc --noEmit` exit 0; `npx vitest run` **38/38** passing; the new test fails if a demo leaves a node or dialog behind. |
+
+---
+
+## Reference register
+
+Only skills actually opened are listed. Paths are relative to the repository root.
+
+| Skill | What was taken from it | Where it influenced the build |
+| --- | --- | --- |
+| `AI_Skills_Pack/AI_WORKFLOW.md` | Audit → skill selection → implementation → verification → honest completion note; no skill claimed unless read. | The whole work order and this log. |
+| `AI_Skills_Pack/TASK-PROMPT.md` | Complete working site, every technique accounted for, no fabricated credibility. | Scope, block list, “concept, not client work” labels. |
+| `AI_Skills_Pack/SKILL-INDEX.md` | Real category paths for UI/UX, motion, testing and workflow skills. | Location of every skill below. |
+| `skills/testing-quality-security/webapp-testing/SKILL.md` | Exercise failure states and real user paths, not only the happy path. | Enquiry failure path, lab mount/teardown tests, FAQ filter. |
+| `skills/testing-quality-security/playwright/SKILL.md` | Browser automation would be the correct final check. | Not run: no browser installable. Recorded as unverified, never claimed. |
+| `skills/ui-ux-design/design-taste-frontend/SKILL.md` | Restraint, hierarchy, one idea per section, avoid decorative noise. | Chapter rhythm, type scale, palette discipline. |
+| `skills/ui-ux-design/impeccable/SKILL.md` | Detail-level craft: spacing, alignment, states, copy tone. | Buttons, focus states, empty states, footer. |
+| `skills/ui-ux-design/high-end-visual-design/SKILL.md` | Art direction over decoration; one signature motion. | Orange/ink chapter system, oversized display type, opening. |
+| `skills/ui-ux-design/frontend-design/SKILL.md` | Semantic structure, readable type, deliberate responsive behaviour. | Section markup, heading order, `clamp()` scale. |
+| `skills/ui-ux-design/modern-web-design/SKILL.md` | Native scrolling, accessible motion, performance budgets. | No scroll-jacking, lazy lab mounting, capped canvases. |
+| `skills/3d-motion-creative/gsap-scrolltrigger/SKILL.md` | Pin/scrub with cleanup, reduced-motion branch, no hijack. | Gate pin, horizontal rails, process line. |
+| `skills/3d-motion-creative/threejs-webgl/SKILL.md` | WebGL only with real assets, fallback and context-loss handling. | Decision not to ship Three.js; blocked 3D rows name alternatives. |
+| `skills/3d-motion-creative/lightweight-3d-effects/SKILL.md` | Prefer CSS 3D/2D projection when an engine is not required. | Depth scene, tilt cards, isometric plate, orbit. |
+
+## What this log does not claim
+
+- No browser test exists. Playwright was read but never installed or run.
+- A0 is explicitly marked reconstructed; it is not presented as a contemporary live log.
+- Skill files are reference material only; nothing in `AI_Skills_Pack/` was written, moved or renamed.

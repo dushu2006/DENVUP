@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { labEntries, labs } from '../labs/registry';
 import type { LabContext } from '../labs/types';
+import { mountStage } from '../client/stage';
 
 function makeContext(stage: HTMLElement, cleanups: Array<() => void>): LabContext {
   return {
@@ -102,5 +103,24 @@ describe('every demo mounts', () => {
 
   it('still initialises with reduced motion and a coarse pointer', () => {
     expect(mount(true, true)).toEqual([]);
+  });
+});
+
+describe('stage teardown', () => {
+  it('leaves no dialog or demo node in the document after destroy', () => {
+    const before = document.body.querySelectorAll('dialog').length;
+    const stage = document.createElement('div');
+    document.body.append(stage);
+    const leaks: string[] = [];
+
+    labEntries.forEach(({ lab, mode }) => {
+      const mounted = mountStage(stage, mode, { reduced: true, touch: true });
+      mounted.destroy();
+      if (stage.childElementCount !== 0) leaks.push(`${lab.slug} / ${mode.name}: stage not cleared`);
+    });
+
+    const after = document.body.querySelectorAll('dialog').length;
+    stage.remove();
+    expect({ before, after, leaks }).toEqual({ before, after: before, leaks: [] });
   });
 });
