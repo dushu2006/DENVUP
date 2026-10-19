@@ -75,10 +75,11 @@
     <span class="cursor__label" data-cursor-label></span>
   </div>
   <main id="main" tabindex="-1" data-route-main>
-    <section id="prelude" class="prelude" data-chapter="prelude" data-theme="paper" aria-labelledby="prelude-title" data-handoff="flood" data-cover="paper">
+    <section id="prelude" class="prelude prelude--choreo" data-chapter="prelude" data-theme="paper" aria-labelledby="prelude-title" data-handoff="flood" data-cover="paper">
     <h1 class="sr-only" id="prelude-title">DENVUP — a digital studio for websites, interfaces and interactive experiences</h1>
-    <div class="prelude__inner">
-      <ol class="prelude__beats"><li class="beat" data-beat="1">
+    <div class="prelude__pin">
+      <div class="prelude__beats-wrap">
+        <ol class="prelude__beats"><li class="beat" data-beat="1">
         <p class="beat__lead">Most websites are documents.</p>
         <p class="beat__line" data-beat-line>A few are places you remember arriving at.</p>
         <p class="beat__aside">DENVUP — a digital studio</p>
@@ -91,14 +92,15 @@
         <p class="beat__line" data-beat-line>Four people. Websites, interfaces and interactive experiences.</p>
         <p class="beat__aside">Scroll to open the den</p>
       </li></ol>
-      <div class="prelude__foot">
-        <span class="prelude__square" aria-hidden="true"></span>
-        <p>Keep scrolling — The den is opening</p>
-        <a class="prelude__jump" href="#hero">Start with the studio <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15M6 13l6 6 6-6"/></svg></a>
+        <p class="prelude__hint"><span aria-hidden="true">↓</span> Keep scrolling. The page opens.</p>
+      </div>
+      <div class="flood" data-flood data-cursor-label="the page opens" aria-hidden="true">
+        <span class="flood__edge"></span>
+        <span class="flood__label">The page opens</span>
       </div>
     </div>
   </section>
-  <section id="hero" class="hero" data-chapter="hero" data-theme="orange" aria-labelledby="hero-title" data-handoff="curtain" data-cover="paper">
+  <section id="hero" class="hero" data-chapter="hero" data-theme="orange" aria-labelledby="hero-title" data-handoff="none" data-cover="paper">
     <div class="hero__grain" aria-hidden="true"></div>
     <div class="hero__inner">
       <div class="hero__copy">
@@ -166,211 +168,195 @@
       <figcaption>The studio, in one line</figcaption>
     </figure>
   </section>
-  <section id="services" class="services" data-chapter="services" data-theme="paper" aria-labelledby="services-title" data-handoff="scale" data-cover="ink">
-    <div class="services__pin" data-horizontal data-horizontal-min="900">
-      <div class="services__head">
-        <header class="section-head section-head--start">
-    <h2 class="section-head__title" id="services-title">Six ways we make the web<br>do something.</h2>
-    <p class="section-head__lede">Start with the outcome you need. Every service is delivered by the same four people, with the same standard for motion, speed and access.</p>
-    
-  </header>
-        <p class="rail-hint">Scroll to move sideways <span aria-hidden="true">→</span></p>
+  <section id="services" class="services services--selector" data-chapter="services" data-theme="paper" aria-labelledby="services-title" data-handoff="scale" data-cover="ink">
+    <div class="services__inner">
+      <header class="services__head">
+        <h2 id="services-title">Five ways in.</h2>
+        <p>Choose a service and the page changes around it. Every price below is a published starting point, not a quotation.</p>
+      </header>
+      <div class="selector" data-svc-selector>
+        <ol class="svc-rows" aria-label="Services"><li class="svc-row" style="--i:0">
+        <button class="svc-row__btn" type="button" data-svc-tab="web-design" aria-pressed="true" aria-controls="svc-stage">
+          <span class="svc-row__num" aria-hidden="true">01</span>
+          <span class="svc-row__name">Web design and development</span>
+          <span class="svc-row__price">₹20,000</span>
+        </button>
+      </li><li class="svc-row" style="--i:1">
+        <button class="svc-row__btn" type="button" data-svc-tab="ai-solutions" aria-pressed="false" aria-controls="svc-stage">
+          <span class="svc-row__num" aria-hidden="true">02</span>
+          <span class="svc-row__name">AI-powered solutions</span>
+          <span class="svc-row__price">₹50,000</span>
+        </button>
+      </li><li class="svc-row" style="--i:2">
+        <button class="svc-row__btn" type="button" data-svc-tab="integrations" aria-pressed="false" aria-controls="svc-stage">
+          <span class="svc-row__num" aria-hidden="true">03</span>
+          <span class="svc-row__name">Business integrations</span>
+          <span class="svc-row__price">₹50,000</span>
+        </button>
+      </li><li class="svc-row" style="--i:3">
+        <button class="svc-row__btn" type="button" data-svc-tab="interactive" aria-pressed="false" aria-controls="svc-stage">
+          <span class="svc-row__num" aria-hidden="true">04</span>
+          <span class="svc-row__name">Creative and interactive experiences</span>
+          <span class="svc-row__price">₹50,000</span>
+        </button>
+      </li><li class="svc-row" style="--i:4">
+        <button class="svc-row__btn" type="button" data-svc-tab="automation" aria-pressed="false" aria-controls="svc-stage">
+          <span class="svc-row__num" aria-hidden="true">05</span>
+          <span class="svc-row__name">Automation and business tools</span>
+          <span class="svc-row__price">₹20,000</span>
+        </button>
+      </li></ol>
+        <div class="svc-stage" id="svc-stage" data-svc-stage><article class="svc-panel" data-svc-panel="web-design" style="--i:0">
+    <p class="svc-panel__kicker">01 · Sites that hold attention and answer the question.</p>
+    <h3 class="svc-panel__name">Web design and development</h3>
+    <p class="svc-panel__tagline">The page is the product.</p>
+    <ul class="svc-panel__points"><li>A written page structure before any visual work</li><li>Design in the browser at three real widths, not a picture of a page</li><li>Hand-built responsive front end, semantic and keyboard-complete</li></ul>
+    <div class="svc-panel__foot">
+      <p class="svc-panel__price">From ₹20,000</p>
+      <a class="btn btn--line" href="/services/web-design"><span class="btn__label">Open the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+    </div>
+  </article><article class="svc-panel" data-svc-panel="ai-solutions" style="--i:1" hidden>
+    <p class="svc-panel__kicker">02 · Assistants and retrieval, built on your material, with the limits visible.</p>
+    <h3 class="svc-panel__name">AI-powered solutions</h3>
+    <p class="svc-panel__tagline">Useful, scoped, and honest about what it is.</p>
+    <ul class="svc-panel__points"><li>A document audit and a retrieval design, before any model choice</li><li>A scoped assistant with citations to the source passage</li><li>A refusal path and a written list of what it will not answer</li></ul>
+    <div class="svc-panel__foot">
+      <p class="svc-panel__price">From ₹50,000</p>
+      <a class="btn btn--line" href="/services/ai-solutions"><span class="btn__label">Open the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+    </div>
+  </article><article class="svc-panel" data-svc-panel="integrations" style="--i:2" hidden>
+    <p class="svc-panel__kicker">03 · The tools you already pay for, actually talking to each other.</p>
+    <h3 class="svc-panel__name">Business integrations</h3>
+    <p class="svc-panel__tagline">One source of truth, or none.</p>
+    <ul class="svc-panel__points"><li>A written data map: systems, owners, fields, frequency</li><li>The integration itself, with retries and a failure log</li><li>A human-readable error path: who is told, and what they do</li></ul>
+    <div class="svc-panel__foot">
+      <p class="svc-panel__price">From ₹50,000</p>
+      <a class="btn btn--line" href="/services/integrations"><span class="btn__label">Open the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+    </div>
+  </article><article class="svc-panel" data-svc-panel="interactive" style="--i:3" hidden>
+    <p class="svc-panel__kicker">04 · One idea, made physical: motion, sound and space that carry meaning.</p>
+    <h3 class="svc-panel__name">Creative and interactive experiences</h3>
+    <p class="svc-panel__tagline">Motion with a job.</p>
+    <ul class="svc-panel__points"><li>A concept with a one-sentence explanation of why it is interactive</li><li>A motion specification: trigger, duration, easing, reverse, mobile and reduced-motion behaviour</li><li>A hand-built scene or WebGL piece with a real performance budget</li></ul>
+    <div class="svc-panel__foot">
+      <p class="svc-panel__price">From ₹50,000</p>
+      <a class="btn btn--line" href="/services/interactive"><span class="btn__label">Open the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+    </div>
+  </article><article class="svc-panel" data-svc-panel="automation" style="--i:4" hidden>
+    <p class="svc-panel__kicker">05 · Small internal tools that remove a repeated job, not a whole team.</p>
+    <h3 class="svc-panel__name">Automation and business tools</h3>
+    <p class="svc-panel__tagline">Boring on purpose.</p>
+    <ul class="svc-panel__points"><li>A process map with the time cost of each step</li><li>The smallest working tool, with a manual override</li><li>A scheduled job with logging and a failure notification</li></ul>
+    <div class="svc-panel__foot">
+      <p class="svc-panel__price">From ₹20,000</p>
+      <a class="btn btn--line" href="/services/automation"><span class="btn__label">Open the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+    </div>
+  </article></div>
+        <div class="svc-arts" data-svc-arts><span class="svc-art" data-svc-art="web-design" aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="ai-solutions" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="integrations" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="interactive" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="automation" hidden aria-hidden="true"><i></i><b></b></span></div>
+        <span class="selector__highlight" data-svc-highlight aria-hidden="true"></span>
       </div>
-      <ol class="services__rail" data-rail aria-label="Services">
-        <li class="service-card" data-service-card data-theme="bone">
-        <a class="service-card__link" href="#service-websites">
-          <span class="service-card__index">S1</span>
-          <h3 class="service-card__title">Website design &amp; development</h3>
-          <p class="service-card__short">Sites that explain the business and survive a real launch.</p>
-          <span class="service-card__tags"><span>Sitemap</span><span>Art direction</span><span>Responsive build with real content</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li><li class="service-card" data-service-card data-theme="paper">
-        <a class="service-card__link" href="#service-ui-ux">
-          <span class="service-card__index">S2</span>
-          <h3 class="service-card__title">UI/UX design</h3>
-          <p class="service-card__short">Flows and interfaces for products that need to feel obvious.</p>
-          <span class="service-card__tags"><span>User flows</span><span>Wireframes</span><span>Interface design</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li><li class="service-card" data-service-card data-theme="ink">
-        <a class="service-card__link" href="#service-interactive">
-          <span class="service-card__index">S3</span>
-          <h3 class="service-card__title">Interactive experiences &amp; motion</h3>
-          <p class="service-card__short">Scroll stories, WebGL, cursor systems and motion with a reason.</p>
-          <span class="service-card__tags"><span>Motion direction</span><span>Interactive prototype of the signature moment</span><span>Custom canvas or WebGL scenes</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li><li class="service-card" data-service-card data-theme="bone">
-        <a class="service-card__link" href="#service-custom">
-          <span class="service-card__index">S4</span>
-          <h3 class="service-card__title">Custom digital solutions</h3>
-          <p class="service-card__short">The parts a template cannot do.</p>
-          <span class="service-card__tags"><span>Technical discovery</span><span>Data model</span><span>Interface design</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li><li class="service-card" data-service-card data-theme="paper">
-        <a class="service-card__link" href="#service-brand">
-          <span class="service-card__index">S5</span>
-          <h3 class="service-card__title">Brand &amp; art direction for the web</h3>
-          <p class="service-card__short">Identity systems that survive contact with a browser.</p>
-          <span class="service-card__tags"><span>Visual direction</span><span>Type</span><span>Motion principles</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li><li class="service-card" data-service-card data-theme="bone">
-        <a class="service-card__link" href="#service-care">
-          <span class="service-card__index">S6</span>
-          <h3 class="service-card__title">Care &amp; improvement</h3>
-          <p class="service-card__short">For sites that look fine but feel slow, fragile or unfinished.</p>
-          <span class="service-card__tags"><span>Performance</span><span>Prioritised fix list with effort levels</span><span>Implementation of the agreed fixes</span></span>
-          <span class="service-card__cta">Read the detail <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </li>
-      </ol>
-      <div class="rail-meter" aria-hidden="true"><span data-rail-meter></span></div>
+      <p class="services__all"><a href="/services">Compare all five, side by side <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></p>
     </div>
   </section>
-  <section id="services-deep" class="deep-dives" data-chapter="services-deep" data-theme="bone" aria-labelledby="deep-title" data-handoff="line" data-cover="paper">
-    <div class="deep-dives__head wrap">
-      <header class="section-head section-head--start">
-    <h2 class="section-head__title" id="deep-title">What each service actually includes.</h2>
-    <p class="section-head__lede">No mystery boxes. The deliverables and outcomes below are the scope we plan against; anything outside it gets its own written scope.</p>
-    
-  </header>
-    </div>
-    <div class="deep-dives__list"><article class="deepdive" id="service-websites" data-deepdive data-theme="bone" aria-labelledby="service-title-websites">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S1</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
+  <section id="services-deep" class="deep-dives deep-dives--pinned" data-chapter="services-deep" data-theme="bone" aria-labelledby="deep-title" data-handoff="line" data-cover="paper">
+    <div class="deep-dives__pin">
+      <header class="deep-dives__head">
+        <h2 id="deep-title">What each one actually includes.</h2>
+        <p>Scroll through. The figure stays and the detail changes — the same visual language carries each service, so the differences are in the content, not the decoration.</p>
+      </header>
+      <div class="dives" data-dives><article class="dive" data-dive="web-design" style="--i:0" aria-labelledby="dive-web-design">
+        <div class="dive__figure">
+          <div class="dive__screen" data-lab-host data-lab="type" data-mode="3" data-label="Web design and development">
+            <p class="dive__fallback">Weight as emphasis — one variable axis carrying the hierarchy.</p>
+          </div>
+          <p class="dive__caption">Weight as emphasis — one variable axis carrying the hierarchy. <span class="dive__ids">90, 91, 92</span></p>
+          <p class="dive__note">Illustration, not client work.</p>
         </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-websites">Website design &amp; development</h3>
-          <p class="deepdive__summary">Marketing sites, business sites and landing pages designed as one system, then built by the people who designed them. We start with what the site has to do, not with a template.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>Businesses with something to explain and a first impression to repair; founders who need a site to do actual work rather than exist.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>Sitemap, page roles and content plan</li><li>Art direction and page design</li><li>Responsive build with real content</li><li>Motion pass with reduced-motion version</li><li>Metadata, analytics and launch checklist</li><li>Handover documents and a walkthrough</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>A site that loads quickly and reads clearly on a phone</li><li>A design your team can extend without breaking it</li><li>One place to send every future enquiry</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">The section you are on is built from the same system we would hand you.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Website%20design%20%26%20development&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20Website%20design%20%26%20development" >
-    <span class="btn__label">Talk about website</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹20,000</span>
+        <div class="dive__body">
+          <p class="dive__kicker">01 / 05</p>
+          <h3 id="dive-web-design">Web design and development</h3>
+          <p class="dive__lead">A website is the only part of a business that every visitor meets in the same order. We design that order first: what the visitor needs to understand, what proves it, and what they should do next. Then we build it, in clean HTML, CSS and TypeScript, without a page builder in the middle.</p>
+          <ul class="dive__points"><li>A written page structure before any visual work</li><li>Design in the browser at three real widths, not a picture of a page</li><li>Hand-built responsive front end, semantic and keyboard-complete</li><li>Performance budget, accessibility pass and a launch checklist</li></ul>
+          <div class="dive__actions">
+            <a class="btn btn--solid" href="/services/web-design"><span class="btn__label">Read the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+            <p class="dive__price">From ₹20,000</p>
           </div>
         </div>
-      </article><article class="deepdive" id="service-ui-ux" data-deepdive data-theme="paper" aria-labelledby="service-title-ui-ux">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S2</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
+      </article><article class="dive" data-dive="ai-solutions" style="--i:1" aria-labelledby="dive-ai-solutions">
+        <div class="dive__figure">
+          <div class="dive__screen" data-lab-host data-lab="story" data-mode="2" data-label="AI-powered solutions">
+            <p class="dive__fallback">A flow with a bright path — an illustrated pipeline, not a live product.</p>
+          </div>
+          <p class="dive__caption">A flow with a bright path — an illustrated pipeline, not a live product. <span class="dive__ids">303, 304</span></p>
+          <p class="dive__note">Illustration, not client work.</p>
         </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-ui-ux">UI/UX design</h3>
-          <p class="deepdive__summary">Research, task mapping, prototypes and interface systems for products that have outgrown guesswork. We design the states people actually meet: empty, loading, wrong, slow and done.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>Product teams, internal tools, dashboards, booking flows and early-stage applications that need to make sense before they need more features.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>User flows and task maps</li><li>Wireframes and an interactive prototype</li><li>Interface design and component library</li><li>Design tokens and accessibility annotations</li><li>Build-ready specifications and states</li><li>Usability notes from a recorded test pass</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>Fewer support questions and shorter paths to the important action</li><li>A component language developers can implement once</li><li>Decisions written down, not trapped in a file</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">Every interactive control on this page has a focus, hover, active and disabled state designed.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20UI%2FUX%20design&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20UI%2FUX%20design" >
-    <span class="btn__label">Talk about ui/ux</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹50,000</span>
+        <div class="dive__body">
+          <p class="dive__kicker">02 / 05</p>
+          <h3 id="dive-ai-solutions">AI-powered solutions</h3>
+          <p class="dive__lead">Most “AI” on a website is a chat box wired to a general model with no knowledge of the business behind it. We build the opposite: a narrow assistant that answers from documents you supply, cites the passage it used, and says “I do not know” when the material does not cover the question.</p>
+          <ul class="dive__points"><li>A document audit and a retrieval design, before any model choice</li><li>A scoped assistant with citations to the source passage</li><li>A refusal path and a written list of what it will not answer</li><li>An evaluation set with real questions and expected answers</li></ul>
+          <div class="dive__actions">
+            <a class="btn btn--solid" href="/services/ai-solutions"><span class="btn__label">Read the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+            <p class="dive__price">From ₹50,000</p>
           </div>
         </div>
-      </article><article class="deepdive" id="service-interactive" data-deepdive data-theme="ink" aria-labelledby="service-title-interactive">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S3</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
+      </article><article class="dive" data-dive="integrations" style="--i:2" aria-labelledby="dive-integrations">
+        <div class="dive__figure">
+          <div class="dive__screen" data-lab-host data-lab="collections" data-mode="0" data-label="Business integrations">
+            <p class="dive__fallback">A grid with real filters — the same structure used for records.</p>
+          </div>
+          <p class="dive__caption">A grid with real filters — the same structure used for records. <span class="dive__ids">187, 188, 205</span></p>
+          <p class="dive__note">Illustration, not client work.</p>
         </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-interactive">Interactive experiences &amp; motion</h3>
-          <p class="deepdive__summary">The moments people describe to someone else: a product reveal that unfolds with the scroll, a WebGL scene that responds to the pointer, a typographic sequence with a pulse. Built with a performance budget and a way out for every device.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>Launches, campaigns, portfolios and brand moments where attention is the brief — and where the site still has to work on a mid-range phone.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>Motion direction and a written beat sheet</li><li>Interactive prototype of the signature moment</li><li>Custom canvas or WebGL scenes</li><li>Scroll choreography with native scrolling</li><li>Device fallbacks and reduced-motion design</li><li>Performance budget and measurement notes</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>A signature moment that belongs to your brand</li><li>Theatre without scroll hijacking</li><li>A version that still makes sense with animation off</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">This site’s opening and capability demos are built this way. Inspect freely.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Interactive%20experiences%20%26%20motion&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20Interactive%20experiences%20%26%20motion" >
-    <span class="btn__label">Talk about interactive</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹50,000</span>
+        <div class="dive__body">
+          <p class="dive__kicker">03 / 05</p>
+          <h3 id="dive-integrations">Business integrations</h3>
+          <p class="dive__lead">Most integration work is not glamorous: it is deciding which system owns a customer record, what happens when two of them disagree, and who is told when a sync fails. We map that first, then write the smallest service that keeps the data straight.</p>
+          <ul class="dive__points"><li>A written data map: systems, owners, fields, frequency</li><li>The integration itself, with retries and a failure log</li><li>A human-readable error path: who is told, and what they do</li><li>Credentials handled through environment configuration, never in the repository</li></ul>
+          <div class="dive__actions">
+            <a class="btn btn--solid" href="/services/integrations"><span class="btn__label">Read the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+            <p class="dive__price">From ₹50,000</p>
           </div>
         </div>
-      </article><article class="deepdive" id="service-custom" data-deepdive data-theme="bone" aria-labelledby="service-title-custom">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S4</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
+      </article><article class="dive" data-dive="interactive" style="--i:3" aria-labelledby="dive-interactive">
+        <div class="dive__figure">
+          <div class="dive__screen" data-lab-host data-lab="threed" data-mode="0" data-label="Creative and interactive experiences">
+            <p class="dive__fallback">A shader with a fallback — depth, with a designed still frame.</p>
+          </div>
+          <p class="dive__caption">A shader with a fallback — depth, with a designed still frame. <span class="dive__ids">236, 238</span></p>
+          <p class="dive__note">Illustration, not client work.</p>
         </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-custom">Custom digital solutions</h3>
-          <p class="deepdive__summary">Calculators, configurators, dashboards, directories and integrations. Small, well-scoped tools that remove a manual step or make a complicated offer legible.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>Operations teams, service businesses and founders with a specific workflow that has been living in a spreadsheet for too long.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>Technical discovery and a scoped specification</li><li>Data model and integration plan</li><li>Interface design and build</li><li>Third-party connections (payments, email, CRM, maps)</li><li>Test plan and edge-case review</li><li>Documentation and maintainable handover</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>One fewer spreadsheet and one fewer manual step</li><li>A tool someone other than its author can maintain</li><li>Clear costs for anything that bills per use</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">This site’s scope estimator, form handling and capability demos are small custom tools.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Custom%20digital%20solutions&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20Custom%20digital%20solutions" >
-    <span class="btn__label">Talk about custom</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹50,000</span>
+        <div class="dive__body">
+          <p class="dive__kicker">04 / 05</p>
+          <h3 id="dive-interactive">Creative and interactive experiences</h3>
+          <p class="dive__lead">An interactive piece earns its cost when the interaction is the explanation: a product you can take apart, a process you can walk through, a comparison you can drag. We design the idea first and the effect second, and we budget for the fallback at the same time as the effect.</p>
+          <ul class="dive__points"><li>A concept with a one-sentence explanation of why it is interactive</li><li>A motion specification: trigger, duration, easing, reverse, mobile and reduced-motion behaviour</li><li>A hand-built scene or WebGL piece with a real performance budget</li><li>Static and reduced-motion fallbacks that keep the meaning</li></ul>
+          <div class="dive__actions">
+            <a class="btn btn--solid" href="/services/interactive"><span class="btn__label">Read the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+            <p class="dive__price">From ₹50,000</p>
           </div>
         </div>
-      </article><article class="deepdive" id="service-brand" data-deepdive data-theme="paper" aria-labelledby="service-title-brand">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S5</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
-        </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-brand">Brand &amp; art direction for the web</h3>
-          <p class="deepdive__summary">Type, colour, motion and voice as one system, delivered as tokens and components rather than a PDF nobody opens. We work with an identity you have, or build the part of it the web needs.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>New brands, rebrands and teams whose visual identity stops at a logo file.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>Visual direction and references</li><li>Type and colour systems</li><li>Motion principles and easing tokens</li><li>Design tokens and component styling</li><li>Social and launch artwork</li><li>Usage notes for the next person</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>Consistency across pages without policing</li><li>A brand that moves the way it sounds</li><li>Assets your team can actually use</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">The chapter colours, type scale and motion rules on this page are a live token system.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Brand%20%26%20art%20direction%20for%20the%20web&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20Brand%20%26%20art%20direction%20for%20the%20web" >
-    <span class="btn__label">Talk about brand</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹50,000</span>
+      </article><article class="dive" data-dive="automation" style="--i:4" aria-labelledby="dive-automation">
+        <div class="dive__figure">
+          <div class="dive__screen" data-lab-host data-lab="process" data-mode="0" data-label="Automation and business tools">
+            <p class="dive__fallback">A line that connects — a workflow drawn so it can be questioned.</p>
           </div>
+          <p class="dive__caption">A line that connects — a workflow drawn so it can be questioned. <span class="dive__ids">326, 327</span></p>
+          <p class="dive__note">Illustration, not client work.</p>
         </div>
-      </article><article class="deepdive" id="service-care" data-deepdive data-theme="bone" aria-labelledby="service-title-care">
-        <div class="deepdive__aside">
-          <span class="deepdive__index">S6</span>
-          <span class="deepdive__rule" aria-hidden="true"></span>
-        </div>
-        <div class="deepdive__body">
-          <h3 class="deepdive__title" id="service-title-care">Care &amp; improvement</h3>
-          <p class="deepdive__summary">Audits and focused work on existing sites: speed, accessibility, mobile behaviour, conversion paths and the small broken things everyone has learned to live with.</p>
-          <dl class="deepdive__facts">
-            <div><dt>Who it is for</dt><dd>Sites that are already live and bring enquiries, but fail on phones, take too long to load or lock the team out of simple edits.</dd></div>
-            <div><dt>What you get</dt><dd><ul><li>Performance and accessibility audit</li><li>Prioritised fix list with effort levels</li><li>Implementation of the agreed fixes</li><li>Before-and-after measurements</li><li>Monitoring and handover</li><li>Optional monthly care arrangement</li></ul></dd></div>
-            <div><dt>What changes</dt><dd><ul><li>A faster first paint and a calmer phone experience</li><li>Accessibility issues closed in a documented way</li><li>A shorter path from landing to enquiry</li></ul></dd></div>
-          </dl>
-          <p class="deepdive__proof">Our own testing notes are published in TESTING_REPORT.md, including what failed.</p>
-          <div class="deepdive__actions">
-            <a class="btn btn--line" href="mailto:denvupforyou@gmail.com?subject=Project%20enquiry%20%E2%80%94%20Care%20%26%20improvement&amp;body=Hello%20DENVUP%20%E2%80%94%20I%20found%20your%20site%20and%20would%20like%20to%20talk%20about%20a%20project.%0A%0AWhat%20I%20am%20making%3A%20%0AWhat%20it%20needs%20to%20do%3A%20%0ATimeline%3A%20%0ABudget%20range%3A%20%0A%0AService%3A%20Care%20%26%20improvement" >
-    <span class="btn__label">Talk about care</span>
-    <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg></span>
-  </a>
-            <span class="deepdive__price">From ₹50,000</span>
+        <div class="dive__body">
+          <p class="dive__kicker">05 / 05</p>
+          <h3 id="dive-automation">Automation and business tools</h3>
+          <p class="dive__lead">The best automation is invisible: an invoice that files itself, a report that arrives on Monday, a form that creates the record and tells the right person. We build the smallest tool that removes the task, and we write down what happens when it breaks.</p>
+          <ul class="dive__points"><li>A process map with the time cost of each step</li><li>The smallest working tool, with a manual override</li><li>A scheduled job with logging and a failure notification</li><li>A written runbook in plain language</li></ul>
+          <div class="dive__actions">
+            <a class="btn btn--solid" href="/services/automation"><span class="btn__label">Read the detail</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+            <p class="dive__price">From ₹20,000</p>
           </div>
         </div>
       </article></div>
+      <ol class="dives__rail" data-dives-rail aria-label="Jump to a service"></ol>
+    </div>
   </section>
   <section id="capabilities" class="capabilities" data-chapter="capabilities" data-theme="ink" aria-labelledby="capabilities-title" data-handoff="plate" data-cover="bone">
     <div class="capabilities__head wrap">

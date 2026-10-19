@@ -38,7 +38,9 @@ function annotateHandoffs(html: string): string {
   );
   return withThemes.replace(/<section\b([^>]*?)data-chapter="([^"]+)"([^>]*)>/g, (tag, before: string, chapter: string, after: string) => {
     const theme = /data-theme="([^"]+)"/.exec(tag)?.[1] ?? 'paper';
-    const device = chapter === 'prelude' ? 'flood' : DEVICES[index % DEVICES.length];
+    // The hero is uncovered by the prelude's own flood, so it draws no second
+    // device. A device on both sides of one seam is two transitions, not one.
+    const device = chapter === 'prelude' ? 'flood' : chapter === 'hero' ? 'none' : DEVICES[index % DEVICES.length];
     const attrs = ` data-handoff="${device}" data-cover="${previous || theme}"`;
     previous = theme;
     index += 1;

@@ -3,11 +3,10 @@ import { services, serviceBySlug, legal, type ServicePage } from '../content/rou
 import { coverageRows, coverageSummary, statusOrder } from '../content/coverage-map';
 import { labs } from '../labs/registry';
 import { esc, icon } from './html';
+import { renderPreludeFlood, renderServicesSelector, renderDeepDives } from './home-chapters';
 import {
   renderHero,
   renderManifesto,
-  renderServices,
-  renderServiceDeepDives,
   renderCapabilities,
   renderProcess,
   renderTechnologies,
@@ -16,7 +15,6 @@ import {
   renderPricing,
   renderFaq,
   renderStandards,
-  renderPrelude,
 } from './sections';
 import { renderContact, renderClosing } from './forms';
 
@@ -83,11 +81,11 @@ function renderDemoChapter(): string {
 }
 
 export function homeBody(): string {
-  return `${renderPrelude()}
+  return `${renderPreludeFlood()}
   ${renderHero()}
   ${renderManifesto()}
-  ${renderServices()}
-  ${renderServiceDeepDives()}
+  ${renderServicesSelector()}
+  ${renderDeepDives()}
   ${renderCapabilities()}
   ${renderDemoChapter()}
   ${renderProcess()}

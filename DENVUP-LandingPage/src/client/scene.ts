@@ -108,6 +108,23 @@ function sceneAhead(): string {
     if (s.top <= mid) key = s.key;
     else break;
   }
+
+  /* The prelude's flood is the entrance to the hero. Once the box has grown
+     past about half the pin, the stage behind it must already be the orange it
+     is about to become — otherwise the last few centimetres of white show
+     through under the flood. This is the one place where a scroll-driven
+     element, not a section boundary, decides the scene. */
+  const flood = document.querySelector<HTMLElement>('.prelude--choreo');
+  if (flood) {
+    const top = flood.offsetTop;
+    const span = Math.max(1, flood.offsetHeight - window.innerHeight);
+    const p = (window.scrollY - top) / span;
+    // Only while the prelude is still under the viewport: past it, the hero's
+    // own scene takes over and must not be overridden.
+    const onScreen = window.scrollY < top + flood.offsetHeight;
+    if (p > 0.55 && onScreen) return 'orange';
+  }
+
   return key;
 }
 
