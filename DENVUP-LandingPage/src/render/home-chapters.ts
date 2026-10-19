@@ -91,10 +91,12 @@ export function renderServicesSelector(): string {
         <p>Choose a service and the page changes around it. Every price below is a published starting point, not a quotation.</p>
       </header>
       <div class="selector" data-svc-selector>
-        <ol class="svc-rows" aria-label="Services">${rows}</ol>
+        <div class="svc-rows-wrap">
+          <ol class="svc-rows" aria-label="Services">${rows}</ol>
+          <span class="selector__highlight" data-svc-highlight aria-hidden="true"></span>
+        </div>
         <div class="svc-stage" id="svc-stage" data-svc-stage>${panels}</div>
         <div class="svc-arts" data-svc-arts>${arts}</div>
-        <span class="selector__highlight" data-svc-highlight aria-hidden="true"></span>
       </div>
       <p class="services__all"><a href="/services">Compare all five, side by side ${icon('arrow-up-right')}</a></p>
     </div>

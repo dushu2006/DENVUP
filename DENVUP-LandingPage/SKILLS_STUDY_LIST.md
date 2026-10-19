@@ -33,12 +33,30 @@ This file answers three questions the brief asks for: **what exists, what was se
 | Selected as relevant | **62** |
 | **Fully read** (`SKILL.md` end to end) | **25** |
 | **Opened** to the decision depth (fraction stated) | **10** |
-| **Discovered only** (N/A or rejected, instructions not opened) | **17** |
+| **Blocked before reading** (tool absent, recorded with reason) | **11** |
+| **Discovered only** (N/A or rejected, instructions not opened) | **16** |
+| **Sum** | **62** |
 | Excluded at screening (outside this site's disciplines) | **217** |
 | Blocked by environment | **7 rows** (8 Figma skills, Blender, Substance, browser ×4) |
 | Supporting references reviewed | **25** files |
 | Scripts executed | **2** (`draw.mjs`, `lint.mjs`) |
 | Encyclopedia techniques | **480 / 480 inventoried**; see §5 for the build's current split |
+
+### 2.1 Reconciliation (corrected 19 October 2026)
+
+An earlier version of this table listed only three buckets and read **52**, which does not equal the 62 selected. The ten missing entries were the blocked skills: they were recorded in §3.4 but never added to the totals. Recounting by script from the tables below gives:
+
+| Bucket | Skills | Detail |
+| --- | --- | --- |
+| Fully read | 25 | §3.1 |
+| Opened to a stated fraction | 10 | §3.2 — none adopted; no code change rested on them |
+| Blocked before reading | 11 | 8 `figma*`, `blender-web-pipeline`, `substance-3d-texturing`, `screenshot` |
+| Discovered only | 16 | §3.3, minus the three that are also blocked |
+| **Total** | **62** | |
+
+The earlier “17 discovered only” counted `substance-3d-texturing`, `blender-web-pipeline` and `screenshot` twice — once as blocked, once as discovered. They are now counted once, as blocked.
+
+**Honest status of the ten opened skills.** They are *not* read end to end, and they are not marked as such anywhere. All ten are libraries the build does not use (React/Framer, PixiJS, R3F-class tooling, brand templating); each authorises no code and none is cited in `SKILL_REFERENCE_AUDIT.md` as the basis for a change. Completing an end-to-end read of those ten was **not done** in this pass; it is listed as outstanding rather than claimed. Every one of the 25 marked *Fully read* was read in this workspace from first line to last.
 
 A skill is marked **Fully read** only when the whole file was read in this workspace. Statuses below are identical to `UI_UX_SKILLS_INVENTORY.md` §3; that file carries the long-form summary of each skill.
 
@@ -73,7 +91,7 @@ A skill is marked **Fully read** only when the whole file was read in this works
 | `brand-guidelines`, `theme-factory` | `…/ui-ux-design/{brand-guidelines,theme-factory}/SKILL.md` | Rejected: another company's identity; preset palettes | **Fully read** (rejected) |
 | `gsap-scrolltrigger`, `threejs-webgl` | `…/3d-motion-creative/{gsap-scrolltrigger,threejs-webgl}/SKILL.md` | Pin/scrub semantics; one renderer, DPR cap, resize, dispose, context-loss handling. Libraries not shipped | **Fully read** (reference) |
 
-### 3.2 Opened to decision depth
+### 3.2 Opened to decision depth (not read end to end — nothing here authorises code)
 
 | Skill | Path | Fraction / sections read | Decision | Status |
 | --- | --- | --- | --- | --- |
@@ -88,7 +106,7 @@ A skill is marked **Fully read** only when the whole file was read in this works
 | `animated-component-libraries` | `…/ui-ux-design/animated-component-libraries/SKILL.md` | Overview, performance ≈120/824 | Not applicable (React) | Opened |
 | `brandkit` | `…/ui-ux-design/brandkit/SKILL.md` | Colour discipline ≈120/843 | Logos are supplied; not used | Opened |
 
-### 3.3 Discovered only (N/A or rejected, with reason)
+### 3.3 Discovered only (not opened; N/A or rejected, with reason)
 
 `design-taste-frontend-v1` (superseded), `design-taste-frontend-v2-experimental` (superseded), `locomotive-scroll` (rejected: changes scroll physics), `barba-js` (not applicable: static multi-page uses View Transitions), `react-spring-physics`, `react-three-fiber`, `spline-interactive`, `aframe-webxr`, `babylonjs-engine`, `playcanvas-engine`, `substance-3d-texturing`, `blender-web-pipeline` (blocked), `lottie-animations`, `rive-interactive`, `imagegen-frontend-mobile`, `web-artifacts-builder`, `screenshot` (blocked), `tdd`, `code-review`.
 

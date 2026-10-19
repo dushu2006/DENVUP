@@ -175,7 +175,8 @@
         <p>Choose a service and the page changes around it. Every price below is a published starting point, not a quotation.</p>
       </header>
       <div class="selector" data-svc-selector>
-        <ol class="svc-rows" aria-label="Services"><li class="svc-row" style="--i:0">
+        <div class="svc-rows-wrap">
+          <ol class="svc-rows" aria-label="Services"><li class="svc-row" style="--i:0">
         <button class="svc-row__btn" type="button" data-svc-tab="web-design" aria-pressed="true" aria-controls="svc-stage">
           <span class="svc-row__num" aria-hidden="true">01</span>
           <span class="svc-row__name">Web design and development</span>
@@ -206,6 +207,8 @@
           <span class="svc-row__price">₹20,000</span>
         </button>
       </li></ol>
+          <span class="selector__highlight" data-svc-highlight aria-hidden="true"></span>
+        </div>
         <div class="svc-stage" id="svc-stage" data-svc-stage><article class="svc-panel" data-svc-panel="web-design" style="--i:0">
     <p class="svc-panel__kicker">01 · Sites that hold attention and answer the question.</p>
     <h3 class="svc-panel__name">Web design and development</h3>
@@ -253,7 +256,6 @@
     </div>
   </article></div>
         <div class="svc-arts" data-svc-arts><span class="svc-art" data-svc-art="web-design" aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="ai-solutions" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="integrations" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="interactive" hidden aria-hidden="true"><i></i><b></b></span><span class="svc-art" data-svc-art="automation" hidden aria-hidden="true"><i></i><b></b></span></div>
-        <span class="selector__highlight" data-svc-highlight aria-hidden="true"></span>
       </div>
       <p class="services__all"><a href="/services">Compare all five, side by side <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></p>
     </div>

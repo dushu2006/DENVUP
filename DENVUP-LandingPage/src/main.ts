@@ -7,6 +7,7 @@ import { initScene, refreshScene } from './client/scene';
 import { initCursor } from './client/cursor';
 import { initRouter } from './client/router';
 import { initLabLibrary } from './client/lab-library';
+import { initSelector } from './client/selector';
 import { maybeIntro } from './client/intro';
 import { on, prefersReduced, reducedQuery, toast } from './client/env';
 
@@ -23,6 +24,7 @@ function mountContent(): void {
   initCapabilities();
   initEmbeds();
   initLabLibrary();
+  initSelector();
   refreshScene();
 }
 

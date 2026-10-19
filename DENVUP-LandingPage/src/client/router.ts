@@ -17,6 +17,7 @@ import { announce } from './env';
 const LOADING = 'is-routing';
 let controller: AbortController | null = null;
 let current = window.location.pathname;
+let pending = 0;
 const scrollMemory = new Map<string, number>();
 
 function reduced(): boolean {
@@ -27,8 +28,14 @@ export function supportsSoftNav(): boolean {
   return 'fetch' in window && 'DOMParser' in window && 'history' in window && 'pushState' in history;
 }
 
+/**
+ * A counter, not a boolean: two navigations can overlap (a click immediately
+ * followed by Back), and the first one aborting must not clear the indicator
+ * the second one still needs — nor leave it on for ever.
+ */
 function setLoading(on: boolean): void {
-  document.documentElement.classList.toggle(LOADING, on);
+  pending = Math.max(0, pending + (on ? 1 : -1));
+  document.documentElement.classList.toggle(LOADING, pending > 0);
 }
 
 function updateHead(next: Document): void {
@@ -102,10 +109,32 @@ async function swap(href: string, main: HTMLElement, next: Document, push: boole
     announce(`${next.title.replace(' — DENVUP', '')} page loaded`);
   };
 
-  const doc = document as Document & { startViewTransition?: (cb: () => void) => { finished: Promise<void> } };
+  const doc = document as Document & {
+    startViewTransition?: (cb: () => void) => { ready: Promise<void>; finished: Promise<void> };
+  };
+
+  /* The swap must never wait on an animation. In some environments the browser
+     defers the update callback (a background tab, a headless frame, a slow
+     first paint); here the callback is raced against a watchdog, and if the
+     animation has not started in time the DOM is updated directly and the
+     transition is abandoned. Content first, decoration second. */
   if (doc.startViewTransition && !reduced()) {
-    const transition = doc.startViewTransition(apply);
-    await transition.finished.catch(() => undefined);
+    let applied = false;
+    const once = () => {
+      if (applied) return;
+      applied = true;
+      apply();
+    };
+    const transition = doc.startViewTransition(once);
+    const watchdog = new Promise<'timeout'>((resolve) => window.setTimeout(() => resolve('timeout'), 220));
+    const outcome = await Promise.race([transition.ready.then(() => 'ready' as const).catch(() => 'failed' as const), watchdog]);
+    if (outcome !== 'ready') {
+      once();
+      transition.finished.catch(() => undefined);
+    } else {
+      await transition.finished.catch(() => undefined);
+      once();
+    }
   } else {
     apply();
   }
@@ -146,7 +175,7 @@ export async function navigate(href: string, options: { push?: boolean; restore?
     // Any failure means the visitor gets the real page, not a broken one.
     window.location.assign(href);
   } finally {
-    if (!signal.aborted) setLoading(false);
+    setLoading(false);
   }
 }
 

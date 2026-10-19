@@ -105,7 +105,7 @@ export function servicesIndexBody(): string {
     .map(
       (s, i) => `<li class="svc-card" data-ch-part="${i + 1}" style="--i:${i}">
         <a class="svc-card__link" href="/services/${s.slug}" data-service-card>
-          <div class="svc-card__art" data-svc-art="${s.slug}" aria-hidden="true"><span></span><i></i></div>
+          <div class="svc-card__art"><img class="svc-card__plate" src="/assets/plates/${s.slug}.svg" alt="" width="1200" height="900" loading="lazy" decoding="async"></div>
           <div class="svc-card__body">
             <h2 class="svc-card__name">${esc(s.name)}</h2>
             <p class="svc-card__short">${esc(s.short)}</p>
@@ -188,7 +188,10 @@ export function serviceDetailBody(slug: string): string {
         <p>From <strong>${inr(s.priceFrom)}</strong></p>
         <a class="btn btn--solid" href="/contact?subject=${encodeURIComponent(s.name)}"><span class="btn__label">Start a project</span><span class="btn__icon">${icon('arrow-up-right')}</span></a>
       </div>
-      <div class="svc-hero__art" data-svc-art="${s.slug}" aria-hidden="true"><span></span><i></i></div>
+      <figure class="svc-hero__art">
+        <img src="/assets/plates/${s.slug}.svg" alt="A geometric plate for ${esc(s.name)}: built from the studio grid, the oxide accent and the supplied mark’s geometry." width="1200" height="900">
+        <figcaption>Plate drawn for this page. Not client work.</figcaption>
+      </figure>
     </div>
   </section>
   <section class="route-section" data-ch="1" data-scene="${s.theme}" aria-labelledby="svc-what">

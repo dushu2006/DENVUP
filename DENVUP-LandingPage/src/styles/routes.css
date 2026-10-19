@@ -110,23 +110,15 @@ main[data-route-main] { overflow: clip; }
   overflow: hidden;
   background: color-mix(in srgb, var(--orange) 12%, transparent);
 }
-.svc-card__art span,
-.svc-hero__art span {
-  position: absolute;
-  inset: 18%;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  transition: transform 0.6s var(--ease-out), border-radius 0.6s var(--ease-out);
+.svc-card__plate {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out), filter 0.4s linear;
 }
-.svc-card__art i,
-.svc-hero__art i {
-  position: absolute;
-  inset: 34% 22%;
-  background: var(--orange);
-  transition: transform 0.6s var(--ease-out);
-}
-.svc-card__link:hover .svc-card__art span { transform: rotate(38deg) scale(1.12); border-radius: 4%; }
-.svc-card__link:hover .svc-card__art i { transform: translateY(-16%) scaleX(0.7); }
+.svc-card__link:hover .svc-card__plate,
+.svc-card__link:focus-visible .svc-card__plate { transform: scale(1.06); }
 .svc-card__name { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2.2rem); letter-spacing: -0.02em; margin: 0 0 0.4rem; }
 .svc-card__short { margin: 0 0 0.6rem; max-width: 44ch; opacity: 0.8; }
 .svc-card__price { margin: 0; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.7; }
@@ -155,7 +147,18 @@ main[data-route-main] { overflow: clip; }
 .svc-hero__summary { max-width: 52ch; line-height: 1.6; margin: 0; }
 .svc-hero__meta { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 1rem; }
 .svc-hero__meta strong { font-family: var(--font-display); font-size: 1.5rem; }
-.svc-hero__art { position: absolute; right: clamp(1rem, 6vw, 6rem); top: 30%; width: clamp(8rem, 22vw, 20rem); aspect-ratio: 1; color: var(--orange); opacity: 0.55; pointer-events: none; }
+.svc-hero__art {
+  position: absolute;
+  right: clamp(1rem, 5vw, 4.5rem);
+  top: 22%;
+  width: clamp(11rem, 26vw, 26rem);
+  margin: 0;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--scene-ink, #0b0a09) 18%, transparent);
+}
+.svc-hero__art img { display: block; width: 100%; height: auto; }
+.svc-hero__art figcaption { margin-top: 0.5rem; font-size: 0.7rem; line-height: 1.4; opacity: 0.65; }
+@media (max-width: 900px) { .svc-hero__art { position: static; width: min(100%, 26rem); margin-top: 1.4rem; } }
 
 .flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: color-mix(in srgb, currentColor 16%, transparent); }
 .flow__step { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: 1rem; padding: 1.2rem 0.4rem; background: color-mix(in srgb, var(--scene-bg, #fff) 88%, transparent); color: inherit; }
