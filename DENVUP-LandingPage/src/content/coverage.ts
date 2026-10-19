@@ -19,6 +19,14 @@ export interface SiteCoverage {
 
 export const siteCoverage: SiteCoverage[] = [
   {
+    ids: [21, 22, 23, 24, 25, 28],
+    area: 'The cursor everywhere: dot, ring, enlarge, contextual labels, ink chosen per ground, trailing echo',
+    file: 'src/client/cursor.ts · src/styles/scene.css',
+    status: 'Tested',
+    test: 'scripts/browser/cursor-inks.mjs mounts the real cursor in Chromium, samples 52 scroll positions twice (after a scroll and after a pointer move) and fails below 3:1; the lowest measured is 5.87:1 on orange.',
+    note: 'Ink follows the painted ground at the pointer — including composited image pixels and demo panels — not the chapter key; a two-tone rim remains on grounds that cannot be read. Touch, failure and reduced motion paths restore or simplify the cursor.',
+  },
+  {
     ids: [1, 2, 3],
     area: 'Intro progress that reports real work, not a timer',
     file: 'src/client/intro.ts · src/client/scene.ts',

@@ -25,7 +25,7 @@ const BASE = baseArg > -1 ? process.argv[baseArg + 1] : 'http://127.0.0.1:4173';
 const ROUTES = [
   '/', '/services', '/services/web-design', '/services/ai-solutions', '/services/integrations',
   '/services/interactive', '/services/automation', '/lab', '/concepts', '/studio', '/pricing',
-  '/contact', '/privacy', '/terms',
+  '/contact', '/privacy', '/terms', '/404',
 ];
 
 const WIDTHS = [360, 390, 768, 1024, 1280, 1536, 1920];

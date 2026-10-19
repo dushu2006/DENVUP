@@ -20,7 +20,7 @@ lines.push('| Status | Techniques |', '| --- | --- |');
 statusOrder.forEach((status) => lines.push(`| ${status} | ${coverageSummary[status]} |`));
 lines.push('', 'Every row names the file that carries it and the test that exercises it. Blank tests mean no automated check exists yet.', '');
 lines.push(
-  '> **Scope change, 2026-10-19.** The Effects library chapter was removed at the client’s request. “Implemented” therefore means the technique’s code ships and the build passes, not that a dedicated UI exists for it on the page. Thirteen demos are surfaced: nine in the capability stage and four in the showcase. Every one of the 148 registry modes is still mounted and torn down by `src/tests/labs.test.ts`. Nothing here is marked “Tested” because it merely exists.',
+  '> **How to read this.** “Tested” means a named automated check exercises the technique, not that the code merely exists; “Implemented” means it ships and the build passes. The `/lab` route is the live, filterable library: 21 labs and 148 modes, every one of the 480 catalogue IDs accounted for even where techniques are grouped. All 148 modes mount and tear down in `src/tests/labs.test.ts`; the cursor, route transitions and reduced-motion paths have their own real-browser checks named in the rows. Blocked rows state the verified reason and the closest safe alternative that ships.',
   '',
 );
 

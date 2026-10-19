@@ -454,6 +454,7 @@ export function notFoundBody(): string {
       <p class="notfound__code" aria-hidden="true" data-glitch>404</p>
       <h1 id="nf-title">This page is not here.</h1>
       <p class="notfound__lead">The link may be old, or the page may have moved. These all exist:</p>
+      <h2 class="sr-only">Pages that exist</h2>
       <ul class="notfound__links">
         <li><a href="/">Home</a></li>
         <li><a href="/services">Services</a></li>

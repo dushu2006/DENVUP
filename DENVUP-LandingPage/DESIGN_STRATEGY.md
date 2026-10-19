@@ -399,7 +399,7 @@ The house style's "real pictures" floor is met by the material plates and record
 
 ### 13.11 Accessibility and performance budget
 
-Skip link, landmarks, one `h1`, 2px/3:1 focus, visible states for hover/active/disabled/invalid, dialogs with focus return, `aria-live` for results, reduced motion preserving every composition, no content hidden by CSS alone. Budget: document ≤ 150 kB, CSS ≤ 220 kB, JS ≤ 230 kB, fonts ≤ 270 kB total, no third-party requests, `content-visibility: auto` on the long lists, `contain: paint` on the demo stage.
+Skip link, landmarks, one `h1`, 2px/3:1 focus, visible states for hover/active/disabled/invalid, dialogs with focus return, `aria-live` for results, reduced motion preserving every composition, no content hidden by CSS alone. Budget, revised 19 October 2026 against the built site: document ≤ 150 kB (**130.5 kB** on `/`), CSS ≤ 260 kB (**250.0 kB**; 45.5 kB gzip, 36.8 kB brotli), JS ≤ 245 kB (**239.3 kB**; 73.3 kB gzip, 59.6 kB brotli), fonts ≤ 270 kB, no third-party requests, `content-visibility: auto` on the long lists, `contain: paint` on the demo stage. The earlier targets of 220 kB CSS and 230 kB JS predate the 480-technique library and were exceeded by 30.0 kB and 9.3 kB. The honest next step, not yet taken, is to move the 195 kB of lab-demo CSS off the eight routes that mount no demo; it is recorded here rather than hidden.
 
 ### 13.12 Build order and acceptance
 

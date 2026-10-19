@@ -152,6 +152,7 @@ html.has-cursor textarea { cursor: text; }
   pointer-events: none;
   opacity: 0;
   --cursor-ink: #0b0a09;
+  --cursor-text: #f6f1e8;
 }
 html.cursor-is-on .cursor { opacity: 1; }
 .cursor__dot,
@@ -167,16 +168,18 @@ html.cursor-is-on .cursor { opacity: 1; }
   height: 6px;
   margin: -3px 0 0 -3px;
   background: var(--cursor-ink);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--cursor-ink) 30%, #fff);
+  box-shadow: 0 0 0 1px var(--cursor-text);
 }
 .cursor__ring {
   width: 34px;
   height: 34px;
   margin: -17px 0 0 -17px;
   border: 1.5px solid var(--cursor-ink);
+  /* Two-tone rim: one of the two hairlines always separates the ring from the
+     ground, even over a plate or a photograph the probe cannot read. */
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.55),
-    0 0 0 2px rgba(0, 0, 0, 0.18);
+    0 0 0 1px var(--cursor-text),
+    0 0 0 2px color-mix(in srgb, var(--cursor-ink) 45%, transparent);
   transition: width 0.24s var(--ease-out), height 0.24s var(--ease-out), margin 0.24s var(--ease-out), background-color 0.24s;
 }
 html.cursor-is-hot .cursor__ring {
@@ -193,7 +196,7 @@ html.cursor-is-down .cursor__ring { width: 26px; height: 26px; margin: -13px 0 0
   padding: 0.32em 0.6em;
   font: 500 0.72rem/1 var(--font-body);
   letter-spacing: 0.02em;
-  color: var(--scene-bg, #fff);
+  color: var(--cursor-text);
   background: var(--cursor-ink);
   opacity: 0;
   transform-origin: 0 0;
@@ -205,9 +208,14 @@ html.cursor-is-down .cursor__ring { width: 26px; height: 26px; margin: -13px 0 0
 /* Cursor colour per ground: the ring carries a rim, so it never disappears. */
 html[data-scene='ink'] .cursor,
 html[data-scene='den'] .cursor,
-html[data-scene='lab'] .cursor { --cursor-ink: #f4efe8; }
-html[data-scene='orange'] .cursor { --cursor-ink: #180700; }
-html[data-scene='bone'] .cursor { --cursor-ink: #221a12; }
+html[data-scene='lab'] .cursor { --cursor-ink: #f4efe8; --cursor-text: #0b0a09; }
+html[data-scene='orange'] .cursor { --cursor-ink: #180700; --cursor-text: #fff1e8; }
+html[data-scene='bone'] .cursor { --cursor-ink: #221a12; --cursor-text: #f6f1e8; }
+
+/* Measured at the pointer: the ground under the ring wins over the chapter key.
+   Declared after the scene rules so it overrides them at equal specificity. */
+html[data-cursor-ink='dark'] .cursor { --cursor-ink: #0b0a09; --cursor-text: #f6f1e8; }
+html[data-cursor-ink='light'] .cursor { --cursor-ink: #f4efe8; --cursor-text: #0b0a09; }
 
 /* -------------------------------------------------- view transitions (routes) */
 

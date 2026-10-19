@@ -2,19 +2,19 @@
   "name": "denvup-studio-site",
   "private": true,
   "version": "1.0.0",
-  "description": "DENVUP — studio website, capabilities and live interaction demos.",
+  "description": "DENVUP \u2014 studio website, capabilities and live interaction demos.",
   "type": "module",
   "scripts": {
     "assets": "node scripts/build-brand-assets.mjs",
     "content": "tsx scripts/prerender.ts",
     "dev": "npm run content && vite --host 0.0.0.0",
-    "build": "npm run content && vite build && tsx scripts/prerender.ts --prod",
+    "build": "vite build && tsx scripts/prerender.ts --prod",
     "preview": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "validate": "find dist -name index.html -print0 | xargs -0 npx html-validate",
-    "qa": "npm run typecheck && npm run test && npm run build && npm run validate && npm run accept"
-    ,"accept": "node scripts/browser/run.mjs"
+    "qa": "npm run typecheck && npm run test && npm run build && npm run validate && npm run accept",
+    "accept": "node scripts/browser/run.mjs"
   },
   "dependencies": {
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",
