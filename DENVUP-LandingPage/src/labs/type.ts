@@ -65,7 +65,7 @@ export const typeLab: Lab = {
       ids: [90, 91, 92],
       name: 'Weight as emphasis',
       summary: 'A variable axis moves the same sentence from light to heavy, then settles. Weight changes meaning, so it is used once and returned.',
-      html: `<div class="d-typeplate"><p class="d-var" data-var>Some sentences carry more weight.</p><div class="d-row"><label class="d-cap" for="var">Weight</label><input class="d-slider" id="var" type="range" min="300" max="800" value="420" data-var-range><span class="d-cap" data-var-note>420</span></div></div>`,
+      html: `<div class="d-typeplate"><p class="d-var" data-var>Some sentences carry more weight.</p><div class="d-row"><label class="d-cap" for="var">Weight</label><input class="d-slider" id="var" type="range" min="300" max="800" value="420" data-var-range aria-label="Weight"><span class="d-cap" data-var-note>420</span></div></div>`,
       init: ({ stage }) => {
         const el = stage.querySelector<HTMLElement>('[data-var]')!;
         const range = stage.querySelector<HTMLInputElement>('[data-var-range]')!;

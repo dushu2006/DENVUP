@@ -82,6 +82,16 @@
   --accent: var(--deep);
   color-scheme: light;
 }
+[data-theme='den'] {
+  --bg: #17120f;
+  --fg: var(--paper);
+  --accent: var(--orange);
+  --muted: color-mix(in srgb, var(--fg) 68%, var(--bg));
+  --faint: color-mix(in srgb, var(--fg) 46%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 22%, var(--bg));
+  --field: color-mix(in srgb, var(--fg) 8%, var(--bg));
+  color-scheme: dark;
+}
 [data-theme='orange'] {
   --bg: var(--orange);
   --fg: var(--ink);

@@ -21,6 +21,8 @@ describe('whole-page boot', () => {
     document.querySelectorAll<HTMLElement>('[data-chapter]').forEach((section) => {
       const base = index * 900;
       index += 1;
+      Object.defineProperty(section, 'offsetTop', { configurable: true, get: () => base });
+      Object.defineProperty(section, 'offsetHeight', { configurable: true, get: () => 900 });
       section.getBoundingClientRect = () => {
         const top = base - scroll;
         return {
@@ -48,20 +50,22 @@ describe('whole-page boot', () => {
     spy.mockRestore();
 
     expect(errors).toEqual([]);
-    expect(document.querySelector('[data-head]')?.getAttribute('data-theme')).toBe('paper');
+    // The header's ground now follows the stage, which sets data-scene on <html>.
+    expect(document.documentElement.dataset.scene).toBe('paper');
+    expect(document.querySelector('[data-head]')?.hasAttribute('data-head')).toBe(true);
     expect(document.querySelectorAll('[data-cap-demo][data-embed]')).toHaveLength(1);
     expect(document.querySelector('#site-menu')?.tagName).toBe('DIALOG');
     expect(document.querySelector('[data-progress]')).not.toBeNull();
 
-    const head = document.querySelector<HTMLElement>('[data-head]');
+    const root = document.documentElement;
     scroll = 900;
     window.dispatchEvent(new Event('scroll'));
-    await new Promise((resolve) => window.setTimeout(resolve, 120));
-    expect(head?.dataset.theme).toBe('orange');
+    await new Promise((resolve) => window.setTimeout(resolve, 140));
+    expect(root.dataset.scene).toBe('orange');
 
     scroll = 1800;
     window.dispatchEvent(new Event('scroll'));
-    await new Promise((resolve) => window.setTimeout(resolve, 120));
-    expect(head?.dataset.theme).toBe('ink');
+    await new Promise((resolve) => window.setTimeout(resolve, 140));
+    expect(root.dataset.scene).toBe('ink');
   });
 });

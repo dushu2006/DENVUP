@@ -65,7 +65,7 @@ function initHeader(): void {
     const theme = current.dataset.theme ?? 'paper';
     if (theme !== activeTheme) {
       activeTheme = theme;
-      head.dataset.theme = theme;
+      head.dataset.sectionTheme = theme;
     }
     const id = current.dataset.chapter ?? '';
     if (id !== activeId) {

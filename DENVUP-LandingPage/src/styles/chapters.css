@@ -1,0 +1,155 @@
+/* Chapter choreography.
+   Each chapter is uncovered by a device rather than faded in: a plate slides
+   off, a curtain parts, an iris opens, or a frame scales away. The devices are
+   scroll-driven (animation-timeline: view()), so they are reversible and begin
+   before the section is fully in view. Browsers without scroll timelines get
+   the finished state — the overlay only exists inside the @supports block. */
+
+main[data-route-main] {
+  view-transition-name: page;
+  position: relative;
+  z-index: 1;
+}
+
+/* The stage shows through; the section owns its own ground on top. */
+main > section + section {
+  margin-top: -1px;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The covering plate: the outgoing chapter's ground slides up off the new
+       one. Its travel is a fixed length, not a fraction of the section, so a
+       tall chapter is never blanked while it fills the screen. */
+    main > section[data-chapter]::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      background: var(--cover, var(--scene-bg, #fff));
+      border-bottom: 3px solid var(--scene-accent, #ff4a00);
+      transform-origin: 50% 0%;
+      animation: uncover-plate linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 420px;
+    }
+
+    main > section[data-chapter][data-handoff='curtain']::after {
+      animation-name: uncover-curtain;
+      transform-origin: 100% 50%;
+      border-bottom: 0;
+      border-left: 3px solid var(--scene-accent, #ff4a00);
+      animation-range: entry 0px entry 620px;
+    }
+    main > section[data-chapter][data-handoff='flood']::after {
+      animation-name: uncover-flood;
+      border: 0;
+      border-radius: 0 0 50% 50% / 0 0 26% 26%;
+      animation-range: entry 0px entry 520px;
+    }
+    main > section[data-chapter][data-handoff='scale']::after {
+      animation-name: uncover-scale;
+      transform-origin: 50% 50%;
+      border: 0;
+      animation-range: entry 0px entry 480px;
+    }
+    main > section[data-chapter][data-handoff='line']::after {
+      animation-name: uncover-line;
+      border-left: 0;
+      border-right: 0;
+      border-bottom-width: 4px;
+      animation-range: entry 0px entry 380px;
+    }
+
+    /* Colour of the plate per previous ground. */
+    main > section[data-cover='ink']::after { --cover: #0b0a09; }
+    main > section[data-cover='den']::after { --cover: #17120f; }
+    main > section[data-cover='orange']::after { --cover: #ff4a00; }
+    main > section[data-cover='bone']::after { --cover: #ece4d7; }
+    main > section[data-cover='paper']::after { --cover: #ffffff; }
+
+    /* Sections clip their own plate so it never paints over the chapter above. */
+    main > section[data-chapter] { overflow: clip; }
+    main .route-section, main .page-head { overflow: clip; }
+
+    /* Route pages use the same vocabulary, one step quieter. */
+    main .route-section::after,
+    main .page-head::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      background: var(--scene-bg, #fff);
+      border-bottom: 2px solid color-mix(in srgb, var(--scene-accent, #ff4a00) 70%, transparent);
+      animation: uncover-plate linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 300px;
+    }
+  }
+}
+
+@keyframes uncover-plate {
+  from { transform: translateY(0); }
+  to { transform: translateY(-102%); }
+}
+@keyframes uncover-curtain {
+  from { transform: translateX(0); }
+  to { transform: translateX(103%); }
+}
+@keyframes uncover-flood {
+  from { clip-path: inset(-2% -2% -2% -2% round 0 0 50% 50% / 0 0 24% 24%); }
+  to { clip-path: inset(-2% -2% 102% -2% round 0 0 50% 50% / 0 0 24% 24%); }
+}
+@keyframes uncover-scale {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.55); opacity: 0; }
+}
+@keyframes uncover-line {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+@keyframes chapter-settle {
+  from { opacity: 0.62; transform: translateY(1.6vh); }
+  to { opacity: 1; transform: none; }
+}
+
+/* The one object that travels: the mark is drawn into the stage at the same
+   coordinates in every chapter, and the header mark is the same shape that
+   flies across routes (view-transition-name: mark). */
+.brand__mark,
+.menu__brand svg,
+.footer__logo svg {
+  view-transition-name: mark;
+}
+
+/* Progress rail: chapter position, not just scroll percentage. */
+.progress[data-progress] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: color-mix(in srgb, var(--scene-ink, #0b0a09) 12%, transparent);
+  overflow: hidden;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--p, 0));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section[data-chapter]::after,
+  main .route-section::after,
+  main .page-head::after {
+    content: none;
+    animation: none;
+  }
+  main > section[data-chapter] > * {
+    animation: none;
+  }
+}

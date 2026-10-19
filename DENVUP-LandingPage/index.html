@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-chapter="prelude">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -7,9 +7,11 @@
   <meta name="description" content="DENVUP is a digital studio in Andhra Pradesh, India. Website design and development, UI/UX, interactive experiences and custom digital solutions. Starting points published; demos, not claimed client work.">
   <meta name="theme-color" content="#ff4a00">
   <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://denvup.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="DENVUP — Websites, interfaces and interactive experiences">
   <meta property="og:description" content="DENVUP is a digital studio in Andhra Pradesh, India. Website design and development, UI/UX, interactive experiences and custom digital solutions. Starting points published; demos, not claimed client work.">
+  <meta property="og:url" content="https://denvup.com/">
   <meta property="og:image" content="/assets/brand/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -27,35 +29,53 @@
   <link rel="preload" href="/assets/brand/logo-colour-360.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="/src/styles/main.css">
   <script>
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
-    document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
-    window.DENVUP = { endpoint: '' };
+    (function () {
+      var root = document.documentElement;
+      root.classList.remove('no-js');
+      root.classList.add('js');
+      root.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+      root.dataset.chapter = "prelude";
+      root.dataset.chapters = {"prelude":1,"hero":2,"manifesto":3,"services":4,"services-deep":5,"capabilities":6,"demos":7,"process":8,"technologies":9,"team":10,"showcase":11,"pricing":12,"faq":13,"contact":14,"closing":15,"footer":16,"lab":1,"service":1,"concepts":1,"studio":1,"legal":1,"notfound":1};
+      try {
+        var saved = sessionStorage.getItem('denvup:stage');
+        if (saved) root.dataset.scene = JSON.parse(saved).scene || '';
+      } catch (e) {}
+      window.DENVUP = { endpoint: '', route: "/" };
+    })();
   </script>
 </head>
-<body id="top">
+<body id="top" data-route="/">
   <a class="skip-link" href="#main">Skip to the content</a>
-  <header class="site-head" data-head data-theme="paper" data-pinned>
-    <a class="brand" href="#top" aria-label="DENVUP — back to the top">
+  <header class="site-head" data-head data-pinned data-route-head>
+    <a class="brand" href="/" aria-label="DENVUP — home" data-transition-mark>
       <span class="logo-mask brand__mark" aria-hidden="true"></span>
       <span class="brand__word">DENVUP</span>
     </a>
-    <nav class="head-nav" aria-label="Primary">
-      <a href="#hero">Studio</a><a href="#services">Services</a><a href="#capabilities">Capabilities</a><a href="#process">Process</a><a href="#team">Team</a><a href="#pricing">Pricing</a>
-    </nav>
+    <nav class="head-nav" aria-label="Primary"><a href="/services">Services</a><a href="/lab">Lab</a><a href="/concepts">Concepts</a><a href="/studio">Studio</a><a href="/pricing">Pricing</a></nav>
     <div class="head-tools">
-      <button class="head-search" type="button" data-open-command aria-label="Jump to a section or demo" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">
+      <button class="head-search" type="button" data-open-command aria-label="Jump to a page or demo" aria-haspopup="dialog" aria-keyshortcuts="Control+K Meta+K">
         <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>Jump to</span><kbd data-kbd-mod>Ctrl K</kbd>
       </button>
-      <a class="head-cta" href="#contact">Start a project <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+      <a class="head-cta" href="/contact">Start a project <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
       <button class="head-menu" type="button" data-open-menu aria-expanded="false" aria-haspopup="dialog" aria-controls="site-menu">
         <span class="head-menu__label">Menu</span><span class="head-menu__icon" aria-hidden="true"><i></i><i></i></span>
       </button>
     </div>
     <div class="progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress><i data-progress-bar></i></div>
   </header>
-  <main id="main" tabindex="-1">
-    <section id="prelude" class="prelude" data-chapter="prelude" data-theme="paper" aria-labelledby="prelude-title">
+  <div class="scene" data-scene-root aria-hidden="true">
+    <div class="scene__field" data-scene-field></div>
+    <canvas class="scene__canvas" data-scene-canvas></canvas>
+    <div class="scene__grid" data-scene-grid></div>
+    <div class="scene__vignette"></div>
+  </div>
+  <div class="cursor" data-cursor aria-hidden="true">
+    <span class="cursor__ring" data-cursor-ring></span>
+    <span class="cursor__dot" data-cursor-dot></span>
+    <span class="cursor__label" data-cursor-label></span>
+  </div>
+  <main id="main" tabindex="-1" data-route-main>
+    <section id="prelude" class="prelude" data-chapter="prelude" data-theme="paper" aria-labelledby="prelude-title" data-handoff="flood" data-cover="paper">
     <h1 class="sr-only" id="prelude-title">DENVUP — a digital studio for websites, interfaces and interactive experiences</h1>
     <div class="prelude__inner">
       <ol class="prelude__beats"><li class="beat" data-beat="1">
@@ -78,7 +98,7 @@
       </div>
     </div>
   </section>
-    <section id="hero" class="hero" data-chapter="hero" data-theme="orange" aria-labelledby="hero-title">
+  <section id="hero" class="hero" data-chapter="hero" data-theme="orange" aria-labelledby="hero-title" data-handoff="curtain" data-cover="paper">
     <div class="hero__grain" aria-hidden="true"></div>
     <div class="hero__inner">
       <div class="hero__copy">
@@ -117,7 +137,7 @@
       </div>
     </div>
   </section>
-    <section id="manifesto" class="manifesto" data-chapter="manifesto" data-theme="ink" aria-labelledby="manifesto-title">
+  <section id="manifesto" class="manifesto" data-chapter="manifesto" data-theme="ink" aria-labelledby="manifesto-title" data-handoff="flood" data-cover="orange">
     <div class="manifesto__inner">
       <header class="manifesto__head">
         <h2 class="manifesto__title" id="manifesto-title">The web has enough average.</h2>
@@ -146,7 +166,7 @@
       <figcaption>The studio, in one line</figcaption>
     </figure>
   </section>
-    <section id="services" class="services" data-chapter="services" data-theme="paper" aria-labelledby="services-title">
+  <section id="services" class="services" data-chapter="services" data-theme="paper" aria-labelledby="services-title" data-handoff="scale" data-cover="ink">
     <div class="services__pin" data-horizontal data-horizontal-min="900">
       <div class="services__head">
         <header class="section-head section-head--start">
@@ -210,7 +230,7 @@
       <div class="rail-meter" aria-hidden="true"><span data-rail-meter></span></div>
     </div>
   </section>
-    <section id="services-deep" class="deep-dives" data-chapter="services-deep" data-theme="bone" aria-labelledby="deep-title">
+  <section id="services-deep" class="deep-dives" data-chapter="services-deep" data-theme="bone" aria-labelledby="deep-title" data-handoff="line" data-cover="paper">
     <div class="deep-dives__head wrap">
       <header class="section-head section-head--start">
     <h2 class="section-head__title" id="deep-title">What each service actually includes.</h2>
@@ -352,7 +372,7 @@
         </div>
       </article></div>
   </section>
-    <section id="capabilities" class="capabilities" data-chapter="capabilities" data-theme="ink" aria-labelledby="capabilities-title">
+  <section id="capabilities" class="capabilities" data-chapter="capabilities" data-theme="ink" aria-labelledby="capabilities-title" data-handoff="plate" data-cover="bone">
     <div class="capabilities__head wrap">
       <h2 class="capabilities__title" id="capabilities-title">Nine things we can<br>set in motion.</h2>
       <p class="capabilities__lede">One working demonstration per capability, drawn from the studio’s 480-technique animation reference. Switch the list; each stage runs live.</p>
@@ -537,7 +557,56 @@
       <p class="capabilities__progress" aria-hidden="true"><span data-cap-count>01</span> / 09</p>
     </div>
   </section>
-    <section id="process" class="process" data-chapter="process" data-theme="bone" aria-labelledby="process-title">
+  <section id="demos" class="demos" data-chapter="demos" data-ch="7" data-scene="den" aria-labelledby="demos-title" data-theme="den" data-handoff="curtain" data-cover="ink">
+    <div class="demos__inner">
+      <header class="demos__head">
+        <h2 id="demos-title">Three things, working.</h2>
+        <p>Not screenshots. Each one is mounted on this page, names the technique it uses, and can be replayed. If a demo cannot run, the sentence beside it still explains the idea.</p>
+      </header>
+      <div class="demos__grid" data-lab-group><article class="demo-card" data-ch-part="1">
+        <div class="demo-card__stage" data-lab-host data-lab="type" data-mode="3" data-label="Weight as emphasis">
+          <p class="demo-card__fallback">Weight as emphasis — a live study. It needs JavaScript; the description below still explains it.</p>
+        </div>
+        <div class="demo-card__body">
+          <h3>Weight as emphasis</h3>
+          <p>One variable font, three weights, one reading order. The emphasis is the layout.</p>
+          <p class="demo-card__ids">Technique 90, 91, 92</p>
+          <div class="demo-card__actions">
+            <button class="mini" type="button" data-lab-replay>Replay</button>
+            <a class="mini mini--go" href="/contact?subject=I%20want%20weight%20as%20emphasis">I want this <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+          </div>
+        </div>
+      </article><article class="demo-card" data-ch-part="2">
+        <div class="demo-card__stage" data-lab-host data-lab="scroll" data-mode="1" data-label="Sticky, then release">
+          <p class="demo-card__fallback">Sticky, then release — a live study. It needs JavaScript; the description below still explains it.</p>
+        </div>
+        <div class="demo-card__body">
+          <h3>Sticky, then release</h3>
+          <p>A pinned stage that releases exactly when its argument ends — never a scroll takeover.</p>
+          <p class="demo-card__ids">Technique 131, 148</p>
+          <div class="demo-card__actions">
+            <button class="mini" type="button" data-lab-replay>Replay</button>
+            <a class="mini mini--go" href="/contact?subject=I%20want%20sticky%2C%20then%20release">I want this <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+          </div>
+        </div>
+      </article><article class="demo-card" data-ch-part="3">
+        <div class="demo-card__stage" data-lab-host data-lab="threed" data-mode="0" data-label="A shader with a fallback">
+          <p class="demo-card__fallback">A shader with a fallback — a live study. It needs JavaScript; the description below still explains it.</p>
+        </div>
+        <div class="demo-card__body">
+          <h3>A shader with a fallback</h3>
+          <p>A depth field drawn on canvas, with a designed static frame when motion is reduced.</p>
+          <p class="demo-card__ids">Technique 236, 238</p>
+          <div class="demo-card__actions">
+            <button class="mini" type="button" data-lab-replay>Replay</button>
+            <a class="mini mini--go" href="/contact?subject=I%20want%20a%20shader%20with%20a%20fallback">I want this <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a>
+          </div>
+        </div>
+      </article></div>
+      <p class="demos__more"><a href="/lab">The lab has 148 live studies <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></p>
+    </div>
+  </section>
+  <section id="process" class="process" data-chapter="process" data-theme="bone" aria-labelledby="process-title" data-handoff="flood" data-cover="den">
     <div class="process__head wrap">
       <header class="section-head section-head--start">
     <h2 class="section-head__title" id="process-title">Six stages, no theatre.</h2>
@@ -622,7 +691,7 @@
       <p class="process__hint">Scroll to advance the timeline. Every stage opens with keyboard or tap.</p>
     </div>
   </section>
-    <section id="technologies" class="technologies" data-chapter="technologies" data-theme="ink" aria-labelledby="tech-title">
+  <section id="technologies" class="technologies" data-chapter="technologies" data-theme="ink" aria-labelledby="tech-title" data-handoff="scale" data-cover="bone">
     <div class="technologies__inner wrap">
       <div class="technologies__copy">
         <header class="section-head section-head--start">
@@ -680,7 +749,7 @@
       </button></li></ul>
     </div>
   </section>
-    <section id="team" class="team" data-chapter="team" data-theme="paper" aria-labelledby="team-title">
+  <section id="team" class="team" data-chapter="team" data-theme="paper" aria-labelledby="team-title" data-handoff="line" data-cover="ink">
     <div class="team__head wrap">
       <header class="section-head section-head--start">
     <h2 class="section-head__title" id="team-title">Four people, named.</h2>
@@ -730,7 +799,7 @@
     <span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v15M6 13l6 6 6-6"/></svg></span>
   </a></div>
   </section>
-    <section id="showcase" class="showcase" data-chapter="showcase" data-theme="bone" aria-labelledby="showcase-title">
+  <section id="showcase" class="showcase" data-chapter="showcase" data-theme="bone" aria-labelledby="showcase-title" data-handoff="plate" data-cover="paper">
     <div class="showcase__head wrap">
       <header class="section-head section-head--start">
     <h2 class="section-head__title" id="showcase-title">Evidence, not claims.</h2>
@@ -780,7 +849,7 @@
         <p class="concept__note">Concept, not client work. No result or client is implied.</p>
       </li></ol>
   </section>
-    <section id="pricing" class="pricing" data-chapter="pricing" data-theme="ink" aria-labelledby="pricing-title">
+  <section id="pricing" class="pricing" data-chapter="pricing" data-theme="ink" aria-labelledby="pricing-title" data-handoff="curtain" data-cover="bone">
     <div class="pricing__inner wrap">
       <header class="section-head section-head--start">
     <h2 class="section-head__title" id="pricing-title">Starting points, published.</h2>
@@ -855,7 +924,7 @@
   </div>
     </div>
   </section>
-    <section id="faq" class="faq" data-chapter="faq" data-theme="paper" aria-labelledby="faq-title">
+  <section id="faq" class="faq" data-chapter="faq" data-theme="paper" aria-labelledby="faq-title" data-handoff="flood" data-cover="ink">
     <div class="faq__inner wrap">
       <div class="faq__head">
         <header class="section-head section-head--start">
@@ -957,18 +1026,7 @@
       </details><p class="faq__empty" data-faq-empty hidden>No question matches that. Try “pricing”, “hosting” or <a href="#contact">ask us directly</a>.</p></div>
     </div>
   </section>
-    <section id="standards" class="standards" data-chapter="standards" data-theme="ink" aria-labelledby="standards-title">
-    <div class="standards__inner wrap">
-      <header class="section-head section-head--start">
-    <h2 class="section-head__title" id="standards-title">What we check before calling it done.</h2>
-    <p class="section-head__lede">This page makes claims about accessibility and speed. Here is the list we hold ourselves to, and the report we publish when something fails.</p>
-    
-  </header>
-      <ul class="standards__grid"><li><h3>Keyboard, end to end</h3><p>Every control reachable, focus visible, dialogs trap and restore focus, no keyboard traps.</p></li><li><h3>Reduced motion</h3><p>A full content path with animation off; parallax, pinning and cursor effects disabled, not just shortened.</p></li><li><h3>Contrast and colour</h3><p>Text and control contrast checked against WCAG 2.2 AA; state never communicated by colour alone.</p></li><li><h3>Real widths</h3><p>360, 768, 1280 and 1600 pixels with no horizontal overflow at any of them.</p></li><li><h3>Touch equivalents</h3><p>Hover-only information gets a tap path; horizontal rails scroll with a finger or offer arrows.</p></li><li><h3>Slow and offline</h3><p>Tested against a slow connection and with WebGL disabled; content remains usable if a library fails.</p></li><li><h3>Honest states</h3><p>Loading, empty, error and success states correspond to something that actually happened.</p></li><li><h3>Published results</h3><p>TESTING_REPORT.md lists the checks, the failures and what remains unverified in this environment.</p></li></ul>
-      <p class="standards__note">The full report ships next to the code in this repository. <a href="#contact">Report a problem</a>.</p>
-    </div>
-  </section>
-    <section id="contact" class="contact" data-chapter="contact" data-theme="orange" aria-labelledby="contact-title">
+  <section id="contact" class="contact" data-chapter="contact" data-theme="orange" aria-labelledby="contact-title" data-handoff="scale" data-cover="paper">
     <div class="contact__grain" aria-hidden="true"></div>
     <div class="contact__inner wrap">
       <div class="contact__head">
@@ -1054,7 +1112,7 @@
           <div class="enquiry__fallback" data-enquiry-fallback hidden></div>
         </form>
 
-        <aside class="contact__direct" aria-labelledby="direct-title">
+        <div class="contact__direct" role="group" aria-labelledby="direct-title">
           <h3 id="direct-title">Direct lines</h3>
           <div class="direct-mail">
             <a class="direct-mail__value" href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a>
@@ -1075,11 +1133,11 @@
             <div><dt>Reply</dt><dd>You will hear from one of the four of us, not a sequence.</dd></div>
           </dl>
           <p class="contact__reply">You will hear from one of the four of us.</p>
-        </aside>
+        </div>
       </div>
     </div>
   </section>
-    <section id="closing" class="closing" data-chapter="closing" data-theme="ink" aria-labelledby="closing-title">
+  <section id="closing" class="closing" data-chapter="closing" data-theme="ink" aria-labelledby="closing-title" data-handoff="line" data-cover="orange">
     <div class="closing__marquee">
       <div class="marquee" data-marquee>
         <div class="marquee__track" data-marquee-track>
@@ -1110,24 +1168,24 @@
     </div>
   </section>
   </main>
-  <footer class="footer" id="footer" data-theme="ink">
+  <footer class="footer" id="footer" data-theme="ink" data-chapter="footer">
     <div class="footer__top">
       <div class="footer__brand">
-        <a class="footer__logo" href="#top" aria-label="DENVUP, back to top"><span class="logo-mask logo-mask--orange" aria-hidden="true"></span><span>DENVUP</span></a>
+        <a class="footer__logo" href="/" aria-label="DENVUP, home"><span class="logo-mask logo-mask--orange" aria-hidden="true"></span><span>DENVUP</span></a>
         <p class="footer__tagline">Built in the den. Made to move.</p>
         <p class="footer__contact"><a href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a><br>
         <a href="tel:+917675993371">+91 76759 93371</a><br>
         <a href="tel:+919133585849">+91 91335 85849</a></p>
       </div>
-      <div class="footer__nav"><nav class="footer__col" aria-label="Studio">
+      <div class="footer__nav"><nav class="footer__col" aria-label="Services">
+        <h3>Services</h3>
+        <ul><li><a href="/services/web-design">Web design and development</a></li><li><a href="/services/ai-solutions">AI-powered solutions</a></li><li><a href="/services/integrations">Business integrations</a></li><li><a href="/services/interactive">Creative and interactive experiences</a></li><li><a href="/services/automation">Automation and business tools</a></li></ul>
+      </nav><nav class="footer__col" aria-label="Studio">
         <h3>Studio</h3>
-        <ul><li><a href="#manifesto">Point of view</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#team">Team</a></li></ul>
-      </nav><nav class="footer__col" aria-label="Work">
-        <h3>Work</h3>
-        <ul><li><a href="#capabilities">Capabilities</a></li><li><a href="#capabilities">Capabilities</a></li><li><a href="#showcase">Concepts</a></li><li><a href="#technologies">Technologies</a></li></ul>
-      </nav><nav class="footer__col" aria-label="Practical">
-        <h3>Practical</h3>
-        <ul><li><a href="#pricing">Pricing</a></li><li><a href="#faq">Questions</a></li><li><a href="#standards">Standards</a></li><li><a href="#contact">Contact</a></li></ul>
+        <ul><li><a href="/studio">About</a></li><li><a href="/concepts">Concepts</a></li><li><a href="/lab">Lab</a></li><li><a href="/pricing">Pricing</a></li></ul>
+      </nav><nav class="footer__col" aria-label="Contact">
+        <h3>Contact</h3>
+        <ul><li><a href="/contact">Start a project</a></li><li><a href="mailto:denvupforyou@gmail.com">Email</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li></ul>
       </nav>
         <div class="footer__col footer__col--meta">
           <h3>Studio</h3>
@@ -1152,40 +1210,35 @@
   <template data-person-template="0">
         <p class="profile__initials" aria-hidden="true">TD</p>
         <h2 class="profile__name" id="profile-name-0">T. Dusyanth</h2>
-        <p class="profile__copy">One of the four people who make up DENVUP. We have deliberately not invented a job title or biography for this page — the work and the first call are the introduction.</p>
-        <p class="profile__copy">The studio is four people: T. Dusyanth, M. Nanda Kishore, K. V. Sai Prashanth and P. Venkatesh. We have deliberately not invented job titles, biographies or portraits. You will meet the actual people on the first call.</p>
+        <p class="profile__copy">One of the four people who make up DENVUP. No job title or biography has been invented for this page: the work and the first call are the introduction.</p>
         <div class="profile__actions">
-          <a class="btn btn--solid" href="#contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+          <a class="btn btn--solid" href="/contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
         </div>
       </template><template data-person-template="1">
         <p class="profile__initials" aria-hidden="true">MNK</p>
         <h2 class="profile__name" id="profile-name-1">M. Nanda Kishore</h2>
-        <p class="profile__copy">One of the four people who make up DENVUP. We have deliberately not invented a job title or biography for this page — the work and the first call are the introduction.</p>
-        <p class="profile__copy">The studio is four people: T. Dusyanth, M. Nanda Kishore, K. V. Sai Prashanth and P. Venkatesh. We have deliberately not invented job titles, biographies or portraits. You will meet the actual people on the first call.</p>
+        <p class="profile__copy">One of the four people who make up DENVUP. No job title or biography has been invented for this page: the work and the first call are the introduction.</p>
         <div class="profile__actions">
-          <a class="btn btn--solid" href="#contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+          <a class="btn btn--solid" href="/contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
         </div>
       </template><template data-person-template="2">
         <p class="profile__initials" aria-hidden="true">KVSP</p>
         <h2 class="profile__name" id="profile-name-2">K. V. Sai Prashanth</h2>
-        <p class="profile__copy">One of the four people who make up DENVUP. We have deliberately not invented a job title or biography for this page — the work and the first call are the introduction.</p>
-        <p class="profile__copy">The studio is four people: T. Dusyanth, M. Nanda Kishore, K. V. Sai Prashanth and P. Venkatesh. We have deliberately not invented job titles, biographies or portraits. You will meet the actual people on the first call.</p>
+        <p class="profile__copy">One of the four people who make up DENVUP. No job title or biography has been invented for this page: the work and the first call are the introduction.</p>
         <div class="profile__actions">
-          <a class="btn btn--solid" href="#contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+          <a class="btn btn--solid" href="/contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
         </div>
       </template><template data-person-template="3">
         <p class="profile__initials" aria-hidden="true">PV</p>
         <h2 class="profile__name" id="profile-name-3">P. Venkatesh</h2>
-        <p class="profile__copy">One of the four people who make up DENVUP. We have deliberately not invented a job title or biography for this page — the work and the first call are the introduction.</p>
-        <p class="profile__copy">The studio is four people: T. Dusyanth, M. Nanda Kishore, K. V. Sai Prashanth and P. Venkatesh. We have deliberately not invented job titles, biographies or portraits. You will meet the actual people on the first call.</p>
+        <p class="profile__copy">One of the four people who make up DENVUP. No job title or biography has been invented for this page: the work and the first call are the introduction.</p>
         <div class="profile__actions">
-          <a class="btn btn--solid" href="#contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
+          <a class="btn btn--solid" href="/contact" data-close-dialog><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></span></a>
         </div>
       </template>
   <dialog class="sheet" id="profile-dialog" aria-label="Team profile">
     <div class="sheet__inner">
       <button class="sheet__close" type="button" data-dialog-close aria-label="Close profile"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      <p class="sheet__eyebrow">Team</p>
       <div data-profile-body></div>
     </div>
   </dialog>
@@ -1193,15 +1246,14 @@
   <dialog class="sheet sheet--wide" id="shortcuts-dialog" aria-labelledby="shortcuts-title">
     <div class="sheet__inner">
       <button class="sheet__close" type="button" data-dialog-close aria-label="Close shortcuts"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      <p class="sheet__eyebrow">Keyboard</p>
-      <h2 id="shortcuts-title">Shortcuts</h2>
+      <h2 id="shortcuts-title">Keyboard</h2>
       <dl class="shortcuts">
         <div><dt><kbd>?</kbd></dt><dd>Open this guide</dd></div>
-        <div><dt><kbd>⌘</kbd> / <kbd>Ctrl</kbd> + <kbd>K</kbd></dt><dd>Jump to a section or a demo</dd></div>
+        <div><dt><kbd>Ctrl</kbd> + <kbd>K</kbd></dt><dd>Jump to a page or a demo</dd></div>
         <div><dt><kbd>M</kbd></dt><dd>Open the menu</dd></div>
         <div><dt><kbd>Esc</kbd></dt><dd>Close a dialog or menu</dd></div>
         <div><dt><kbd>Tab</kbd></dt><dd>Every interactive element has a visible focus state</dd></div>
-        <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Move between capability demos</dd></div>
+        <div><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Move between demos in a gallery</dd></div>
       </dl>
       <p class="sheet__note">Press ? for keyboard shortcuts.</p>
     </div>
@@ -1210,38 +1262,35 @@
   <dialog class="sheet" id="a11y-dialog" aria-labelledby="a11y-title">
     <div class="sheet__inner">
       <button class="sheet__close" type="button" data-dialog-close aria-label="Close accessibility statement"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      <p class="sheet__eyebrow">Accessibility</p>
       <h2 id="a11y-title">Accessibility statement</h2>
-      <p>This site is built to WCAG 2.2 AA as its baseline: semantic landmarks, one main heading per section, visible focus, keyboard-operable controls, labelled fields, reduced-motion layouts and text contrast checked by hand.</p>
+      <p>Built to WCAG 2.2 AA as the baseline: semantic landmarks, one main heading per page, visible focus, keyboard-operable controls, labelled fields, and text contrast checked by hand.</p>
       <p>Motion is optional. A full reduced-motion path keeps every section and all content, removes pinning, parallax, cursor effects and auto-playing movement, and stops decorative canvases.</p>
-      <p>The contact form in this build has no server endpoint, so it cannot store or transmit your message. It says so, and gives you a prefilled email and WhatsApp instead. No cookies are set and no third-party analytics or trackers load.</p>
-      <p>If something does not work for you, email <a href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a> with the page and what happened. That is the fastest route to a fix.</p>
-      <p class="sheet__note">Tested items and known limitations are listed in TESTING_REPORT.md in the repository.</p>
+      <p>The contact form has no server endpoint in this build, so it cannot store or transmit a message. It says so, and offers a prefilled email and WhatsApp instead. No cookies are set and no third-party analytics load.</p>
+      <p>If something does not work, email <a href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a> with the page and what happened.</p>
     </div>
   </dialog>
 
   <dialog class="sheet" id="privacy-dialog" aria-labelledby="privacy-title">
     <div class="sheet__inner">
       <button class="sheet__close" type="button" data-dialog-close aria-label="Close privacy note"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      <p class="sheet__eyebrow">Privacy</p>
       <h2 id="privacy-title">Privacy, in plain language</h2>
-      <p>This website sets no cookies and loads no third-party analytics, advertising or tracking scripts. Fonts and assets are served from this site, not a font CDN.</p>
-      <p>If you use the contact form in this build, nothing is transmitted: there is no endpoint. The email and WhatsApp links open your own mail or messaging application, and the message is sent by you, through that provider, under their terms.</p>
-      <p>If you email or message DENVUP, your details are used to reply to that enquiry and for nothing else. Ask us to delete the conversation and we will.</p>
-      <p class="sheet__note">This page is a statement of how this build behaves, not a legal contract.</p>
+      <p>This website sets no cookies and loads no third-party analytics, advertising or tracking scripts. Fonts and assets are served from this site.</p>
+      <p>The contact form transmits nothing: there is no endpoint. Email and WhatsApp links open your own application, and the message is sent by you, through that provider.</p>
+      <p>Your details are used to answer the enquiry and for nothing else. Ask us to delete the conversation and we will.</p>
+      <p class="sheet__note">A statement of how this build behaves, not a legal contract. <a href="/privacy">Read the full policy</a>.</p>
     </div>
   </dialog>
 
   <dialog class="menu" id="site-menu" aria-labelledby="menu-title">
     <div class="menu__inner">
       <div class="menu__top">
-        <a class="menu__brand" href="#top" aria-label="DENVUP home"><span class="logo-mask " aria-hidden="true"></span><span>DENVUP</span></a>
+        <a class="menu__brand" href="/" aria-label="DENVUP home"><span class="logo-mask " aria-hidden="true"></span><span>DENVUP</span></a>
         <button class="menu__close" type="button" data-menu-close aria-label="Close menu"><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
       <h2 class="sr-only" id="menu-title">Site menu</h2>
       <nav class="menu__nav" aria-label="Main">
         <ol>
-          <li style="--i:0"><a href="#hero" data-menu-link><span>Studio</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:1"><a href="#services" data-menu-link><span>Services</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:2"><a href="#capabilities" data-menu-link><span>Capabilities</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:3"><a href="#process" data-menu-link><span>Process</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:4"><a href="#technologies" data-menu-link><span>Technologies</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:5"><a href="#team" data-menu-link><span>Team</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:6"><a href="#showcase" data-menu-link><span>Concepts</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:7"><a href="#pricing" data-menu-link><span>Pricing</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:8"><a href="#faq" data-menu-link><span>Questions</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:9"><a href="#contact" data-menu-link><span>Contact</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li>
+          <li style="--i:0"><a href="/studio" data-menu-link><span>Studio</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:1"><a href="/services" data-menu-link><span>Services</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:2"><a href="/lab" data-menu-link><span>Lab</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:3"><a href="/concepts" data-menu-link><span>Concepts</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:4"><a href="/pricing" data-menu-link><span>Pricing</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:5"><a href="/contact" data-menu-link><span>Contact</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:6"><a href="/privacy" data-menu-link><span>Privacy</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li><li style="--i:7"><a href="/terms" data-menu-link><span>Terms</span><svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M8 6h10v10"/></svg></a></li>
         </ol>
       </nav>
       <div class="menu__foot">
@@ -1255,10 +1304,10 @@
 
   <dialog class="cmd" id="command-dialog" aria-labelledby="cmd-title">
     <div class="cmd__inner">
-      <h2 class="sr-only" id="cmd-title">Jump to a section or demo</h2>
+      <h2 class="sr-only" id="cmd-title">Jump to a page or demo</h2>
       <div class="cmd__field">
         <svg class="icon " viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-        <input id="cmd-input" type="search" placeholder="Jump to a section or a demo…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmd-list" aria-autocomplete="list">
+        <input id="cmd-input" type="search" placeholder="Jump to a page or a demo…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmd-list" aria-autocomplete="list">
         <kbd>Esc</kbd>
       </div>
       <ul class="cmd__list" id="cmd-list" role="listbox" aria-label="Destinations" data-cmd-list></ul>
@@ -1266,9 +1315,9 @@
     </div>
   </dialog>
   <div class="fx-toast" data-toast role="status" aria-live="polite"></div>
-  <noscript><div class="noscript"><p><strong>JavaScript is off.</strong> The site still reads, but the live demos, menu and estimator need it. You can reach DENVUP at <a href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a>, <a href="tel:+917675993371">+91 76759 93371</a> or <a href="tel:+919133585849">+91 91335 85849</a>.</p></div></noscript>
-  <div class="legal-stamp" aria-hidden="true"><span>© 2026 DENVUP</span><span>Independent digital studio</span><span>Andhra Pradesh, India</span></div>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DENVUP","description":"DENVUP is a digital studio for website design and development, UI/UX, interactive experiences and custom digital solutions.","email":"denvupforyou@gmail.com","telephone":["+917675993371","+919133585849"],"address":{"@type":"PostalAddress","addressRegion":"Andhra Pradesh","addressCountry":"IN"},"numberOfEmployees":4,"knowsAbout":["Website design","Web development","UI/UX design","Interactive experiences","WebGL"]}</script>
+  <div class="route-loader" data-route-loader aria-hidden="true"><span></span></div>
+  <noscript><div class="noscript"><p><strong>JavaScript is off.</strong> The site still reads and every page is reachable. The live demos, menu and estimator need it. You can reach DENVUP at <a href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a>, <a href="tel:+917675993371">+91 76759 93371</a> or <a href="tel:+919133585849">+91 91335 85849</a>.</p></div></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DENVUP","description":"DENVUP is a digital studio for website design and development, UI/UX, interactive experiences and custom digital solutions.","email":"denvupforyou@gmail.com","telephone":["+917675993371","+919133585849"],"address":{"@type":"PostalAddress","addressRegion":"Andhra Pradesh","addressCountry":"IN"},"numberOfEmployees":4,"knowsAbout":["Website design","Web development","UI/UX design","Interactive experiences","AI-powered solutions","Business integrations","Automation"]}</script>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

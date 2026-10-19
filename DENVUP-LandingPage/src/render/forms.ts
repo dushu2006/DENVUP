@@ -13,7 +13,7 @@ import { cta, esc, icon, logoMark, wordmark } from './html';
 
 /* ------------------------------------------------------------------- contact */
 
-export function renderContact(): string {
+export function renderContact(level: 1 | 2 = 2): string {
   const phoneRows = brand.phones
     .map(
       (p, i) => `<li class="direct-line">
@@ -31,7 +31,7 @@ export function renderContact(): string {
     <div class="contact__grain" aria-hidden="true"></div>
     <div class="contact__inner wrap">
       <div class="contact__head">
-        <h2 class="contact__title" id="contact-title">${esc(contact.title)}</h2>
+        <h${level} class="contact__title" id="contact-title">${esc(contact.title)}</h${level}>
         <p class="contact__intro">${esc(contact.intro)}</p>
       </div>
       <div class="contact__grid">
@@ -113,8 +113,8 @@ export function renderContact(): string {
           <div class="enquiry__fallback" data-enquiry-fallback hidden></div>
         </form>
 
-        <aside class="contact__direct" aria-labelledby="direct-title">
-          <h3 id="direct-title">${esc(contact.directTitle)}</h3>
+        <div class="contact__direct" role="group" aria-labelledby="direct-title">
+          <h${level === 1 ? 2 : 3} id="direct-title">${esc(contact.directTitle)}</h${level === 1 ? 2 : 3}>
           <div class="direct-mail">
             <a class="direct-mail__value" href="mailto:${esc(brand.email)}">${esc(brand.email)}</a>
             <button type="button" class="copy-btn" data-copy="${esc(brand.email)}">${icon('copy')}<span>Copy email</span></button>
@@ -126,7 +126,7 @@ export function renderContact(): string {
             <div><dt>Reply</dt><dd>${esc(brand.replyNote)}</dd></div>
           </dl>
           <p class="contact__reply">${esc(contact.reply)}</p>
-        </aside>
+        </div>
       </div>
     </div>
   </section>`;

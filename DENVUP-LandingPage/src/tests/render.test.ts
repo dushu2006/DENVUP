@@ -79,11 +79,11 @@ describe('rendered page', () => {
     expect(total).toBe(480);
   });
 
-  it('pins the header and keeps fifteen chapters', () => {
+  it('pins the header and keeps the fifteen home chapters', () => {
     const head = doc.querySelector('.site-head');
     expect(head?.hasAttribute('data-head')).toBe(true);
     expect(doc.querySelector('.chapter-rail')).toBeNull();
-    expect(doc.querySelectorAll('[data-chapter]')).toHaveLength(15);
+    expect(doc.querySelectorAll('main [data-chapter]')).toHaveLength(15);
     expect(doc.querySelector('[data-chapter="effects-library"]')).toBeNull();
     expect(doc.querySelector('[data-chapter="identity"]')).toBeNull();
   });
@@ -121,8 +121,11 @@ describe('rendered page', () => {
     expect(wa.some((href) => href.startsWith('https://wa.me/919133585849?text='))).toBe(true);
   });
 
-  it('loads nothing from a third party', () => {
-    expect(doc.querySelectorAll('script[src^="http"], link[href^="http"]')).toHaveLength(0);
+  it('loads no third-party script, stylesheet or font', () => {
+    const external = [...doc.querySelectorAll('script[src], link[href]')]
+      .map((el) => el.getAttribute('src') ?? el.getAttribute('href') ?? '')
+      .filter((href) => /^https?:\/\//.test(href) && !href.startsWith('https://denvup.com'));
+    expect(external).toEqual([]);
     expect(html).not.toContain('fonts.googleapis');
     expect(html).not.toContain('fonts.gstatic');
     expect(html).not.toContain('googletagmanager');

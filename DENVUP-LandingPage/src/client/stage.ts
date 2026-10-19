@@ -2,6 +2,27 @@ import type { LabContext, LabMode } from '../labs/types';
 import { totalLabModes } from '../labs/registry';
 import { announce, uiSound } from './env';
 
+/** Lab markup is written once but can be mounted in several places; duplicate
+ *  ids would break label association, so each mount gets a unique suffix. */
+function uniquifyIds(root: HTMLElement): void {
+  const suffix = `-${Math.random().toString(36).slice(2, 7)}`;
+  const map = new Map<string, string>();
+  root.querySelectorAll<HTMLElement>('[id]').forEach((el) => {
+    const next = `${el.id}${suffix}`;
+    map.set(el.id, next);
+    el.id = next;
+  });
+  root.querySelectorAll<HTMLElement>('[for],[aria-labelledby],[aria-describedby],[aria-controls]').forEach((el) => {
+    for (const attr of ['for', 'aria-labelledby', 'aria-describedby', 'aria-controls']) {
+      const value = el.getAttribute(attr);
+      if (!value) continue;
+      const parts = value.split(/\s+/).map((part) => map.get(part) ?? part);
+      el.setAttribute(attr, parts.join(' '));
+    }
+  });
+}
+
+
 export interface StageOptions {
   reduced: boolean;
   touch: boolean;
@@ -40,6 +61,7 @@ export function mountStage(stage: HTMLElement, mode: LabMode, opts: StageOptions
     const fragment = document.createDocumentFragment();
     while (probe.firstChild) fragment.append(probe.firstChild);
     stage.append(fragment);
+    uniquifyIds(stage);
     stage.querySelectorAll<HTMLElement>('[data-live-demos]').forEach((el) => {
       el.dataset.liveDemos = String(totalLabModes);
     });

@@ -6,13 +6,11 @@ function splitBeatWords(el: HTMLElement): void {
   if (el.dataset.split === 'true') return;
   const text = el.textContent ?? '';
   el.dataset.split = 'true';
-  el.setAttribute('aria-label', text);
   el.textContent = '';
   const words = text.split(/\s+/).filter(Boolean);
   words.forEach((word, i) => {
     const outer = document.createElement('span');
     outer.className = 'word';
-    outer.setAttribute('aria-hidden', 'true');
     const inner = document.createElement('span');
     inner.textContent = word;
     outer.append(inner);
@@ -23,7 +21,7 @@ function splitBeatWords(el: HTMLElement): void {
 
 /* ------------------------------------------------------------------ reveals */
 
-function initReveals(): void {
+function initReveals(signal: AbortSignal): void {
   const targets = [...document.querySelectorAll<HTMLElement>('[data-reveal]')];
   const beats = [...document.querySelectorAll<HTMLElement>('[data-beat]')];
   const principles = [...document.querySelectorAll<HTMLElement>('[data-principle]')];
@@ -55,11 +53,12 @@ function initReveals(): void {
     { rootMargin: '0px 0px -12% 0px', threshold: 0.12 },
   );
   all.forEach((el) => io.observe(el));
+  signal.addEventListener('abort', () => io.disconnect(), { once: true });
 }
 
 /* --------------------------------------------------------------------- gate */
 
-function initGate(): void {
+function initGate(signal: AbortSignal): void {
   const gate = document.getElementById('gate');
   const stage = gate?.querySelector<HTMLElement>('[data-gate-stage]');
   const num = gate?.querySelector<HTMLElement>('[data-gate-num]');
@@ -74,8 +73,8 @@ function initGate(): void {
     stage.classList.toggle('is-near', rect.top < window.innerHeight && rect.bottom > 0);
   };
 
-  on(window, 'scroll', throttle(update, 12), { passive: true });
-  on(window, 'resize', throttle(update, 120));
+  window.addEventListener('scroll', throttle(update, 12), { passive: true, signal });
+  window.addEventListener('resize', throttle(update, 120), { signal });
   update();
 }
 
@@ -108,7 +107,7 @@ export function railTravel({ scrollWidth, railLeft, railWidth, lastRight, pinWid
   return Math.max(0, Math.ceil(content - visible) + 48);
 }
 
-function initHorizontal(): void {
+function initHorizontal(signal: AbortSignal): void {
   const pins = [...document.querySelectorAll<HTMLElement>('[data-horizontal]')];
   const items: Horizontal[] = [];
 
@@ -163,8 +162,8 @@ function initHorizontal(): void {
 
   layout();
   const relayout = throttle(layout, 160);
-  on(window, 'resize', relayout);
-  on(window, 'scroll', throttle(update, 12), { passive: true });
+  window.addEventListener('resize', relayout, { signal });
+  window.addEventListener('scroll', throttle(update, 12), { passive: true, signal });
   if (document.fonts?.ready) void document.fonts.ready.then(() => relayout());
 }
 
@@ -183,7 +182,7 @@ function initStages(): void {
   });
 }
 
-function initProcessLine(): void {
+function initProcessLine(signal: AbortSignal): void {
   const line = document.querySelector<SVGPathElement>('[data-process-line]');
   const section = document.getElementById('process');
   if (!line || !section) return;
@@ -192,13 +191,13 @@ function initProcessLine(): void {
     const p = clamp((window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.2));
     line.style.strokeDashoffset = String(1 - p);
   };
-  on(window, 'scroll', throttle(update, 16), { passive: true });
+  window.addEventListener('scroll', throttle(update, 16), { passive: true, signal });
   update();
 }
 
 /* --------------------------------------------------------------------- hero */
 
-function initHero(): void {
+function initHero(signal: AbortSignal): void {
   const canvas = document.querySelector<HTMLCanvasElement>('[data-hero-canvas]');
   const orbit = document.querySelector<HTMLElement>('[data-hero-orbit]');
   if (!canvas || !orbit) return;
@@ -266,14 +265,15 @@ function initHero(): void {
   draw(0);
   if (!prefersReduced()) raf = requestAnimationFrame(loop);
 
-  on(window, 'resize', throttle(() => {
+  window.addEventListener('resize', throttle(() => {
     resize();
     draw(performance.now());
-  }, 140));
+  }, 140), { signal });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) cancelAnimationFrame(raf);
     else if (!prefersReduced()) raf = requestAnimationFrame(loop);
-  });
+  }, { signal });
+  signal.addEventListener('abort', () => cancelAnimationFrame(raf), { once: true });
 }
 
 /* --------------------------------------------------------------- capabilities */
@@ -339,13 +339,24 @@ function initAtlas(): void {
   select(0);
 }
 
+let motionAbort: AbortController | null = null;
+
+/**
+ * Bind every scroll-driven behaviour to the content currently in the document.
+ * Called once per page load and again after a soft navigation; the previous
+ * controller is aborted first, so listeners and observables never accumulate.
+ */
 export function initMotion(): void {
-  initReveals();
-  initGate();
-  initHorizontal();
+  motionAbort?.abort();
+  motionAbort = new AbortController();
+  const { signal } = motionAbort;
+
+  initReveals(signal);
+  initGate(signal);
+  initHorizontal(signal);
   initStages();
-  initProcessLine();
-  initHero();
+  initProcessLine(signal);
+  initHero(signal);
   initCapabilityRail();
   initAtlas();
 }
