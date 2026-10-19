@@ -1,0 +1,32 @@
+{
+  "name": "denvup-studio-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DENVUP — studio website, capabilities and live interaction demos.",
+  "type": "module",
+  "scripts": {
+    "assets": "node scripts/build-brand-assets.mjs",
+    "content": "tsx scripts/prerender.ts",
+    "dev": "npm run content && vite --host 0.0.0.0",
+    "build": "npm run content && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "validate": "html-validate dist/index.html",
+    "qa": "npm run typecheck && npm run test && npm run build && npm run validate"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "html-validate": "^11.16.4",
+    "jsdom": "^30.1.3",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}

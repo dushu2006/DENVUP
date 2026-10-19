@@ -1,0 +1,1933 @@
+/* DENVUP — effects lab demos, part B. */
+
+/* --------------------------------------------------------------- 3D / WebGL */
+
+.d-orb,
+.d-pointcloud,
+.d-shader {
+  position: relative;
+  min-height: 18rem;
+  margin: 1rem;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--bone);
+  display: grid;
+  place-items: center;
+}
+.d-orb canvas,
+.d-pointcloud canvas,
+.d-shader canvas,
+.d-shader__fallback canvas {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1;
+}
+.d-shader__fallback {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+.d-instances {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.d-instances span {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--orange);
+  translate: calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px);
+}
+.d-type3d {
+  min-height: 16rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--bone);
+}
+.d-type3d__word {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  transform: perspective(600px) rotateY(-16deg) rotateX(6deg);
+  transition: transform 0.5s var(--ease-out);
+  text-shadow:
+    2px 2px 0 var(--orange),
+    6px 6px 0 color-mix(in srgb, var(--ink) 16%, var(--bone));
+}
+.d-type3d:hover .d-type3d__word {
+  transform: perspective(600px) rotateY(0) rotateX(0);
+}
+.d-flip-wrap {
+  min-height: 15rem;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+  padding: 1rem;
+}
+.d-flip {
+  width: min(16rem, 90%);
+  aspect-ratio: 4 / 3;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease);
+  cursor: pointer;
+}
+.d-flip.is-on {
+  transform: rotateY(180deg);
+}
+.d-flip__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  border: 1px solid var(--ink);
+  background: var(--bone);
+}
+.d-flip__face--back {
+  transform: rotateY(180deg);
+  background: var(--ink);
+  color: var(--bone);
+}
+
+/* --------------------------------------------------------------- particles */
+
+.d-particle-plate {
+  margin: 1rem;
+  min-height: 18rem;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.d-particles-converge {
+  min-height: 18rem;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+.d-text-particles {
+  min-height: 16rem;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+}
+.d-flow {
+  min-height: 17rem;
+  margin: 1rem;
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.d-dotgrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0.35rem;
+  padding: 1.2rem;
+  margin: 1rem;
+  background: var(--paper);
+}
+.d-dotgrid span {
+  width: 0.35rem;
+  height: 0.35rem;
+  background: color-mix(in srgb, var(--ink) 30%, var(--bone));
+  border-radius: 50%;
+  transition: background-color 0.2s linear, transform 0.2s linear;
+}
+.d-dotgrid span.is-on {
+  background: var(--orange);
+  transform: scale(1.6);
+}
+.d-matrix {
+  font-family: ui-monospace, monospace;
+  font-size: 0.62rem;
+  line-height: 1.3;
+  color: var(--orange);
+  background: var(--ink);
+  padding: 0.8rem;
+  margin: 1rem;
+  overflow: hidden;
+  white-space: pre;
+  max-height: 17rem;
+}
+.d-network {
+  position: relative;
+  min-height: 17rem;
+  margin: 1rem;
+  background: var(--ink);
+  overflow: hidden;
+}
+.d-gradients {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ink);
+  margin: 1rem;
+  min-height: 13rem;
+}
+.d-grad-a,
+.d-grad-b,
+.d-grad-c {
+  display: grid;
+  place-items: end start;
+  padding: 0.6rem;
+  font-size: 0.65rem;
+  color: var(--bone);
+  min-height: 10rem;
+}
+.d-grad-a {
+  background: linear-gradient(140deg, var(--orange), var(--ink));
+}
+.d-grad-b {
+  background: linear-gradient(40deg, var(--bone), var(--orange));
+  color: var(--ink);
+}
+.d-grad-c {
+  background: conic-gradient(from 200deg, var(--ink), var(--orange), var(--bone), var(--ink));
+}
+.d-textures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  margin: 1rem;
+}
+.d-tex {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: end start;
+  padding: 0.4rem;
+  font-size: 0.6rem;
+  background: var(--bone);
+  color: var(--ink);
+  overflow: hidden;
+  position: relative;
+}
+.d-tex--grain::before,
+.d-tex--scan::before,
+.d-tex--glitch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/media/grain.png');
+  background-size: 120px;
+  opacity: 0.5;
+}
+.d-tex--scan::before {
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, color-mix(in srgb, var(--ink) 22%, var(--bone)) 3px 4px);
+}
+.d-tex--glitch::before {
+  background: repeating-linear-gradient(to right, color-mix(in srgb, var(--orange) 60%, transparent) 0 2px, transparent 2px 9px);
+  mix-blend-mode: multiply;
+}
+
+/* --------------------------------------------------------------- materials */
+
+.d-glass-scene {
+  position: relative;
+  min-height: 17rem;
+  margin: 1rem;
+  overflow: hidden;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.d-glass-scene::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 30% 30%, var(--orange) 0 18%, transparent 40%),
+    radial-gradient(circle at 72% 68%, var(--deep) 0 14%, transparent 38%);
+  opacity: 0.6;
+}
+.d-glass {
+  position: relative;
+  z-index: 2;
+  width: min(15rem, 76%);
+  padding: 1.4rem;
+  background: color-mix(in srgb, var(--paper) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper) 32%, transparent);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  color: var(--bone);
+}
+.d-glass span {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+}
+.d-glass p {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--bone) 66%, var(--ink));
+}
+.d-materials-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+  padding: 1.2rem;
+  min-height: 16rem;
+  align-content: center;
+}
+.d-mat {
+  position: relative;
+  min-height: 5rem;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  background: var(--bone);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  overflow: hidden;
+}
+.d-mat--gradborder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(120deg, var(--orange), var(--ink), var(--bone));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.d-mat--light::after {
+  content: '';
+  position: absolute;
+  inset: -60% auto auto -60%;
+  width: 70%;
+  height: 220%;
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  rotate: 24deg;
+  animation: d-sheen 3.4s var(--ease) infinite;
+}
+.d-mat--shine {
+  background: var(--ink);
+  color: var(--bone);
+}
+.d-mat--shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--orange) 70%, transparent) 50%, transparent 70%);
+  translate: -100% 0;
+  animation: d-shimmer 2.8s linear infinite;
+}
+.d-mat--metal {
+  background: color-mix(in srgb, var(--ink) 82%, var(--bone));
+  color: var(--bone);
+}
+.d-mat--metal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, color-mix(in srgb, var(--bone) 26%, transparent) 50%, transparent 60%);
+  translate: -100% 0;
+  animation: d-shimmer 3.6s linear infinite;
+}
+@keyframes d-sheen {
+  50% {
+    transform: translate(220%, 0);
+  }
+}
+@keyframes d-shimmer {
+  to {
+    translate: 100% 0;
+  }
+}
+.d-lightscene {
+  position: relative;
+  min-height: 18rem;
+  margin: 1rem;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--bone);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem;
+  isolation: isolate;
+}
+.d-lightscene p {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+.d-lightscene__spot {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  background: var(--orange);
+  filter: blur(60px);
+  opacity: 0.5;
+  left: var(--mx, 50%);
+  top: var(--my, 40%);
+  translate: -50% -50%;
+  z-index: 1;
+}
+.d-lightscene__vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 120px 40px color-mix(in srgb, var(--ink) 70%, transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+.d-depth-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 1.2rem;
+  align-items: center;
+  min-height: 12rem;
+}
+.d-depth {
+  min-height: 4rem;
+  border: 1px solid var(--ink);
+  background: var(--bone);
+  font-size: 0.8rem;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+.d-depth:hover,
+.d-depth:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 var(--ink);
+}
+.d-depth:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--ink);
+}
+.d-neu {
+  min-height: 4rem;
+  display: grid;
+  place-items: center;
+  background: var(--bone);
+  box-shadow: inset 4px 4px 10px color-mix(in srgb, var(--ink) 18%, var(--bone)), inset -4px -4px 10px var(--paper);
+  font-size: 0.78rem;
+}
+.d-chroma {
+  min-height: 16rem;
+  margin: 1rem;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+}
+.d-chroma__btn {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+  color: var(--bone);
+  padding: 0.4rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--bone) 40%, var(--ink));
+  position: relative;
+}
+.d-chroma__btn.is-on {
+  text-shadow:
+    -2px 0 var(--orange),
+    2px 0 #14b8a6;
+  animation: d-chroma 0.35s steps(2) infinite;
+}
+@keyframes d-chroma {
+  50% {
+    transform: translateX(1px) skewX(-0.6deg);
+  }
+}
+.d-holo {
+  position: relative;
+  min-height: 16rem;
+  margin: 1rem;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  overflow: hidden;
+  perspective: 700px;
+}
+.d-holo__card {
+  position: relative;
+  z-index: 2;
+  width: 11rem;
+  height: 7rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(120deg, var(--bone), color-mix(in srgb, var(--orange) 30%, var(--bone)), var(--bone));
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  transform: rotateY(var(--ry, 0deg)) rotateX(var(--rx, 0deg));
+  transition: transform 0.15s linear;
+}
+.d-holo__reflection {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: color-mix(in srgb, var(--orange) 30%, transparent);
+  filter: blur(6px);
+  translate: 0 4.5rem;
+}
+.d-printscene {
+  position: relative;
+  min-height: 16rem;
+  margin: 1rem;
+  background: var(--bone);
+  overflow: hidden;
+  padding: 1.2rem;
+  display: grid;
+  align-content: end;
+}
+.d-printscene__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 18%, var(--bone)) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 18%, var(--bone)) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+}
+.d-printscene__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/media/grain.png');
+  background-size: 140px;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+.d-printscene__note {
+  position: relative;
+  background: var(--paper);
+  padding: 0.7rem;
+  border-left: 4px solid var(--orange);
+  max-width: 20rem;
+}
+.d-printscene__note span {
+  font-size: 0.62rem;
+  color: color-mix(in srgb, var(--ink) 55%, var(--bone));
+}
+.d-printscene__note p {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.d-blur {
+  filter: blur(3px);
+}
+.d-dof {
+  position: relative;
+  min-height: 16rem;
+  margin: 1rem;
+  background: var(--ink);
+  overflow: hidden;
+}
+.d-dof__orb {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: var(--orange);
+  left: 24%;
+  top: 28%;
+}
+.d-dof__blur {
+  position: absolute;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: var(--bone);
+  right: 12%;
+  bottom: 10%;
+  filter: blur(18px);
+  opacity: 0.5;
+}
+.d-dof__beam {
+  position: absolute;
+  inset: -20% 40% -20% 30%;
+  background: color-mix(in srgb, var(--bone) 18%, transparent);
+  rotate: 18deg;
+  filter: blur(14px);
+}
+
+/* ------------------------------------------------------------------- story */
+
+.d-selector {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  min-height: 18rem;
+  align-content: center;
+}
+.d-selector__tabs {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+.d-selector__tabs button {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, var(--bone));
+}
+.d-selector__tabs button[aria-selected='true'] {
+  background: var(--ink);
+  color: var(--bone);
+}
+.d-selector__stage {
+  position: relative;
+  min-height: 12rem;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  overflow: hidden;
+}
+.d-selector__panel {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+.d-selector__panel svg {
+  width: 100%;
+  height: 100%;
+}
+.d-selector__panel figcaption {
+  padding: 0.45rem 0.6rem;
+  font-size: 0.7rem;
+  background: var(--ink);
+  color: var(--bone);
+}
+.d-timeline {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem 1.2rem;
+  min-height: 17rem;
+  align-content: center;
+}
+.d-timeline__line {
+  width: 100%;
+  height: 1.5rem;
+}
+.d-timeline__line path {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ink) 22%, var(--bone));
+  stroke-width: 1;
+}
+.d-timeline.is-drawn .d-timeline__line path {
+  stroke: var(--orange);
+  stroke-width: 2;
+  animation: d-draw 1s var(--ease-out) forwards;
+}
+@keyframes d-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+.d-timeline__steps {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.8rem;
+}
+.d-timeline__steps li {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.d-timeline__steps button {
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.8rem;
+  font-weight: 560;
+  width: 100%;
+  text-align: left;
+}
+.d-timeline__steps button span {
+  font-size: 0.6rem;
+  color: color-mix(in srgb, var(--ink) 50%, var(--bone));
+}
+.d-timeline__steps button.is-lit {
+  color: var(--deep);
+}
+.d-timeline__steps div {
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--ink) 65%, var(--bone));
+}
+.d-flowchart {
+  position: relative;
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.2rem;
+  min-height: 16rem;
+  align-content: center;
+}
+.d-flowchart__nodes {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.d-flowchart__node {
+  border: 1px solid color-mix(in srgb, var(--ink) 24%, var(--bone));
+  padding: 0.3rem 0.45rem;
+  font-size: 0.72rem;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.d-flowchart__node.is-on {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.d-flowchart__links {
+  width: 100%;
+  height: 2rem;
+}
+.d-flowchart__links path {
+  stroke: color-mix(in srgb, var(--ink) 22%, var(--bone));
+  stroke-width: 1;
+}
+.d-flowchart__links path.is-on {
+  stroke: var(--orange);
+  stroke-width: 2;
+}
+.d-hotspots {
+  padding: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  min-height: 18rem;
+  align-content: center;
+}
+.d-hotspots__plate {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  overflow: hidden;
+}
+.d-hotspots__plate svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.d-hotspot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 0.62rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  translate: -50% -50%;
+  border: 2px solid var(--paper);
+  transition: transform 0.2s var(--ease-out);
+}
+.d-hotspot:hover,
+.d-hotspot:focus-visible,
+.d-hotspot.is-on {
+  transform: scale(1.2);
+  background: var(--ink);
+  color: var(--bone);
+}
+.d-stack {
+  display: grid;
+  gap: 0.5rem;
+}
+.d-stack__layers {
+  position: relative;
+  min-height: 11rem;
+  background: var(--bone);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, var(--bone));
+  overflow: hidden;
+}
+.d-stack__layers > * {
+  position: absolute;
+  inset: 0;
+}
+.d-chart {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  min-height: 16rem;
+  align-content: center;
+}
+.d-chart__row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) minmax(0, 2fr) auto;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 0.75rem;
+}
+.d-chart__bar {
+  height: 0.6rem;
+  background: color-mix(in srgb, var(--ink) 12%, var(--bone));
+}
+.d-chart__bar i {
+  display: block;
+  height: 100%;
+  width: var(--w, 0%);
+  background: var(--orange);
+  transition: width 0.6s var(--ease-out);
+}
+.d-chart b {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+.d-details {
+  padding: 1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.d-details details {
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 16%, var(--bone));
+  padding-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+.d-details summary {
+  cursor: pointer;
+  font-weight: 560;
+  padding-block: 0.3rem;
+}
+.d-details p {
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+  padding-bottom: 0.3rem;
+}
+
+/* ----------------------------------------------------------------- process */
+
+.d-procscroll {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1rem;
+  padding: 1rem;
+  height: 22rem;
+  overflow-y: auto;
+  align-items: start;
+  scroll-snap-type: y proximity;
+  margin: 1rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, var(--bone));
+}
+.d-procscroll__stage {
+  position: sticky;
+  top: 0.5rem;
+  display: grid;
+  gap: 0.4rem;
+  background: var(--ink);
+  color: var(--bone);
+  padding: 0.6rem;
+}
+.d-procscroll__art svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.d-procscroll__stage > span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--orange);
+}
+.d-procscroll__steps {
+  display: grid;
+  gap: 1rem;
+}
+.d-procscroll__steps section {
+  min-height: 11rem;
+  display: grid;
+  align-content: center;
+  gap: 0.3rem;
+  padding: 0.8rem;
+  border-left: 2px solid color-mix(in srgb, var(--ink) 14%, var(--bone));
+  scroll-snap-align: center;
+}
+.d-procscroll__steps section.is-active {
+  border-left-color: var(--orange);
+}
+.d-procscroll__steps h4 {
+  font-size: 1rem;
+}
+.d-procscroll__steps p {
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+}
+.d-idea {
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  min-height: 17rem;
+  align-content: center;
+}
+.d-idea__panes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+}
+.d-idea__pane {
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  opacity: 0.45;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease-out);
+}
+.d-idea__pane.is-active {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+.d-idea__pane svg {
+  width: 100%;
+  height: auto;
+}
+.d-idea__pane figcaption {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.4rem;
+  background: var(--paper);
+}
+.d-idea__control {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* ------------------------------------------------------------------ people */
+
+.d-namelist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: color-mix(in srgb, var(--ink) 18%, var(--bone));
+  margin: 1rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+}
+.d-nameplate {
+  width: 100%;
+  min-height: 8.5rem;
+  background: var(--paper);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  gap: 0.3rem;
+  padding: 0.8rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.d-nameplate__art {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+.d-nameplate__art svg {
+  width: 4.5rem;
+  height: 4.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  transition: transform 0.5s var(--ease-out);
+}
+.d-nameplate:hover .d-nameplate__art svg {
+  transform: rotate(-8deg) scale(1.08);
+}
+.d-nameplate__name {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.d-nameplate__initials {
+  font-size: 0.6rem;
+  color: color-mix(in srgb, var(--ink) 50%, var(--bone));
+}
+.d-profile__inner {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.8rem;
+}
+.d-studio {
+  position: relative;
+  min-height: 17rem;
+  margin: 1rem;
+  background: var(--ink);
+  color: var(--bone);
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+  align-content: center;
+  overflow: hidden;
+}
+.d-studio__net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: color-mix(in srgb, var(--bone) 24%, var(--ink));
+}
+.d-studio__names {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.d-studio__names span {
+  border: 1px solid color-mix(in srgb, var(--bone) 26%, var(--ink));
+  padding: 0.2rem 0.45rem;
+  font-size: 0.7rem;
+  animation: d-pulse 3s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 220ms);
+}
+.d-studio__values {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.d-markstates {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem;
+  align-content: center;
+}
+.d-markstates__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--orange);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.d-markstates__stage img {
+  width: 38%;
+  height: auto;
+}
+.d-reveal-principle {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.2rem;
+  min-height: 15rem;
+  align-content: center;
+  background: var(--ink);
+  color: var(--bone);
+  margin: 1rem;
+}
+.d-reveal-principle__btn {
+  justify-self: start;
+  border: 1px solid color-mix(in srgb, var(--bone) 32%, var(--ink));
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+}
+.d-reveal-principle__note {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--bone) 60%, var(--ink));
+}
+
+/* ------------------------------------------------------------------ conversion */
+
+.d-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  padding: 1rem;
+  min-height: 15rem;
+  align-content: center;
+}
+.d-plan {
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, var(--bone));
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.3rem;
+  background: var(--paper);
+}
+.d-plan.is-featured {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.d-plan__name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.d-plan__price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+.d-plan__meta {
+  font-size: 0.62rem;
+  color: color-mix(in srgb, var(--ink) 60%, var(--bone));
+}
+.d-plan.is-featured .d-plan__meta {
+  color: color-mix(in srgb, var(--ink) 72%, var(--orange));
+}
+.d-faq {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem;
+  align-content: center;
+  min-height: 16rem;
+}
+.d-faq details {
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 14%, var(--bone));
+}
+.d-faq summary {
+  font-size: 0.8rem;
+  font-weight: 560;
+  padding-block: 0.45rem;
+  cursor: pointer;
+}
+.d-faq p {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+  padding-bottom: 0.5rem;
+}
+.d-faqsearch {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem;
+}
+.d-faqsearch input {
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, var(--bone));
+  background: var(--paper);
+  padding: 0.45rem 0.5rem;
+  font-size: 0.8rem;
+}
+.d-steps {
+  display: flex;
+  gap: 0.4rem;
+  padding: 1rem 1rem 0;
+  align-items: center;
+}
+.d-steps__dots {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+.d-steps__dots i {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: color-mix(in srgb, var(--ink) 24%, var(--bone));
+}
+.d-steps__dots i.is-on {
+  background: var(--orange);
+}
+.d-step {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.d-step .d-field input,
+.d-step .d-field select,
+.d-step .d-field textarea {
+  font-size: 0.82rem;
+}
+.d-step-result {
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--ink) 65%, var(--bone));
+  border-left: 3px solid var(--orange);
+  background: var(--paper);
+}
+.d-conditional {
+  padding: 1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+.d-contactdemo {
+  position: relative;
+  margin: 1rem;
+  min-height: 16rem;
+  background: var(--ink);
+  color: var(--bone);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+.d-contactdemo__float {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 0.7rem;
+  padding: 0.45rem 0.6rem;
+  animation: d-float 3s var(--ease) infinite;
+}
+@keyframes d-float {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* --------------------------------------------------------------------- media */
+
+.d-media {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--ink);
+  overflow: hidden;
+  display: grid;
+}
+.d-media canvas {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+.d-media__controls {
+  grid-area: 1 / 1;
+  align-self: end;
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem;
+  z-index: 2;
+}
+.d-media__controls .d-chip {
+  background: color-mix(in srgb, var(--ink) 72%, transparent);
+  color: var(--bone);
+  border-color: color-mix(in srgb, var(--bone) 30%, var(--ink));
+}
+.d-sound {
+  margin: 1rem;
+  padding: 1rem;
+  background: var(--bone);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, var(--bone));
+  display: grid;
+  gap: 0.5rem;
+}
+.d-sound__pad {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.d-sound__pad button {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid var(--ink);
+  font-size: 0.7rem;
+}
+.d-sound__pad button:active {
+  background: var(--orange);
+}
+.d-reactive {
+  min-height: 16rem;
+  margin: 1rem;
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  align-items: end;
+  gap: 2px;
+  padding: 1rem;
+}
+.d-reactive i {
+  display: block;
+  background: var(--orange);
+  height: var(--h, 8%);
+  transition: height 0.08s linear;
+}
+.d-audio {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0 1rem 1rem;
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--ink) 60%, var(--bone));
+}
+
+/* ---------------------------------------------------------------------- eggs */
+
+.d-denmode {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--ink);
+  color: var(--bone);
+  display: grid;
+  place-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+.d-denmode::before {
+  content: '';
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--orange) 70%, transparent), transparent 65%);
+  opacity: 0.5;
+  animation: d-glow 4s ease-in-out infinite;
+}
+.d-denmode > * {
+  position: relative;
+}
+@keyframes d-glow {
+  50% {
+    transform: scale(1.15);
+    opacity: 0.75;
+  }
+}
+.d-constellation {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--ink);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.d-constellation__stars {
+  position: absolute;
+  inset: 0;
+}
+.d-constellation__stars i {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--bone);
+  border-radius: 50%;
+}
+.d-linkcloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+  align-content: center;
+  padding: 1.5rem;
+  min-height: 16rem;
+}
+.d-linkcloud a {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.6vw, 1.6rem);
+  letter-spacing: -0.03em;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 26%, var(--bone));
+  transition:
+    color 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+.d-linkcloud a:hover {
+  color: var(--deep);
+  border-color: var(--deep);
+}
+.d-treatments {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem;
+  padding: 1rem;
+}
+.d-treatment {
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background: var(--paper);
+  overflow: hidden;
+}
+.d-treatment__art {
+  min-height: 6rem;
+  display: grid;
+  place-items: center;
+  background: var(--bone);
+}
+.d-treatment__art svg {
+  width: 60%;
+  height: auto;
+}
+.d-treatment span:last-child {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.4rem;
+  background: var(--ink);
+  color: var(--bone);
+}
+
+/* --------------------------------------------------------------- responsive */
+
+.d-tapcards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  padding: 1rem;
+  min-height: 16rem;
+  align-content: center;
+}
+.d-tapcard {
+  border: 1px solid color-mix(in srgb, var(--ink) 20%, var(--bone));
+  background: var(--paper);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  min-height: 11rem;
+}
+.d-tapcard__art {
+  background: var(--bone);
+  display: grid;
+  place-items: center;
+  font-size: 0.65rem;
+  color: color-mix(in srgb, var(--ink) 50%, var(--bone));
+}
+.d-tapcard__title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: -0.02em;
+  padding: 0.35rem 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.d-tapcard__hint {
+  font-size: 0.58rem;
+  color: color-mix(in srgb, var(--ink) 48%, var(--bone));
+}
+.d-tapcard__detail {
+  font-size: 0.66rem;
+  padding: 0 0.4rem 0.4rem;
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+  display: none;
+}
+.d-tapcard.is-open .d-tapcard__detail {
+  display: block;
+}
+.d-swipe {
+  padding: 1rem;
+  min-height: 15rem;
+  display: grid;
+  align-content: center;
+  gap: 0.5rem;
+}
+.d-swipe__track {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.d-swipe__track > * {
+  scroll-snap-align: center;
+  flex: 0 0 78%;
+  min-height: 8rem;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+.d-container-demo {
+  container-type: inline-size;
+  margin: 1rem;
+  border: 1px dashed color-mix(in srgb, var(--ink) 22%, var(--bone));
+  min-height: 14rem;
+  display: grid;
+}
+.d-cq {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  padding: 1rem;
+  align-content: center;
+}
+.d-cq__art {
+  min-height: 4rem;
+  background: var(--orange);
+}
+.d-cq__copy {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+@container (min-width: 380px) {
+  .d-cq {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+  }
+  .d-cq__art {
+    min-height: 7rem;
+  }
+}
+.d-safe {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.7fr);
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 17rem;
+  align-items: center;
+}
+.d-safe__phone {
+  position: relative;
+  aspect-ratio: 9 / 18;
+  max-height: 18rem;
+  margin-inline: auto;
+  background: var(--ink);
+  border-radius: 16px;
+  border: 2px solid color-mix(in srgb, var(--ink) 60%, var(--bone));
+  padding: 0.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.d-safe__notch {
+  justify-self: center;
+  width: 38%;
+  height: 0.35rem;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--bone) 30%, var(--ink));
+  margin-bottom: 0.4rem;
+}
+.d-safe__home {
+  height: 0.35rem;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--bone) 30%, var(--ink));
+  margin-top: 0.4rem;
+}
+.d-safe__thumb {
+  position: absolute;
+  right: 0.25rem;
+  bottom: 20%;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px dashed var(--orange);
+}
+.d-safe__copy {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+}
+.d-crop {
+  position: relative;
+  margin: 1rem;
+  min-height: 14rem;
+  overflow: hidden;
+  background: var(--ink);
+}
+.d-crop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focal, 50%) 50%;
+}
+
+/* -------------------------------------------------------------------- access */
+
+.d-reduced {
+  padding: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  min-height: 18rem;
+  align-content: center;
+}
+.d-reduced__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+.d-reduced__stage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+}
+.d-reduced__card {
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.25rem;
+  transition:
+    transform 0.6s var(--ease-out),
+    opacity 0.6s var(--ease);
+  transform: translateY(calc(var(--i) * 0.6rem));
+}
+.d-reduced__card span {
+  font-size: 0.6rem;
+  color: var(--deep);
+}
+.d-reduced__card h4 {
+  font-size: 0.9rem;
+}
+.d-reduced__card p {
+  font-size: 0.68rem;
+  color: color-mix(in srgb, var(--ink) 60%, var(--bone));
+}
+.d-reduced.is-reduced .d-reduced__card {
+  transform: none;
+}
+.d-pauser {
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.8rem;
+  align-content: center;
+  min-height: 15rem;
+  overflow: hidden;
+}
+.d-pauser__track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  letter-spacing: -0.03em;
+  animation: marquee 14s linear infinite;
+}
+.d-kbd {
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  min-height: 16rem;
+  align-content: center;
+}
+.d-kbd__tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+.d-kbd__tabs button {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 22%, var(--bone));
+}
+.d-kbd__tabs button[aria-selected='true'] {
+  background: var(--ink);
+  color: var(--bone);
+}
+.d-kbd [role='tabpanel'] {
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--ink) 64%, var(--bone));
+  padding: 0.4rem 0;
+}
+.d-kbd .d-chip {
+  justify-self: start;
+}
+.d-focusdialog {
+  width: min(24rem, 92%);
+  border: 0;
+  padding: 1.2rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+.d-focusdialog h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+.d-focusdialog p {
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--ink) 62%, var(--bone));
+  margin-bottom: 0.7rem;
+}
+.d-status {
+  padding: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  align-content: center;
+  min-height: 15rem;
+}
+.d-status__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+  padding: 0.3rem 0.55rem;
+  font-size: 0.76rem;
+  border: 1px solid currentColor;
+}
+.d-status__chip.is-ok {
+  color: #17713f;
+}
+.d-status__chip.is-warn {
+  color: #8a5a00;
+}
+.d-status__chip.is-error {
+  color: #a1261d;
+}
+.d-status .d-chip {
+  justify-self: start;
+}
+
+/* ---------------------------------------------------------------- engineering */
+
+.d-perf {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--ink);
+  overflow: hidden;
+  display: grid;
+}
+.d-perf canvas {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1;
+}
+.d-perf__hud {
+  grid-area: 1 / 1;
+  align-self: start;
+  justify-self: start;
+  margin: 0.6rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  background: color-mix(in srgb, var(--ink) 70%, transparent);
+  color: var(--orange);
+  padding: 0.4rem 0.5rem;
+  white-space: pre;
+}
+.d-lazy {
+  margin: 1rem;
+  min-height: 16rem;
+  display: grid;
+  place-items: center;
+  background: var(--bone);
+  padding: 1rem;
+}
+.d-lazy__box {
+  width: min(18rem, 100%);
+  aspect-ratio: 16 / 10;
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--bone));
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--ink) 52%, var(--bone));
+  overflow: hidden;
+}
+.d-lazy__box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.d-offscreen {
+  margin: 1rem;
+  min-height: 15rem;
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: var(--bone);
+  text-align: center;
+  padding: 1rem;
+}
+.d-offscreen span {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+.d-offscreen small {
+  font-size: 0.7rem;
+  color: color-mix(in srgb, var(--bone) 55%, var(--ink));
+}
+.d-events {
+  padding: 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+.d-events__counts {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+.d-events__counts span {
+  border: 1px solid color-mix(in srgb, var(--ink) 20%, var(--bone));
+  padding: 0.2rem 0.4rem;
+}
+.d-fallback {
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  align-content: center;
+  min-height: 15rem;
+}
+.d-fallback__state {
+  background: var(--orange);
+  color: var(--ink);
+  padding: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------------------------------------------- experimental */
+
+.d-metaballs,
+.d-terrain,
+.d-sdf {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--ink);
+  overflow: hidden;
+  display: grid;
+}
+.d-metaballs .d-cap,
+.d-terrain .d-cap,
+.d-sdf .d-cap {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.6rem;
+  color: color-mix(in srgb, var(--bone) 55%, var(--ink));
+}
+.d-depthscene {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  background: var(--orange);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  gap: 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, var(--orange));
+}
+.d-depthscene__back,
+.d-depthscene__mid,
+.d-depthscene__front {
+  position: absolute;
+  transition: transform 0.12s linear;
+}
+.d-depthscene__back {
+  inset: 0;
+  background:
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--ink) 14%, transparent) 0 2px, transparent 2px 22px);
+  translate: calc(var(--dx, 0) * -8px) calc(var(--dy, 0) * -8px);
+}
+.d-depthscene__mid {
+  width: 8rem;
+  translate: calc(var(--dx, 0) * 18px) calc(var(--dy, 0) * 18px);
+}
+.d-depthscene__mid img {
+  width: 100%;
+  height: auto;
+}
+.d-depthscene__front {
+  inset: auto 0 0;
+  height: 2.4rem;
+  background: var(--ink);
+  translate: calc(var(--dx, 0) * 34px) 0;
+}
+.d-depthscene p {
+  position: relative;
+  z-index: 2;
+  font-size: 0.75rem;
+  color: var(--ink);
+  align-self: end;
+  margin-bottom: 3.4rem;
+}
+.d-shadertrans {
+  position: relative;
+  margin: 1rem;
+  min-height: 17rem;
+  overflow: hidden;
+  display: grid;
+}
+.d-shadertrans canvas {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+.d-shadertrans__copy {
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: start;
+  padding: 0.8rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  color: var(--bone);
+  font-size: 0.75rem;
+}
+.d-shadertrans__copy .d-chip {
+  background: color-mix(in srgb, var(--ink) 60%, transparent);
+  color: var(--bone);
+  border-color: color-mix(in srgb, var(--bone) 30%, var(--ink));
+}
+
+/* --------------------------------------------------------------- responsive */
+
+@media (max-width: 720px) {
+  .lab__stage {
+    min-height: 22rem;
+  }
+  .d-loaders-stack,
+  .d-materials-row,
+  .d-dotgrid,
+  .d-gradients,
+  .d-textures,
+  .d-tapcards,
+  .d-reduced__stage,
+  .d-plans,
+  .d-namelist {
+    grid-template-columns: 1fr;
+  }
+  .d-dotgrid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .d-selector__panel,
+  .d-safe {
+    grid-template-columns: 1fr;
+  }
+  .d-safe__phone {
+    max-height: 14rem;
+  }
+  .d-procscroll {
+    grid-template-columns: 1fr;
+    height: 24rem;
+  }
+  .d-pin {
+    grid-template-columns: 1fr;
+  }
+  .d-diagram {
+    grid-template-columns: 1fr;
+  }
+  .d-timeline__steps {
+    flex-wrap: wrap;
+  }
+  .d-timeline__steps li {
+    flex: 1 1 42%;
+  }
+  .d-idea__panes {
+    grid-template-columns: 1fr;
+  }
+  .d-chart__row {
+    grid-template-columns: 1fr auto;
+  }
+  .d-chart__bar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .d-flip-wrap {
+    perspective: none;
+  }
+  .d-holo__card {
+    transform: none;
+  }
+  .d-lightscene__spot {
+    filter: blur(34px);
+  }
+}
