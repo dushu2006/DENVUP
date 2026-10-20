@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.vite/
+*.log
+
+.taste-skill/
+.browser/
+pages/
+
+# Prerendered pages for the dev server (npm run content); the build writes dist/.
+/404/
+/concepts/
+/contact/
+/lab/
+/pricing/
+/privacy/
+/services/
+/studio/
+/terms/

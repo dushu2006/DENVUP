@@ -1,0 +1,26 @@
+/* DENVUP — live demo embeds (capability stage and concept cards). */
+
+.caps__demo > *,
+.concept__demo > * {
+  min-height: 0;
+}
+.caps__demo > .d-cursor-zone,
+.concept__demo > .d-cursor-zone,
+.caps__demo > .d-scene,
+.concept__demo > .d-scene,
+.caps__demo > .d-tilt-wrap,
+.concept__demo > .d-tilt-wrap {
+  margin: 0;
+  border: 0;
+  min-height: 14rem;
+}
+.caps__demo .d-cap,
+.concept__demo .d-cap {
+  display: none;
+}
+
+/* The stage fills its frame; each demo sets its own internal layout. */
+.caps__demo > .d-stage,
+.concept__demo > .d-stage {
+  height: 100%;
+}

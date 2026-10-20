@@ -1,0 +1,437 @@
+/* Chapter choreography.
+   Each chapter is uncovered by a device rather than faded in: a plate slides
+   off, a curtain parts, an iris opens, or a frame scales away. The devices are
+   scroll-driven (animation-timeline: view()), so they are reversible and begin
+   before the section is fully in view. Browsers without scroll timelines get
+   the finished state — the overlay only exists inside the @supports block. */
+
+main[data-route-main] {
+  view-transition-name: page;
+  position: relative;
+  z-index: 1;
+}
+
+/* The stage shows through; the section owns its own ground on top. */
+main > section + section {
+  margin-top: -1px;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The covering plate: the outgoing chapter's ground slides up off the new
+       one. Its travel is a fixed length, not a fraction of the section, so a
+       tall chapter is never blanked while it fills the screen. */
+    main > section[data-chapter]::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      background: var(--cover, var(--scene-bg, #fff));
+      border-bottom: 3px solid var(--scene-accent, #ff4a00);
+      transform-origin: 50% 0%;
+      animation: uncover-plate linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 420px;
+    }
+
+    main > section[data-chapter][data-handoff='none']::after {
+      content: none;
+      animation: none;
+    }
+
+    main > section[data-chapter][data-handoff='curtain']::after {
+      animation-name: uncover-curtain;
+      transform-origin: 100% 50%;
+      border-bottom: 0;
+      border-left: 3px solid var(--scene-accent, #ff4a00);
+      animation-range: entry 0px entry 620px;
+    }
+    main > section[data-chapter][data-handoff='flood']::after {
+      animation-name: uncover-flood;
+      border: 0;
+      border-radius: 0 0 50% 50% / 0 0 26% 26%;
+      animation-range: entry 0px entry 520px;
+    }
+    main > section[data-chapter][data-handoff='scale']::after {
+      animation-name: uncover-scale;
+      transform-origin: 50% 50%;
+      border: 0;
+      animation-range: entry 0px entry 480px;
+    }
+    main > section[data-chapter][data-handoff='line']::after {
+      animation-name: uncover-line;
+      border-left: 0;
+      border-right: 0;
+      border-bottom-width: 4px;
+      animation-range: entry 0px entry 380px;
+    }
+
+    /* Colour of the plate per previous ground. */
+    main > section[data-cover='ink']::after { --cover: #0b0a09; }
+    main > section[data-cover='den']::after { --cover: #17120f; }
+    main > section[data-cover='orange']::after { --cover: #ff4a00; }
+    main > section[data-cover='bone']::after { --cover: #ece4d7; }
+    main > section[data-cover='paper']::after { --cover: #ffffff; }
+
+    /* Sections clip their own plate so it never paints over the chapter above. */
+    main > section[data-chapter] { overflow: clip; }
+    main .route-section, main .page-head { overflow: clip; }
+
+    /* Route pages use the same vocabulary, one step quieter. */
+    main .route-section::after,
+    main .page-head::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      background: var(--scene-bg, #fff);
+      border-bottom: 2px solid color-mix(in srgb, var(--scene-accent, #ff4a00) 70%, transparent);
+      animation: uncover-plate linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 300px;
+    }
+  }
+}
+
+@keyframes uncover-plate {
+  from { transform: translateY(0); }
+  to { transform: translateY(-102%); }
+}
+@keyframes uncover-curtain {
+  from { transform: translateX(0); }
+  to { transform: translateX(103%); }
+}
+@keyframes uncover-flood {
+  from { clip-path: inset(-2% -2% -2% -2% round 0 0 50% 50% / 0 0 24% 24%); }
+  to { clip-path: inset(-2% -2% 102% -2% round 0 0 50% 50% / 0 0 24% 24%); }
+}
+@keyframes uncover-scale {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.55); opacity: 0; }
+}
+@keyframes uncover-line {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+@keyframes chapter-settle {
+  from { opacity: 0.62; transform: translateY(1.6vh); }
+  to { opacity: 1; transform: none; }
+}
+
+/* The one object that travels: the mark is drawn into the stage at the same
+   coordinates in every chapter, and the header mark is the same shape that
+   flies across routes (view-transition-name: mark). */
+.brand__mark,
+.menu__brand svg,
+.footer__logo svg {
+  view-transition-name: mark;
+}
+
+/* Progress rail: chapter position, not just scroll percentage. */
+.progress[data-progress] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: color-mix(in srgb, var(--scene-ink, #0b0a09) 12%, transparent);
+  overflow: hidden;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  background: var(--orange);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--p, 0));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section[data-chapter]::after,
+  main .route-section::after,
+  main .page-head::after {
+    content: none;
+    animation: none;
+  }
+  main > section[data-chapter] > * {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------- 1. the prelude flood
+   The white chapter is pinned. Its only moving object is a box at the bottom
+   centre that grows, with scroll, until it has flooded the viewport in orange.
+   That flood is the entrance to the hero: the hero is already rendered behind
+   it, so nothing fades and nothing is hidden. The animation is attached to a
+   named view timeline on the section, which makes it reversible for free.
+   Without scroll timelines the box is simply a graphic and the hero follows. */
+
+.prelude--choreo {
+  position: relative;
+  height: 200svh;
+  padding: 0;
+
+  color: var(--ink);
+  view-timeline-name: --prelude;
+  view-timeline-axis: block;
+}
+/* Higher specificity than the generic chapter-ground rule in scene.css:
+   the prelude must follow the stage, not its own paper theme, or the last
+   centimetres under the flood show white against orange. */
+main > section.prelude--choreo {
+  background-color: transparent;
+}
+
+/* The hero is already orange. The prelude's pinned band scrolls up and away over
+   it, so the hand-off is a continuous field: no blank band, no fade, and the
+   hero content is revealed by the flood leaving, not by appearing. */
+main > section.prelude--choreo + section {
+  margin-top: -100svh;
+  position: relative;
+  z-index: 2;
+}
+main > section.prelude--choreo { z-index: 1; }
+.prelude__pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: clip;
+  /* the flood is absolutely positioned against this box, not the section */
+  contain: paint;
+  display: grid;
+  align-content: center;
+  padding: clamp(5.5rem, 12vh, 9rem) var(--pad) clamp(6rem, 14vh, 9rem);
+}
+.prelude__beats-wrap { max-width: 78rem; display: grid; gap: 1.4rem; }
+.prelude__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.flood {
+  position: absolute;
+  left: 50%;
+  bottom: 5svh;
+  z-index: 4;
+  width: clamp(84px, 11vw, 150px);
+  aspect-ratio: 1;
+  background: var(--orange);
+  border-radius: 2px;
+  /* Bottom-centred so it opens downward into the seam. Note the box is 150px and
+     the pin's padding box ends 45px above the viewport edge; 34× clears both. */
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+.flood__edge {
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 24%, transparent);
+  transform: translate(6px, 6px);
+}
+.flood__label {
+  position: absolute;
+  right: 0;
+  bottom: -1.45rem;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@supports (animation-timeline: --prelude) {
+  @media (prefers-reduced-motion: no-preference) {
+    .flood {
+      animation: flood-grow linear both;
+      animation-timeline: --prelude;
+      /* contain = the section exactly fills the viewport, so this maps the
+         flood to 0 → 100svh of scrolling and completes before the pin releases. */
+      /* It stays a small box while the beats are read, then floods late. */
+      animation-range: contain 52% contain 99%;
+    }
+  }
+}
+@keyframes flood-grow {
+  from { transform: scale(1); border-radius: 2px; }
+  55% { border-radius: 8px; }
+  to { transform: scale(34); border-radius: 0; }
+}
+
+/* ------------------------------------------------ 4. the services selector */
+
+.services--selector { padding: var(--section-y) var(--pad); }
+.services__inner { max-width: var(--wrap); margin-inline: auto; }
+.services__head { display: grid; gap: 1rem; max-width: 46rem; margin-bottom: clamp(2rem, 5vw, 4rem); }
+.services__head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5.4vw, 4.6rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.services__head p { max-width: 52ch; line-height: 1.6; margin: 0; color: var(--muted); }
+.selector {
+  position: relative;
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 3rem);
+}
+@media (min-width: 900px) {
+  .selector { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: start; }
+  .svc-arts { display: block; grid-column: 2; grid-row: 1; position: sticky; top: 7rem; }
+  .svc-stage { grid-column: 2; grid-row: 1; padding-top: 0; }
+}
+.svc-rows { list-style: none; margin: 0; padding: 0; position: relative; }
+.svc-row + .svc-row { border-top: 1px solid var(--line); }
+.svc-row__btn {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: clamp(1rem, 2.4vw, 1.6rem) 0.6rem;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  transition: color 0.3s var(--ease-out), padding-left 0.4s var(--ease-out);
+}
+.svc-row__btn[aria-pressed='true'] { color: #180700; padding-left: 1.2rem; }
+.svc-row__num { font-size: 0.74rem; letter-spacing: 0.08em; opacity: 0.55; }
+.svc-row__name { font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.05; }
+.svc-row__price { font-size: 0.8rem; opacity: 0.6; white-space: nowrap; }
+.svc-rows-wrap { position: relative; isolation: isolate; }
+.svc-rows { position: relative; }
+.selector__highlight {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  z-index: 1;
+  background: var(--orange);
+  translate: 0 var(--hl-y, 0);
+  transition: height 0.42s var(--ease-out), translate 0.42s var(--ease-out);
+  pointer-events: none;
+}
+.svc-stage { position: relative; min-height: 24rem; }
+.svc-panel { display: grid; gap: 0.9rem; align-content: start; }
+.svc-panel[hidden] { display: none; }
+.svc-panel__kicker { font-size: 0.76rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange); margin: 0; }
+.svc-panel__name { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.6rem); letter-spacing: -0.03em; line-height: 1; margin: 0; }
+.svc-panel__tagline { font-size: clamp(1.05rem, 1.4vw, 1.35rem); margin: 0; max-width: 30ch; }
+.svc-panel__points { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.5rem; max-width: 44ch; }
+.svc-panel__points li { position: relative; padding-left: 1.4rem; font-size: 0.92rem; line-height: 1.5; }
+.svc-panel__points li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 0.55rem; height: 0.55rem; background: var(--orange); }
+.svc-panel__foot { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.6rem; }
+.svc-panel__price { margin: 0; font-family: var(--font-display); font-size: 1.15rem; }
+.svc-arts { display: none; }
+.svc-art { display: block; width: 100%; height: auto; }
+.svc-art[hidden] { display: none; }
+.svc-rows .selector__highlight { inset-inline: 0; }
+.services__all { margin: clamp(1.6rem, 4vw, 2.6rem) 0 0; }
+.services__all a { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-display); font-size: 1.05rem; }
+
+/* ------------------------------------------------- 5. pinned deep dives */
+
+.deep-dives--pinned { padding: 0; }
+.deep-dives__pin {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  padding: var(--section-y) var(--pad);
+  max-width: var(--wrap);
+  margin-inline: auto;
+}
+.deep-dives__head { display: grid; gap: 0.9rem; max-width: 50rem; }
+.deep-dives__head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.6vw, 3.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+.deep-dives__head p { margin: 0; max-width: 48ch; line-height: 1.55; color: var(--muted); }
+.dives { display: grid; gap: clamp(1.6rem, 4vw, 3rem); }
+@media (min-width: 900px) {
+  .dives { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); align-items: start; gap: 3.5rem; }
+}
+.dive { display: grid; gap: 1rem; }
+@media (min-width: 900px) {
+  .dive { grid-column: 1 / -1; grid-template-columns: subgrid; }
+  .dive__figure { position: sticky; top: 6rem; grid-column: 1; }
+  .dive__body { grid-column: 2; padding-block: clamp(2rem, 6vw, 5rem); }
+}
+.dive__screen { position: relative; aspect-ratio: 5 / 4; overflow: hidden; background: color-mix(in srgb, var(--orange) 10%, transparent); border: 1px solid var(--line); }
+.dive__fallback { position: absolute; inset: 0; display: grid; place-content: center; padding: 1.2rem; margin: 0; font-size: 0.85rem; text-align: center; opacity: 0.7; }
+.dive__caption { margin: 0.7rem 0 0; font-size: 0.82rem; line-height: 1.45; }
+.dive__ids { font-variant-numeric: tabular-nums; opacity: 0.55; }
+.dive__note { margin: 0.2rem 0 0; font-size: 0.72rem; opacity: 0.5; }
+.dive__kicker { margin: 0; font-size: 0.76rem; letter-spacing: 0.1em; color: var(--orange); }
+.dive__body h3 { font-family: var(--font-display); font-size: clamp(1.7rem, 3.4vw, 2.9rem); letter-spacing: -0.03em; line-height: 1; margin: 0.4rem 0 0.8rem; }
+.dive__lead { max-width: 44ch; line-height: 1.6; margin: 0 0 1rem; }
+.dive__points { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: 0.45rem; max-width: 46ch; }
+.dive__points li { position: relative; padding-left: 1.3rem; font-size: 0.9rem; line-height: 1.5; }
+.dive__points li::before { content: '→'; position: absolute; left: 0; opacity: 0.5; }
+.dive__actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.dive__price { margin: 0; font-size: 0.85rem; opacity: 0.7; }
+.dives__rail {
+  position: fixed;
+  right: clamp(0.6rem, 1.6vw, 1.4rem);
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 30;
+  display: grid;
+  gap: 0.55rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dives__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  transition: transform 0.25s var(--ease-out), background-color 0.25s linear;
+}
+.dives__dot[data-active='true'] { background: var(--orange); border-color: var(--orange); transform: scale(1.5); }
+.dives__dot:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+@media (max-width: 899px) { .dives__rail { display: none; } }
+
+@media (max-width: 899px) {
+  .prelude--choreo { height: auto; min-height: 0; }
+  main > section.prelude--choreo + section { margin-top: 0; }
+  /* Higher specificity than the generic chapter-ground rule in scene.css:
+   the prelude must follow the stage, not its own paper theme, or the last
+   centimetres under the flood show white against orange. */
+main > section.prelude--choreo {
+  background-color: transparent;
+}
+
+/* The hero is already orange. The prelude's pinned band scrolls up and away over
+   it, so the hand-off is a continuous field: no blank band, no fade, and the
+   hero content is revealed by the flood leaving, not by appearing. */
+main > section.prelude--choreo + section {
+  margin-top: -100svh;
+  position: relative;
+  z-index: 2;
+}
+main > section.prelude--choreo { z-index: 1; }
+.prelude__pin { position: static; height: auto; padding-block: clamp(6rem, 14vh, 9rem) clamp(3rem, 8vh, 5rem); }
+  .flood { position: relative; right: auto; bottom: auto; margin: 2rem auto 0; width: 72px; z-index: auto; }
+  @supports (animation-timeline: --prelude) {
+    @media (prefers-reduced-motion: no-preference) {
+      .flood { animation: none; }
+    }
+  }
+  .dive__figure { position: static; }
+}

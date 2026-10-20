@@ -1,0 +1,301 @@
+/* DENVUP — feedback motion.
+   Imported last so these rules win over the base component styles.
+   Every block answers an action; nothing here runs unprompted.
+   Durations come from the purpose scale in base.css. */
+
+/* ------------------------------------------------------------- 1. the press */
+/* `scale` composes with the inline transform the magnetic buttons set, so a
+   press still reads on a button that is already being pulled by the pointer.
+   No transition: a press should land in the same frame as the finger. */
+
+button:active,
+.btn:active,
+.mini:active,
+.copy-btn:active,
+.lab-tab:active,
+.svc-row__btn:active {
+  scale: 0.985;
+}
+
+a:active {
+  opacity: 0.72;
+}
+
+button:disabled,
+button[aria-disabled='true'],
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  scale: 1;
+}
+
+/* --------------------------------------------------- 2. the sending state */
+
+.btn--submit.is-busy {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--submit.is-busy::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 2px;
+  width: 40%;
+  background: currentColor;
+  opacity: 0.85;
+  animation: busy-rule 900ms var(--ease-out-quart) infinite;
+}
+
+@keyframes busy-rule {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(360%); }
+}
+
+/* ------------------------------------------------- 3. the status band (M3) */
+/* Display was the switch before, which cannot be animated. A grid row can, and
+   the padding sits one level deeper so the closed row really is zero high. */
+
+.form-status {
+  opacity: 0;
+  transition: opacity var(--dur-swap) linear;
+}
+
+.form-status__body {
+  height: 0;
+  overflow: hidden;
+}
+
+.form-status__inner {
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--orange);
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.form-status.is-on {
+  opacity: 1;
+}
+
+.form-status.is-error .form-status__inner {
+  border-left-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ---------------------------------------------- 4. field attention (M4) */
+
+@keyframes field-error-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.field__error.is-in {
+  animation: field-error-in var(--dur-swap) var(--ease-out-quart) both;
+}
+
+@keyframes field-rule {
+  from { background-size: 0 2px; }
+}
+
+.field.is-invalid input,
+.field.is-invalid textarea {
+  border-color: var(--danger);
+  background-image: linear-gradient(var(--danger), var(--danger));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  animation: field-rule 220ms var(--ease-out-quart) both;
+}
+
+.field.is-invalid select {
+  border-color: var(--danger);
+}
+
+.field.is-invalid .field__error {
+  color: var(--danger);
+}
+
+/* ------------------------------------------------------- 5. the copy button */
+
+.copy-btn span {
+  display: inline-block;
+  transition: opacity var(--dur-press) linear;
+}
+
+.copy-btn.is-copied {
+  color: var(--orange);
+}
+
+.copy-btn.is-copied span {
+  opacity: 0.78;
+}
+
+/* --------------------------------------------------------- 6. the estimator */
+/* `output` is inline by default, which would ignore the transform. */
+
+.estimator__value output {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ------------------------------------------------------ 7. the lab filter */
+/* One rule travels between tabs; the pressed tab goes transparent so the rule
+   is what you see. If the tabs wrap, the rule hides and the fill comes back. */
+
+.lab-tabs {
+  position: relative;
+}
+
+.lab-tabs.has-rule .lab-tab {
+  position: relative;
+  z-index: 1;
+}
+
+.lab-tabs.has-rule .lab-tab[aria-pressed='true'] {
+  background: transparent;
+  border-color: var(--orange);
+}
+
+.lab-tabs__rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1.9rem;
+  background: var(--orange);
+  border-radius: 2px;
+  transform-origin: 0 50%;
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    transform var(--dur-panel) var(--ease-out-quint),
+    height var(--dur-swap) linear,
+    opacity var(--dur-swap) linear;
+}
+
+/* ------------------------------------------------------ 8. dialog exits (M11) */
+/* Entrances already animate. Exits now play at 75% of the entrance. */
+
+@keyframes menu-out {
+  to { clip-path: inset(0 0 100% 0); }
+}
+
+@keyframes sheet-out {
+  to { opacity: 0; transform: translateY(1.5rem); }
+}
+
+@keyframes backdrop-out {
+  to { opacity: 0; }
+}
+
+#site-menu.is-closing {
+  animation: menu-out 300ms var(--ease-out-quart) both;
+}
+
+.sheet.is-closing {
+  animation: sheet-out 262ms var(--ease-out-quart) both;
+}
+
+#site-menu.is-closing::backdrop,
+.sheet.is-closing::backdrop {
+  animation: backdrop-out 262ms linear both;
+}
+
+/* ------------------------------------------------------- 9. the FAQ body (M12) */
+/* The accepted layout exception: a short, rare disclosure. */
+
+.faq-item__body {
+  height: 0;
+  overflow: hidden;
+}
+
+/* Without JS the disclosure must still work, so the open state is the CSS
+   default; the script only overrides height while it is animating. */
+.faq-item[open] .faq-item__body {
+  height: auto;
+}
+
+/* --------------------------------------------- 10. carried over from the lab */
+/* The signature moment: the technique a person asked for arrives with them. */
+
+.contact__carried {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.9rem 0 0;
+  font-size: var(--fs-small);
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--fg) 82%, var(--bg));
+}
+
+.contact__carried::before {
+  content: '';
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+.contact__carried b {
+  font-weight: 600;
+}
+
+.field__wash {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--orange);
+  opacity: 0.9;
+}
+
+/* ------------------------------------------------------ 11. keyboard guide (M14) */
+
+.shortcuts > div {
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------- 12. less motion */
+/* Fewer and gentler, not none: colour and opacity still answer, travel stops. */
+
+@media (prefers-reduced-motion: reduce) {
+  button:active,
+  .btn:active,
+  .mini:active,
+  .copy-btn:active,
+  .lab-tab:active,
+  .svc-row__btn:active {
+    scale: 1;
+    opacity: 0.72;
+  }
+
+  .form-status,
+  .lab-tabs__rule {
+    transition: none;
+  }
+
+  .btn--submit.is-busy::after {
+    animation: none;
+    width: 100%;
+    transform: none;
+    opacity: 0.6;
+  }
+
+  .field__error.is-in,
+  .field.is-invalid input,
+  .field.is-invalid textarea {
+    animation: none;
+  }
+
+  #site-menu.is-closing,
+  .sheet.is-closing,
+  #site-menu.is-closing::backdrop,
+  .sheet.is-closing::backdrop {
+    animation: none;
+  }
+
+  .field__wash {
+    display: none;
+  }
+}

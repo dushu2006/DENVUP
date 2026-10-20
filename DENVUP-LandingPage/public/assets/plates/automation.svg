@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img">
+  <title>DENVUP service plate — automation</title>
+  <rect width="1200" height="900" fill="#f6f1e8"/>
+  <g stroke="#0b0a09" stroke-opacity=".08" stroke-width="1" fill="none"><path d="M0 0V900"/><path d="M75 0V900"/><path d="M150 0V900"/><path d="M225 0V900"/><path d="M300 0V900"/><path d="M375 0V900"/><path d="M450 0V900"/><path d="M525 0V900"/><path d="M600 0V900"/><path d="M675 0V900"/><path d="M750 0V900"/><path d="M825 0V900"/><path d="M900 0V900"/><path d="M975 0V900"/><path d="M1050 0V900"/><path d="M1125 0V900"/><path d="M1200 0V900"/><path d="M0 0H1200"/><path d="M0 75H1200"/><path d="M0 150H1200"/><path d="M0 225H1200"/><path d="M0 300H1200"/><path d="M0 375H1200"/><path d="M0 450H1200"/><path d="M0 525H1200"/><path d="M0 600H1200"/><path d="M0 675H1200"/><path d="M0 750H1200"/><path d="M0 825H1200"/><path d="M0 900H1200"/></g>
+  <rect x="150" y="380" width="150" height="150" fill="none" stroke="#0b0a09" stroke-width="2"/>
+      <path d="M300 455H400" stroke="#0b0a09" stroke-width="2"/><rect x="400" y="380" width="150" height="150" fill="none" stroke="#0b0a09" stroke-width="2"/>
+      <path d="M550 455H650" stroke="#0b0a09" stroke-width="2"/><rect x="650" y="380" width="150" height="150" fill="none" stroke="#0b0a09" stroke-width="2"/>
+      <path d="M800 455H900" stroke="#0b0a09" stroke-width="2"/><rect x="900" y="380" width="150" height="150" fill="none" stroke="#0b0a09" stroke-width="2"/>
+      <path d="M1050 455H1150" stroke="#0b0a09" stroke-width="2"/><path d="M950 455C1050 455 1050 250 900 250H300C200 250 175 330 175 380" fill="none" stroke="#ff4a00" stroke-width="2" stroke-dasharray="8 10"/>
+  <rect x="0" y="892" width="1200" height="8" fill="#ff4a00"/>
+</svg>

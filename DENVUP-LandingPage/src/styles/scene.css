@@ -1,0 +1,366 @@
+/* The persistent stage, the cursor, and the shared page-transition grammar. */
+
+/* --------------------------------------------------------------- the stage */
+
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--scene-bg, #fff);
+  view-transition-name: stage;
+}
+.scene__field {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 30%, color-mix(in srgb, var(--scene-accent, #ff4a00) 12%, transparent), transparent 70%),
+    var(--scene-bg, #fff);
+}
+.scene__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.scene__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--scene-ink, #0b0a09) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--scene-ink, #0b0a09) 10%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+html[data-scene-failed='true'] .scene__grid { opacity: 0.5; }
+html[data-scene-failed='true'] .scene__canvas { display: none; }
+.scene__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 55%, color-mix(in srgb, var(--scene-ink, #0b0a09) 10%, transparent) 100%);
+}
+
+/* Sections sit on the field rather than owning an opaque page colour, so the
+   field is continuous. 86% keeps type contrast intact while the scene reads
+   through at chapter boundaries and behind the hero. */
+main > section[data-chapter],
+main > section[data-scene],
+main .page-head,
+main .route-section,
+main .svc-hero,
+main .demos,
+main .notfound {
+  position: relative;
+  z-index: 1;
+  background-color: color-mix(in srgb, var(--bg, var(--paper)) 90%, transparent);
+}
+
+/* The scene also sets the document's base tokens, so any element that does not
+   declare its own theme reads the ground it is actually standing on. */
+html[data-scene='ink'] {
+  --bg: #0b0a09;
+  --fg: #f1ede7;
+  --muted: color-mix(in srgb, var(--fg) 70%, var(--bg));
+  --faint: color-mix(in srgb, var(--fg) 48%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 20%, var(--bg));
+  --field: color-mix(in srgb, var(--fg) 8%, var(--bg));
+  color-scheme: dark;
+}
+html[data-scene='den'] {
+  --bg: #17120f;
+  --fg: #f1ede7;
+  --muted: color-mix(in srgb, var(--fg) 70%, var(--bg));
+  --faint: color-mix(in srgb, var(--fg) 48%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 22%, var(--bg));
+  --field: color-mix(in srgb, var(--fg) 9%, var(--bg));
+  color-scheme: dark;
+}
+html[data-scene='orange'] {
+  --bg: #ff4a00;
+  --fg: #180700;
+  --muted: color-mix(in srgb, var(--fg) 76%, var(--bg));
+  --faint: color-mix(in srgb, var(--fg) 55%, var(--bg));
+  --line: color-mix(in srgb, var(--fg) 26%, var(--bg));
+  --field: color-mix(in srgb, var(--fg) 9%, var(--bg));
+}
+html[data-scene='bone'] { --bg: #ece4d7; --fg: #221a12; --field: color-mix(in srgb, var(--fg) 7%, var(--bg)); }
+html[data-scene='paper'] { --bg: #ffffff; --fg: #0b0a09; }
+
+body { background: var(--scene-bg, #fff); color: var(--scene-ink, var(--ink)); }
+
+/* A section may opt back onto its own theme; these win because they are
+   declared on the section itself, not the root. */
+main > section[data-theme],
+main > section[data-scene] { color: var(--fg); }
+
+/* ------------------------------------------------------------------ header */
+
+.site-head {
+  /* The header follows the ground of the section under it (data-theme is set
+     by the client); --bg/--fg therefore stay local and readable. */
+  background: color-mix(in srgb, var(--bg, #fff) 94%, transparent);
+  color: var(--fg, var(--ink));
+  backdrop-filter: blur(14px) saturate(1.05);
+  transition: transform 0.4s var(--ease-out), background-color 0.4s var(--ease-out), color 0.3s linear;
+}
+.site-head .brand__word,
+.site-head .head-nav a,
+.site-head .head-search,
+.site-head .head-cta,
+.site-head .head-menu {
+  color: inherit;
+}
+.site-head[data-shrunk='true'] {
+  background: color-mix(in srgb, var(--bg, #fff) 97%, transparent);
+}
+.site-head .head-cta {
+  background: var(--fg, var(--ink));
+  color: var(--bg, #fff);
+}
+
+/* One source of truth: the scene under the header decides its ink and ground.
+   This is set by the scroll-linked stage, so the header, the stage and the
+   cursor can never disagree about which chapter is on screen. */
+html[data-scene='ink'] .site-head,
+html[data-scene='den'] .site-head,
+html[data-scene='lab'] .site-head {
+  --bg: #0b0a09;
+  --fg: #f1ede7;
+}
+html[data-scene='den'] .site-head { --bg: #17120f; }
+html[data-scene='orange'] .site-head { --bg: #ff4a00; --fg: #180700; }
+html[data-scene='bone'] .site-head { --bg: #ece4d7; --fg: #221a12; }
+html[data-scene='paper'] .site-head { --bg: #ffffff; --fg: #0b0a09; }
+
+/* ------------------------------------------------------------------ cursor */
+
+html.has-cursor,
+html.has-cursor a,
+html.has-cursor button,
+html.has-cursor [role='button'],
+html.has-cursor summary,
+html.has-cursor label { cursor: none; }
+html.has-cursor input,
+html.has-cursor textarea { cursor: text; }
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  --cursor-ink: #0b0a09;
+  --cursor-text: #f6f1e8;
+}
+html.cursor-is-on .cursor { opacity: 1; }
+.cursor__dot,
+.cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: transform;
+}
+.cursor__dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--cursor-ink);
+  box-shadow: 0 0 0 1px var(--cursor-text);
+}
+.cursor__ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1.5px solid var(--cursor-ink);
+  /* Two-tone rim: one of the two hairlines always separates the ring from the
+     ground, even over a plate or a photograph the probe cannot read. */
+  box-shadow:
+    0 0 0 1px var(--cursor-text),
+    0 0 0 2px color-mix(in srgb, var(--cursor-ink) 45%, transparent);
+  transition: width 0.24s var(--ease-out), height 0.24s var(--ease-out), margin 0.24s var(--ease-out), background-color 0.24s;
+}
+html.cursor-is-hot .cursor__ring {
+  width: 52px;
+  height: 52px;
+  margin: -26px 0 0 -26px;
+  background: color-mix(in srgb, var(--cursor-ink) 10%, transparent);
+}
+html.cursor-is-down .cursor__ring { width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+.cursor__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.32em 0.6em;
+  font: 500 0.72rem/1 var(--font-body);
+  letter-spacing: 0.02em;
+  color: var(--cursor-text);
+  background: var(--cursor-ink);
+  opacity: 0;
+  transform-origin: 0 0;
+  transition: opacity 0.18s linear;
+  white-space: nowrap;
+}
+.cursor__label.is-on { opacity: 1; }
+
+/* Cursor colour per ground: the ring carries a rim, so it never disappears. */
+html[data-scene='ink'] .cursor,
+html[data-scene='den'] .cursor,
+html[data-scene='lab'] .cursor { --cursor-ink: #f4efe8; --cursor-text: #0b0a09; }
+html[data-scene='orange'] .cursor { --cursor-ink: #180700; --cursor-text: #fff1e8; }
+html[data-scene='bone'] .cursor { --cursor-ink: #221a12; --cursor-text: #f6f1e8; }
+
+/* Measured at the pointer: the ground under the ring wins over the chapter key.
+   Declared after the scene rules so it overrides them at equal specificity. */
+html[data-cursor-ink='dark'] .cursor { --cursor-ink: #0b0a09; --cursor-text: #f6f1e8; }
+html[data-cursor-ink='light'] .cursor { --cursor-ink: #f4efe8; --cursor-text: #0b0a09; }
+
+/* -------------------------------------------------- view transitions (routes) */
+
+@view-transition { navigation: auto; }
+
+::view-transition-old(stage),
+::view-transition-new(stage),
+::view-transition-old(head),
+::view-transition-new(head) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-group(stage),
+::view-transition-group(head),
+::view-transition-group(mark) { animation-duration: 0.5s; }
+
+::view-transition-old(page) {
+  animation: page-old 0.42s var(--ease) both;
+}
+::view-transition-new(page) {
+  animation: page-new 0.6s var(--ease-out) both;
+}
+
+@keyframes page-old {
+  to { opacity: 0.35; transform: translateY(-2.2vh) scale(0.985); }
+}
+@keyframes page-new {
+  from { opacity: 0; transform: translateY(3.2vh); clip-path: inset(0 0 8% 0); }
+  to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+}
+
+/* Route-specific handovers. The class is set on <html> before the transition
+   starts, so the incoming route gets a device rather than a plain crossfade. */
+html[data-goto='lab'] ::view-transition-new(page) {
+  animation: vt-shape 0.72s var(--ease-out) both;
+}
+@keyframes vt-shape {
+  from { clip-path: circle(0% at var(--vt-x, 50%) var(--vt-y, 50%)); }
+  to { clip-path: circle(140% at var(--vt-x, 50%) var(--vt-y, 50%)); }
+}
+
+html[data-goto='studio'] ::view-transition-new(page) {
+  animation: vt-wipe 0.7s var(--ease-out) both;
+}
+@keyframes vt-wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+html[data-goto='pricing'] ::view-transition-old(page) {
+  animation: vt-panels-old 0.6s var(--ease) both;
+}
+html[data-goto='pricing'] ::view-transition-new(page) {
+  animation: vt-panels-new 0.66s var(--ease-out) both;
+}
+@keyframes vt-panels-old { to { transform: translateY(-14%) scale(0.96); opacity: 0.2; } }
+@keyframes vt-panels-new { from { transform: translateY(22%) scale(0.97); opacity: 0.4; } }
+
+html[data-goto='contact'] ::view-transition-new(page) {
+  animation: vt-curtain 0.7s var(--ease-out) both;
+}
+@keyframes vt-curtain {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+html[data-goto='concepts'] ::view-transition-new(page) {
+  animation: vt-mask 0.72s var(--ease-out) both;
+}
+@keyframes vt-mask {
+  from { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); }
+  to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+html[data-goto='service'] ::view-transition-new(page) {
+  animation: vt-expand 0.66s var(--ease-out) both;
+}
+@keyframes vt-expand {
+  from { clip-path: inset(18% 12% 18% 12%); transform: scale(0.985); }
+  to { clip-path: inset(0 0 0 0); transform: none; }
+}
+
+/* Reduced motion: a plain cut. No movement, no crossfade wash. */
+html[data-motion='reduced'] ::view-transition-old(page),
+html[data-motion='reduced'] ::view-transition-new(page),
+html[data-motion='reduced'] ::view-transition-old(root),
+html[data-motion='reduced'] ::view-transition-new(root) {
+  animation: none !important;
+}
+
+/* ------------------------------------------------------------- route loading */
+
+html.is-routing .route-loader { opacity: 1; }
+.route-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 120;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  pointer-events: none;
+}
+.route-loader span {
+  display: block;
+  height: 100%;
+  width: 34%;
+  background: var(--orange);
+  animation: route-sweep 1.1s ease-in-out infinite;
+}
+@keyframes route-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(320%); }
+}
+
+/* ------------------------------------------------------------------- intro */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  color: var(--ink);
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.62s var(--ease-out), opacity 0.4s linear 0.22s;
+}
+.intro.is-gone { clip-path: inset(0 0 100% 0); opacity: 0; }
+.intro__inner { display: grid; justify-items: center; gap: 0.8rem; text-align: center; }
+.intro__mark { width: clamp(74px, 10vw, 132px); height: auto; }
+.intro__word { display: flex; gap: 0.06em; font-family: var(--font-display); font-size: clamp(2.4rem, 8vw, 5rem); font-weight: 700; letter-spacing: -0.03em; }
+.intro__word span { animation: intro-letter 0.5s var(--ease-out) both; }
+.intro__word span:nth-child(2) { animation-delay: 0.05s; }
+.intro__word span:nth-child(3) { animation-delay: 0.1s; }
+.intro__word span:nth-child(4) { animation-delay: 0.15s; }
+.intro__word span:nth-child(5) { animation-delay: 0.2s; }
+.intro__word span:nth-child(6) { animation-delay: 0.25s; }
+@keyframes intro-letter {
+  from { opacity: 0; transform: translateY(0.5em) rotate(4deg); }
+  to { opacity: 1; transform: none; }
+}
+.intro__note { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.intro__meter { width: min(220px, 40vw); height: 2px; background: color-mix(in srgb, var(--ink) 25%, transparent); overflow: hidden; }
+.intro__meter i { display: block; height: 100%; background: var(--ink); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.2s linear; }
+.intro__skip { position: absolute; right: 1.2rem; bottom: 1.2rem; padding: 0.55rem 0.9rem; border: 1px solid color-mix(in srgb, var(--ink) 40%, transparent); background: transparent; color: var(--ink); font: inherit; font-size: 0.8rem; }
+html.intro-open { overflow: hidden; }
