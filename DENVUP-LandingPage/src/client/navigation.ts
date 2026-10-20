@@ -3,6 +3,7 @@ import { capabilityDemo } from '../content/demo-map';
 import { labById } from '../labs/registry';
 
 import { icon } from '../render/html';
+import { motionOn } from './motion-feedback';
 import {
   $,
   $$,
@@ -132,6 +133,42 @@ function openDialog(dialog: HTMLDialogElement | null, trigger?: HTMLElement | nu
     },
     { once: true },
   );
+  // The keyboard guide arrives as a numbered list, so it reads down the rows.
+  const rows = [...dialog.querySelectorAll<HTMLElement>('.shortcuts > div')];
+  if (rows.length && motionOn()) {
+    rows.forEach((row, index) => {
+      row.animate(
+        [
+          { opacity: 0, transform: 'translateY(6px)' },
+          { opacity: 1, transform: 'none' },
+        ],
+        { duration: 220, delay: Math.min(index, 12) * 45, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'backwards' },
+      );
+    });
+  }
+}
+
+/**
+ * Close with an exit at 75% of the entrance, then unmount. A safety timer
+ * closes the dialog even if the animation never fires, so it can never wedge.
+ */
+function closeDialog(dialog: HTMLDialogElement | null): void {
+  if (!dialog || !dialog.open) return;
+  if (!motionOn()) {
+    dialog.close();
+    return;
+  }
+  if (dialog.classList.contains('is-closing')) return;
+  dialog.classList.add('is-closing');
+  let finished = false;
+  const finish = (): void => {
+    if (finished) return;
+    finished = true;
+    dialog.classList.remove('is-closing');
+    if (dialog.open) dialog.close();
+  };
+  dialog.addEventListener('animationend', finish, { once: true });
+  window.setTimeout(finish, 420);
 }
 
 function initDialogs(): void {
@@ -145,18 +182,24 @@ function initDialogs(): void {
   const menuToggle = $<HTMLButtonElement>('[data-open-menu]');
 
   $$<HTMLElement>('[data-dialog-close]').forEach((btn) =>
-    btn.addEventListener('click', () => (btn.closest('dialog') as HTMLDialogElement | null)?.close()),
+    btn.addEventListener('click', () => closeDialog(btn.closest('dialog') as HTMLDialogElement | null)),
   );
 
   [menu, command, profile, shortcuts, a11y, privacy].forEach((dialog) => {
     if (!dialog) return;
     dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
+      if (event.target === dialog) closeDialog(dialog);
+    });
+    // Escape is the system close; intercept it so the exit can play.
+    dialog.addEventListener('cancel', (event) => {
+      if (!motionOn()) return;
+      event.preventDefault();
+      closeDialog(dialog);
     });
   });
 
   $<HTMLElement>('[data-open-menu]')?.addEventListener('click', () => openDialog(menu, menuToggle));
-  $<HTMLElement>('[data-menu-close]')?.addEventListener('click', () => menu?.close());
+  $<HTMLElement>('[data-menu-close]')?.addEventListener('click', () => closeDialog(menu));
   $$<HTMLElement>('[data-menu-link]').forEach((link) => link.addEventListener('click', () => menu?.close()));
   $<HTMLElement>('[data-open-shortcuts]')?.addEventListener('click', () => openDialog(shortcuts));
   $<HTMLElement>('[data-open-a11y]')?.addEventListener('click', () => openDialog(a11y));
@@ -398,11 +441,32 @@ function initFooter(): void {
   });
 
   $$<HTMLElement>('[data-copy]').forEach((btn) => {
+    let revert = 0;
     btn.addEventListener('click', async () => {
       const value = btn.dataset.copy ?? '';
       const ok = await copyText(value);
       toast(ok ? `Copied ${value}` : `Copy failed — the address is ${value}`);
       if (ok) uiSound('tick');
+
+      // The toast is at the foot of the page; the button itself confirms too.
+      const label = btn.querySelector<HTMLElement>('span');
+      if (!ok || !label || btn.classList.contains('is-copied')) return;
+      const original = label.textContent ?? '';
+      btn.classList.add('is-copied');
+      if (motionOn()) {
+        const out = label.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 90, fill: 'forwards' });
+        out.onfinish = () => {
+          label.textContent = 'Copied';
+          label.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, fill: 'both' });
+        };
+      } else {
+        label.textContent = 'Copied';
+      }
+      window.clearTimeout(revert);
+      revert = window.setTimeout(() => {
+        btn.classList.remove('is-copied');
+        label.textContent = original;
+      }, 1400);
     });
   });
 }

@@ -513,7 +513,7 @@ export function renderFaq(): string {
           <span class="faq-item__q">${esc(q.q)}</span>
           <span class="faq-item__icon" aria-hidden="true">${icon('plus')}</span>
         </summary>
-        <div class="faq-item__body"><p>${esc(q.a)}</p></div>
+        <div class="faq-item__body"><div><p>${esc(q.a)}</p></div></div>
       </details>`,
     )
     .join('');

@@ -1,5 +1,6 @@
 import { brand, pricing, waLink } from '../content/site';
 import { $, $$, formatINR, on, prefersReduced, toast } from './env';
+import { animateHeight, markTouched, motionOn, nudge, revealRise, ringPulse, rollValue } from './motion-feedback';
 
 /* ---------------------------------------------------------------- estimator */
 
@@ -39,18 +40,22 @@ function initEstimator(): void {
 
   let quote = readQuote(form);
 
-  const paint = () => {
+  const paint = (changed?: EventTarget | null) => {
     quote = readQuote(form);
-    out.textContent = quote.total.toLocaleString('en-IN');
+    const next = quote.total.toLocaleString('en-IN');
+    // Feedback only after the first paint: nothing should move on arrival.
+    if (changed) rollValue(out, next);
+    else out.textContent = next;
     detail.textContent = quote.summary;
     if (cta) {
       cta.dataset.summary = quote.summary;
       cta.dataset.total = String(quote.total);
     }
+    if (changed instanceof HTMLElement) markTouched(changed);
   };
 
-  form.addEventListener('input', paint);
-  form.addEventListener('change', paint);
+  form.addEventListener('input', (event) => paint(event.target));
+  form.addEventListener('change', (event) => paint(event.target));
   paint();
 
   cta?.addEventListener('click', () => {
@@ -96,6 +101,35 @@ function initFaq(): void {
     if (clear) clear.hidden = !q;
   };
 
+  /* Disclosure motion (M12). Native <details> snaps; this plays the same
+     open/close on a grid row and keeps the native semantics underneath. */
+  const animateDisclosure = (item: HTMLDetailsElement): void => {
+    const summary = item.querySelector('summary');
+    const body = item.querySelector<HTMLElement>('.faq-item__body');
+    if (!summary || !body) return;
+    let busy = false;
+    summary.addEventListener('click', (event) => {
+      if (!motionOn()) return;
+      event.preventDefault();
+      if (busy) return;
+      busy = true;
+      const opening = !item.open;
+      if (opening) {
+        item.open = true;
+        body.style.height = '0px';
+        animateHeight(body, body.scrollHeight, 240, () => {
+          busy = false;
+        });
+      } else {
+        animateHeight(body, 0, 180, () => {
+          item.open = false;
+          busy = false;
+        });
+      }
+    });
+  };
+  items.forEach(animateDisclosure);
+
   on(input, 'input', filter, { passive: true });
   clear?.addEventListener('click', () => {
     input.value = '';
@@ -126,12 +160,74 @@ function initEnquiry(): void {
   const form = $<HTMLFormElement>('[data-enquiry]');
   if (!form) return;
   const status = $<HTMLElement>('[data-form-status]', form);
+  const statusText = $<HTMLElement>('[data-form-status-text]', form);
+  const statusBody = $<HTMLElement>('.form-status__body', form);
   const summary = $<HTMLElement>('[data-error-summary]', form);
   const fallback = $<HTMLElement>('[data-enquiry-fallback]', form);
   const submit = $<HTMLButtonElement>('[data-submit]', form);
   const emailBtn = $<HTMLButtonElement>('[data-enquiry-email]', form);
   const message = $<HTMLTextAreaElement>('#f-message', form);
   const counter = $<HTMLElement>('[data-message-count]', form);
+
+  /* Carried over from The Lab (M13). The technique a person asked for should
+     survive the journey: the field arrives filled, and the head says where the
+     request came from. Nothing scrolls, nothing steals focus from the new h1. */
+  const requested = new URLSearchParams(window.location.search).get('subject');
+  if (requested && message && !message.value.trim()) {
+    const name = requested.replace(/^i want\s+/i, '').trim();
+    if (name) {
+      message.value = `I'd like ${name} in my site.\n\nWhat it needs to do: `;
+      if (counter) counter.textContent = String(message.value.length);
+
+      const head = $<HTMLElement>('.contact__head');
+      if (head) {
+        const carried = document.createElement('p');
+        carried.className = 'contact__carried';
+        carried.append('Carried over from The Lab — ');
+        const strong = document.createElement('b');
+        strong.textContent = name;
+        carried.append(strong);
+        head.append(carried);
+        revealRise(carried, 6, 60);
+      }
+
+      const field = message.closest('.field') as HTMLElement | null;
+      if (field && motionOn()) {
+        const wash = () => {
+          field.style.position = 'relative';
+          const span = document.createElement('span');
+          span.className = 'field__wash';
+          span.setAttribute('aria-hidden', 'true');
+          span.style.left = `${message.offsetLeft}px`;
+          span.style.top = `${message.offsetTop}px`;
+          span.style.width = `${message.offsetWidth}px`;
+          span.style.height = `${message.offsetHeight}px`;
+          field.append(span);
+          const anim = span.animate(
+            [{ clipPath: 'inset(0 0 0 0)' }, { clipPath: 'inset(0 0 100% 0)' }],
+            { duration: 620, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'both' },
+          );
+          const done = () => span.remove();
+          anim.onfinish = done;
+          window.setTimeout(done, 900);
+        };
+        if (typeof IntersectionObserver === 'function') {
+          const io = new IntersectionObserver(
+            (entries) => {
+              if (entries.some((entry) => entry.isIntersecting)) {
+                io.disconnect();
+                wash();
+              }
+            },
+            { threshold: 0.55 },
+          );
+          io.observe(message);
+        } else {
+          wash();
+        }
+      }
+    }
+  }
 
   const payload = (): Record<string, string> => {
     const data = new FormData(form);
@@ -144,17 +240,26 @@ function initEnquiry(): void {
 
   const setStatus = (text: string, error = false) => {
     if (!status) return;
-    status.hidden = false;
-    status.textContent = text;
+    // The band is a grid row that opens, so the class does the work; `display`
+    // is never switched, because a display switch cannot be animated.
+    const wasOpen = status.classList.contains('is-on');
     status.classList.add('is-on');
     status.classList.toggle('is-error', error);
+    if (statusText) statusText.textContent = text;
+    // First message opens the band; later messages just replace the words.
+    if (!wasOpen && statusBody) {
+      statusBody.style.height = '0px';
+      animateHeight(statusBody, statusBody.scrollHeight, 260);
+    }
   };
 
   const clearErrors = () => {
     $$<HTMLElement>('[data-error-for]', form).forEach((el) => {
       el.hidden = true;
       el.textContent = '';
+      el.classList.remove('is-in');
     });
+    $$<HTMLElement>('.field.is-invalid', form).forEach((el) => el.classList.remove('is-invalid'));
     $$<HTMLElement>('[aria-invalid="true"]', form).forEach((el) => el.removeAttribute('aria-invalid'));
     if (summary) {
       summary.hidden = true;
@@ -169,7 +274,12 @@ function initEnquiry(): void {
       if (slot) {
         slot.hidden = false;
         slot.textContent = text;
+        slot.classList.remove('is-in');
+        void slot.offsetWidth; // restart the one-shot animation
+        slot.classList.add('is-in');
       }
+      field.closest('.field')?.classList.add('is-invalid');
+      nudge(field);
     });
     if (summary) {
       summary.hidden = false;
@@ -192,7 +302,9 @@ function initEnquiry(): void {
       summary.append(intro, list);
       summary.focus({ preventScroll: true });
     }
-    errors[0]?.field.focus();
+    const first = errors[0]?.field;
+    first?.focus();
+    if (first) ringPulse(first);
   };
 
   const validate = (data: Record<string, string>): FieldError[] => {
@@ -274,6 +386,8 @@ function initEnquiry(): void {
     }
 
     submit?.setAttribute('disabled', 'true');
+    submit?.setAttribute('aria-busy', 'true');
+    submit?.classList.add('is-busy');
     setStatus('Sending…');
     try {
       const response = await fetch(endpoint, {
@@ -293,6 +407,8 @@ function initEnquiry(): void {
       );
     } finally {
       submit?.removeAttribute('disabled');
+      submit?.removeAttribute('aria-busy');
+      submit?.classList.remove('is-busy');
     }
   });
 }

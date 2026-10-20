@@ -7,6 +7,7 @@
  */
 
 import { mountEmbed } from './labs';
+import { flashFrame, quarterTurn, revealRise, reenter, rollValue, stagger, travel } from './motion-feedback';
 
 interface Mounted {
   destroy: (() => void) | null;
@@ -62,6 +63,12 @@ function bindReplay(): void {
     if (!host) return;
     unmount(host);
     mount(host);
+    // Say that it restarted: the frame answers, the control turns, the study
+    // arrives again. The demo itself is untouched by this layer.
+    flashFrame(host);
+    const icon = button.querySelector('svg');
+    if (icon) quarterTurn(icon);
+    reenter(host);
   });
 }
 
@@ -69,32 +76,103 @@ function bindReplay(): void {
 
 let filter = 'all';
 let query = '';
+let searchTimer = 0;
+
+/* One shared rule travels between the tabs. Everything is measured from the
+   live DOM, so it survives a different tab count on a different page. */
+let rule: HTMLElement | null = null;
+let tabsHost: HTMLElement | null = null;
+
+function ensureRule(): void {
+  if (rule?.isConnected) return;
+  rule = null;
+  tabsHost = null;
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-lab-filter]')];
+  const host = tabs[0]?.parentElement;
+  if (!host || tabs.length < 2) return;
+  const el = document.createElement('span');
+  el.className = 'lab-tabs__rule';
+  el.setAttribute('aria-hidden', 'true');
+  host.classList.add('has-rule');
+  host.prepend(el);
+  rule = el;
+  tabsHost = host;
+}
+
+function placeRule(animateTravel = true): void {
+  ensureRule();
+  if (!rule || !tabsHost) return;
+  const tabs = [...tabsHost.querySelectorAll<HTMLButtonElement>('[data-lab-filter]')];
+  const active = tabs.find((tab) => tab.getAttribute('aria-pressed') === 'true');
+  if (!active) return;
+  // The tabs wrap to three rows at desktop width, so the rule travels in two
+  // dimensions rather than being disabled the moment the list wraps.
+  travel(rule, tabsHost, active, animateTravel);
+}
+
+/** Cards that were hidden and are now visible rise in, capped so it stays quick. */
+const wasVisible = new WeakMap<HTMLElement, boolean>();
+let firstFilterRun = true;
+
+// Twelve is the cap for both the delay and the number of elements animated:
+// going from one group back to “All” restores 143 cards, and 143 concurrent
+// layers is not something to spend on a mid-range phone for a list the person
+// is about to scroll anyway. The first screenful arrives; the rest are simply
+// already there, below the fold.
+const REVEAL_CAP = 12;
+
+function revealCards(cards: HTMLElement[], shown: Set<HTMLElement>): void {
+  let arrival = 0;
+  cards.forEach((card) => {
+    const before = wasVisible.get(card) ?? false;
+    const now = shown.has(card);
+    if (now && !before && !firstFilterRun && arrival < REVEAL_CAP) {
+      card.animate(
+        [
+          { opacity: 0, transform: 'translateY(6px)' },
+          { opacity: 1, transform: 'none' },
+        ],
+        { duration: 180, delay: stagger(arrival++), easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' },
+      );
+    }
+    wasVisible.set(card, now);
+  });
+  firstFilterRun = false;
+}
 
 function applyFilters(): void {
   const cards = [...document.querySelectorAll<HTMLElement>('[data-lab-card]')];
   if (!cards.length) return;
-  let shown = 0;
+  const visible = new Set<HTMLElement>();
   cards.forEach((card) => {
     const section = card.closest<HTMLElement>('[data-lab-section]')?.dataset.labSection ?? '';
     const text = card.dataset.search ?? '';
     const matchFilter = filter === 'all' || section === filter;
     const matchQuery = !query || text.includes(query);
-    const visible = matchFilter && matchQuery;
-    card.hidden = !visible;
-    if (visible) shown += 1;
+    const match = matchFilter && matchQuery;
+    card.hidden = !match;
+    if (match) visible.add(card);
   });
   document.querySelectorAll<HTMLElement>('[data-lab-section]').forEach((section) => {
     const any = [...section.querySelectorAll<HTMLElement>('[data-lab-card]')].some((card) => !card.hidden);
     section.hidden = !any;
   });
+  revealCards(cards, visible);
+  const shown = visible.size;
   const count = document.querySelector<HTMLElement>('[data-lab-count]');
-  if (count) count.textContent = String(shown);
+  if (count) rollValue(count, String(shown));
   const empty = document.querySelector<HTMLElement>('[data-lab-empty]');
-  if (empty) empty.hidden = shown !== 0;
-
+  if (empty) {
+    const wasHidden = empty.hidden;
+    empty.hidden = shown !== 0;
+    if (shown === 0 && wasHidden) revealRise(empty, 8);
+  }
   document.querySelectorAll<HTMLButtonElement>('[data-lab-filter]').forEach((tab) => {
     tab.setAttribute('aria-pressed', String(tab.dataset.labFilter === filter));
   });
+  // After the pressed state is written: the rule travels to the new tab, not
+  // to the one that was pressed a moment ago.
+  placeRule();
 }
 
 function bindFilters(): void {
@@ -108,8 +186,13 @@ function bindFilters(): void {
     });
   });
   document.querySelector<HTMLInputElement>('[data-lab-search]')?.addEventListener('input', (event) => {
-    query = (event.target as HTMLInputElement).value.trim().toLowerCase();
-    applyFilters();
+    const next = (event.target as HTMLInputElement).value.trim().toLowerCase();
+    // 120 ms: long enough to settle a word, short enough to feel immediate.
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(() => {
+      query = next;
+      applyFilters();
+    }, 120);
   });
   document.querySelector<HTMLElement>('[data-lab-reset]')?.addEventListener('click', () => {
     filter = 'all';
@@ -121,10 +204,25 @@ function bindFilters(): void {
 }
 
 export function initLabLibrary(): void {
+  initLabResize();
   mountVisible();
   if (!bound) {
     bindReplay();
     bindFilters();
   }
   if (document.querySelector('[data-lab-card]')) applyFilters();
+}
+
+/** A width change can rewrap the tabs, so the rule is re-measured, not animated. */
+let resizeBound = false;
+export function initLabResize(): void {
+  if (resizeBound) return;
+  resizeBound = true;
+  window.addEventListener(
+    'resize',
+    () => {
+      if (rule?.isConnected) placeRule(false);
+    },
+    { passive: true },
+  );
 }

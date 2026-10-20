@@ -36,7 +36,7 @@ export function renderContact(level: 1 | 2 = 2): string {
       </div>
       <div class="contact__grid">
         <form class="enquiry" id="enquiry" data-enquiry data-endpoint="" novalidate>
-          <div class="form-status" data-form-status role="status" aria-live="polite"></div>
+          <div class="form-status" data-form-status role="status" aria-live="polite"><div class="form-status__body"><div class="form-status__inner" data-form-status-text></div></div></div>
           <div class="form-error-summary" data-error-summary role="alert" hidden></div>
 
           <div class="field">
