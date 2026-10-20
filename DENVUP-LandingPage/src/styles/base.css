@@ -53,7 +53,16 @@
   --radius: 2px;
   --ease: cubic-bezier(0.22, 0.68, 0.18, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.7s;
+  /* Motion scale. Named by purpose, not by number, so a length is a decision. */
+  --dur-press: 90ms;
+  --dur-swap: 180ms;
+  --dur-panel: 260ms;
+  --dur-enter: 420ms;
+  --danger: #a1261d;
+  --danger-soft: #fff1ee;
 
   color-scheme: light;
   accent-color: var(--orange);
