@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en" data-theme="ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>DENVUP — digital studio: website design, development &amp; interactive experiences</title>
+    <meta
+      name="description"
+      content="DENVUP is a digital studio building website design, front-end development, UI/UX and interactive experiences. Browse a living library of animation and interaction techniques, then tell us which ones you want on your site."
+    />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="./favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DENVUP" />
+    <meta property="og:title" content="DENVUP — digital studio" />
+    <meta
+      property="og:description"
+      content="Website design, development and interactive experiences. A working library of motion and interaction techniques you can browse and request."
+    />
+    <meta property="og:image" content="./og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DENVUP — digital studio" />
+    <meta
+      name="twitter:description"
+      content="Website design, development and interactive experiences. Browse working interaction demos and tell us which you want."
+    />
+    <meta name="twitter:image" content="./og-image.png" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>    <!--@boot-->
+
+    <!--@shell:before-->
+
+<main id="view" class="view" data-view="home">
+      <span id="top" tabindex="-1"></span>
+
+      <!-- ================================================================
+           01 — Prelude.  Cool paper, carbon type, three editorial beats
+           that establish the seed object used by the expansion chapter.
+           ================================================================ -->
+      <section class="section ch-paper prelude" id="prelude" aria-labelledby="prelude-title">
+        <div class="prelude__beats" data-prelude-beats>
+          <p class="prelude__beat" data-beat>
+            <span class="prelude__beat-index">01</span>
+            <span class="prelude__beat-text">Most websites are assembled.</span>
+          </p>
+          <p class="prelude__beat" data-beat>
+            <span class="prelude__beat-index">02</span>
+            <span class="prelude__beat-text">Ours are composed.</span>
+          </p>
+          <p class="prelude__beat" data-beat>
+            <span class="prelude__beat-index">03</span>
+            <span class="prelude__beat-text">Every frame is an argument for your business.</span>
+          </p>
+        </div>
+
+        <h1 class="visually-hidden" id="prelude-title">DENVUP — a digital studio building composed digital experiences</h1>
+
+        <div class="prelude__seed" data-seed aria-hidden="true">
+          <span class="prelude__seed-face"></span>
+        </div>
+
+        <p class="prelude__cue" data-prelude-cue>
+          <span>Scroll to open</span>
+          <span class="prelude__cue-line" aria-hidden="true"></span>
+        </p>
+      </section>
+
+      <!-- ================================================================
+           02 — The expansion.  The seed square grows into a full-bleed
+           ember field while the emblem is revealed through a mask.
+           ================================================================ -->
+      <section class="section ch-ember expansion" id="expansion" aria-labelledby="expansion-title">
+        <div class="expansion__stage" data-expansion-stage>
+          <div class="expansion__panel" data-expansion-panel>
+            <div class="expansion__emblem" data-expansion-emblem>
+              <picture>
+                <source type="image/webp" srcset="/logo_color.webp" />
+                <img src="/logo_color.png" alt="" width="220" height="192" decoding="async" />
+              </picture>
+            </div>
+            <div class="expansion__grid" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="expansion__copy" data-expansion-copy>
+          <p class="expansion__kicker">DENVUP</p>
+          <h2 class="expansion__title" id="expansion-title">
+            A small square, and everything it can become.
+          </h2>
+          <p class="expansion__body">
+            This object is the whole idea of the studio in one gesture: a compact mark that
+            scales into an environment. The same move runs through our work — a brand,
+            a product, a story — starting small and taking over the screen.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           03 — Hero.  Carbon chapter, oversized kinetic headline.
+           ================================================================ -->
+      <section class="section ch-ink studio" id="studio" aria-labelledby="studio-title">
+        <div class="studio__spotlight" aria-hidden="true"></div>
+        <div class="shell">
+          <p class="studio__kicker" data-reveal>Digital studio — design, development, interactive experiences</p>
+          <h2 class="studio__title" id="studio-title" data-kinetic-headline>
+            We make websites that behave.
+          </h2>
+          <p class="studio__lede" data-reveal>
+            DENVUP is a four-person studio working across design and front-end
+            engineering. We build business sites, landing pages and interactive
+            products — then we hand you a library of the exact techniques we used,
+            so you can point at the ones you want.
+          </p>
+          <div class="studio__actions" data-reveal>
+            <a class="btn btn--primary" href="#library" data-magnetic>
+              <span>Explore the library</span>
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 13 13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="#contact" data-magnetic>
+              <span>Start a project</span>
+            </a>
+          </div>
+        </div>
+        <div class="studio__scrollcue" aria-hidden="true">
+          <span class="studio__scrollcue-label">Scroll</span>
+          <span class="studio__scrollcue-rail"><i></i></span>
+        </div>
+        <ul class="studio__specs" aria-label="Studio facts">
+          <li><b>4</b><span>people in the studio</span></li>
+          <li><b>6</b><span>service lines</span></li>
+          <li><b>480</b><span>techniques catalogued</span></li>
+        </ul>
+      </section>
+
+      <!-- ================================================================
+           04 — Brand signature.  The supplied emblem, re-assembled live
+           from particles sampled out of the supplied PNG.
+           ================================================================ -->
+      <section class="section ch-ink mark-chapter" id="mark" aria-labelledby="mark-title">
+        <div class="shell mark-chapter__grid">
+          <div class="mark-chapter__text">
+            <h2 class="mark-chapter__title" id="mark-title">
+              The emblem is the interface.
+            </h2>
+            <p data-reveal>
+              DENVUP's mark is a fox caught inside its own orbit: fast, alert, circling.
+              We treat it as a system rather than a picture. Below, the emblem is
+              reconstructed from thousands of particles sampled directly out of the
+              supplied artwork — the same asset, treated as data.
+            </p>
+            <ul class="mark-chapter__facts">
+              <li><span>Source</span><b>logo_color.png / logo_black.png</b></li>
+              <li><span>Sampling</span><b>Alpha-thresholded pixel lattice</b></li>
+              <li><span>Assembly</span><b>requestAnimationFrame particle field</b></li>
+            </ul>
+            <div class="mark-chapter__actions">
+              <button class="btn btn--primary" type="button" data-reassemble>
+                <span>Re-assemble the mark</span>
+                <span class="btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="12" height="12"><path d="M13 8a5 5 0 1 1-1.6-3.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M13 2v3.4H9.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </span>
+              </button>
+              <button class="btn btn--ghost" type="button" data-toggle-silhouette aria-pressed="false">
+                <span>View silhouette</span>
+              </button>
+            </div>
+          </div>
+          <figure class="mark-chapter__stage">
+            <canvas data-mark-canvas width="900" height="900" role="img"
+              aria-label="Live particle reconstruction of the DENVUP emblem"></canvas>
+            <figcaption class="mark-chapter__caption">
+              Live canvas. Pointer repels the field; press the button to re-assemble.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           05 — Manifesto.  Paper chapter, scroll-linked editorial type.
+           ================================================================ -->
+      <section class="section ch-paper manifesto" id="manifesto" aria-labelledby="manifesto-title">
+        <div class="shell">
+          <h2 class="manifesto__title" id="manifesto-title" data-split-headline>
+            Not a brochure. A behaviour.
+          </h2>
+        </div>
+
+        <figure class="manifesto__plate">
+          <img
+            src="/art/plate-01.jpg"
+            alt="Studio plate: the DENVUP emblem — a fox caught inside a broken orbit — set on a tipped signal-blue plane over a drawn blueprint grid, with a type-specimen column and a sampled lattice alongside."
+            width="1600"
+            height="900"
+            decoding="async"
+          />
+          <figcaption class="manifesto__plate-caption">
+            <span class="manifesto__plate-label">Plate 01</span>
+            <span>
+              Emblem, orbit and lattice. Original studio artwork, drawn from the supplied
+              brand asset and reproducible from <code>scripts/build-art.py</code>.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="shell">
+          <div class="manifesto__body">
+            <p class="manifesto__lead" data-scramble>
+              People arrive with a question and leave with an impression. The only honest
+              way to earn the second one is to answer the first quickly, and to make the
+              answer feel deliberate.
+            </p>
+            <div class="manifesto__grid">
+              <article class="manifesto__item" data-reveal>
+                <h3>Motion has a job</h3>
+                <p>
+                  Every transition here states something: what changed, what matters now,
+                  where to look. If an effect is not carrying information, it is noise and
+                  we cut it.
+                </p>
+              </article>
+              <article class="manifesto__item" data-reveal>
+                <h3>Speed is a feature</h3>
+                <p>
+                  We ship on native scrolling, transform-and-opacity animation, and
+                  lazily loaded 3D. A heavy site is a broken site wearing a good coat.
+                </p>
+              </article>
+              <article class="manifesto__item" data-reveal>
+                <h3>Everyone is a user</h3>
+                <p>
+                  Keyboard, touch, reduced motion, small screens, slow connections. The
+                  same content, reachable by every route. Effects that only work for a
+                  mouse are demonstrations, not design.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           06 — Services.  Ember chapter with an interactive selector.
+           ================================================================ -->
+      <section class="section ch-ember services" id="services" aria-labelledby="services-title">
+        <div class="shell">
+          <header class="services__head">
+            <h2 class="services__title" id="services-title" data-reveal>Five lines, one studio</h2>
+            <p class="services__lede" data-reveal>
+              Each line has a named deliverable, an audience it is for, and the outcome it
+              is meant to produce. Scroll, or use the list, and the stage beside it shows
+              the one idea that identifies the line.
+            </p>
+          </header>
+
+          <div class="services__tabs" role="tablist" aria-label="Services" data-service-tabs></div>
+
+          <div class="services__body">
+            <div class="services__stage-wrap">
+              <div class="services__stage" data-service-stage aria-hidden="true"></div>
+            </div>
+            <div class="services__story" data-service-story></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           07 — Capability atlas.  Carbon chapter, blueprint grid.
+           ================================================================ -->
+      <section class="section ch-signal atlas" id="atlas" aria-labelledby="atlas-title">
+        <div class="shell">
+          <header class="atlas__head">
+            <h2 class="atlas__title" id="atlas-title" data-reveal>Capability atlas</h2>
+            <p class="atlas__lede" data-reveal>
+              The studio's actual tool set, plotted. Select a node to see what it is used
+              for and which part of the build it belongs to.
+            </p>
+          </header>
+          <div class="atlas__body" data-atlas>
+            <div class="atlas__map" data-atlas-map></div>
+            <div class="atlas__panel" data-atlas-panel aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           08 — Process.  Paper chapter, horizontal stage timeline.
+           ================================================================ -->
+      <section class="section ch-paper process" id="process" aria-labelledby="process-title">
+        <div class="shell">
+          <header class="process__head">
+            <h2 class="process__title" id="process-title" data-reveal>How the work gets made</h2>
+            <p class="process__lede" data-reveal>
+              Six stages, each ending in something you can look at. The stage indicator
+              follows your scroll position; the detail panel changes with it.
+            </p>
+          </header>
+          <div class="process__stage" data-process-stage>
+            <ol class="process__rail" data-process-rail></ol>
+            <div class="process__detail" data-process-detail aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           09 — Technique library.  The client reference library.
+           ================================================================ -->
+      <section class="section ch-ink library" id="library" aria-labelledby="library-title">
+        <div class="shell">
+          <header class="library__head">
+            <h2 class="library__title" id="library-title" data-reveal>
+              The technique library
+            </h2>
+            <p class="library__lede" data-reveal>
+              Every entry below is a working demonstration, not a picture of one. Hover
+              it, drag it, scroll it, then copy its reference and tell us which effects
+              you want on your own site.
+            </p>
+          </header>
+
+          <div class="library__controls">
+            <div class="library__search">
+              <label class="visually-hidden" for="library-search">Search techniques</label>
+              <input
+                id="library-search"
+                type="search"
+                placeholder="Search techniques — e.g. mask, cursor, marquee…"
+                autocomplete="off"
+                data-library-search
+              />
+            </div>
+            <div class="library__filters" role="group" aria-label="Filter by category" data-library-filters></div>
+            <p class="library__count" data-library-count aria-live="polite"></p>
+          </div>
+
+          <div class="library__grid" data-library-grid></div>
+          <p class="library__empty" data-library-empty hidden>
+            Nothing matches that yet. Try a broader word, or
+            <button class="linklike" type="button" data-library-reset>clear the filters</button>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           10 — Typography lab.  Paper chapter, type as material.
+           ================================================================ -->
+      <section class="section ch-paper typography" id="type" aria-labelledby="type-title">
+        <div class="shell">
+          <header class="typography__head">
+            <h2 class="typography__title" id="type-title" data-reveal>Type as material</h2>
+            <p class="typography__lede" data-reveal>
+              The wordmark in the DENVUP emblem is geometric and wide. We set the site in
+              the same idea: one variable grotesque whose weight and width axes are
+              available as live parameters, plus a monospace for the technical layer.
+            </p>
+          </header>
+
+          <div class="typography__specimens">
+            <article class="specimen specimen--axis">
+              <h3 class="specimen__label">Variable axes</h3>
+              <p class="specimen__axis-target" data-axis-target>Archivo</p>
+              <div class="specimen__controls">
+                <label>Weight <input type="range" min="100" max="900" value="820" data-axis-weight /></label>
+                <label>Width <input type="range" min="62" max="125" value="112" data-axis-width /></label>
+              </div>
+            </article>
+
+            <article class="specimen specimen--marquee">
+              <h3 class="specimen__label">Continuous strip</h3>
+              <div class="marquee" data-marquee>
+                <div class="marquee__track">
+                  <span>Design</span><span aria-hidden="true">/</span><span>Development</span
+                  ><span aria-hidden="true">/</span><span>Motion</span><span aria-hidden="true">/</span
+                  ><span>Interaction</span><span aria-hidden="true">/</span>
+                </div>
+              </div>
+              <div class="marquee__controls">
+                <button class="chip" type="button" data-marquee-toggle aria-pressed="true">Pause</button>
+                <span class="specimen__hint">Pauses on hover too.</span>
+              </div>
+            </article>
+
+            <article class="specimen specimen--path">
+              <h3 class="specimen__label">Type on a path</h3>
+              <svg class="typepath" viewBox="0 0 600 180" role="img" aria-label="The word interaction drawn along a curve">
+                <defs>
+                  <path id="typepath-curve" d="M20 140 C 160 20, 440 20, 580 140" fill="none" />
+                </defs>
+                <text class="typepath__text">
+                  <textPath href="#typepath-curve" startOffset="0%">
+                    INTERACTION · MOTION · CRAFT
+                  </textPath>
+                </text>
+              </svg>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           11 — Spatial lab.  Carbon chapter, WebGL + 3D.
+           ================================================================ -->
+      <section class="section ch-ink spatial" id="lab" aria-labelledby="lab-title">
+        <div class="shell">
+          <header class="spatial__head">
+            <h2 class="spatial__title" id="lab-title" data-reveal>Spatial lab</h2>
+            <p class="spatial__lede" data-reveal>
+              Two real-time pieces. The first is raw WebGL — a shader field that reacts
+              to the pointer. The second is a draggable object rendered with Three.js,
+              loaded only when it enters the viewport.
+            </p>
+          </header>
+
+          <div class="spatial__grid">
+            <figure class="spatial__panel spatial__panel--shader">
+              <canvas data-shader-canvas width="640" height="480" role="img"
+                aria-label="WebGL shader field reacting to pointer position"></canvas>
+              <figcaption>
+                Raw WebGL 2. Move the pointer across the field.
+                <span class="spatial__note" data-shader-fallback hidden>
+                  WebGL is unavailable in this browser — showing a static render.
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="spatial__panel spatial__panel--three">
+              <div class="three-stage" data-three-stage>
+                <div class="three-stage__fallback" data-three-fallback>
+                  <p>3D scene loading…</p>
+                </div>
+              </div>
+              <figcaption>
+                Three.js. Drag to rotate, scroll to change material.
+                <span class="spatial__note" data-three-note></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           12 — Team.  Paper chapter, typographic composition.
+           ================================================================ -->
+      <section class="section ch-paper team" id="team" aria-labelledby="team-title">
+        <div class="shell">
+          <header class="team__head">
+            <h2 class="team__title" id="team-title" data-reveal>Four people, one studio</h2>
+            <p class="team__lede" data-reveal>
+              DENVUP is a small team, which means the people you speak to are the people
+              who make the work. We are not going to invent job titles or portraits for
+              this page — here are the names, and what the studio does.
+            </p>
+          </header>
+          <ul class="team__list" data-team-list></ul>
+          <div class="team__statement" data-reveal>
+            <p>
+              We are a digital studio focused on website design, development, interactive
+              experiences and digital solutions. Curious about the craft, strict about the
+              details, and happy to work in the open.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           13 — Pricing.  Carbon chapter with an indicative estimator.
+           ================================================================ -->
+      <section class="section ch-ink pricing" id="pricing" aria-labelledby="pricing-title">
+        <div class="shell">
+          <header class="pricing__head">
+            <h2 class="pricing__title" id="pricing-title" data-reveal>Indicative pricing</h2>
+            <p class="pricing__lede" data-reveal>
+              Starting prices, not fixed quotations. The final number depends on scope,
+              complexity, functionality, content and delivery requirements. Third-party
+              costs — domains, hosting, APIs, telephony — are quoted separately where
+              they apply.
+            </p>
+          </header>
+          <div class="pricing__body" data-pricing></div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           14 — FAQ.  Paper chapter, searchable accordion.
+           ================================================================ -->
+      <section class="section ch-paper faq" id="faq" aria-labelledby="faq-title">
+        <div class="shell">
+          <header class="faq__head">
+            <h2 class="faq__title" id="faq-title" data-reveal>Questions, answered plainly</h2>
+            <div class="faq__search">
+              <label class="visually-hidden" for="faq-search">Search questions</label>
+              <input id="faq-search" type="search" placeholder="Search questions" autocomplete="off" data-faq-search="faq" />
+            </div>
+          </header>
+          <div class="faq__list" data-faq-list="faq"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           15 — Contact.  Ember chapter, honest multi-step enquiry.
+           ================================================================ -->
+      <section class="section ch-ember contact" id="contact" aria-labelledby="contact-title">
+        <div class="shell contact__grid">
+          <div class="contact__intro">
+            <h2 class="contact__title" id="contact-title" data-reveal>Tell us what you want it to feel like</h2>
+            <p class="contact__lede" data-reveal>
+              Email is the fastest route. If you already know which techniques you want
+              from the library, quote the reference and we will build around it.
+            </p>
+
+            <ul class="contact__routes">
+              <li>
+                <span class="contact__route-label">Email</span>
+                <a class="contact__route-value" href="mailto:denvupforyou@gmail.com" data-copy="denvupforyou@gmail.com">
+                  denvupforyou@gmail.com
+                </a>
+              </li>
+              <li>
+                <span class="contact__route-label">WhatsApp</span>
+                <a class="contact__route-value" href="https://wa.me/917675993371" target="_blank" rel="noopener noreferrer">
+                  +91 76759 93371
+                </a>
+                <a class="contact__route-value" href="https://wa.me/919133585849" target="_blank" rel="noopener noreferrer">
+                  +91 91335 85849
+                </a>
+              </li>
+            </ul>
+
+            <div class="contact__note" data-contact-summary aria-live="polite">
+              <p>No project selected yet — the enquiry form below starts from a blank brief.</p>
+            </div>
+          </div>
+
+          <div class="contact__form-wrap">
+            <form class="enquiry" data-enquiry novalidate>
+              <ol class="enquiry__progress" data-enquiry-progress>
+                <li aria-current="step">Project</li>
+                <li>Scope</li>
+                <li>Contact</li>
+              </ol>
+
+              <fieldset class="enquiry__step" data-step="0">
+                <legend>What are we building?</legend>
+                <div class="enquiry__choices" data-enquiry-type data-field-for="type"></div>
+                <p class="enquiry__error" data-error-for="type" role="alert"></p>
+              </fieldset>
+
+              <fieldset class="enquiry__step" data-step="1">
+                <legend>How big is it?</legend>
+                <div class="enquiry__choices" data-enquiry-scope data-field-for="scope"></div>
+                <p class="enquiry__error" data-error-for="scope" role="alert"></p>
+              </fieldset>
+
+              <fieldset class="enquiry__step" data-step="2">
+                <legend>Where do we reply?</legend>
+                <div class="enquiry__fields">
+                  <div class="field" data-field-for="name">
+                    <label for="enquiry-name">Your name</label>
+                    <input id="enquiry-name" name="name" type="text" autocomplete="name" required />
+                    <p class="field__error" data-error-for="name" role="alert"></p>
+                  </div>
+                  <div class="field" data-field-for="email">
+                    <label for="enquiry-email">Email</label>
+                    <input id="enquiry-email" name="email" type="email" autocomplete="email" required />
+                    <p class="field__error" data-error-for="email" role="alert"></p>
+                  </div>
+                  <div class="field field--wide">
+                    <label for="enquiry-brief">What should we know? <span class="field__optional">optional</span></label>
+                    <textarea id="enquiry-brief" name="brief" rows="4"></textarea>
+                  </div>
+                </div>
+                <p class="enquiry__error" data-error-for="form" role="alert"></p>
+              </fieldset>
+
+              <div class="enquiry__nav">
+                <button class="btn btn--ghost" type="button" data-enquiry-back hidden>
+                  <span>Back</span>
+                </button>
+                <button class="btn btn--primary" type="button" data-enquiry-next>
+                  <span>Continue</span>
+                  <span class="btn__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                  </span>
+                </button>
+                <button class="btn btn--primary" type="submit" data-enquiry-submit hidden>
+                  <span>Open in mail app</span>
+                </button>
+              </div>
+
+              <p class="enquiry__status" data-enquiry-status role="status" aria-live="polite"></p>
+              <p class="enquiry__privacy">
+                This form does not send anything on its own. Submitting opens your own mail
+                app with the brief filled in, so you can review and send it yourself.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           16 — Closing statement.
+           ================================================================ -->
+      <section class="section ch-ink closing" id="closing" aria-labelledby="closing-title">
+        <div class="closing__field" aria-hidden="true"></div>
+        <div class="shell closing__inner">
+          <h2 class="closing__title" id="closing-title" data-closing-type>
+            Make it move. Make it mean something.
+          </h2>
+          <p class="closing__body" data-reveal>
+            That is the whole offer: a website that behaves like the idea it carries,
+            built by a small team that will tell you exactly what is in it.
+          </p>
+          <div class="closing__actions" data-reveal>
+            <a class="btn btn--primary" href="#contact" data-magnetic>
+              <span>Start a project</span>
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 13 13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="#library" data-magnetic><span>Back to the library</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--@shell:after-->
+  </body>
+</html>

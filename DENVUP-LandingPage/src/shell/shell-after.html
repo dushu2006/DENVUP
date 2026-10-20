@@ -1,0 +1,77 @@
+<!--
+  The shared close. The footer's first job is to be a designed close, not a
+  sitemap — so the name comes back at full width, and the route map sits
+  underneath it.
+-->
+<footer class="site-foot ch-ink" id="foot">
+  <div class="shell">
+    <div class="site-foot__top">
+      <div class="site-foot__brand">
+        <picture>
+          <source type="image/webp" srcset="/logo_color.webp" />
+          <img class="site-foot__mark" src="/logo_color.png" alt="DENVUP emblem" width="96" height="84" loading="lazy" decoding="async" />
+        </picture>
+        <p class="site-foot__tag">
+          A digital studio for website design, development and interactive experiences.
+        </p>
+      </div>
+
+      <nav class="site-foot__nav" aria-label="Footer">
+        <div>
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/lab/">Interaction lab</a></li>
+            <li><a href="/concepts/">Concepts</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Studio</h2>
+          <ul>
+            <li><a href="/studio/">The studio</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/contact/#faq">Questions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/404.html">Not found</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="site-foot__bottom">
+      <p class="site-foot__contact">
+        <a href="mailto:denvupforyou@gmail.com" data-copy="denvupforyou@gmail.com">denvupforyou@gmail.com</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://wa.me/917675993371" target="_blank" rel="noopener noreferrer">+91 76759 93371</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://wa.me/919133585849" target="_blank" rel="noopener noreferrer">+91 91335 85849</a>
+      </p>
+      <p class="site-foot__legal">
+        <span>&copy; <span data-year>2026</span> DENVUP</span>
+        <span aria-hidden="true">·</span>
+        <span>Built as a working demonstration of the studio's craft.</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- floating navigation dock ----------------------------------------- -->
+<nav class="dock" id="dock" aria-label="Section navigator">
+  <button class="dock__toggle" type="button" data-dock-toggle aria-expanded="false" aria-controls="dock-list">
+    <span class="dock__label">Journey</span>
+    <span class="dock__chevron" aria-hidden="true"></span>
+  </button>
+  <ol class="dock__list" id="dock-list" data-dock-list hidden></ol>
+</nav>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" data-to-top hidden>
+  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+</button>

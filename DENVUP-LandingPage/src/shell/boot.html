@@ -1,0 +1,16 @@
+<!-- ===================================================================
+         Boot / preloader.  Progress is tied to real asset + font loading.
+         =================================================================== -->
+    <div class="boot" id="boot" role="status" aria-live="polite" aria-label="Loading DENVUP">
+      <div class="boot__inner">
+        <div class="boot__mark" aria-hidden="true">
+          <span class="boot__seed"></span>
+        </div>
+        <div class="boot__meta">
+          <span class="boot__label">DENVUP</span>
+          <span class="boot__count" id="boot-count">000</span>
+        </div>
+        <div class="boot__bar" aria-hidden="true"><i id="boot-bar"></i></div>
+        <button class="boot__skip" id="boot-skip" type="button">Skip intro</button>
+      </div>
+    </div>

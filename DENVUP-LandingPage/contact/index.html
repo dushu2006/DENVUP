@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-theme="ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Contact — DENVUP</title>
+    <meta
+      name="description"
+      content="Tell DENVUP what you want to build. This site has no server, so the form composes your message and opens your own mail application — it never claims to have sent anything."
+    />
+    <meta name="theme-color" content="#f0490f" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DENVUP" />
+    <meta property="og:title" content="Contact — DENVUP" />
+    <meta
+      property="og:description"
+      content="Three steps, one honest form, and a real email address and WhatsApp number behind it."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <!--@boot:none-->
+
+    <!--@shell:before-->
+
+    <main id="view" class="view" data-view="contact">
+      <section class="section ch-ember route-hero" id="top" data-route-hero aria-labelledby="contact-title">
+        <div class="shell">
+          <p class="route-hero__kicker">Contact</p>
+          <h1 class="route-hero__title" id="contact-title">
+            Tell us what<br />it should feel like.
+          </h1>
+          <p class="route-hero__lead">
+            Three steps, about two minutes. The form composes a complete message and opens
+            your own mail application with it filled in — this site has no server, so it
+            never pretends to have received anything. If you would rather not use a form,
+            the email address and WhatsApp number below are the same studio.
+          </p>
+        </div>
+      </section>
+
+      <section class="section ch-paper contact-form" id="enquiry" aria-labelledby="enquiry-title">
+        <div class="shell">
+          <h2 class="visually-hidden" id="enquiry-title">Project enquiry</h2>
+          <div class="contact-form__grid">
+            <div class="contact-form__form">
+            <form class="enquiry" data-enquiry novalidate>
+                          <ol class="enquiry__progress" data-enquiry-progress>
+                            <li aria-current="step">Project</li>
+                            <li>Scope</li>
+                            <li>Contact</li>
+                          </ol>
+
+                          <fieldset class="enquiry__step" data-step="0">
+                            <legend>What are we building?</legend>
+                            <div class="enquiry__choices" data-enquiry-type data-field-for="type"></div>
+                            <p class="enquiry__error" data-error-for="type" role="alert"></p>
+                          </fieldset>
+
+                          <fieldset class="enquiry__step" data-step="1">
+                            <legend>How big is it?</legend>
+                            <div class="enquiry__choices" data-enquiry-scope data-field-for="scope"></div>
+                            <p class="enquiry__error" data-error-for="scope" role="alert"></p>
+                          </fieldset>
+
+                          <fieldset class="enquiry__step" data-step="2">
+                            <legend>Where do we reply?</legend>
+                            <div class="enquiry__fields">
+                              <div class="field" data-field-for="name">
+                                <label for="enquiry-name">Your name</label>
+                                <input id="enquiry-name" name="name" type="text" autocomplete="name" required />
+                                <p class="field__error" data-error-for="name" role="alert"></p>
+                              </div>
+                              <div class="field" data-field-for="email">
+                                <label for="enquiry-email">Email</label>
+                                <input id="enquiry-email" name="email" type="email" autocomplete="email" required />
+                                <p class="field__error" data-error-for="email" role="alert"></p>
+                              </div>
+                              <div class="field field--wide">
+                                <label for="enquiry-brief">What should we know? <span class="field__optional">optional</span></label>
+                                <textarea id="enquiry-brief" name="brief" rows="4"></textarea>
+                              </div>
+                            </div>
+                            <p class="enquiry__error" data-error-for="form" role="alert"></p>
+                          </fieldset>
+
+                          <div class="enquiry__nav">
+                            <button class="btn btn--ghost" type="button" data-enquiry-back hidden>
+                              <span>Back</span>
+                            </button>
+                            <button class="btn btn--primary" type="button" data-enquiry-next>
+                              <span>Continue</span>
+                              <span class="btn__icon" aria-hidden="true">
+                                <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                              </span>
+                            </button>
+                            <button class="btn btn--primary" type="submit" data-enquiry-submit hidden>
+                              <span>Open in mail app</span>
+                            </button>
+                          </div>
+
+                          <p class="enquiry__status" data-enquiry-status role="status" aria-live="polite"></p>
+                          <p class="enquiry__privacy">
+                            This form does not send anything on its own. Submitting opens your own mail
+                            app with the brief filled in, so you can review and send it yourself.
+                          </p>
+                        </form>
+            </div>
+
+            <aside class="contact-form__aside" aria-labelledby="contact-direct-title">
+              <h2 class="contact-form__aside-title" id="contact-direct-title">
+                Or reach us directly
+              </h2>
+              <ul class="contact-direct">
+                <li>
+                  <span class="contact-direct__label">Email</span>
+                  <a
+                    class="contact-direct__value"
+                    href="mailto:denvupforyou@gmail.com"
+                    data-copy="denvupforyou@gmail.com"
+                    >denvupforyou@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <span class="contact-direct__label">WhatsApp</span>
+                  <a class="contact-direct__value" href="https://wa.me/917675993371" target="_blank" rel="noopener noreferrer"
+                    >+91 76759 93371</a
+                  >
+                </li>
+                <li>
+                  <span class="contact-direct__label">WhatsApp</span>
+                  <a class="contact-direct__value" href="https://wa.me/919133585849" target="_blank" rel="noopener noreferrer"
+                    >+91 91335 85849</a
+                  >
+                </li>
+              </ul>
+
+              <div class="contact-summary" data-contact-summary aria-live="polite"></div>
+
+              <p class="contact-form__note">
+                We answer every message, usually within a working day. If the timing is
+                wrong, the phone numbers are the faster route.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ch-ink contact-answers" id="faq" aria-labelledby="contact-answers-title">
+        <div class="shell">
+          <h2 class="contact-answers__title" id="contact-answers-title">
+            Things people ask before the first message
+          </h2>
+
+          <div class="answer-list">
+            <details class="answer">
+              <summary class="answer__question">What does a project usually cost?</summary>
+              <div class="answer__body">
+                <p>
+                  Landing pages start from ₹15,000, business websites from ₹20,000 and
+                  advanced custom solutions from ₹50,000. Those are indicative starting
+                  points, they move with scope, and a written quote replaces them.
+                </p>
+                <p>
+                  <a href="/pricing/">See the pricing page</a> for what moves the number.
+                </p>
+              </div>
+            </details>
+
+            <details class="answer">
+              <summary class="answer__question">How long does it take?</summary>
+              <div class="answer__body">
+                <p>
+                  A landing page is usually two to three weeks. A business website runs
+                  five to seven. Advanced work with integrations or AI in it is usually
+                  eight to twelve, and we will say so if that is too long for your
+                  deadline.
+                </p>
+              </div>
+            </details>
+
+            <details class="answer">
+              <summary class="answer__question">Do you work with existing content?</summary>
+              <div class="answer__body">
+                <p>
+                  Yes, and it is usually the fastest route. We will tell you what we can
+                  keep, what needs rewriting, and what is missing. Rewriting is part of the
+                  work rather than a charge on top of it.
+                </p>
+              </div>
+            </details>
+
+            <details class="answer">
+              <summary class="answer__question">Can you work with our developer?</summary>
+              <div class="answer__body">
+                <p>
+                  Yes. We are happy to design against an existing stack, to write the
+                  front end against your API, or to hand over a design system and
+                  documentation for your own team to build from.
+                </p>
+              </div>
+            </details>
+
+            <details class="answer">
+              <summary class="answer__question">What if we are not sure what we need?</summary>
+              <div class="answer__body">
+                <p>
+                  That is the normal place to start, and it is what the first conversation
+                  is for. Describe the problem in a sentence and we will tell you which of
+                  the five service lines it belongs to — and if it belongs to none of them,
+                  we will say that too.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--@shell:after-->
+  </body>
+</html>

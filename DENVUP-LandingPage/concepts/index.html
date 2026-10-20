@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-theme="ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Concepts — DENVUP</title>
+    <meta
+      name="description"
+      content="Work in progress at DENVUP: interface ideas, motion studies and experiments we are still working out — shown honestly, including the ones that are not finished."
+    />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DENVUP" />
+    <meta property="og:title" content="Concepts — DENVUP" />
+    <meta
+      property="og:description"
+      content="Experiments and half-finished ideas, shown honestly — including the ones that are not finished."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <!--@boot:none-->
+
+    <!--@shell:before-->
+
+    <main id="view" class="view" data-view="concepts" data-art="/art/concepts-mask.jpg">
+      <section class="section ch-paper route-hero" id="top" data-route-hero aria-labelledby="concepts-title">
+        <div class="shell">
+          <p class="route-hero__kicker">Concepts</p>
+          <h1 class="route-hero__title" id="concepts-title">
+            Things we are<br />still working out.
+          </h1>
+          <p class="route-hero__lead">
+            Every studio has work that is not finished. Rather than hide it, this is
+            where it goes — the ideas, the studies and the experiments that are still
+            moving, with an honest note on how far along each one is.
+          </p>
+        </div>
+      </section>
+
+      <section class="section ch-ink concept-list" id="concept-list" aria-labelledby="concept-list-title">
+        <div class="shell">
+          <h2 class="visually-hidden" id="concept-list-title">Concepts in progress</h2>
+
+          <ol class="concept-rows">
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">01</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">A scroll that knows what you have read</h3>
+                <p class="concept-row__text">
+                  Pages that quietly rearrange themselves around what a reader has already
+                  looked at. The hard part is not the rearrangement; it is deciding when
+                  not to move anything.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">In progress</span>
+                  Working prototype. The measurement pass is not finished.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">02</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">Type that sets itself</h3>
+                <p class="concept-row__text">
+                  A page that reads the width of its own column and re-sets itself — size,
+                  measure, leading — so the text is always the right length. The tension we
+                  are still solving is between the comfort of a stable layout and the
+                  honesty of a fluid one.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">In progress</span>
+                  Works in the type laboratory. The screen-reader ordering is unresolved.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">03</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">A navigation that is a map, not a menu</h3>
+                <p class="concept-row__text">
+                  Instead of a list of links, a diagram of the site you are in, with your
+                  position drawn on it. We want it to be readable as a picture and
+                  operable as a list.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">In progress</span>
+                  The floating journey dock on the home page is a first attempt.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">04</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">One field, many pages</h3>
+                <p class="concept-row__text">
+                  A single generated surface running behind a whole site, re-parameterised
+                  per route instead of reloaded — so the background is continuous and the
+                  reader never sees it restart.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">Shipped</span>
+                  This is the stage behind the page you are reading. Turn its controls in
+                  the <a href="/lab/">lab</a>.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">05</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">Handover as a working tool</h3>
+                <p class="concept-row__text">
+                  Every site we build comes with a library of its own techniques, so the
+                  next person to open the code can see what the motion is made of, and
+                  reuse it rather than reinvent it.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">Shipped</span>
+                  Four hundred and eighty catalogued techniques on the
+                  <a href="/#library">home page</a>.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+
+            <li class="concept-row" data-concept-row>
+              <span class="concept-row__index">06</span>
+              <div class="concept-row__body">
+                <h3 class="concept-row__title">A site that explains its own motion</h3>
+                <p class="concept-row__text">
+                  Every animation on this site is listed with a reference, so a visitor
+                  can ask "what is that?" and get an answer with a name and a number,
+                  rather than a guess.
+                </p>
+                <p class="concept-row__state">
+                  <span class="concept-row__badge">Shipped</span>
+                  The technique library is searchable, filterable and copyable.
+                </p>
+              </div>
+              <span class="concept-row__mark" aria-hidden="true"></span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section ch-paper concept-honest" aria-labelledby="concept-honest-title">
+        <div class="shell">
+          <h2 class="concept-honest__title" id="concept-honest-title">
+            What you will not find here
+          </h2>
+          <p class="concept-honest__body">
+            No client work, because we have not published any and inventing it would be
+            dishonest. No testimonials, awards, statistics or portraits, for the same
+            reason. If we build something worth showing, it will appear here with the
+            client's name on it.
+          </p>
+          <a class="btn btn--ghost" href="/studio/"><span>Read about the studio</span></a>
+        </div>
+      </section>
+    </main>
+
+    <!--@shell:after-->
+  </body>
+</html>

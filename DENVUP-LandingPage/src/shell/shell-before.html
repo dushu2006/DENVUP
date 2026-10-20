@@ -1,0 +1,112 @@
+<!--
+  The persistent shell — everything that survives a route change.
+
+  This file is injected into every page by the `shell` plugin in
+  `vite.config.ts`. The header, the menu, the command palette, the custom
+  cursor, the grain, the scroll progress and the stage are all here, and none
+  of them is ever replaced: the router only swaps the contents of
+  `<main id="view">`.
+-->
+<a class="skip-link" href="#view">Skip to content</a>
+
+<!-- fixed chrome ------------------------------------------------------ -- -->
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i id="scroll-progress-bar"></i></div>
+<div class="route-progress" id="route-progress" aria-hidden="true"><i></i></div>
+
+<!--
+  The stage. One canvas for the whole session. It is behind the content,
+  it never takes pointer events, and it is decorative: if it cannot draw,
+  the element keeps a flat field and the site reads the same.
+-->
+<div class="stage" id="stage" aria-hidden="true">
+  <canvas class="stage__canvas" id="stage-canvas"></canvas>
+  <span class="stage__fallback" aria-hidden="true"></span>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__ring"></span>
+  <span class="cursor__echo" aria-hidden="true"></span>
+  <span class="cursor__label" id="cursor-label"></span>
+</div>
+
+<header class="site-head" id="site-head">
+  <div class="site-head__inner">
+    <a class="lockup" href="/" data-nav-link data-route="home" aria-label="DENVUP, home">
+      <span class="lockup__mark" aria-hidden="true">
+        <picture>
+          <source type="image/webp" srcset="/logo_black.webp" />
+          <img src="/logo_black.png" alt="" width="34" height="34" decoding="async" />
+        </picture>
+      </span>
+      <span class="lockup__word">DENVUP</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list" id="site-nav-list">
+        <li><a href="/services/" data-nav-link data-route="services">Services</a></li>
+        <li><a href="/lab/" data-nav-link data-route="lab">Lab</a></li>
+        <li><a href="/studio/" data-nav-link data-route="studio">Studio</a></li>
+        <li><a href="/pricing/" data-nav-link data-route="pricing">Pricing</a></li>
+        <li><a href="/contact/" data-nav-link data-route="contact">Contact</a></li>
+      </ul>
+      <span class="site-nav__indicator" id="nav-indicator" aria-hidden="true"></span>
+    </nav>
+
+    <div class="site-head__actions">
+      <button class="cmd-trigger" id="cmd-trigger" type="button" aria-haspopup="dialog">
+        <svg viewBox="0 0 16 16" aria-hidden="true" width="13" height="13">
+          <circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.3" />
+          <path d="M10.8 10.8 14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+        </svg>
+        <span>Search</span>
+        <kbd>/</kbd>
+      </button>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+      >
+        <span class="menu-toggle__label">Menu</span>
+        <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- full screen menu -------------------------------------------------- -- -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+  <div class="menu__bg" aria-hidden="true"></div>
+    <div class="menu__panel">
+      <nav class="menu__nav" aria-label="Menu">
+        <p class="menu__group-label">Pages</p>
+        <ul class="menu__list" id="menu-list"></ul>
+        <p class="menu__group-label">The home chapters</p>
+        <ul class="menu__list menu__list--chapters" id="menu-chapters"></ul>
+      </nav>
+      <div class="menu__foot">
+        <a class="menu__mail" href="mailto:denvupforyou@gmail.com">denvupforyou@gmail.com</a>
+        <p class="menu__note">Digital studio — website design, development and interactive experiences.</p>
+      </div>
+    </div>
+</div>
+
+<!-- command palette --------------------------------------------------- -- -->
+<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Search the site" hidden>
+  <div class="cmdk__scrim" data-cmdk-close></div>
+  <div class="cmdk__panel" role="search">
+    <label class="cmdk__label" for="cmdk-input">Search sections and techniques</label>
+    <input
+      class="cmdk__input"
+      id="cmdk-input"
+      type="search"
+      autocomplete="off"
+      placeholder="Try &ldquo;cursor&rdquo;, &ldquo;mask&rdquo;, &ldquo;pricing&rdquo;…"
+    />
+    <ul class="cmdk__results" id="cmdk-results" role="listbox" aria-label="Results"></ul>
+    <p class="cmdk__hint">Esc to close · Enter to open</p>
+  </div>
+</div>

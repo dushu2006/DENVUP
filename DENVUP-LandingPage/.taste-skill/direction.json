@@ -1,0 +1,29 @@
+{
+  "$comment": "DENVUP design direction — the deliberate deviations from the design-taste-frontend defaults. Each entry is a decision we made on purpose; the reason is recorded in UI_UX_AUDIT.md. The inspector reads the 'allow' array and stops reporting these rules for this site.",
+  "site": "DENVUP — digital studio",
+  "direction": "A studio whose identity is a technical layer: monospace telemetry, index numbers, hairline rules and flat outlined surfaces over a paper/ink/ember/signal ground. The rules below were each checked against the live page and accepted on purpose; none of them is an accident.",
+  "allow": [
+    "mono",
+    "numbering",
+    "micro-label",
+    "hairline",
+    "outlined-box",
+    "glass",
+    "card-rows",
+    "size-count",
+    "no-footage",
+    "blend-text"
+  ],
+  "reasons": {
+    "mono": "JetBrains Mono carries the technical layer: technique references, indices, estimator values and the chapter map. It is the studio's second voice, not a code sample.",
+    "numbering": "Chapters and steps are numbered (01–16) so a visitor can name a chapter in an email: 'see 07'. The index is the navigation.",
+    "micro-label": "The uppercase, letter-spaced label is the connective tissue of the technical layer. It is set at 13px, never below, and always used to label a specific, named thing.",
+    "hairline": "Hairlines are the only separators used. A rule reads as a drawn line, which matches the blueprint art direction; a shadow or a filled slab would break it.",
+    "outlined-box": "Surfaces are defined by a 1px outline on the same ground, not by a fill. The library, the estimator and the demo tiles are all flat frames, which is what keeps 480 cards readable as one instrument panel.",
+    "glass": "Exactly two blurred surfaces: the sticky header bar and the command palette, which is a dialog. The rule allows one blurred bar; the second surface is a modal.",
+    "card-rows": "The technique library is a catalogue of 480 entries, not a set of marketing cards. Its grid is the point. The other rows are the pricing tiers, the process stages and the service lines, each with its own composition.",
+    "size-count": "Each of the sixteen chapters carries its own display scale; that is how the page moves between substrates without repeating one rectangle. The count sits at 19 sizes against a default of 5, which is a deliberate trade for chapter identity.",
+    "no-footage": "The studio has no client work to film and will not use stock footage of people at laptops. The motion on this page is drawn in canvas, SVG and CSS, which is the honest substitute.",
+    "blend-text": "Four text elements invert against their background with mix-blend-mode. Each sits on a black, white or ember ground, so the inversion is a designed swap rather than a random hue."
+  }
+}

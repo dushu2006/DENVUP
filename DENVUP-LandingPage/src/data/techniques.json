@@ -1,0 +1,4432 @@
+{
+  "total": 480,
+  "categories": [
+    {
+      "index": 1,
+      "label": "Loading, startup, and first-visit experiences",
+      "count": 20
+    },
+    {
+      "index": 2,
+      "label": "Cursor and pointer interactions",
+      "count": 30
+    },
+    {
+      "index": 3,
+      "label": "Buttons, links, and micro-interactions",
+      "count": 30
+    },
+    {
+      "index": 4,
+      "label": "Typography and text motion",
+      "count": 30
+    },
+    {
+      "index": 5,
+      "label": "Scroll-triggered and scroll-driven motion",
+      "count": 40
+    },
+    {
+      "index": 6,
+      "label": "Section transitions and navigation",
+      "count": 25
+    },
+    {
+      "index": 7,
+      "label": "Cards, grids, galleries, and portfolios",
+      "count": 30
+    },
+    {
+      "index": 8,
+      "label": "2D graphics, SVG, and illustration",
+      "count": 20
+    },
+    {
+      "index": 9,
+      "label": "3D, WebGL, shaders, and spatial interfaces",
+      "count": 25
+    },
+    {
+      "index": 10,
+      "label": "Particles, generative art, and backgrounds",
+      "count": 20
+    },
+    {
+      "index": 11,
+      "label": "Visual effects, materials, and lighting",
+      "count": 30
+    },
+    {
+      "index": 12,
+      "label": "Service, feature, and data storytelling",
+      "count": 25
+    },
+    {
+      "index": 13,
+      "label": "Process, timeline, and storytelling patterns",
+      "count": 15
+    },
+    {
+      "index": 14,
+      "label": "Team, people, and studio sections",
+      "count": 15
+    },
+    {
+      "index": 15,
+      "label": "Pricing, FAQ, forms, and conversion",
+      "count": 25
+    },
+    {
+      "index": 16,
+      "label": "Audio, video, and immersive media",
+      "count": 15
+    },
+    {
+      "index": 17,
+      "label": "Easter eggs and exploratory details",
+      "count": 15
+    },
+    {
+      "index": 18,
+      "label": "Responsive and touch-first interaction patterns",
+      "count": 15
+    },
+    {
+      "index": 19,
+      "label": "Accessibility, resilience, and motion controls",
+      "count": 15
+    },
+    {
+      "index": 20,
+      "label": "Performance and engineering techniques",
+      "count": 20
+    },
+    {
+      "index": 21,
+      "label": "Advanced experimental techniques",
+      "count": 20
+    }
+  ],
+  "techniques": [
+    {
+      "id": 1,
+      "name": "Minimal loading indicator",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "CSS-animated ember seed square in the boot screen."
+    },
+    {
+      "id": 2,
+      "name": "Circular progress loader",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "SVG ring with a stroked progress arc around the seed."
+    },
+    {
+      "id": 3,
+      "name": "Linear progress bar",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "1px hairline progress bar, scaled with transform only."
+    },
+    {
+      "id": 4,
+      "name": "Indeterminate progress bar",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Indeterminate shimmer while real progress is unknown."
+    },
+    {
+      "id": 5,
+      "name": "Skeleton screen / content placeholders",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/demos/registry.ts",
+      "note": "Skeleton blocks used for library cards before their demo mounts."
+    },
+    {
+      "id": 6,
+      "name": "Logo reveal on initial load",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Boot screen resolves into the emblem in the expansion chapter."
+    },
+    {
+      "id": 7,
+      "name": "Logo assembled from separate parts",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "Emblem reconstructed from thousands of sampled particles."
+    },
+    {
+      "id": 8,
+      "name": "Letter-by-letter brand reveal",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "DENVUP wordmark types in letter by letter during boot."
+    },
+    {
+      "id": 9,
+      "name": "Staggered first-screen content entrance",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/studio.ts",
+      "note": "Hero eyebrow, headline and CTAs enter on a stagger."
+    },
+    {
+      "id": 10,
+      "name": "Curtain opening transition",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Boot screen opens with a clip-path curtain."
+    },
+    {
+      "id": 11,
+      "name": "Split-panel opening reveal",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Two-panel split reveal opens the ember field."
+    },
+    {
+      "id": 12,
+      "name": "Image-mask intro reveal",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Emblem revealed through a growing circular mask."
+    },
+    {
+      "id": 13,
+      "name": "Animated gradient opening",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/closing.ts",
+      "note": "Animated ember + signal radial field behind the closing statement."
+    },
+    {
+      "id": 14,
+      "name": "Particle convergence into a logo",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "Canvas particles converge onto pixels sampled from logo_color.png."
+    },
+    {
+      "id": 15,
+      "name": "Short cinematic intro with skip control",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Visible Skip intro control wired to the same completion path."
+    },
+    {
+      "id": 16,
+      "name": "First-visit-only welcome sequence",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Welcome sequence keyed on sessionStorage, so it runs once per visit."
+    },
+    {
+      "id": 17,
+      "name": "Intro progress tied to real asset loading",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Progress bound to document.fonts.ready and image decoding."
+    },
+    {
+      "id": 18,
+      "name": "Page content revealed after font readiness",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Body content is released only after fonts are ready."
+    },
+    {
+      "id": 19,
+      "name": "Route-change loading indicator",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/router.ts",
+      "note": "A route progress bar fills while a transition runs, and the document carries data-transitioning so nothing is clickable mid-move."
+    },
+    {
+      "id": 20,
+      "name": "Reduced-motion instant entrance fallback",
+      "cat": 1,
+      "catLabel": "Loading, startup, and first-visit experiences",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Reduced motion collapses every entrance to an instant, readable state."
+    },
+    {
+      "id": 21,
+      "name": "Custom cursor dot",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "6px dot tracks the pointer exactly."
+    },
+    {
+      "id": 22,
+      "name": "Outer cursor ring following the pointer",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "34px ring lags with an eased follow."
+    },
+    {
+      "id": 23,
+      "name": "Cursor enlarges over links",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "Ring grows to 58px over links and controls."
+    },
+    {
+      "id": 24,
+      "name": "Contextual cursor labels: “View”, “Drag”, “Explore”",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "data-cursor attribute drives a label inside the ring."
+    },
+    {
+      "id": 25,
+      "name": "Cursor color changes by section",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "Ring colour is driven by the current chapter's accent token, and by the route while a route is on screen."
+    },
+    {
+      "id": 26,
+      "name": "Cursor blend-mode effect",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "mix-blend-mode: difference on the cursor layer."
+    },
+    {
+      "id": 27,
+      "name": "Cursor-following spotlight",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/sections/studio.ts",
+      "note": "Radial spotlight follows the pointer across the hero."
+    },
+    {
+      "id": 28,
+      "name": "Soft trailing cursor echo",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "Second, slower echo ring trails the main ring."
+    },
+    {
+      "id": 29,
+      "name": "Fading cursor trail",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Canvas trail that fades each frame."
+    },
+    {
+      "id": 30,
+      "name": "Particle trail based on pointer speed",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Trail density scales with pointer velocity."
+    },
+    {
+      "id": 31,
+      "name": "Cursor-triggered image reveal",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Pointer position reveals a second artwork inside a mask."
+    },
+    {
+      "id": 32,
+      "name": "Cursor reveals a second image through a mask",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Second image revealed through a circular mask that follows the pointer."
+    },
+    {
+      "id": 33,
+      "name": "Pointer proximity activates nearby elements",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/pointer.ts",
+      "note": "Proximity radius is published as a --proximity custom property."
+    },
+    {
+      "id": 34,
+      "name": "Magnetic navigation links",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/pointer.ts",
+      "note": "Nav links lean toward the pointer."
+    },
+    {
+      "id": 35,
+      "name": "Magnetic buttons",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/pointer.ts",
+      "note": "Primary CTAs translate toward the pointer."
+    },
+    {
+      "id": 36,
+      "name": "Magnetic cards",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Library cards translate and lift under the pointer."
+    },
+    {
+      "id": 37,
+      "name": "Pointer-reactive typography",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Type weight tracks the pointer's vertical position."
+    },
+    {
+      "id": 38,
+      "name": "Text characters repel from pointer",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Characters push away from the pointer."
+    },
+    {
+      "id": 39,
+      "name": "Text characters attract toward pointer",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Characters are pulled toward the pointer."
+    },
+    {
+      "id": 40,
+      "name": "Pointer-controlled gradient position",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/sections/studio.ts",
+      "note": "Pointer position drives the hero gradient origin."
+    },
+    {
+      "id": 41,
+      "name": "Pointer-driven background parallax",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Layered background shifts against pointer position."
+    },
+    {
+      "id": 42,
+      "name": "Pointer-driven object rotation",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Pointer drives rotation of the 3D object."
+    },
+    {
+      "id": 43,
+      "name": "Cursor-controlled 3D camera",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Pointer moves the Three.js camera around the scene."
+    },
+    {
+      "id": 44,
+      "name": "Cursor velocity controls visual intensity",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Pointer speed drives glow intensity in the demo."
+    },
+    {
+      "id": 45,
+      "name": "Cursor-triggered ripple",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Click and drag produce expanding ripples."
+    },
+    {
+      "id": 46,
+      "name": "Cursor-triggered liquid distortion",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Fluid field in the WebGL demo is displaced by the pointer."
+    },
+    {
+      "id": 47,
+      "name": "Cursor-triggered sound with explicit opt-in",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Sound is opt-in; a toggle in the demo header enables it."
+    },
+    {
+      "id": 48,
+      "name": "Section-specific cursor modes",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "Sections set their own cursor label and colour."
+    },
+    {
+      "id": 49,
+      "name": "Cursor trail changes over interactive artwork",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/demos/cursor.ts",
+      "note": "Trail switches to artwork colours over the interactive canvas."
+    },
+    {
+      "id": 50,
+      "name": "Native cursor restored on touch devices",
+      "cat": 2,
+      "catLabel": "Cursor and pointer interactions",
+      "status": "Tested",
+      "comp": "src/core/cursor.ts",
+      "note": "The custom cursor is never created on coarse pointers."
+    },
+    {
+      "id": 51,
+      "name": "Color-fill hover transition",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Primary button fills with amber on hover."
+    },
+    {
+      "id": 52,
+      "name": "Underline draw animation",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Nav and footer links draw a hairline underline."
+    },
+    {
+      "id": 53,
+      "name": "Underline grows from the center",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Underline grows from the centre in the demo strip."
+    },
+    {
+      "id": 54,
+      "name": "Arrow nudges on hover",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Trailing icon nudges diagonally on hover."
+    },
+    {
+      "id": 55,
+      "name": "Icon rotates on hover",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Icon rotates 45° on hover in the demo strip."
+    },
+    {
+      "id": 56,
+      "name": "Button lifts slightly on hover",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Card buttons translate up 2px on hover."
+    },
+    {
+      "id": 57,
+      "name": "Pressed/depressed tactile state",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Active state scales the button to 0.98."
+    },
+    {
+      "id": 58,
+      "name": "Magnetic button movement",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/core/pointer.ts",
+      "note": "Magnetic translation is applied to the same elements."
+    },
+    {
+      "id": 59,
+      "name": "Button shine sweep",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "A specular highlight sweeps across the surface."
+    },
+    {
+      "id": 60,
+      "name": "Button border draws around its perimeter",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "SVG stroke draws around the button perimeter."
+    },
+    {
+      "id": 61,
+      "name": "Button background wipe",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Background wipe travels up from the bottom edge."
+    },
+    {
+      "id": 62,
+      "name": "Split-color button transition",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Button splits into two colours that swap on hover."
+    },
+    {
+      "id": 63,
+      "name": "Text swaps on hover",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Label swaps to an alternative string on hover."
+    },
+    {
+      "id": 64,
+      "name": "Arrow transforms into another icon",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Arrow morphs into a tick on hover."
+    },
+    {
+      "id": 65,
+      "name": "Loading state inside a button",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Submit button shows an inline spinner while preparing the mail draft."
+    },
+    {
+      "id": 66,
+      "name": "Disabled-state transition",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Disabled buttons fade and stop receiving pointer events."
+    },
+    {
+      "id": 67,
+      "name": "Success checkmark after real completion",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/core/feedback.ts",
+      "note": "A tick is drawn only after the copy actually succeeds, and it is left behind rather than blinked."
+    },
+    {
+      "id": 68,
+      "name": "Copy-to-clipboard feedback",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/core/feedback.ts",
+      "note": "Copy-to-clipboard with a drawn tick and a reading that stays."
+    },
+    {
+      "id": 69,
+      "name": "Tooltip reveal",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Tooltip reveal on focus and hover."
+    },
+    {
+      "id": 70,
+      "name": "Link preview thumbnail on hover",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Hovering a link raises a small preview thumbnail."
+    },
+    {
+      "id": 71,
+      "name": "External-link indicator animation",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "External links animate an outward-arrow indicator."
+    },
+    {
+      "id": 72,
+      "name": "Download progress feedback",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Exporting the technique list reports real byte progress."
+    },
+    {
+      "id": 73,
+      "name": "Toggle switch with moving thumb",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Toggle switch with a travelling thumb."
+    },
+    {
+      "id": 74,
+      "name": "Checkbox draw animation",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Checkbox draws its tick with an SVG stroke."
+    },
+    {
+      "id": 75,
+      "name": "Radio selection pulse",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Radio-style choices pulse when selected."
+    },
+    {
+      "id": 76,
+      "name": "Input focus border animation",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Input border animates into the accent colour on focus."
+    },
+    {
+      "id": 77,
+      "name": "Floating label transition",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/demos/buttons.ts",
+      "note": "Floating label lifts out of the field on focus."
+    },
+    {
+      "id": 78,
+      "name": "Inline validation feedback",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/core/feedback.ts",
+      "note": "Validation messages appear inline beneath each field, and a rule wipes in under the field that failed."
+    },
+    {
+      "id": 79,
+      "name": "Form submission progress state",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "The enquiry form reports a real preparation state."
+    },
+    {
+      "id": 80,
+      "name": "Error shake used sparingly, with text explanation",
+      "cat": 3,
+      "catLabel": "Buttons, links, and micro-interactions",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Invalid step shakes once and states the reason in text."
+    },
+    {
+      "id": 81,
+      "name": "Character-by-character reveal",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Characters revealed one by one in the demo."
+    },
+    {
+      "id": 82,
+      "name": "Word-by-word reveal",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Words rise from a mask, word by word."
+    },
+    {
+      "id": 83,
+      "name": "Line-by-line reveal",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Headline is split into masked lines."
+    },
+    {
+      "id": 84,
+      "name": "Clip-path text reveal",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Clip-path reveals the headline as a growing window."
+    },
+    {
+      "id": 85,
+      "name": "Text masked by a moving panel",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "A moving panel wipes across the text."
+    },
+    {
+      "id": 86,
+      "name": "Text rises from below a mask",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Text rises from below an overflow mask."
+    },
+    {
+      "id": 87,
+      "name": "Text drops into place",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Text drops into place from above."
+    },
+    {
+      "id": 88,
+      "name": "Blur-to-sharp text entrance",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Blur resolves to sharp on entry."
+    },
+    {
+      "id": 89,
+      "name": "Opacity and position stagger",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Opacity and position are staggered on entry."
+    },
+    {
+      "id": 90,
+      "name": "Variable-font weight animation",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/typography.ts",
+      "note": "Live weight axis drives the specimen type."
+    },
+    {
+      "id": 91,
+      "name": "Variable-font width animation",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/typography.ts",
+      "note": "Live width axis drives the specimen type."
+    },
+    {
+      "id": 92,
+      "name": "Kinetic typography reacting to scroll",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Headline reacts to scroll position."
+    },
+    {
+      "id": 93,
+      "name": "Headline changes between approved phrases",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Headline cycles between approved phrases."
+    },
+    {
+      "id": 94,
+      "name": "Text scramble / decode effect",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Lead paragraph decodes into place."
+    },
+    {
+      "id": 95,
+      "name": "Typewriter effect",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Typewriter with a blinking caret; the same mechanism writes a technique reference into the visitor's brief in `src/core/feedback.ts`."
+    },
+    {
+      "id": 96,
+      "name": "Text highlight follows scroll progress",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "A highlight sweeps with scroll progress."
+    },
+    {
+      "id": 97,
+      "name": "Animated underline beneath selected words",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Selected words gain an animated underline."
+    },
+    {
+      "id": 98,
+      "name": "Outline typography becomes solid",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Outlined type fills to solid."
+    },
+    {
+      "id": 99,
+      "name": "Text stroke drawing",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "SVG text stroke draws on."
+    },
+    {
+      "id": 100,
+      "name": "Text stretches or compresses",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Letter-spacing and scale stretch on scroll."
+    },
+    {
+      "id": 101,
+      "name": "Perspective / 3D text entrance",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Type enters on a 3D perspective rotation."
+    },
+    {
+      "id": 102,
+      "name": "Oversized typography as background architecture",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Oversized headline acts as background architecture."
+    },
+    {
+      "id": 103,
+      "name": "Text rotates along a circular path",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Type rotates around a circular path."
+    },
+    {
+      "id": 104,
+      "name": "Marquee / continuously moving text",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/typography.ts",
+      "note": "One continuous marquee on the page."
+    },
+    {
+      "id": 105,
+      "name": "Bidirectional marquee with pause controls",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Library demo with opposed tracks and a pause control."
+    },
+    {
+      "id": 106,
+      "name": "Text clipping through an image",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Type is clipped through an image layer."
+    },
+    {
+      "id": 107,
+      "name": "Text reveals through a shape mask",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Type is revealed through a circle mask."
+    },
+    {
+      "id": 108,
+      "name": "Scroll-linked letter spacing",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/demos/type.ts",
+      "note": "Letter spacing widens with scroll progress."
+    },
+    {
+      "id": 109,
+      "name": "Text follows a curved path",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/sections/typography.ts",
+      "note": "Type follows an SVG path in the type lab."
+    },
+    {
+      "id": 110,
+      "name": "Accessible static text fallback for animated text",
+      "cat": 4,
+      "catLabel": "Typography and text motion",
+      "status": "Tested",
+      "comp": "src/core/pointer.ts",
+      "note": "Split type keeps a visually hidden copy of the source text."
+    },
+    {
+      "id": 111,
+      "name": "Fade-in on entering viewport",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "IntersectionObserver fades content in."
+    },
+    {
+      "id": 112,
+      "name": "Slide-up reveal",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Content rises 20px into place."
+    },
+    {
+      "id": 113,
+      "name": "Slide-in from left or right",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Panels slide in from either edge."
+    },
+    {
+      "id": 114,
+      "name": "Staggered child reveals",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/motion.ts",
+      "note": "Children stagger on entry."
+    },
+    {
+      "id": 115,
+      "name": "Scale-up reveal",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Cards scale up on entry."
+    },
+    {
+      "id": 116,
+      "name": "Blur-to-clear reveal",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Blur clears as elements arrive."
+    },
+    {
+      "id": 117,
+      "name": "Clip-path reveal",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Clip-path window reveals content."
+    },
+    {
+      "id": 118,
+      "name": "Image wipe reveal",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "An image wipes in over the frame."
+    },
+    {
+      "id": 119,
+      "name": "Scroll-progress indicator",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/scroll.ts",
+      "note": "Global scroll progress drives the top bar."
+    },
+    {
+      "id": 120,
+      "name": "Reading progress bar",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Reading progress bar pinned to the top of the viewport."
+    },
+    {
+      "id": 121,
+      "name": "Active section navigation highlight",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Active section is highlighted in the nav and dock."
+    },
+    {
+      "id": 122,
+      "name": "Parallax background layers",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Background layers move at different rates."
+    },
+    {
+      "id": 123,
+      "name": "Parallax foreground objects",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Foreground objects move faster than the page."
+    },
+    {
+      "id": 124,
+      "name": "Scroll-linked rotation",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Rotation is bound to scroll progress."
+    },
+    {
+      "id": 125,
+      "name": "Scroll-linked scaling",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "The seed panel scales to fill the viewport."
+    },
+    {
+      "id": 126,
+      "name": "Scroll-linked opacity",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Copy fades in as the panel completes."
+    },
+    {
+      "id": 127,
+      "name": "Scroll-linked color transition",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Chapter background changes from paper to ember."
+    },
+    {
+      "id": 128,
+      "name": "Scroll-linked typography transformation",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Type transforms as the section is scrolled."
+    },
+    {
+      "id": 129,
+      "name": "Scroll-linked image crop",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Image crop is driven by scroll progress."
+    },
+    {
+      "id": 130,
+      "name": "Scroll-linked 3D camera movement",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Scroll position moves the Three.js camera."
+    },
+    {
+      "id": 131,
+      "name": "Pinned section with changing content",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "A pinned panel swaps content as you scroll."
+    },
+    {
+      "id": 132,
+      "name": "Pinned image with changing text",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Pinned image with text changing alongside it."
+    },
+    {
+      "id": 133,
+      "name": "Pinned text with changing images",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Pinned text with changing imagery."
+    },
+    {
+      "id": 134,
+      "name": "Horizontal storytelling driven by vertical scroll",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Vertical scroll drives a horizontal track."
+    },
+    {
+      "id": 135,
+      "name": "Scroll-controlled product showcase",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Scroll-controlled product showcase."
+    },
+    {
+      "id": 136,
+      "name": "Timeline progress follows scroll",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The process rail fills as the section is scrolled."
+    },
+    {
+      "id": 137,
+      "name": "Elements assemble as scrolling progresses",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Elements assemble as the section is scrolled."
+    },
+    {
+      "id": 138,
+      "name": "Elements disperse as scrolling progresses",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Elements disperse as the section is scrolled."
+    },
+    {
+      "id": 139,
+      "name": "Background changes between visual chapters",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/styles/tokens.css",
+      "note": "Each chapter declares its own substrate."
+    },
+    {
+      "id": 140,
+      "name": "Scroll-triggered SVG path drawing",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Atlas connectors draw as the section enters."
+    },
+    {
+      "id": 141,
+      "name": "Scroll-triggered counter animation",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "True counters (team size, service lines, techniques) count up."
+    },
+    {
+      "id": 142,
+      "name": "Scroll-triggered diagram activation",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Atlas nodes activate as the map is scrolled."
+    },
+    {
+      "id": 143,
+      "name": "Scroll-triggered card expansion",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "A card expands into a detail panel on scroll."
+    },
+    {
+      "id": 144,
+      "name": "Direction-aware enter/exit motion",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Enter and exit direction changes the motion."
+    },
+    {
+      "id": 145,
+      "name": "Scroll snap between panels",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Scroll snap between panels."
+    },
+    {
+      "id": 146,
+      "name": "Section transition using overlapping layers",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Overlapping layers cross-fade between chapters."
+    },
+    {
+      "id": 147,
+      "name": "Scroll-linked depth and perspective",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Perspective depth is bound to scroll."
+    },
+    {
+      "id": 148,
+      "name": "Sticky side navigation for long content",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The process detail panel is sticky on desktop."
+    },
+    {
+      "id": 149,
+      "name": "Scroll-triggered sound only after explicit user opt-in",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Scroll-driven sound is only available after an explicit opt-in."
+    },
+    {
+      "id": 150,
+      "name": "Instant, readable fallback when motion is reduced",
+      "cat": 5,
+      "catLabel": "Scroll-triggered and scroll-driven motion",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Reduced motion produces an instant, fully readable page."
+    },
+    {
+      "id": 151,
+      "name": "Sticky header changes background after scrolling",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Header gains a blurred background after 24px."
+    },
+    {
+      "id": 152,
+      "name": "Header compresses on scroll",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Header height and padding compress on scroll."
+    },
+    {
+      "id": 153,
+      "name": "Active navigation underline slides between links",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "A shared underline slides between nav links."
+    },
+    {
+      "id": 154,
+      "name": "Navigation indicator follows the active section",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "The indicator follows the section in view."
+    },
+    {
+      "id": 155,
+      "name": "Full-screen menu reveal",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Full-screen menu overlay."
+    },
+    {
+      "id": 156,
+      "name": "Menu opens like a curtain",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Menu background opens as a curtain."
+    },
+    {
+      "id": 157,
+      "name": "Menu items appear in a stagger",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Menu items enter on a stagger."
+    },
+    {
+      "id": 158,
+      "name": "Menu background morphs into a shape",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "The menu background morphs out of the toggle button."
+    },
+    {
+      "id": 159,
+      "name": "Menu closes with a reverse transition",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Closing plays the transition in reverse."
+    },
+    {
+      "id": 160,
+      "name": "Animated hamburger-to-close icon",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Hamburger bars rotate into an X."
+    },
+    {
+      "id": 161,
+      "name": "Mobile menu as a bottom sheet",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "On small screens the menu panel is a bottom sheet."
+    },
+    {
+      "id": 162,
+      "name": "Navigation with live visual previews",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Menu items show a live preview strip of their chapter."
+    },
+    {
+      "id": 163,
+      "name": "Command-palette navigation",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Command palette searches sections and techniques."
+    },
+    {
+      "id": 164,
+      "name": "Section map / journey navigator",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Floating dock lists the whole journey."
+    },
+    {
+      "id": 165,
+      "name": "Page transition with a color wipe",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "The route to the studio wipes a brand-coloured field across the screen; the library panel wipes in with the chapter colour."
+    },
+    {
+      "id": 166,
+      "name": "Page transition with a shape wipe",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "The route to the lab grows a circular mask from the exact point the link was clicked, over a blueprint grid."
+    },
+    {
+      "id": 167,
+      "name": "Shared-element transition between pages",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "The service card expands from its exact screen rectangle and its artwork becomes the detail page's header image."
+    },
+    {
+      "id": 168,
+      "name": "Crossfade between routes",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "Implemented as the reduced-motion-only route fallback: when the visitor asks for less motion, the two views exchange places with a 0.24 s crossfade instead of the designed transition. It is never used as a default, because a cross-fade that could be swapped in unnoticed is the failure this site is built against."
+    },
+    {
+      "id": 169,
+      "name": "Sliding route transition",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "The default route rule slides the incoming view in from the direction of travel while the outgoing one stacks under it."
+    },
+    {
+      "id": 170,
+      "name": "Transition overlay with brand mark",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/transitions/index.ts",
+      "note": "The real brand mark travels across the screen against the colour wipe."
+    },
+    {
+      "id": 171,
+      "name": "Breadcrumb transition feedback",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "The detail panel shows a breadcrumb trail of the path taken."
+    },
+    {
+      "id": 172,
+      "name": "Back-to-top control reveal",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Back-to-top button reveals after 60% scroll."
+    },
+    {
+      "id": 173,
+      "name": "Floating navigation dock",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Floating journey dock."
+    },
+    {
+      "id": 174,
+      "name": "Keyboard-accessible navigation shortcuts",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Keyboard shortcuts: / for search, ? for the guide, Esc to close."
+    },
+    {
+      "id": 175,
+      "name": "Route transition with loading fallback",
+      "cat": 6,
+      "catLabel": "Section transitions and navigation",
+      "status": "Tested",
+      "comp": "src/core/router.ts",
+      "note": "A route whose document cannot be fetched falls back to a real browser navigation, and a stalled transition is released by a timeout so the router can never lock."
+    },
+    {
+      "id": 176,
+      "name": "3D tilt card",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "3D tilt on pointer move."
+    },
+    {
+      "id": 177,
+      "name": "Card perspective on hover",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Perspective transform on hover."
+    },
+    {
+      "id": 178,
+      "name": "Card lifts with layered shadow",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Lift with a layered, background-tinted shadow."
+    },
+    {
+      "id": 179,
+      "name": "Pointer-following card highlight",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "A radial highlight follows the pointer across the card."
+    },
+    {
+      "id": 180,
+      "name": "Card image zoom on hover",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Artwork scales inside the card on hover."
+    },
+    {
+      "id": 181,
+      "name": "Image pans inside a clipped card",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Artwork pans inside a clipped frame."
+    },
+    {
+      "id": 182,
+      "name": "Card content slides into view",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Card content slides up into view."
+    },
+    {
+      "id": 183,
+      "name": "Card expands into a detail panel",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Selecting a card expands it into a detail panel."
+    },
+    {
+      "id": 184,
+      "name": "Card transforms into a full-screen detail view",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "The detail panel can be expanded to a full-screen view."
+    },
+    {
+      "id": 185,
+      "name": "Asymmetric editorial grid entrance",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "The library grid enters asymmetrically."
+    },
+    {
+      "id": 186,
+      "name": "Staggered masonry reveal",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Cards reveal on a stagger."
+    },
+    {
+      "id": 187,
+      "name": "Grid rearranges when filtered",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Filtering re-flows the grid with a FLIP transition."
+    },
+    {
+      "id": 188,
+      "name": "Animated category filters",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Category filters animate their active indicator."
+    },
+    {
+      "id": 189,
+      "name": "Drag-to-scroll gallery",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Gallery can be dragged sideways."
+    },
+    {
+      "id": 190,
+      "name": "Inertial horizontal gallery",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Drag momentum carries the gallery."
+    },
+    {
+      "id": 191,
+      "name": "Scroll-snap carousel",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Scroll-snap carousel."
+    },
+    {
+      "id": 192,
+      "name": "3D carousel",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "3D carousel with perspective."
+    },
+    {
+      "id": 193,
+      "name": "Coverflow-style gallery",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Coverflow-style gallery."
+    },
+    {
+      "id": 194,
+      "name": "Image comparison slider",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Comparison slider with a draggable handle."
+    },
+    {
+      "id": 195,
+      "name": "Before/after reveal controlled by dragging",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Before/after split controlled by dragging."
+    },
+    {
+      "id": 196,
+      "name": "Image gallery with animated lightbox",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Lightbox opens with an animated backdrop."
+    },
+    {
+      "id": 197,
+      "name": "Lightbox zoom from thumbnail position",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "The lightbox zooms out of the thumbnail position."
+    },
+    {
+      "id": 198,
+      "name": "Image mask reveals alternate artwork",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "A mask swaps one artwork for another."
+    },
+    {
+      "id": 199,
+      "name": "Image-to-video hover preview",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Requires revision",
+      "comp": "src/demos/cards.ts",
+      "note": "Implemented as a procedural motion preview rather than a video file, because no licensed video asset exists in the repository. Swapping in a real clip is a one-line change once a file is supplied."
+    },
+    {
+      "id": 200,
+      "name": "Gallery cursor displays project number",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "The cursor shows the gallery item number."
+    },
+    {
+      "id": 201,
+      "name": "Project thumbnail follows pointer",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "A thumbnail follows the pointer across the strip."
+    },
+    {
+      "id": 202,
+      "name": "Project card reveals technologies on hover",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Card metadata slides in on hover."
+    },
+    {
+      "id": 203,
+      "name": "Expandable project metadata",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Metadata expands and collapses."
+    },
+    {
+      "id": 204,
+      "name": "Drag-and-drop reordering",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Cards can be reordered by drag and drop; order is stored locally."
+    },
+    {
+      "id": 205,
+      "name": "Filter state shown with animated indicator",
+      "cat": 7,
+      "catLabel": "Cards, grids, galleries, and portfolios",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "The active filter is shown with a sliding indicator."
+    },
+    {
+      "id": 206,
+      "name": "SVG path draw animation",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "SVG path draws with a stroke-dash offset."
+    },
+    {
+      "id": 207,
+      "name": "SVG path morphing",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Two paths morph by interpolating point arrays."
+    },
+    {
+      "id": 208,
+      "name": "Animated line-art illustration",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "An original line-art figure animates its strokes."
+    },
+    {
+      "id": 209,
+      "name": "Geometric shapes assemble into a logo",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Shapes assemble into the supplied emblem."
+    },
+    {
+      "id": 210,
+      "name": "SVG stroke dash reveal",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Stroke-dash reveal on a path."
+    },
+    {
+      "id": 211,
+      "name": "Animated gradient inside SVG",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Gradient inside the SVG animates over time."
+    },
+    {
+      "id": 212,
+      "name": "SVG clipping-mask transition",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "A clipping mask transitions between two shapes."
+    },
+    {
+      "id": 213,
+      "name": "SVG filter distortion",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "feTurbulence displaces the drawing."
+    },
+    {
+      "id": 214,
+      "name": "Morphing blobs",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Blobs morph between organic shapes."
+    },
+    {
+      "id": 215,
+      "name": "Animated contour lines",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Contour lines animate outward."
+    },
+    {
+      "id": 216,
+      "name": "Generative geometry based on parameters",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Geometry is generated from live parameters."
+    },
+    {
+      "id": 217,
+      "name": "Diagram nodes appear in sequence",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Atlas nodes appear in sequence."
+    },
+    {
+      "id": 218,
+      "name": "Lines draw between connected nodes",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Connectors draw between related nodes."
+    },
+    {
+      "id": 219,
+      "name": "Animated arrows show direction or flow",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Flow arrows animate along the connectors."
+    },
+    {
+      "id": 220,
+      "name": "Orbiting elements around a center",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Elements orbit a centre point."
+    },
+    {
+      "id": 221,
+      "name": "Rotating geometric rings",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Concentric rings rotate at different rates."
+    },
+    {
+      "id": 222,
+      "name": "Grid of points reacts to pointer",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "A point grid reacts to the pointer."
+    },
+    {
+      "id": 223,
+      "name": "Illustrated character idle animation",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "An original drawn character idles on a loop."
+    },
+    {
+      "id": 224,
+      "name": "Animated icon states",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "Icon glyphs animate between states."
+    },
+    {
+      "id": 225,
+      "name": "SVG illustration changes when a tab is selected",
+      "cat": 8,
+      "catLabel": "2D graphics, SVG, and illustration",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "The service diagram changes with the selected tab."
+    },
+    {
+      "id": 226,
+      "name": "CSS 3D card flip",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "CSS 3D card flip."
+    },
+    {
+      "id": 227,
+      "name": "3D layered hero composition",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Layered hero composition in 3D space."
+    },
+    {
+      "id": 228,
+      "name": "Interactive Three.js object",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Three.js object you can drag and rotate."
+    },
+    {
+      "id": 229,
+      "name": "Scroll-controlled 3D object rotation",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Scroll position rotates the object."
+    },
+    {
+      "id": 230,
+      "name": "Object morphs between forms",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Geometry morphs between two forms."
+    },
+    {
+      "id": 231,
+      "name": "3D model material changes on selection",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Material changes when the scene mode changes."
+    },
+    {
+      "id": 232,
+      "name": "Reflective metallic material",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Metallic material with an environment map."
+    },
+    {
+      "id": 233,
+      "name": "Translucent glass material",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Translucent glass material."
+    },
+    {
+      "id": 234,
+      "name": "Liquid surface shader",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Liquid surface shader in the WebGL demo."
+    },
+    {
+      "id": 235,
+      "name": "Refractive distortion shader",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Refraction offset driven by a normal approximation."
+    },
+    {
+      "id": 236,
+      "name": "Animated procedural gradient shader",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Procedural gradient animates in the fragment shader."
+    },
+    {
+      "id": 237,
+      "name": "Vertex displacement effect",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Vertices displaced by a wave function."
+    },
+    {
+      "id": 238,
+      "name": "Fragment shader transition",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Fragment shader cross-fades between two looks."
+    },
+    {
+      "id": 239,
+      "name": "Mouse-driven 3D camera",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Pointer moves the camera around the scene."
+    },
+    {
+      "id": 240,
+      "name": "Orbiting 3D objects",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Orbiting 3D objects."
+    },
+    {
+      "id": 241,
+      "name": "Particle cloud forming a shape",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Particles converge onto a shape."
+    },
+    {
+      "id": 242,
+      "name": "Point-cloud model reveal",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Point-cloud reveal of the emblem."
+    },
+    {
+      "id": 243,
+      "name": "Instanced particle field",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "InstancedMesh field."
+    },
+    {
+      "id": 244,
+      "name": "3D typography",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Type rendered to a texture on a 3D plane."
+    },
+    {
+      "id": 245,
+      "name": "Spatial navigation through a scene",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Camera moves through a scene with hotspot markers."
+    },
+    {
+      "id": 246,
+      "name": "Interactive architectural environment",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "A navigable abstract architectural grid."
+    },
+    {
+      "id": 247,
+      "name": "3D product viewer with drag rotation",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Drag rotation for the 3D object."
+    },
+    {
+      "id": 248,
+      "name": "Exploded-view product animation",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Exploded view separates the assembly."
+    },
+    {
+      "id": 249,
+      "name": "Model loading with progressive detail",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Geometry is added in stages as the demo loads."
+    },
+    {
+      "id": 250,
+      "name": "Static image/video fallback for unsupported devices",
+      "cat": 9,
+      "catLabel": "3D, WebGL, shaders, and spatial interfaces",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "A static poster is shown when WebGL is unavailable."
+    },
+    {
+      "id": 251,
+      "name": "Floating dust particles",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Slow floating dust."
+    },
+    {
+      "id": 252,
+      "name": "Starfield movement",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Starfield with depth-based parallax."
+    },
+    {
+      "id": 253,
+      "name": "Particles react to pointer position",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Particles are pushed by the pointer."
+    },
+    {
+      "id": 254,
+      "name": "Particles connect when near each other",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Nearby particles connect with a line."
+    },
+    {
+      "id": 255,
+      "name": "Particles form a logo or word",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "Particles form the DENVUP emblem."
+    },
+    {
+      "id": 256,
+      "name": "Particle flow field",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Flow-field movement."
+    },
+    {
+      "id": 257,
+      "name": "Noise-based particle motion",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Noise-driven particle motion."
+    },
+    {
+      "id": 258,
+      "name": "Animated network nodes",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Network nodes with animated links."
+    },
+    {
+      "id": 259,
+      "name": "Reactive dot matrix",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Dot matrix reacts to the pointer."
+    },
+    {
+      "id": 260,
+      "name": "Generative grid patterns",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Generative grid patterns from a seed."
+    },
+    {
+      "id": 261,
+      "name": "Procedural wave field",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Procedural wave field."
+    },
+    {
+      "id": 262,
+      "name": "Animated mesh gradient",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/sections/closing.ts",
+      "note": "Animated mesh gradient in the closing chapter."
+    },
+    {
+      "id": 263,
+      "name": "Liquid gradient background",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Liquid gradient background."
+    },
+    {
+      "id": 264,
+      "name": "Noise-textured gradient",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Noise-textured gradient."
+    },
+    {
+      "id": 265,
+      "name": "Grain / film texture overlay",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Fixed film-grain overlay above the page."
+    },
+    {
+      "id": 266,
+      "name": "Animated scanline texture",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Scanline texture sweeps down the frame."
+    },
+    {
+      "id": 267,
+      "name": "Subtle digital interference",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Subtle interference bands."
+    },
+    {
+      "id": 268,
+      "name": "Cursor-disturbed fluid field",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Pointer disturbs the fluid field."
+    },
+    {
+      "id": 269,
+      "name": "Audio-reactive visualizer with user consent",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Analyser-driven visualiser, enabled by an explicit toggle."
+    },
+    {
+      "id": 270,
+      "name": "Randomized but deterministic generative artwork",
+      "cat": 10,
+      "catLabel": "Particles, generative art, and backgrounds",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Seeded randomness produces the same artwork every time."
+    },
+    {
+      "id": 271,
+      "name": "Glassmorphism panel",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Frosted panel on the command palette and dock."
+    },
+    {
+      "id": 272,
+      "name": "Frosted-glass panel transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "The panel's blur animates in."
+    },
+    {
+      "id": 273,
+      "name": "Gradient border animation",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Gradient border animates around a card."
+    },
+    {
+      "id": 274,
+      "name": "Border light travels around a card",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "A light travels around the card perimeter."
+    },
+    {
+      "id": 275,
+      "name": "Shimmer highlight",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Shimmer highlight sweeps the surface."
+    },
+    {
+      "id": 276,
+      "name": "Metallic light sweep",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Metallic sweep across a surface."
+    },
+    {
+      "id": 277,
+      "name": "Soft spotlight follows pointer",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/sections/studio.ts",
+      "note": "Soft spotlight tracks the pointer."
+    },
+    {
+      "id": 278,
+      "name": "Layered shadow depth",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/styles/tokens.css",
+      "note": "Shadows are tinted to the surface hue, not pure black."
+    },
+    {
+      "id": 279,
+      "name": "Neumorphic pressed state",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Neumorphic pressed state."
+    },
+    {
+      "id": 280,
+      "name": "Duotone image transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Artwork cross-fades to a duotone version."
+    },
+    {
+      "id": 281,
+      "name": "Image color-grade transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Colour grade shifts on hover."
+    },
+    {
+      "id": 282,
+      "name": "Blend-mode image interaction",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Blend-mode interaction between two layers."
+    },
+    {
+      "id": 283,
+      "name": "Chromatic aberration on selected transitions",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Chromatic split applied to a short transition only."
+    },
+    {
+      "id": 284,
+      "name": "Displacement-map image transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Image displacement in the WebGL demo."
+    },
+    {
+      "id": 285,
+      "name": "Liquid wipe transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Liquid wipe across the frame."
+    },
+    {
+      "id": 286,
+      "name": "Ripple distortion",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Ripple distortion from a click."
+    },
+    {
+      "id": 287,
+      "name": "Lens blur / focus transition",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Lens focus pulls from blur to sharp."
+    },
+    {
+      "id": 288,
+      "name": "Depth-of-field effect in 3D scenes",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Requires revision",
+      "comp": "src/sections/spatial.ts",
+      "note": "Depth of field is approximated with layered transparent shells rather than a true bokeh pass, to keep the frame cost low on mobile. A post-processing pass would be the production approach."
+    },
+    {
+      "id": 289,
+      "name": "Volumetric-light illusion",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Light shafts imply volume."
+    },
+    {
+      "id": 290,
+      "name": "Animated light beams",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Beams animate their angle and opacity."
+    },
+    {
+      "id": 291,
+      "name": "Reflections on a surface",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "A mirrored copy reads as a reflection."
+    },
+    {
+      "id": 292,
+      "name": "Holographic color shift",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Holographic colour shift across the surface."
+    },
+    {
+      "id": 293,
+      "name": "Iridescent material effect",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Iridescent banding follows the pointer."
+    },
+    {
+      "id": 294,
+      "name": "Blueprint/technical overlay",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "Blueprint grid behind the capability atlas."
+    },
+    {
+      "id": 295,
+      "name": "Perspective grid",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Perspective grid receding to a horizon."
+    },
+    {
+      "id": 296,
+      "name": "Animated grid intersections",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Grid intersections pulse."
+    },
+    {
+      "id": 297,
+      "name": "Soft vignette that shifts with focus",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Vignette tightens as the focus shifts."
+    },
+    {
+      "id": 298,
+      "name": "Masked gradient spotlight",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Gradient spotlight masked to the panel."
+    },
+    {
+      "id": 299,
+      "name": "Paper grain and print texture",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Print-style grain sits above the light chapters."
+    },
+    {
+      "id": 300,
+      "name": "Controlled glitch effect for brief transitions",
+      "cat": 11,
+      "catLabel": "Visual effects, materials, and lighting",
+      "status": "Tested",
+      "comp": "src/demos/effects.ts",
+      "note": "Short, deliberate glitch on demand only."
+    },
+    {
+      "id": 301,
+      "name": "Interactive service selector changes artwork",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "Selecting a service redraws the diagram."
+    },
+    {
+      "id": 302,
+      "name": "Service-specific animation signature",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "Each service has its own motion signature."
+    },
+    {
+      "id": 303,
+      "name": "Workflow diagram animates from input to output",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "The workflow diagram animates from input to output."
+    },
+    {
+      "id": 304,
+      "name": "Connected-node network responds to selection",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Selecting a node highlights its network."
+    },
+    {
+      "id": 305,
+      "name": "Animated architecture diagram",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "The architecture diagram animates its layers."
+    },
+    {
+      "id": 306,
+      "name": "Before/after website transformation",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "A before/after comparison of a plain page and this one."
+    },
+    {
+      "id": 307,
+      "name": "Interactive feature explorer",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "The atlas is an interactive feature explorer."
+    },
+    {
+      "id": 308,
+      "name": "Product hotspot annotations",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Hotspots annotate the 3D object."
+    },
+    {
+      "id": 309,
+      "name": "Tooltip hotspots on an image or model",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Tooltip hotspots on the 3D model."
+    },
+    {
+      "id": 310,
+      "name": "Clickable product exploded view",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "Clicking a part explodes the assembly."
+    },
+    {
+      "id": 311,
+      "name": "Interactive capability map",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "The capability map itself."
+    },
+    {
+      "id": 312,
+      "name": "Technology stack layers reveal on selection",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Selecting a node reveals the stack layers it belongs to."
+    },
+    {
+      "id": 313,
+      "name": "Animated API request flow",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/demos/vector.ts",
+      "note": "An API request animates through a chain of components."
+    },
+    {
+      "id": 314,
+      "name": "Data flow lines move between components",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Data-flow lines move along the connectors."
+    },
+    {
+      "id": 315,
+      "name": "Dashboard chart entrance",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/demos/charts.ts",
+      "note": "A chart enters with its bars growing."
+    },
+    {
+      "id": 316,
+      "name": "Chart values animate from zero",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/demos/charts.ts",
+      "note": "Values animate up from zero."
+    },
+    {
+      "id": 317,
+      "name": "Interactive data filters",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "Category filters filter the data."
+    },
+    {
+      "id": 318,
+      "name": "Animated KPI counter with truthful values only",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "Counters use only real studio numbers."
+    },
+    {
+      "id": 319,
+      "name": "Timeline with expandable milestones",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "Stage detail expands with outputs."
+    },
+    {
+      "id": 320,
+      "name": "Interactive comparison table",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "Feature comparison table between the three plans."
+    },
+    {
+      "id": 321,
+      "name": "Step-by-step product tour",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "A guided tour of the site with a skip control."
+    },
+    {
+      "id": 322,
+      "name": "Guided walkthrough with skip option",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "The tour can be skipped at any point."
+    },
+    {
+      "id": 323,
+      "name": "Interactive calculator or estimator",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "The scope estimator multiplies the base price."
+    },
+    {
+      "id": 324,
+      "name": "Configuration choices update a live preview",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "The estimator updates a live summary panel."
+    },
+    {
+      "id": 325,
+      "name": "Progressive disclosure of technical detail",
+      "cat": 12,
+      "catLabel": "Service, feature, and data storytelling",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "Technical detail is behind a disclosure control."
+    },
+    {
+      "id": 326,
+      "name": "Timeline line draws as it enters view",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The rail line draws as the section enters."
+    },
+    {
+      "id": 327,
+      "name": "Timeline nodes activate in order",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "Nodes activate in order."
+    },
+    {
+      "id": 328,
+      "name": "Active process step follows scroll position",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The active step follows scroll position."
+    },
+    {
+      "id": 329,
+      "name": "Horizontal process timeline",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The rail becomes a horizontal scroller on small screens."
+    },
+    {
+      "id": 330,
+      "name": "Vertical connected-step timeline",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The connected vertical timeline."
+    },
+    {
+      "id": 331,
+      "name": "Step expands on click",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "A stage expands to show its outputs."
+    },
+    {
+      "id": 332,
+      "name": "Process stages change a central illustration",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "The stage illustration changes with the step."
+    },
+    {
+      "id": 333,
+      "name": "Idea-to-output transformation animation",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "An SVG morphs from brief to build to launch."
+    },
+    {
+      "id": 334,
+      "name": "Scroll-controlled chapter transitions",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "Scroll drives the paper-to-ember chapter change."
+    },
+    {
+      "id": 335,
+      "name": "Sticky narrative with changing visuals",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "Sticky detail panel with changing visuals."
+    },
+    {
+      "id": 336,
+      "name": "Split-screen story with fixed visual panel",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Fixed visual panel beside scrolling content."
+    },
+    {
+      "id": 337,
+      "name": "Sequential full-screen story panels",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "Full-screen story panels."
+    },
+    {
+      "id": 338,
+      "name": "Scroll progress reveals a map or path",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Scroll progress draws the map's path."
+    },
+    {
+      "id": 339,
+      "name": "Interactive journey map",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "The journey dock is the interactive map."
+    },
+    {
+      "id": 340,
+      "name": "Milestone cards enter with different motion styles",
+      "cat": 13,
+      "catLabel": "Process, timeline, and storytelling patterns",
+      "status": "Tested",
+      "comp": "src/sections/process.ts",
+      "note": "Output cards enter with different motion styles."
+    },
+    {
+      "id": 341,
+      "name": "Portrait image reveal with mask",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "No portraits are supplied, so the emblem is revealed through a mask instead of a photograph."
+    },
+    {
+      "id": 342,
+      "name": "Portrait zoom/parallax on hover",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "Same substitution: the monogram scales on hover rather than a portrait."
+    },
+    {
+      "id": 343,
+      "name": "Portrait duotone-to-color transition",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "Duotone treatment is applied to the emblem, not a fabricated portrait."
+    },
+    {
+      "id": 344,
+      "name": "Portrait card tilt",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "Member cards tilt with the pointer."
+    },
+    {
+      "id": 345,
+      "name": "Name typography reacts to portrait hover",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "The name reacts to hover on the card."
+    },
+    {
+      "id": 346,
+      "name": "Team member card expands to biography",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "A card expands to show the full note."
+    },
+    {
+      "id": 347,
+      "name": "Individual profile overlay",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "A profile overlay opens from the card."
+    },
+    {
+      "id": 348,
+      "name": "Team members connected by a network graphic",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "An SVG network connects the four members."
+    },
+    {
+      "id": 349,
+      "name": "Interactive role/skill map using confirmed information",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "Focus areas are shown as an interactive map of confirmed work."
+    },
+    {
+      "id": 350,
+      "name": "Portrait-to-monogram transition",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "The emblem resolves into a monogram."
+    },
+    {
+      "id": 351,
+      "name": "Team collage rearranges responsively",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "The grid reflows to a horizontal scroller on small screens."
+    },
+    {
+      "id": 352,
+      "name": "Studio values revealed as editorial statements",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Studio principles are click-to-reveal statements."
+    },
+    {
+      "id": 353,
+      "name": "Interactive studio floorplan or workspace illustration",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No physical studio details exist to draw, so a floorplan would be an invention. An abstract signal-flow diagram is used in the atlas instead."
+    },
+    {
+      "id": 354,
+      "name": "Team slider with keyboard controls",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "The team strip is arrow-key navigable."
+    },
+    {
+      "id": 355,
+      "name": "Contact action appears from a selected member profile",
+      "cat": 14,
+      "catLabel": "Team, people, and studio sections",
+      "status": "Tested",
+      "comp": "src/sections/team.ts",
+      "note": "A contact action appears in the profile overlay."
+    },
+    {
+      "id": 356,
+      "name": "Pricing card emphasis on hover",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "Pricing cards lift and tint on hover."
+    },
+    {
+      "id": 357,
+      "name": "Plan selector with animated active state",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "Plan selector with an animated active state."
+    },
+    {
+      "id": 358,
+      "name": "Feature comparison reveal",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "The comparison table reveals on scroll."
+    },
+    {
+      "id": 359,
+      "name": "Interactive scope estimator",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "The estimator recomputes as options change."
+    },
+    {
+      "id": 360,
+      "name": "Pricing range updates based on selected options",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/pricing.ts",
+      "note": "The indicative range updates live and is labelled as indicative."
+    },
+    {
+      "id": 361,
+      "name": "FAQ accordion with height transition",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/faq.ts",
+      "note": "Accordion opens with a grid-row height transition."
+    },
+    {
+      "id": 362,
+      "name": "FAQ plus-to-minus icon morph",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "The plus sign rotates into a minus."
+    },
+    {
+      "id": 363,
+      "name": "One-open-at-a-time accordion behavior",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/faq.ts",
+      "note": "Opening one question closes the others."
+    },
+    {
+      "id": 364,
+      "name": "Searchable FAQ",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/faq.ts",
+      "note": "Questions can be filtered by typing."
+    },
+    {
+      "id": 365,
+      "name": "Multi-step enquiry form",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Three-step enquiry form."
+    },
+    {
+      "id": 366,
+      "name": "Form progress indicator",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "The progress rail shows the current step."
+    },
+    {
+      "id": 367,
+      "name": "Conditional form fields based on project type",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Fields change with the selected project type."
+    },
+    {
+      "id": 368,
+      "name": "Animated input focus state",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "Focus animates the field border and background."
+    },
+    {
+      "id": 369,
+      "name": "Inline validation and error summary",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Inline errors plus a summary of what is missing."
+    },
+    {
+      "id": 370,
+      "name": "Submission loading state",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "The submit button shows a real in-progress state."
+    },
+    {
+      "id": 371,
+      "name": "Genuine success confirmation after confirmed submission",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Deliberate deviation: the site has no server, so the form never claims a false success. It opens the visitor's own mail app and says exactly that."
+    },
+    {
+      "id": 372,
+      "name": "Error state with recovery path",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Errors state what is wrong and how to fix it."
+    },
+    {
+      "id": 373,
+      "name": "Click-to-copy email/phone with feedback",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/core/clipboard.ts",
+      "note": "Clicking the email or a number copies it and confirms."
+    },
+    {
+      "id": 374,
+      "name": "WhatsApp CTA with prefilled message",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "WhatsApp links carry a prefilled message."
+    },
+    {
+      "id": 375,
+      "name": "Contextual CTA appears after relevant content",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/library.ts",
+      "note": "A contextual request CTA appears under each technique."
+    },
+    {
+      "id": 376,
+      "name": "Floating contact button",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Floating contact button on small screens."
+    },
+    {
+      "id": 377,
+      "name": "Contact section visual responds to project selection",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "The contact summary reflects the selections made earlier."
+    },
+    {
+      "id": 378,
+      "name": "Calendar/date picker interaction",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "An optional preferred-date field with real validation."
+    },
+    {
+      "id": 379,
+      "name": "File-upload drop zone with progress",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "A drop zone accepts a local reference file and states plainly that nothing is uploaded."
+    },
+    {
+      "id": 380,
+      "name": "Spam-resistant form feedback without blocking legitimate users",
+      "cat": 15,
+      "catLabel": "Pricing, FAQ, forms, and conversion",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "A honeypot field plus a rate guard, without blocking real visitors."
+    },
+    {
+      "id": 381,
+      "name": "Muted background video loop",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No licensed video asset exists in the repository, so no background loop is used. The WebGL field serves the same purpose."
+    },
+    {
+      "id": 382,
+      "name": "Video reveal through a mask",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset. The mask reveal is implemented with a shader instead (see 462)."
+    },
+    {
+      "id": 383,
+      "name": "Video scrubbed by scroll position",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset to scrub."
+    },
+    {
+      "id": 384,
+      "name": "Hover-to-preview video",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset to preview."
+    },
+    {
+      "id": 385,
+      "name": "Custom video controls",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset and no player."
+    },
+    {
+      "id": 386,
+      "name": "Video chapters controlled by navigation",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset."
+    },
+    {
+      "id": 387,
+      "name": "Animated audio waveform",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Live waveform drawn from an analyser node."
+    },
+    {
+      "id": 388,
+      "name": "Optional click sound effects",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Click sounds, off until the visitor turns sound on."
+    },
+    {
+      "id": 389,
+      "name": "User-controlled sound toggle",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "A sound toggle controls every audio demo on the page."
+    },
+    {
+      "id": 390,
+      "name": "Audio-reactive particles",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "Particle brightness follows the audio level."
+    },
+    {
+      "id": 391,
+      "name": "Narrated product tour",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No recorded narration asset; the guided tour is a text and motion tour instead."
+    },
+    {
+      "id": 392,
+      "name": "Video poster-to-playing transition",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video asset."
+    },
+    {
+      "id": 393,
+      "name": "Captions and transcripts for spoken media",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No spoken media, so there is nothing to caption."
+    },
+    {
+      "id": 394,
+      "name": "Reduced-data static media fallback",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "prefers-reduced-data swaps animated canvases for a static poster."
+    },
+    {
+      "id": 395,
+      "name": "Pause video and animation when offscreen",
+      "cat": 16,
+      "catLabel": "Audio, video, and immersive media",
+      "status": "Tested",
+      "comp": "src/core/loop.ts",
+      "note": "Canvas loops pause when the element leaves the viewport."
+    },
+    {
+      "id": 396,
+      "name": "Hidden logo detail revealed on hover",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "Hovering the emblem reveals a fine detail ring."
+    },
+    {
+      "id": 397,
+      "name": "Keyboard-triggered brand easter egg",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "Typing DENVUP triggers the emblem pulse."
+    },
+    {
+      "id": 398,
+      "name": "Secret visual mode toggle",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "A secret mode repaints the accent colour."
+    },
+    {
+      "id": 399,
+      "name": "Interactive background responds to clicks",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Clicking the shader field sends a ripple through it."
+    },
+    {
+      "id": 400,
+      "name": "Clickable constellation of content links",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "A constellation of the page's links."
+    },
+    {
+      "id": 401,
+      "name": "Hidden annotation appears after exploration",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "An annotation appears once several techniques have been opened."
+    },
+    {
+      "id": 402,
+      "name": "Small animated details in the footer",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "The footer mark rotates slowly; links underline."
+    },
+    {
+      "id": 403,
+      "name": "Randomized micro-illustrations with stable fallbacks",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Seeded micro-illustrations, identical on every load."
+    },
+    {
+      "id": 404,
+      "name": "Alternate cursor style in a specific section",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "The lab section switches the cursor to a crosshair."
+    },
+    {
+      "id": 405,
+      "name": "Optional playful interaction with a clear exit",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "Secret mode is left with one visible control and never blocks content."
+    },
+    {
+      "id": 406,
+      "name": "Easter egg that never blocks navigation or content",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "Easter eggs never intercept navigation or obscure content."
+    },
+    {
+      "id": 407,
+      "name": "Hidden keyboard shortcut guide",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "Pressing ? opens the keyboard shortcut guide."
+    },
+    {
+      "id": 408,
+      "name": "Click-to-reveal studio principles",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/sections/manifesto.ts",
+      "note": "Studio principles reveal on click or keypress."
+    },
+    {
+      "id": 409,
+      "name": "Interactive brand mark with multiple states",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "The emblem has idle, hover, active and assembled states."
+    },
+    {
+      "id": 410,
+      "name": "Secret detail that respects touch and keyboard input",
+      "cat": 17,
+      "catLabel": "Easter eggs and exploratory details",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "Every secret detail is reachable by keyboard and by tap."
+    },
+    {
+      "id": 411,
+      "name": "Tap-to-reveal instead of hover-only content",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Tap toggles the same state hover produces."
+    },
+    {
+      "id": 412,
+      "name": "Swipeable carousel",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Swipeable carousel with a visible control."
+    },
+    {
+      "id": 413,
+      "name": "Touch drag for image comparison",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Touch drag moves the comparison handle."
+    },
+    {
+      "id": 414,
+      "name": "Responsive motion intensity by viewport",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Motion intensity and particle counts scale with viewport size."
+    },
+    {
+      "id": 415,
+      "name": "Simplified mobile 3D scene",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "The 3D scene drops detail and disables the environment map on small screens."
+    },
+    {
+      "id": 416,
+      "name": "Mobile-friendly bottom sheet",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/styles/components.css",
+      "note": "The mobile menu is a bottom sheet."
+    },
+    {
+      "id": 417,
+      "name": "Touch-friendly full-screen menu",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Full-screen menu with large tap targets."
+    },
+    {
+      "id": 418,
+      "name": "Adaptive typography animation",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/sections/typography.ts",
+      "note": "The type specimen scales its axis demo for small screens."
+    },
+    {
+      "id": 419,
+      "name": "Motion disabled for low-power conditions where detectable",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Low core count and low memory reduce the particle budget."
+    },
+    {
+      "id": 420,
+      "name": "Avoid hover-dependent essential information",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "All hover-only information is also exposed on tap."
+    },
+    {
+      "id": 421,
+      "name": "Avoid forced horizontal scrolling on small screens",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/scroll.ts",
+      "note": "The horizontal demo becomes a vertical stack on small screens."
+    },
+    {
+      "id": 422,
+      "name": "Respect safe-area insets",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Safe-area insets respected on the header, dock and buttons."
+    },
+    {
+      "id": 423,
+      "name": "Touch gesture with visible button alternative",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Drag demos always expose a button that performs the same action."
+    },
+    {
+      "id": 424,
+      "name": "Mobile-specific section transitions",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "The expansion transition is shorter and simpler on small screens."
+    },
+    {
+      "id": 425,
+      "name": "Responsive image focal-point movement",
+      "cat": 18,
+      "catLabel": "Responsive and touch-first interaction patterns",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "The focal point of the artwork shifts on narrow viewports."
+    },
+    {
+      "id": 426,
+      "name": "Respect `prefers-reduced-motion`",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Every animation path checks the preference."
+    },
+    {
+      "id": 427,
+      "name": "Provide a reduced-motion layout rather than simply hiding content",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Reduced motion keeps a complete, readable layout rather than hiding sections."
+    },
+    {
+      "id": 428,
+      "name": "Pause/resume controls for long-running motion",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/easter.ts",
+      "note": "A global motion toggle pauses long-running loops."
+    },
+    {
+      "id": 429,
+      "name": "Pause decorative animation when tab is hidden",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/scroll.ts",
+      "note": "The GSAP ticker and smooth scroll stop on tab hide."
+    },
+    {
+      "id": 430,
+      "name": "Keyboard-operable carousels and tabs",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/sections/services.ts",
+      "note": "Service tabs are arrow-key operable."
+    },
+    {
+      "id": 431,
+      "name": "Visible focus state for animated controls",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Focus rings are always visible."
+    },
+    {
+      "id": 432,
+      "name": "Accessible status announcements for form states",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/sections/contact.ts",
+      "note": "Status changes are announced through a live region."
+    },
+    {
+      "id": 433,
+      "name": "Text alternatives for meaningful animated graphics",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "Canvases carry descriptive labels and adjacent text."
+    },
+    {
+      "id": 434,
+      "name": "Do not rely on color alone to communicate state",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/sections/atlas.ts",
+      "note": "Selected nodes change shape and label, not only colour."
+    },
+    {
+      "id": 435,
+      "name": "Avoid flashing and rapid high-contrast sequences",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "The glitch effect is opt-in and brief."
+    },
+    {
+      "id": 436,
+      "name": "Avoid scroll-jacking",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/scroll.ts",
+      "note": "Native scrolling is preserved; smooth scroll is an inertia layer only."
+    },
+    {
+      "id": 437,
+      "name": "Ensure animation never hides required content",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "Revealed content is never left hidden if a trigger fails."
+    },
+    {
+      "id": 438,
+      "name": "Ensure dialogs trap and restore focus correctly",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/sections/navigation.ts",
+      "note": "Menu and command palette trap focus and restore it on close."
+    },
+    {
+      "id": 439,
+      "name": "Provide captions/transcripts for media",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "There is no spoken media on the site, so there is nothing to caption."
+    },
+    {
+      "id": 440,
+      "name": "Make pause/skip controls easy to find",
+      "cat": 19,
+      "catLabel": "Accessibility, resilience, and motion controls",
+      "status": "Tested",
+      "comp": "src/core/boot.ts",
+      "note": "Skip and motion controls are visible early."
+    },
+    {
+      "id": 441,
+      "name": "Animate transform and opacity where appropriate",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/styles/base.css",
+      "note": "Animation is limited to transform and opacity."
+    },
+    {
+      "id": 442,
+      "name": "Use Intersection Observer for viewport triggers",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/reveal.ts",
+      "note": "IntersectionObserver drives viewport entry."
+    },
+    {
+      "id": 443,
+      "name": "Use requestAnimationFrame for custom render loops",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/loop.ts",
+      "note": "Custom render loops use requestAnimationFrame."
+    },
+    {
+      "id": 444,
+      "name": "Throttle or debounce expensive event handlers",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/dom.ts",
+      "note": "Pointer and resize handlers are throttled and debounced."
+    },
+    {
+      "id": 445,
+      "name": "Clean up event listeners and observers",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/loop.ts",
+      "note": "Observers, listeners and RAF loops are disposed."
+    },
+    {
+      "id": 446,
+      "name": "Lazy-load heavy media and 3D assets",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Three.js is dynamically imported when the section approaches."
+    },
+    {
+      "id": 447,
+      "name": "Use poster images before video playback",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "No video is used, so no poster step is needed."
+    },
+    {
+      "id": 448,
+      "name": "Use compressed responsive images",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "scripts/build-assets.py",
+      "note": "Brand assets are emitted at sensible sizes and formats."
+    },
+    {
+      "id": 449,
+      "name": "Use GPU-heavy effects selectively",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Expensive effects are gated behind a device budget."
+    },
+    {
+      "id": 450,
+      "name": "Limit particle counts based on device capability",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/env.ts",
+      "note": "Particle counts scale with the detected device budget."
+    },
+    {
+      "id": 451,
+      "name": "Pause offscreen animations",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/loop.ts",
+      "note": "Canvas loops pause offscreen and on tab hide."
+    },
+    {
+      "id": 452,
+      "name": "Avoid repeated layout reads/writes in animation loops",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/dom.ts",
+      "note": "Batch reads before writes inside the animation loop."
+    },
+    {
+      "id": 453,
+      "name": "Prevent cumulative layout shift during asset loading",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/styles/sections.css",
+      "note": "Canvas and media slots reserve their space to avoid layout shift."
+    },
+    {
+      "id": 454,
+      "name": "Dynamically import heavy animation libraries",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Three.js is loaded with a dynamic import on demand."
+    },
+    {
+      "id": 455,
+      "name": "Provide WebGL/context-loss fallback",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Context loss falls back to the static poster."
+    },
+    {
+      "id": 456,
+      "name": "Avoid unnecessary dependencies for simple effects",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "IMPLEMENTATION_NOTES.md",
+      "note": "Three runtime dependencies only: GSAP, Lenis and Three.js."
+    },
+    {
+      "id": 457,
+      "name": "Keep animation timelines scoped to their component",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/motion.ts",
+      "note": "Every module builds its timelines inside gsap.context()."
+    },
+    {
+      "id": 458,
+      "name": "Test on slow network and lower-powered devices",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "scripts/browser-check.mjs",
+      "note": "Measured in a real Chromium with the CPU throttled six-fold and the network limited to 400 kbit/s with 300 ms of latency: the intro still releases and the first chapter is readable (7.5 s to a usable page). A physical handset was not available, so device-specific behaviour is still reasoned about rather than measured."
+    },
+    {
+      "id": 459,
+      "name": "Monitor frame-rate and long tasks",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "An optional frame-rate readout is available in the lab."
+    },
+    {
+      "id": 460,
+      "name": "Ensure every interaction still works if an animation fails",
+      "cat": 20,
+      "catLabel": "Performance and engineering techniques",
+      "status": "Tested",
+      "comp": "src/core/loop.ts",
+      "note": "Each demo degrades to a static explanation if its animation fails."
+    },
+    {
+      "id": 461,
+      "name": "WebGL image displacement transition",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Image displacement driven by a fragment shader."
+    },
+    {
+      "id": 462,
+      "name": "Shader-driven image reveal",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Shader-driven reveal of an image."
+    },
+    {
+      "id": 463,
+      "name": "Fluid simulation controlled by pointer",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Pointer-driven fluid field."
+    },
+    {
+      "id": 464,
+      "name": "Real-time metaball effect",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Real-time metaballs in the fragment shader."
+    },
+    {
+      "id": 465,
+      "name": "Signed-distance-field typography effects",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "SDF text effect."
+    },
+    {
+      "id": 466,
+      "name": "Procedural terrain or landscape",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Procedural terrain rendered with fBm noise."
+    },
+    {
+      "id": 467,
+      "name": "Generative 3D sculpture",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "A generative sculpture built from stacked forms."
+    },
+    {
+      "id": 468,
+      "name": "Particle morph between multiple shapes",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Particles morph between three shapes."
+    },
+    {
+      "id": 469,
+      "name": "GPU-instanced object field",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/three.ts",
+      "note": "GPU instanced field."
+    },
+    {
+      "id": 470,
+      "name": "Depth-map parallax from an image",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Requires revision",
+      "comp": "src/demos/shader.ts",
+      "note": "Depth parallax is derived from the image luminance rather than a real depth map, because no depth asset was supplied."
+    },
+    {
+      "id": 471,
+      "name": "Interactive point-cloud portrait or object",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "The emblem is reconstructed as a point cloud."
+    },
+    {
+      "id": 472,
+      "name": "Camera-based interaction only with explicit permission",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Blocked",
+      "comp": "n/a",
+      "note": "Camera access needs an explicit permission prompt and is deliberately not requested by this site."
+    },
+    {
+      "id": 473,
+      "name": "Motion-input interaction with clear alternative controls",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/cards.ts",
+      "note": "Drag interactions always have a button equivalent."
+    },
+    {
+      "id": 474,
+      "name": "Web Audio-driven shader",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/audio.ts",
+      "note": "An opt-in tone drives the shader uniforms."
+    },
+    {
+      "id": 475,
+      "name": "Real-time data-driven generative art",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/particles.ts",
+      "note": "Generative art reads from live parameters."
+    },
+    {
+      "id": 476,
+      "name": "Interactive 3D scene with hotspots",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "Clickable hotspots annotate the 3D scene."
+    },
+    {
+      "id": 477,
+      "name": "Spatial interface with conventional navigation fallback",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/sections/spatial.ts",
+      "note": "The 3D scene sits beside conventional navigation."
+    },
+    {
+      "id": 478,
+      "name": "Multi-layer portal transition",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/sections/expansion.ts",
+      "note": "The panel, the emblem and the grid layer into a multi-layer portal transition."
+    },
+    {
+      "id": 479,
+      "name": "Scroll-progress shader transition",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/demos/shader.ts",
+      "note": "Scroll progress is a uniform in the shader."
+    },
+    {
+      "id": 480,
+      "name": "A custom interaction combining several techniques into one coherent signature",
+      "cat": 21,
+      "catLabel": "Advanced experimental techniques",
+      "status": "Tested",
+      "comp": "src/sections/mark.ts",
+      "note": "The emblem chapter combines particle convergence, pointer physics, scroll-linked assembly and a HUD readout."
+    }
+  ]
+}

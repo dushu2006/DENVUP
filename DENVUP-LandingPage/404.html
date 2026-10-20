@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-theme="ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Page not found — DENVUP</title>
+    <meta
+      name="description"
+      content="That page does not exist. Here is a map of everything on this site, and one clear way back."
+    />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DENVUP" />
+    <meta property="og:title" content="Page not found — DENVUP" />
+    <meta
+      property="og:description"
+      content="A map of the site, and one clear way back."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="noindex" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <!--@boot:none-->
+
+    <!--@shell:before-->
+
+    <main id="view" class="view" data-view="notfound">
+      <section class="section ch-ink notfound" id="notfound" aria-labelledby="notfound-title">
+        <div class="shell">
+          <p class="notfound__code" aria-hidden="true">00</p>
+          <h1 class="notfound__title" id="notfound-title">
+            This page does not exist.
+          </h1>
+          <p class="notfound__lead">
+            Nothing is broken on your side, and there is nothing to refresh. Here is
+            everything the site has, and one way back to the beginning.
+          </p>
+
+          <div class="notfound__action">
+            <a class="btn btn--solid" href="/" data-magnetic>
+              <span>Back to the beginning</span>
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 13 13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+          </div>
+
+          <nav class="notfound__map" aria-labelledby="notfound-map-title">
+            <h2 class="notfound__map-title" id="notfound-map-title">
+              Everything on this site
+            </h2>
+            <div class="notfound__groups">
+              <div class="notfound__group">
+                <h3>Pages</h3>
+                <ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/services/">Services</a></li>
+                  <li><a href="/lab/">Interaction lab</a></li>
+                  <li><a href="/concepts/">Concepts</a></li>
+                </ul>
+              </div>
+              <div class="notfound__group">
+                <h3>Studio</h3>
+                <ul>
+                  <li><a href="/studio/">The studio</a></li>
+                  <li><a href="/pricing/">Pricing</a></li>
+                  <li><a href="/contact/">Contact</a></li>
+                </ul>
+              </div>
+              <div class="notfound__group">
+                <h3>Services</h3>
+                <ul>
+                  <li><a href="/services/web-design/">Web design &amp; development</a></li>
+                  <li><a href="/services/ai-solutions/">AI-powered solutions</a></li>
+                  <li><a href="/services/business-integrations/">Business integrations</a></li>
+                  <li><a href="/services/creative-experiences/">Creative &amp; interactive</a></li>
+                  <li><a href="/services/automation/">Automation &amp; tools</a></li>
+                </ul>
+              </div>
+              <div class="notfound__group">
+                <h3>Legal</h3>
+                <ul>
+                  <li><a href="/privacy/">Privacy</a></li>
+                  <li><a href="/terms/">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <p class="notfound__voice">
+            DENVUP is a digital studio focused on website design, development, interactive
+            experiences and digital solutions. If you were looking for something to do
+            with that,
+            <a href="mailto:denvupforyou@gmail.com">write to us</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!--@shell:after-->
+  </body>
+</html>

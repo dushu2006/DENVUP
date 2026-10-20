@@ -1,0 +1,225 @@
+/* =========================================================================
+   DENVUP — Design tokens
+   -------------------------------------------------------------------------
+   The palette is chapter-based, not single-theme. Each "chapter" of the
+   scroll journey sets its own substrate + foreground pair, so the page
+   moves between paper, ink, ember and signal fields without ever becoming
+   the same dark rectangle over and over.
+
+   Colour sources:
+   - `ember` family is sampled from the supplied DENVUP colour logo
+     (logo_color.png: orange #F0490F -> amber #FFB627).
+   - `signal` is the single secondary accent, reserved for data, diagrams
+     and interactive affordances. It is never used for large backgrounds
+     next to ember so the two never fight.
+   ========================================================================= */
+
+:root {
+  /* ---- Substrates -------------------------------------------------- */
+  --paper: #edeeea;        /* cool bone paper, chapter 0/3/6          */
+  --paper-deep: #dfe1da;   /* recessed paper                          */
+  --ink: #0b0b0c;          /* carbon ink, chapters 1/4/7               */
+  --ink-soft: #141417;    /* raised ink                              */
+  --ink-line: #26262b;     /* hairline on ink                         */
+
+  /* ---- Brand ember (from logo_color.png) --------------------------- */
+  --ember: #f0490f;
+  --ember-hot: #ff5b18;
+  --ember-amber: #ffb627;
+  --ember-deep: #b8300a;
+  --ember-wash: #ffd9c4;
+
+  /* ---- Signal accent (data / diagrams / interaction) --------------- */
+  --signal: #2b39e6;
+  --signal-hot: #4f5bff;
+  --signal-wash: #d7dbff;
+
+  /* ---- Foreground --------------------------------------------------- */
+  --fg-on-paper: #0b0b0c;
+  --fg-on-paper-soft: #56585180;
+  --fg-on-ink: #edeeea;
+  --fg-on-ink-soft: #a3a49c;
+  --fg-on-ember: #140a05;
+
+  /* ---- Lines -------------------------------------------------------- */
+  --line-on-paper: rgb(11 11 12 / 0.16);
+  --line-on-paper-strong: rgb(11 11 12 / 0.44);
+  --line-on-ink: rgb(237 238 234 / 0.16);
+  --line-on-ink-strong: rgb(237 238 234 / 0.44);
+  --line-on-ember: rgb(20 10 5 / 0.22);
+
+  /* ---- Typography --------------------------------------------------- */
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* fluid type scale — 1.25 minor third at the small end */
+  /*
+   * Nothing meant to be read goes below 13 px. The smallest step is the
+   * label step, and it is used for short, high-information labels only:
+   * technique ids, durations, coordinates. The inspector's rule is the
+   * reason the floor is 13 px and not 11.
+   */
+  --fs-micro: clamp(0.8125rem, 0.79rem + 0.12vw, 0.875rem);
+  --fs-xs: clamp(0.8125rem, 0.78rem + 0.18vw, 0.9375rem);
+  --fs-sm: clamp(0.875rem, 0.83rem + 0.24vw, 1rem);
+  --fs-base: clamp(1rem, 0.95rem + 0.26vw, 1.125rem);
+  --fs-lg: clamp(1.125rem, 1.04rem + 0.44vw, 1.5rem);
+  --fs-xl: clamp(1.5rem, 1.26rem + 1.2vw, 2.5rem);
+  --fs-2xl: clamp(2rem, 1.42rem + 2.9vw, 4.25rem);
+  --fs-3xl: clamp(2.75rem, 1.5rem + 6.2vw, 8rem);
+  --fs-4xl: clamp(3.5rem, 1.1rem + 12vw, 15rem);
+  --fs-mega: clamp(4rem, 0.5rem + 17vw, 22rem);
+
+  --tracking-tight: -0.045em;
+  --tracking-snug: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.14em;
+  --tracking-wider: 0.26em;
+
+  /* ---- Space / rhythm ----------------------------------------------- */
+  --gutter: clamp(1.125rem, 0.6rem + 2.6vw, 4rem);
+  --section-y: clamp(4.5rem, 2rem + 9vw, 11rem);
+  --section-y-tight: clamp(3rem, 1.6rem + 6vw, 7rem);
+  --measure: 62ch;
+
+  --shell-max: 1680px;
+  --shell-wide: 1920px;
+
+  /* ---- Radius (shape consistency lock: soft, one scale) ------------- */
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-lg: 26px;
+  --r-pill: 999px;
+
+  /* ---- Motion -------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-fast: 220ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+
+  /*
+   * ---- The feedback layer -------------------------------------------
+   *
+   * Six acknowledgements, one vocabulary. Every control on the site
+   * answers an action the same way, so a visitor learns the grammar
+   * once and it works everywhere.
+   *
+   * `--ease-settle` is the curve the `design-taste-frontend` motion
+   * reference names for entering and exiting: `cubic-bezier(0.22, 1,
+   * 0.36, 1)`. It has **no overshoot at all**. An earlier draft of this
+   * layer used a 12 % overshoot to make a press feel physical, and the
+   * skill's own list of things that give generated motion away names
+   * "bounce or elastic easing on interface elements" — so the overshoot
+   * went. The warmth of this layer comes from the *residue* (a tick that
+   * stays), the *draw* (a rule that is drawn rather than blinked) and
+   * one signature moment, not from a spring.
+   */
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /*
+   * `--ease-out` was used 27 times across `routes.css` and was never
+   * defined. An undefined custom property invalidates the *whole*
+   * declaration it appears in, so every one of those transitions had
+   * been falling back to the browser's default `ease` instead of the
+   * site's curve. It is defined here, and the two named curves below
+   * are the ones the feedback layer and the route pages now share.
+   */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: var(--ease-out-quart);
+  --dur-press: 140ms;    /* the finger went down                    */
+  --dur-register: 240ms; /* a choice was made and traced            */
+  --dur-confirm: 320ms;  /* an action succeeded and left a reading  */
+  --dur-reject: 240ms;   /* an action was refused                   */
+  --dur-advance-out: 300ms;
+  --dur-advance-in: 420ms;
+  /*
+   * The durations are the ones the motion reference names: press 100–160,
+   * hover 150–200, menus and popovers 150–250, drawers 250–450, and
+   * "leaving is quicker than arriving (about 70 %)". 300 out against
+   * 420 in is 71 %.
+   */
+
+  /*
+   * The distance a deep-linked element keeps from the top of the window.
+   * The header is fixed, so without this an anchored card would arrive
+   * underneath it.
+   */
+  --scroll-offset: 5.5rem;
+
+  /* ---- Elevation ------------------------------------------------------ */
+  --shadow-deep: 0 30px 80px -40px rgb(11 11 12 / 0.55);
+  --shadow-lift: 0 18px 44px -28px rgb(11 11 12 / 0.42);
+
+  /* Default text accent for chrome that sits outside a chapter scope. */
+  --accent-text: var(--ember-deep);
+
+  --z-base: 1;
+  --z-sticky: 40;
+  --z-nav: 60;
+  --z-overlay: 80;
+  --z-cursor: 95;
+  --z-grain: 90;
+
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------------
+   Chapter scopes — each section declares its substrate so the whole page can
+   be themed from the section itself rather than from a global dark class.
+   ------------------------------------------------------------------------- */
+.ch-paper {
+  --bg: var(--paper);
+  --fg: var(--fg-on-paper);
+  --fg-soft: #5c5e57;
+  --line: var(--line-on-paper);
+  --line-strong: var(--line-on-paper-strong);
+  --accent: var(--ember);
+  /* Text-safe accent: --ember on paper is 3.18:1, which fails WCAG AA for
+     body copy, so text accents on paper use the deeper ember. */
+  --accent-text: var(--ember-deep);
+  --accent-contrast: #ffffff;
+  color-scheme: light;
+}
+
+.ch-ink {
+  --bg: var(--ink);
+  --fg: var(--fg-on-ink);
+  --fg-soft: var(--fg-on-ink-soft);
+  --line: var(--line-on-ink);
+  --line-strong: var(--line-on-ink-strong);
+  --accent: var(--ember-hot);
+  --accent-text: var(--ember-hot);
+  --accent-contrast: #140a05;
+  color-scheme: dark;
+}
+
+.ch-ember {
+  --bg: var(--ember);
+  --fg: var(--fg-on-ember);
+  /* 0.86 alpha is the point at which the secondary text on the ember field
+     clears WCAG AA (4.58:1). At 0.72 it was 3.71:1, which is large-text
+     only. */
+  --fg-soft: rgb(20 10 5 / 0.86);
+  --line: var(--line-on-ember);
+  --line-strong: rgb(20 10 5 / 0.5);
+  --accent: var(--ink);
+  --accent-text: var(--ink);
+  --accent-contrast: var(--paper);
+  color-scheme: light;
+}
+
+.ch-signal {
+  --bg: var(--signal);
+  --fg: #f2f3ff;
+  --fg-soft: rgb(242 243 255 / 0.86);
+  --line: rgb(242 243 255 / 0.26);
+  --line-strong: rgb(242 243 255 / 0.58);
+  --accent: #ffc94d;
+  --accent-text: #ffc94d;
+  --accent-contrast: #140a05;
+  color-scheme: dark;
+}

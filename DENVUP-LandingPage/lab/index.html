@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-theme="ink">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Interaction lab — DENVUP</title>
+    <meta
+      name="description"
+      content="A working laboratory: the seven route transitions this site uses, replayable on demand, and live controls for the field that runs behind every page."
+    />
+    <meta name="theme-color" content="#2b39e6" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="DENVUP" />
+    <meta property="og:title" content="Interaction lab — DENVUP" />
+    <meta
+      property="og:description"
+      content="The route transitions, replayable on demand, and live controls for the field behind every page."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+
+  <body>
+    <!--@boot:none-->
+
+    <!--@shell:before-->
+
+    <main id="view" class="view" data-view="lab" data-art="/art/concepts-mask.jpg">
+      <section class="section ch-signal route-hero" id="top" data-route-hero aria-labelledby="lab-title">
+        <div class="shell">
+          <p class="route-hero__kicker">Interaction lab</p>
+          <h1 class="route-hero__title" id="lab-title">
+            The transitions,<br />on demand.
+          </h1>
+          <p class="route-hero__lead">
+            Every route change on this site is a designed movement, not a fade. This page
+            lets you run each one again, on the real site, without leaving it — and then
+            turn the field behind the page up and down to see what the chapters are
+            actually doing.
+          </p>
+        </div>
+      </section>
+
+      <section class="section ch-paper lab-library" id="effects" aria-labelledby="effects-title">
+        <div class="shell">
+          <h2 class="lab-library__title" id="effects-title">
+            Every effect, running
+          </h2>
+          <p class="lab-library__lead">
+            This is the working library. Each card holds a live demonstration — not a
+            picture of one — with the encyclopedia technique numbers it uses, a replay
+            control, and a reference you can copy straight into an enquiry. A
+            demonstration starts when it scrolls into view and stops when it leaves, so
+            the page stays light.
+          </p>
+
+          <div class="lab-library__controls">
+            <div class="lab-search">
+              <label class="lab-search__label" for="lab-search-input">Search the effects</label>
+              <input
+                class="lab-search__input"
+                id="lab-search-input"
+                type="search"
+                autocomplete="off"
+                placeholder="Try &ldquo;cursor&rdquo;, &ldquo;mask&rdquo;, &ldquo;scroll&rdquo;…"
+                data-lab-search
+              />
+            </div>
+            <div class="lab-library__meta">
+              <p class="lab-library__count" data-lab-count role="status" aria-live="polite"></p>
+              <button class="lab-library__reset" type="button" data-lab-reset>Reset the filters</button>
+            </div>
+          </div>
+
+          <div class="lab-filters" data-lab-filters role="group" aria-label="Filter the effects by category"></div>
+
+          <div class="fx-grid" data-lab-grid></div>
+
+          <p class="lab-library__empty" data-lab-empty hidden>
+            Nothing matches that. Clear the filters to see all of them.
+          </p>
+        </div>
+      </section>
+
+      <section class="section ch-ink lab-playground" id="playground" aria-labelledby="playground-title">
+        <div class="shell">
+          <h2 class="lab-playground__title" id="playground-title">
+            Seven ways out of a page
+          </h2>
+          <p class="lab-playground__lead">
+            Each button replays one transition over this page and reverses it. They are the
+            same functions the router calls, so what you see here is what a visitor sees
+            when they move between routes.
+          </p>
+
+          <ol class="lab-list" data-lab-list>
+            <li class="lab-item" data-service-card data-art="/art/service-web-design.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="service-expand">
+                <span class="lab-item__index">01</span>
+                <span class="lab-item__name">Card expands</span>
+                <span class="lab-item__note">
+                  The service card grows from its exact rectangle and becomes the page
+                  header.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-ai-solutions.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="shape-wipe">
+                <span class="lab-item__index">02</span>
+                <span class="lab-item__name">Shape wipe</span>
+                <span class="lab-item__note">
+                  A circle grows from the point you clicked, over a blueprint grid that
+                  draws itself as it passes.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-business-integrations.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="colour-wipe">
+                <span class="lab-item__index">03</span>
+                <span class="lab-item__name">Colour wipe</span>
+                <span class="lab-item__note">
+                  A brand-coloured field crosses the screen while the mark travels the
+                  other way.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-creative-experiences.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="panel-overlap">
+                <span class="lab-item__index">04</span>
+                <span class="lab-item__name">Panel overlap</span>
+                <span class="lab-item__note">
+                  Three slabs arrive at different speeds and settle stacked.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-automation.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="curtain-open">
+                <span class="lab-item__index">05</span>
+                <span class="lab-item__name">Curtain</span>
+                <span class="lab-item__note">
+                  Two halves close over the page, and open again over a settled one.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-concepts-mask.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="image-mask">
+                <span class="lab-item__index">06</span>
+                <span class="lab-item__name">Image mask</span>
+                <span class="lab-item__note">
+                  The next picture is revealed through a mask that moves like liquid.
+                </span>
+              </button>
+            </li>
+            <li class="lab-item" data-service-card data-art="/art/service-web-design.jpg">
+              <button class="lab-item__button" type="button" data-lab-run="glitch-settle">
+                <span class="lab-item__index">07</span>
+                <span class="lab-item__name">Controlled glitch</span>
+                <span class="lab-item__note">
+                  Three bands jump out of place and settle. Reserved for a dead end.
+                </span>
+              </button>
+            </li>
+          </ol>
+
+          <figure class="lab-art" data-service-art>
+            <img
+              src="/art/service-creative-experiences.jpg"
+              alt="Original artwork: a dark field with an ember arc and a signal-blue rule, drawn for the DENVUP service pages."
+              width="1600"
+              height="900"
+              decoding="async"
+            />
+            <figcaption>
+              The artwork that becomes the page header when the card expansion
+              transition runs. On the service pages it is the header image; here it
+              is the destination the expansion lands on.
+            </figcaption>
+          </figure>
+
+          <p class="lab-playground__status" data-lab-status role="status" aria-live="polite">
+            Pick a transition to run it.
+          </p>
+        </div>
+      </section>
+
+      <section class="section ch-paper lab-stage" id="stage-controls" aria-labelledby="stage-controls-title">
+        <div class="shell">
+          <h2 class="lab-stage__title" id="stage-controls-title">
+            The field behind the page
+          </h2>
+          <p class="lab-stage__lead">
+            One canvas runs for the whole session, behind every route. It is not a
+            background image and it is not per-page: it is re-parameterised as you move,
+            so the colour, density, speed and camera all change without it ever being
+            destroyed. These sliders drive it directly.
+          </p>
+
+          <div class="lab-controls" data-stage-controls>
+            <div class="lab-control">
+              <label for="stage-density">Density</label>
+              <input id="stage-density" type="range" min="0.2" max="3" step="0.05" value="1.1" data-stage-param="density" />
+              <output data-stage-out="density">1.10</output>
+            </div>
+            <div class="lab-control">
+              <label for="stage-speed">Speed</label>
+              <input id="stage-speed" type="range" min="0" max="2" step="0.05" value="0.5" data-stage-param="speed" />
+              <output data-stage-out="speed">0.50</output>
+            </div>
+            <div class="lab-control">
+              <label for="stage-swirl">Swirl</label>
+              <input id="stage-swirl" type="range" min="0" max="2.5" step="0.05" value="0.7" data-stage-param="swirl" />
+              <output data-stage-out="swirl">0.70</output>
+            </div>
+            <div class="lab-control">
+              <label for="stage-zoom">Camera</label>
+              <input id="stage-zoom" type="range" min="0.6" max="1.8" step="0.01" value="1" data-stage-param="zoom" />
+              <output data-stage-out="zoom">1.00</output>
+            </div>
+            <div class="lab-control">
+              <label for="stage-length">Stroke</label>
+              <input id="stage-length" type="range" min="0.005" max="0.12" step="0.005" value="0.05" data-stage-param="length" />
+              <output data-stage-out="length">0.050</output>
+            </div>
+          </div>
+
+          <div class="lab-stage__palette" role="group" aria-label="Field palette">
+            <button class="lab-swatch" type="button" data-stage-preset="paper">
+              <span class="lab-swatch__chip" style="--swatch: #edeeea"></span> Paper
+            </button>
+            <button class="lab-swatch" type="button" data-stage-preset="ink">
+              <span class="lab-swatch__chip" style="--swatch: #0b0b0c"></span> Ink
+            </button>
+            <button class="lab-swatch" type="button" data-stage-preset="ember">
+              <span class="lab-swatch__chip" style="--swatch: #f0490f"></span> Ember
+            </button>
+            <button class="lab-swatch" type="button" data-stage-preset="signal">
+              <span class="lab-swatch__chip" style="--swatch: #2b39e6"></span> Signal
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ch-ink lab-more" aria-labelledby="lab-more-title">
+        <div class="shell lab-more__inner">
+          <h2 class="lab-more__title" id="lab-more-title">
+            The full library is on the home page
+          </h2>
+          <p class="lab-more__body">
+            Four hundred and eighty techniques are catalogued there, each with a live,
+            replayable demonstration, the techniques it depends on, and a copyable
+            reference you can send us in a message.
+          </p>
+          <div class="lab-more__actions">
+            <a class="btn btn--solid" href="/#library" data-magnetic>
+              <span>Open the library</span>
+              <span class="btn__icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 13 13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span>
+            </a>
+            <a class="btn btn--ghost" href="/concepts/"><span>See the concepts</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--@shell:after-->
+  </body>
+</html>

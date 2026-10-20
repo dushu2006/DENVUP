@@ -1,0 +1,383 @@
+/* =========================================================================
+   DENVUP — the feedback layer
+   =========================================================================
+
+   Six acknowledgements, one grammar. The site is an instrument panel, so
+   when you touch it, it registers — and what it leaves behind is a
+   *reading*, not a flash.
+
+   press     .is-pressed     the control is depressed
+   register  .is-registered  a choice was traced
+   confirm   .is-confirmed   an action succeeded; a tick is drawn
+   reject    .is-rejected    an action was refused; a rule wipes in
+   advance   (in JS)        a step or panel travels
+   write     (in JS)        the signature moment
+
+   Nothing here animates a layout property. Everything moves on
+   `transform`, `opacity`, `clip-path`, `background-color`, `border-color`
+   or `color`, so the whole layer is compositor-friendly and cannot cause
+   a reflow mid-scroll.
+   ========================================================================= */
+
+/* --------------------------------------------------------------- press --- */
+
+.btn.is-pressed,
+.chip.is-pressed,
+.fx-card__replay.is-pressed,
+.fx-card__copy.is-pressed,
+.fx-card__want.is-pressed,
+.library__export.is-pressed,
+.demo__toggle.is-pressed {
+  transform: scale(0.975);
+  transition-duration: var(--dur-press);
+}
+
+.menu-toggle.is-pressed .menu-toggle__icon,
+.dock__toggle.is-pressed .dock__chevron {
+  transform: scale(0.94);
+}
+
+.to-top.is-pressed {
+  transform: scale(0.9);
+}
+
+.cmd-trigger.is-pressed {
+  background-color: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+/* ----------------------------------------------------------- register --- */
+
+/*
+ * The trace is a rule that draws around the chosen thing, from its
+ * leading edge. It is the same gesture the chapters use when a rule
+ * extends — drawn in ink, not a glow.
+ */
+.is-registered {
+  position: relative;
+}
+
+/*
+ * The trace is drawn with a *keyframe animation*, not a transition.
+ *
+ * A transition needs a "before" state to travel from, and this pseudo
+ * element does not exist until the class lands — so a transition on it
+ * would jump straight to the end. An animation starts when the element is
+ * created, so the rule actually draws.
+ */
+.is-registered::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.is-registered.is-registered::after {
+  animation: feedbackTrace var(--dur-register) var(--ease-out-quart) forwards;
+}
+
+@keyframes feedbackTrace {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/*
+ * The choice also reads in the ground: the row darkens by one step, so
+ * the state survives even if the trace is missed.
+ */
+.enquiry__choice.is-registered {
+  background: rgb(20 10 5 / 0.08);
+  border-color: var(--ink);
+}
+
+.pricing__option.is-registered,
+.estimator__choice.is-registered {
+  color: var(--fg);
+}
+
+.estimator__choice.is-registered {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+/* ------------------------------------------------------------ confirm --- */
+
+.is-confirmed {
+  position: relative;
+}
+
+/*
+ * The tick. It is a child element, not a background image, because it is
+ * *drawn* — the stroke is revealed by animating its dash offset.
+ */
+[data-feedback-tick] {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  color: var(--accent);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btn.is-confirmed [data-feedback-tick],
+.fx-card__copy.is-confirmed [data-feedback-tick],
+.library__export.is-confirmed [data-feedback-tick] {
+  position: static;
+  margin: 0 0 0 0.45rem;
+  display: inline-block;
+  vertical-align: -2px;
+  opacity: 1;
+}
+
+.fx-card__copy.is-confirmed,
+.library__export.is-confirmed {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+.fx-card__replay.is-confirmed {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/*
+ * A copied address. The tick sits at the end of the value, so the
+ * reading is attached to the thing that was copied.
+ */
+.is-copied {
+  color: var(--accent-text);
+}
+
+.is-copied [data-feedback-tick] {
+  position: static;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0 0 0 0.4rem;
+  vertical-align: -2px;
+  opacity: 1;
+}
+
+.is-copy-failed {
+  color: #7a1c05;
+}
+
+.ch-ink .is-copy-failed {
+  color: #ff8a5c;
+}
+
+/* ------------------------------------------------------------- reject --- */
+
+/*
+ * A rule wipes in from the left under the offending field. Not a shake —
+ * a shake is a generic tell, and this site draws rules instead of
+ * jolting things.
+ */
+.is-rejected {
+  position: relative;
+}
+
+.is-rejected::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #7a1c05;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
+/* Drawn, not transitioned — see the note on the trace above. */
+.is-rejected.is-rejected::after {
+  animation: feedbackReject var(--dur-reject) var(--ease-out-expo) forwards;
+}
+
+@keyframes feedbackReject {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.ch-ink .is-rejected::after {
+  background: #ff8a5c;
+}
+
+.field.is-rejected input,
+.field.is-rejected textarea {
+  border-color: #7a1c05;
+}
+
+.ch-ink .field.is-rejected input,
+.ch-ink .field.is-rejected textarea {
+  border-color: #ff8a5c;
+}
+
+/* ------------------------------------------------------------ writing --- */
+
+/*
+ * The field that is being written into gets a caret, because the visitor
+ * needs to know the text is arriving rather than having appeared.
+ */
+[data-writing='true'] {
+  border-color: var(--accent) !important;
+}
+
+[data-writing='true']::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -0.16em;
+  background: var(--accent);
+  animation: feedbackCaret 900ms steps(1, end) infinite;
+}
+
+@keyframes feedbackCaret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------- confirmation --- */
+
+/*
+ * The strip that opens on a lab card when the visitor says "I want this".
+ * It slides open from the card's leading edge and carries the reference
+ * itself, so the acknowledgement is the thing that was asked for.
+ */
+.fx-card__ack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem 0.8rem;
+  margin-top: 0.4rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  overflow: hidden;
+}
+
+.fx-card__ack[hidden] {
+  display: none;
+}
+
+.fx-card__ack-text {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fx-card__ack-text b {
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.fx-card__ack-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------- field --- */
+
+/*
+ * A field's label and its mark share a row, so the mark stays attached to
+ * the thing it describes instead of floating loose near the input.
+ */
+.field__row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.field__row > label {
+  flex: 0 1 auto;
+}
+
+.field__mark {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+/*
+ * The tick in a field sits in the flow rather than absolutely positioned,
+ * so it can never land on top of the value being typed.
+ */
+.field__mark [data-feedback-tick] {
+  position: static;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  opacity: 1;
+  color: var(--accent-text);
+}
+
+/*
+ * The word count is set in the same voice as the label. It is deliberately
+ * not a monospace micro-label — the design reference bans those as house
+ * fashion, and a count is not a technical note.
+ */
+.field__count {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--fg-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------ reduced --- */
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * The states still change — the trace still appears, the tick still
+   * shows, the error rule still draws. They simply arrive without
+   * travelling. Nothing is removed, because "no motion" must never mean
+   * "no feedback".
+   */
+  .is-registered.is-registered::after,
+  .is-rejected.is-rejected::after {
+    animation-duration: 1ms;
+  }
+
+  .btn.is-pressed,
+  .chip.is-pressed,
+  .fx-card__replay.is-pressed,
+  .fx-card__copy.is-pressed,
+  .fx-card__want.is-pressed,
+  .library__export.is-pressed,
+  .demo__toggle.is-pressed {
+    transform: none;
+  }
+
+  [data-writing='true']::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,224 @@
+/* =========================================================================
+   DENVUP — Motion tokens
+   -------------------------------------------------------------------------
+   Every transition on this site declares its timing from this file. Nothing
+   invents a duration inline. The scale follows the durations in the
+   `design-taste-frontend` motion reference: press 100-160ms, hover 150-200ms,
+   menus 150-250ms, dialogs 250-450ms, section reveals 500-900ms — and adds
+   two longer steps for the two moves that are allowed to be loud (a chapter
+   entrance and a route transition).
+
+   Rules this file exists to enforce:
+   - Leaving is quicker than arriving. `leave` steps are ~60% of `enter`.
+   - Easing is chosen by intent, never by habit:
+       enter  -> ease-out, so movement starts the instant the eye arrives
+       travel -> ease-in-out, for things that move while visible
+       exit   -> ease-in, so the thing accelerates away
+       loop   -> linear, for constant travel
+   - `prefers-reduced-motion: reduce` does not mean "no motion". It means the
+     travel is removed and the finished state is reached directly. The
+     reduced-motion block at the bottom of this file collapses every duration
+     to a near-instant while keeping colour and opacity changes.
+   ========================================================================= */
+
+:root {
+  /* ---- Durations ------------------------------------------------------ */
+  --dur-press: 140ms; /* a button giving under the hand               */
+  --dur-hover: 180ms; /* a link answering the pointer                */
+  --dur-ui: 240ms; /* menus, popovers, small panels              */
+  --dur-panel: 380ms; /* drawers, sheets, larger panels             */
+  --dur-reveal: 780ms; /* a block arriving in a chapter              */
+  --dur-chapter: 1150ms; /* a chapter's own signature entrance    */
+  --dur-route-enter: 820ms; /* a route arriving                    */
+  --dur-route-leave: 480ms; /* a route leaving (60% of entering)  */
+
+  /* ---- Easings -------------------------------------------------------- */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1); /* arrives           */
+  --ease-travel: cubic-bezier(0.76, 0, 0.24, 1); /* moves while seen  */
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1); /* long quiet reveals  */
+  --ease-exit: cubic-bezier(0.55, 0, 0.85, 0.36); /* leaves          */
+  --ease-linear: linear;
+
+  /* ---- Distances ------------------------------------------------------ */
+  --travel-xs: 6px;
+  --travel-sm: 14px;
+  --travel-md: 30px;
+  --travel-lg: 72px;
+  --travel-xl: 160px;
+
+  /* ---- Staggers ------------------------------------------------------- */
+  --stagger-tight: 60ms;
+  --stagger: 95ms;
+  --stagger-loose: 150ms;
+  --stagger-chapter: 120ms;
+
+  /* ---- Route transition defaults -------------------------------------- */
+  --route-wipe: 0.82s; /* the length of a route wipe                 */
+  --route-wipe-ease: var(--ease-travel);
+}
+
+/* -------------------------------------------------------------------------
+   Reduced motion.
+
+   Not "less motion" — a *different* motion. Colour and opacity still change
+   (they carry meaning: the chapter ground changes, the cursor still labels).
+   Travel, scale, parallax and autoplay are removed and the element is placed
+   directly in its finished state. Every route transition has a reduced-motion
+   variant that lands on the same final composition, so a visitor with the
+   preference sees the same site, composed, just without the travel.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-press: 1ms;
+    --dur-hover: 1ms;
+    --dur-ui: 1ms;
+    --dur-panel: 1ms;
+    --dur-reveal: 1ms;
+    --dur-chapter: 1ms;
+    --dur-route-enter: 1ms;
+    --dur-route-leave: 1ms;
+    --route-wipe: 0.001s;
+  }
+}
+
+/* The in-page motion switch sets the same overrides through a class, so the
+   switch works even when the OS preference is not set. */
+.is-reduced {
+  --dur-press: 1ms;
+  --dur-hover: 1ms;
+  --dur-ui: 1ms;
+  --dur-panel: 1ms;
+  --dur-reveal: 1ms;
+  --dur-chapter: 1ms;
+  --dur-route-enter: 1ms;
+  --dur-route-leave: 1ms;
+  --route-wipe: 0.001s;
+}
+
+/* -------------------------------------------------------------------------
+   The transition surfaces.
+
+   Four full-bleed layers sit above the page and below the cursor. They are
+   the instruments the route transitions play: a wipe, a colour field, a panel
+   stack and a curtain. They are `pointer-events: none` and `aria-hidden`
+   unless a transition is actively running, and they are removed from the
+   accessibility tree entirely.
+   ------------------------------------------------------------------------- */
+.fx-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  contain: strict;
+}
+
+.fx-layer[data-active='true'] {
+  visibility: visible;
+}
+
+/* The wipe: a single element whose clip-path is driven by the transition. */
+.fx-wipe {
+  background: var(--fx-wipe-colour, var(--ink));
+}
+
+/* The colour field: the brand colour that crosses the screen. */
+.fx-field {
+  background: var(--fx-field-colour, var(--ember));
+}
+
+/* The panel stack: three slabs that arrive at different speeds. */
+.fx-panel {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  background: var(--fx-panel-colour, var(--ink));
+}
+.fx-panel:nth-child(1) {
+  background: var(--fx-panel-1, var(--ink));
+}
+.fx-panel:nth-child(2) {
+  background: var(--fx-panel-2, var(--ember));
+}
+.fx-panel:nth-child(3) {
+  background: var(--fx-panel-3, var(--paper));
+}
+
+/* The curtain: two halves that open from the centre. */
+.fx-curtain {
+  position: absolute;
+  inset: 0;
+  width: 50.5%;
+  background: var(--fx-curtain-colour, var(--ink));
+  transform: translateX(-101%);
+}
+.fx-curtain:last-child {
+  transform: translateX(101%);
+}
+
+/*
+ * The blueprint grid that draws itself under a shape wipe.
+ *
+ * It is named apart from the laboratory's own catalogue grid on purpose.
+ * The two were both called `.fx-grid`, and because this rule sets
+ * `position: absolute` and `inset: 0` while the catalogue rule does not,
+ * the catalogue inherited them: the whole Effects Library was taken out
+ * of the flow, held at the height of the section and clipped, and 147 of
+ * its 149 demonstrations could never be reached.
+ */
+.fx-blueprint {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M56 0H0v56' fill='none' stroke='%23fff' stroke-opacity='0.14' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 56px 56px;
+  transform: scale(1.04);
+}
+
+/* The travelling brand mark. */
+.fx-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(120px, 16vw, 240px);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.fx-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The image-mask used by the concepts transition. */
+.fx-mask {
+  position: absolute;
+  inset: 0;
+  background: var(--fx-mask-image, none) center / cover no-repeat;
+  clip-path: circle(0% at 50% 50%);
+}
+
+/* The glitch used by the 404 transition: three displaced bands. */
+.fx-glitch {
+  position: absolute;
+  inset: 0;
+  background: var(--fx-glitch-colour, var(--ink));
+  opacity: 0;
+}
+.fx-glitch span {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.fx-glitch span:nth-child(1) {
+  background: var(--ember);
+  clip-path: inset(12% 0 62% 0);
+}
+.fx-glitch span:nth-child(2) {
+  background: var(--signal);
+  clip-path: inset(48% 0 28% 0);
+}
+.fx-glitch span:nth-child(3) {
+  background: var(--paper);
+  clip-path: inset(76% 0 8% 0);
+}
