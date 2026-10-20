@@ -167,3 +167,11 @@ Full re-run after the fixes: `tsc` 0, `vitest` 46/46, build clean, `html-validat
 - The 71 planned techniques are listed individually in `ANIMATION_COVERAGE_MATRIX.md`; they are **not** claimed as done. They concentrate in real 3D models, media/audio assets, backend routes and story diagrams.
 - The ten skills “opened to a stated fraction” in `SKILLS_STUDY_LIST.md` §3.2 are still **not read end to end**; §2.1 records this as outstanding rather than claiming them.
 - Next performance step: move the 195 kB of lab-demo CSS off the eight routes that mount no demo. Recorded, not done.
+
+## 13. Text contrast — partial, and what remains unknown
+
+`axe` runs with `color-contrast` disabled here (a headless canvas cannot model text over the stage), so contrast was audited separately. Three failures were provable from the rule itself and are fixed: `.lab-tab[aria-pressed='true']`, `.mini--go:hover/:focus-visible` and `.notfound__links a:hover/:focus-visible` set white on `#ff4a00`, which is **3.37:1** at 13 px against the 4.5:1 AA threshold; they now use ink at **5.87:1**.
+
+A whole-site sweep was built and then withdrawn. It walked ancestor backgrounds, and it does not describe this site: routes paint translucent sections over the live stage canvas, so the computed ground is paper while the visible ground is the canvas. Acting on its output turned the pricing “from” labels dark-on-dark, which the screenshot caught; the sweep was reverted in full rather than partially shipped, and no colour outside the three rules above changed.
+
+**Not claimed:** that the site meets AA for text. On the evidence available, several small labels (orange kickers on a light ground, light captions on the orange bands) are close to or under the threshold. Establishing which ones, and where, needs a pixel-based audit — sampling the rendered frame rather than the style tree — which was not built and is the honest next step.

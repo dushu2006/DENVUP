@@ -84,7 +84,7 @@ main[data-route-main] { overflow: clip; }
 }
 .mini:hover, .mini:focus-visible { background: var(--scene-ink, var(--ink)); color: var(--scene-bg, #fff); }
 .mini--go { border-color: var(--orange); color: var(--orange); }
-.mini--go:hover, .mini--go:focus-visible { background: var(--orange); color: #fff; }
+.mini--go:hover, .mini--go:focus-visible { background: var(--orange); color: var(--ink); }
 .mini svg { width: 0.8em; height: 0.8em; }
 
 /* ---------------------------------------------------------------- services */
@@ -225,7 +225,7 @@ main[data-route-main] { overflow: clip; }
   transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear;
 }
 .lab-tab em { font-style: normal; font-size: 0.7rem; opacity: 0.6; }
-.lab-tab[aria-pressed='true'] { background: var(--orange); border-color: var(--orange); color: #fff; }
+.lab-tab[aria-pressed='true'] { background: var(--orange); border-color: var(--orange); color: var(--ink); }
 .lab-tab[aria-pressed='true'] em { opacity: 0.85; }
 .lab-search { display: inline-flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid currentColor; padding-bottom: 0.3rem; }
 .lab-search input { border: 0; background: transparent; color: inherit; font: inherit; font-size: 0.9rem; min-width: 12rem; outline-offset: 4px; }
@@ -330,7 +330,7 @@ html[data-motion='full'] .notfound__code { animation: glitch 1.4s steps(2, end) 
 .notfound__lead { margin: 0; opacity: 0.75; }
 .notfound__links { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; list-style: none; padding: 0; margin: 1rem 0 0; }
 .notfound__links a { display: inline-block; padding: 0.5rem 0.8rem; border: 1px solid color-mix(in srgb, currentColor 30%, transparent); color: inherit; text-decoration: none; font-size: 0.84rem; }
-.notfound__links a:hover, .notfound__links a:focus-visible { background: var(--orange); border-color: var(--orange); color: #fff; }
+.notfound__links a:hover, .notfound__links a:focus-visible { background: var(--orange); border-color: var(--orange); color: var(--ink); }
 
 /* --------------------------------------------------------- small screens */
 
