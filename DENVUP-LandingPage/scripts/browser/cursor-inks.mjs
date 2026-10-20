@@ -68,6 +68,27 @@ const settle = async () => {
   return previous;
 };
 
+/**
+ * The reveal layer animates cards and buttons as they enter. Sampling during
+ * that window measures a half-faded background, not the page anyone reads, so
+ * wait for finite animations to finish first (loops have no endTime and are
+ * ignored — they never settle by definition).
+ */
+const calm = async (budget = 900) => {
+  const started = Date.now();
+  while (Date.now() - started < budget) {
+    const busy = await page.evaluate(
+      () =>
+        document
+          .getAnimations()
+          .filter((a) => a.playState === 'running' && Number.isFinite(a.effect?.getTiming?.().endTime ?? Infinity))
+          .length,
+    );
+    if (busy === 0) return;
+    await new Promise((resolve) => setTimeout(resolve, 60));
+  }
+};
+
 const read = () =>
   page.evaluate(() => {
     const parsable = (value) => {
@@ -143,10 +164,12 @@ for (let y = 0; y < height; y += 450) {
   await page.evaluate((target) => window.scrollTo(0, target), y);
   await settle();
   await new Promise((resolve) => setTimeout(resolve, 160)); // probe debounce is 90 ms
+  await calm();
   const afterScroll = await read();
   await page.mouse.move(719, 449);
   await page.mouse.move(720, 450);
   await new Promise((resolve) => setTimeout(resolve, 220));
+  await calm();
   const afterMove = await read();
 
   for (const [phase, sample] of [['scroll', afterScroll], ['move', afterMove]]) {

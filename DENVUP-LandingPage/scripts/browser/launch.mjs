@@ -32,15 +32,35 @@ function haveLibs() {
   return NEEDED.every((name) => existsSync(path.join(libs, name)));
 }
 
+/**
+ * Node's fetch uses its own root set, which in this sandbox does not include the
+ * proxy's certificate; curl reads the system store and succeeds. Both paths
+ * fetch the same public file, so falling back is a transport detail, not a
+ * trust decision the test gets to make.
+ */
+async function download(url, accept) {
+  try {
+    const res = await fetch(url, { headers: accept ? { Accept: accept } : {} });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return Buffer.from(await res.arrayBuffer());
+  } catch (error) {
+    const args = ['-fsSL', '--max-time', '120', url];
+    if (accept) args.push('-H', `Accept: ${accept}`);
+    try {
+      return execFileSync('curl', args, { maxBuffer: 64 * 1024 * 1024 });
+    } catch {
+      throw error;
+    }
+  }
+}
+
 async function fetchNss() {
   const files = ['libnss3.so', 'libnssutil3.so'];
   for (const file of files) {
-    const res = await fetch(
+    const bytes = await download(
       `https://api.github.com/repos/melon-gg/libnss3.so/contents/${file}`,
-      { headers: { Accept: 'application/vnd.github.raw' } },
+      'application/vnd.github.raw',
     );
-    if (!res.ok) throw new Error(`NSS fetch ${file}: HTTP ${res.status}`);
-    const bytes = Buffer.from(await res.arrayBuffer());
     if (bytes.subarray(0, 4).toString() !== '\x7fELF') throw new Error(`${file} is not an ELF binary`);
     await writeFile(path.join(libs, file), bytes);
   }
@@ -48,9 +68,7 @@ async function fetchNss() {
 
 async function buildNspr() {
   const tarball = path.join(root, '.browser/nspr.tar.gz');
-  const res = await fetch('https://codeload.github.com/mozilla/nspr/tar.gz/refs/heads/main');
-  if (!res.ok) throw new Error(`NSPR source: HTTP ${res.status}`);
-  await writeFile(tarball, Buffer.from(await res.arrayBuffer()));
+  await writeFile(tarball, await download('https://codeload.github.com/mozilla/nspr/tar.gz/refs/heads/main'));
 
   mkdirSync(nsprBuild, { recursive: true });
   execFileSync('tar', ['xzf', tarball, '-C', nsprBuild, '--strip-components=1'], { stdio: 'inherit' });
